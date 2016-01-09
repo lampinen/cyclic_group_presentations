@@ -1,0 +1,52 @@
+/*Override width setting for display */
+.jspsych-display-element { 
+    width: 1000px;
+    margin: 50px auto 50px auto;
+}
+
+
+#polygon-canvas {
+	display: inline-block; vertical-align: top;
+}
+
+#question-div {
+	display: inline-block; width:600px; vertical-align: top; margin-right:20px; word-wrap: break-word;
+}
+
+#question-done-btn { 
+	position:relative; top:50%; left:40%;
+}
+
+#instructions-done-btn { 
+	position:relative; top:50%; left:40%;
+}
+
+#feedback-done-btn { 
+	position:relative; top:50%; left:40%;
+}
+
+#text-response {
+	width: 100%; height:50px; resize:vertical;
+}
+
+#polygon-question-div {
+	display: inline-block; width:600px; vertical-align: top; margin-right:20px; word-wrap: break-word;
+}
+
+#polygon-question-done-btn { 
+	position:relative; top:50%; left:40%;
+}
+
+#polygon-instructions-done-btn { 
+	position:relative; top:50%; left:40%;
+}
+
+#polygon-feedback-done-btn { 
+	position:relative; top:50%; left:40%;
+}
+
+#polygon-arrow-text-response {
+	width: 100%; height:50px; resize:vertical;
+}
+
+
