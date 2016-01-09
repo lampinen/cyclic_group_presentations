@@ -8,6 +8,17 @@ library(rjson)
 
 Read files:
 ```{r}
-
+files = list.files(path = "../data",pattern="data_subject_.*.json")
+these_data = vector()
+for (i in 1:length(files)) {
+  path = paste("../data/",files[i],sep="")
+  print(path)
+  c = file(path, "r")
+  l = readLines(c, -1L)
+  close(c)
+  these_data[i] = lapply(X=l, fromJSON)
+}
+#Test that they loaded correctly
+these_data[1][[1]]
 ```
 
