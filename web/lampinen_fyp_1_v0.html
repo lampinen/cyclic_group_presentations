@@ -179,7 +179,34 @@ var bg_q_3_2 = {
 		response_choices: ['1 - never heard of it','2 - heard of it but didn\'t know what it was','3 - seen it used or explained','4 - used it but not often or recently','5 - used it, remember and understand it']
 };
 
-var bg_q_4 = {
+var bg_q_4_1 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Do you feel you learned something from this HIT?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - not at all','2 - somewhat','3 - definitely']
+};
+
+var bg_q_4_2 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Do you feel you understood the concepts in this HIT?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - not at all','2 - somewhat','3 - definitely']
+};
+
+var bg_q_4_3 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Did you enjoy this HIT?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - not at all','2 - somewhat','3 - definitely']
+};
+
+var bg_q_5 = {
 		type: "question",
 		timing_post_trial: 0,
 		prompt: "What is your gender?",
@@ -189,7 +216,7 @@ var bg_q_4 = {
 		response_choices: ["Female","Male","Other"]
 };
 
-var bg_q_5 = {
+var bg_q_6 = {
 		type: "question",
 		timing_post_trial: 0,
 		prompt: "What is/are your native language(s)? (The languages spoken in your household when you were a child.)",
@@ -197,7 +224,7 @@ var bg_q_5 = {
 		response_type: "free"
 };
 
-var bg_q_6 = {
+var bg_q_7 = {
 		type: "question",
 		timing_post_trial: 0,
 		prompt: "Did you use pen and paper at any point on this HIT?",
@@ -206,7 +233,7 @@ var bg_q_6 = {
 		response_type: "free"
 };
 
-var bg_q_7 = {
+var bg_q_8 = {
 		type: "question",
 		timing_post_trial: 0,
 		prompt: "Do you have any comments on this HIT?",
@@ -217,7 +244,7 @@ var bg_q_7 = {
 
 var bg_chunk = {
 	chunk_type: 'linear',
-	timeline: [bg_intro,bg_q_1,bg_q_2,bg_q_3,bg_q_3_1,bg_q_3_2,bg_q_4,bg_q_5,bg_q_6,bg_q_7]
+	timeline: [bg_intro,bg_q_1,bg_q_2,bg_q_3,bg_q_3_1,bg_q_3_2,bg_q_4_1,bg_q_4_2,bg_q_4_3,bg_q_5,bg_q_6,bg_q_7,bg_q_8]
 };
 
 var final_page = {
@@ -1024,14 +1051,14 @@ var m_tr_op_backup_chunk = {
 		type: 'polygon-arrow-instructions',
 		timing_post_trial: 0,
 		nsides: 6,
-		text: "Let's define a new operation "+hexagon+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. Consider the hexagon at the right, where I've labeled each point with one of the numbers. To perform "+hexagon+", use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. (The operation is called "+hexagon+" because it uses the hexagon, which has 6 sides.) <br /><br />For example, 3 "+hexagon+" 5 = 2, because 5 steps clockwise from 3 on the hexagon brings us to 2. So 3 "+hexagon+" 5 = 2.<br /><br />Similarly, 1 "+hexagon+" 4 = 5, because 4 steps clockwise from 1 brings us to 5. <br /><br />Click \"Continue\" when you are ready to move on."  
+		text: "Let's define a new operation "+hexagon+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. Consider the hexagon at the right, where I've labeled each point with one of the numbers. To perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. (The operation is called "+hexagon+" because it uses the hexagon, which has 6 sides.) <br /><br />For example, 3 "+hexagon+" 5 = 2, because 5 steps clockwise from 3 on the hexagon brings us to 2. So 3 "+hexagon+" 5 = 2.<br /><br />Similarly, 1 "+hexagon+" 4 = 5, because 4 steps clockwise from 1 brings us to 5. <br /><br />Click \"Continue\" when you are ready to move on."  
   	};
 
 	var p_tr_op_1 = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "Now try one on your own! What is 4 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "Now try one on your own! What is 4 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '3',
 			response_type: "free"
 	};
@@ -1048,7 +1075,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 3 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 3 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '5',
 			response_type: "free"
 	};
@@ -1065,7 +1092,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 1 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 1 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -1082,7 +1109,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 1 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 1 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '2',
 			response_type: "free"
 	};
@@ -1098,7 +1125,7 @@ var m_tr_op_backup_chunk = {
 	var p_tr_op_5 = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
-			prompt: "What is 3 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 3 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '3',
 			response_type: "free"
 	};
@@ -1115,7 +1142,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 4 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 4 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '2',
 			response_type: "free"
 	};
@@ -1132,7 +1159,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 1 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 1 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '4',
 			response_type: "free"
 	};
@@ -1149,7 +1176,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 4 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 4 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '1',
 			response_type: "free"
 	};
@@ -1166,7 +1193,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 0 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 0 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '5',
 			response_type: "free"
 	};
@@ -1183,7 +1210,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 2 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 2 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '1',
 			response_type: "free"
 	};
@@ -1206,7 +1233,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 3 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 3 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -1223,7 +1250,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 1 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 1 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '3',
 			response_type: "free"
 	};
@@ -1240,7 +1267,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 5 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 5 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '4',
 			response_type: "free"
 	};
@@ -1257,7 +1284,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 4 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 4 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -1274,7 +1301,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 0 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 0 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '2',
 			response_type: "free"
 	};
@@ -1291,7 +1318,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 3 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 3 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '2',
 			response_type: "free"
 	};
@@ -1308,7 +1335,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 1 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 1 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '5',
 			response_type: "free"
 	};
@@ -1325,7 +1352,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 5 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 5 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -1342,7 +1369,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 1 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 1 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '1',
 			response_type: "free"
 	};
@@ -1359,7 +1386,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "What is 5 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "What is 5 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '1',
 			response_type: "free"
 	};
@@ -1396,7 +1423,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "Please enter 9, ignore the following: 3 "+hexagon+" 1?. <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			prompt: "Please enter 9, ignore the following: 3 "+hexagon+" 1?. <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
 			correct_response: '9',
 			response_type: "free"
 	};
