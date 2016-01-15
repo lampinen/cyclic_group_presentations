@@ -35,6 +35,7 @@
 		$('#question-div').append($('<textarea>', {
 			"id": "text-response"
 		}));
+		setTimeout(function () { $('#text-response').focus() },50); //Delay avoids a bug where keystroke from previous screen gets carried over into text box
 		$('#text-response').on("change keyup paste", function () {
 			var this_response = document.getElementById("text-response").value;
                         if (this_response.indexOf(response_history[response_history.length-1]) == 0) { //If this is just a continuation of what was typed before, replace it 

@@ -308,6 +308,15 @@
 			this_arrow.dragofforientation = mouse_orientation-this_arrow.orientation;
 			orientation_history.push([]);
 		}
+                else { //Jump to orientation on click
+                        this_arrow.dragging = true;
+                        var mouse_orientation = getMouseOrientation(mouse,this_arrow);
+                        this_arrow.orientation = mouse_orientation;
+                        this_arrow.dragofforientation = 0;
+                        orientation_history.push([]);
+                        orientation_history[orientation_history.length-1].push(this_arrow.orientation);
+                }
+
 		return; 
 	}, true);
 

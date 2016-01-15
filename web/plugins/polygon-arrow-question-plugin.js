@@ -41,7 +41,8 @@
 	if (trial.response_type == 'free') {
                 $('#polygon-question-div').append($('<textarea>', {
                         "id": "polygon-arrow-text-response"
-                }));
+                })) 
+		setTimeout(function () { $('#polygon-arrow-text-response').focus() },50); //Delay avoids a bug where keystroke from previous screen gets carried over into text box
                 $('#polygon-arrow-text-response').on("change keyup paste", function () {
                         var this_response = document.getElementById("polygon-arrow-text-response").value;
 			if (this_response.indexOf(response_history[response_history.length-1]) == 0) { //If this is just a continuation of what was typed before, replace it 
@@ -355,6 +356,14 @@
 			var mouse_orientation = getMouseOrientation(mouse,this_arrow);
 			this_arrow.dragofforientation = mouse_orientation-this_arrow.orientation;
 			orientation_history.push([]);
+		}
+		else { //Jump to orientation on click
+			this_arrow.dragging = true;
+			var mouse_orientation = getMouseOrientation(mouse,this_arrow);
+			this_arrow.orientation = mouse_orientation;
+			this_arrow.dragofforientation = 0;
+			orientation_history.push([]);
+			orientation_history[orientation_history.length-1].push(this_arrow.orientation);			
 		}
 		return; 
 	}, true);
