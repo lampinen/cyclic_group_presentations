@@ -690,6 +690,14 @@ var m_tr_op_backup_chunk = {
 		timeline: [m_tr_in_1,m_tr_in_1_f,m_tr_in_2,m_tr_in_2_f,m_tr_in_3,m_tr_in_3_f,m_tr_in_4,m_tr_in_4_f,m_tr_in_5,m_tr_in_5_f]
 	};
 
+	var m_in_prompt = {
+			type: "question",
+			timing_post_trial: 0,
+			prompt: "Let's review: under "+p_6+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Do you see a relationship between an element and its inverse under "+p_6+"?", 
+			correct_response: '',
+			response_type: "free"
+	};
+
 	//Generators
  	var m_scv_instructions = {
 		type: 'instructions',
@@ -773,6 +781,13 @@ var m_tr_op_backup_chunk = {
 		timeline: [m_tr_ge_1,m_tr_ge_1_f,m_tr_ge_2,m_tr_ge_2_f,m_tr_ge_3,m_tr_ge_3_f,m_tr_ge_4,m_tr_ge_4_f]
 	};
 
+	var m_ge_prompt = {
+			type: "question",
+			timing_post_trial: 0,
+			prompt: "Let's review: under "+p_6+", 1 and 5 are generators. However, 0, 2, 3, and 4 are not generators. Try playing with these non-generators and seeing which elements each of them does generate. Do you see relationships among particular subsets of the elements that are not generators under "+p_6+"?", 
+			correct_response: '',
+			response_type: "free"
+	};
 	//nonagon testing
  	var m_t9_instructions = {
 		type: 'instructions',
@@ -1533,6 +1548,15 @@ var m_tr_op_backup_chunk = {
 		timeline: [p_tr_in_1,p_tr_in_1_f,p_tr_in_2,p_tr_in_2_f,p_tr_in_3,p_tr_in_3_f,p_tr_in_4,p_tr_in_4_f,p_tr_in_5,p_tr_in_5_f]
 	};
 
+	var p_in_prompt = {
+			type: "polygon-arrow-question",
+			nsides: 6,
+			timing_post_trial: 0,
+			prompt: "Let's review: under "+hexagon+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Try playing with some of these pairs on the hexagon. Do you see a spatial relationship between an element and its inverse under "+hexagon+"?", 
+			correct_response: '',
+			response_type: "free"
+	};
+
 	//Generators
  	var p_scv_instructions = {
 		type: 'instructions',
@@ -1624,6 +1648,15 @@ var m_tr_op_backup_chunk = {
 	var p_tr_ge_chunk = {
 		chunk_type: 'linear',
 		timeline: [p_tr_ge_1,p_tr_ge_1_f,p_tr_ge_2,p_tr_ge_2_f,p_tr_ge_3,p_tr_ge_3_f,p_tr_ge_4,p_tr_ge_4_f]
+	};
+
+	var p_ge_prompt = {
+			type: "polygon-arrow-question",
+			nsides: 6,
+			timing_post_trial: 0,
+			prompt: "Let's review: under "+hexagon+", 1 and 5 are generators. However, 0, 2, 3 and 4 are not generators. Try playing with these non-generators on the hexagon and seeing which elements each of them does generate. Do you see spatial relationships among particular subsets of the elements that are not generators under "+hexagon+"?", 
+			correct_response: '',
+			response_type: "free"
 	};
 
 	//nonagon testing
@@ -1932,8 +1965,7 @@ var m_tr_op_backup_chunk = {
 	};
 
 //Initialize//////////////////////////////////////////////////////////////////////////////////
-	experiment_structure = [initial_page,m_op_instructions,m_tr_op_chunk,m_tr_op_backup_chunk,m_id_instructions,m_in_instructions,m_tr_in_chunk,m_scv_instructions,m_ge_instructions,m_tr_ge_chunk,m_t9_instructions,m_t9_chunk,m_tn_instructions,m_tn_chunk,bg_chunk,final_page];
-
+        experiment_structure = [initial_page,m_op_instructions,m_tr_op_chunk,m_tr_op_backup_chunk,m_id_instructions,m_in_instructions,m_tr_in_chunk,m_scv_instructions,m_ge_instructions,m_tr_ge_chunk,m_t9_instructions,m_t9_chunk,m_tn_instructions,m_tn_chunk,bg_chunk,final_page];
 
 	jsPsych.init({
 		display_element: $('#jspsych-target'),
