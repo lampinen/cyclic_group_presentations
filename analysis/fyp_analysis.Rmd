@@ -4,21 +4,720 @@ output: html_document
 ---
 ```{r}
 library(rjson)
+library(ggplot2)
 ```
 
-Read files:
+#Read files:
 ```{r}
-files = list.files(path = "../data",pattern="data_subject_.*.json")
-these_data = vector()
+data_location = "../data/fyp_1_data/" 
+files = list.files(path = data_location,pattern="data_subject_.*.json")
+modular_data = vector()
+polygon_data = vector()
+modular_prompt_data = vector()
+polygon_prompt_data = vector()
+#data frame building
+subject = vector()
+prompt = vector()
+correct_response = vector()
+rt = vector()
+response = vector()
+condition = vector()
+trial_index = vector()
+
+j = 1
 for (i in 1:length(files)) {
-  path = paste("../data/",files[i],sep="")
+  path = paste(data_location,files[i],sep="")
+  print(i)
   print(path)
   c = file(path, "r")
   l = readLines(c, -1L)
   close(c)
-  these_data[i] = lapply(X=l, fromJSON)
+  these_data = lapply(X=l, fromJSON)
+  if (these_data[1][[1]][[1]]$trial_type == "instructions") {
+    if (length(these_data[1][[1]]) == 85 || length(these_data[1][[1]]) == 105) { #The OR checks for people who had to repeat the initial training
+      this_condition = "modular"
+      modular_data[length(modular_data) + 1] = these_data[1]
+    }
+    else {
+      this_condition = "modular_prompt"
+      modular_prompt_data[length(modular_prompt_data) + 1] = these_data[1]
+    }
+  } else {
+    if (length(these_data[1][[1]]) == 85 || length(these_data[1][[1]]) == 105) { #The OR checks for people who had to repeat the initial training
+     this_condition = "polygon"
+     polygon_data[length(polygon_data) + 1] = these_data[1]
+    }
+    else {
+     this_condition = "polygon_prompt"
+     polygon_prompt_data[length(polygon_prompt_data) + 1] = these_data[1]
+    }
+  }
+  
+  for (trial_i in 1:length(these_data[1][[1]])) {
+    if(grepl("question",gsub(" ","",these_data[1][[1]][[trial_i]]$trial_type))) {
+      subject[j] = i
+      condition[j] = this_condition
+      prompt[j] = these_data[1][[1]][[trial_i]]$question
+      correct_response[j] = these_data[1][[1]][[trial_i]]$correct_response
+      response[j] = these_data[1][[1]][[trial_i]]$response
+      rt[j] = these_data[1][[1]][[trial_i]]$rt
+      trial_index[j] = trial_i
+      
+      j = j+1
+    }
+  }
 }
-#Test that they loaded correctly
-these_data[1][[1]]
+
+complete_data = data.frame(subject=subject,condition=condition,prompt=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index) 
+```
+
+data frame building
+```{r}
+for (subj_i in 1:length(polygon_data)){
+  
+}
+```
+
+#Autoscoring
+-----------------------------------------
+Polygon:
+```{r}
+op_train_scores = vector()
+op_retrain_scores = vector()
+op_retrained = vector()
+inverse_train_scores = vector()
+generator_train_scores = vector()
+op_test_scores = vector()
+op_retested = vector()
+inverse_test_scores = vector()
+generator_test_scores = vector()
+
+generator_tf_n_scores = vector() #True/False generator questions
+generator_asn_n_scores = vector() #Always/Sometimes/Never generator questions
+
+for (subj_i in 1:length(polygon_data)){
+  offset = 0
+  retrained = FALSE
+
+  if (gsub(" ","",polygon_data[[subj_i]][[22]]$trial_type) != "polygon-arrow-instructions") { #Check whether subject had to do second operation training round, if yes, add offset, etc.
+    offset = 20
+    retrained = TRUE
+  }
+
+  #Training:
+  #Operation
+  num_train_probs = 10
+   
+  op_train_score = 0
+  for (prob_i in seq(2,20,2)) { #Every other "trial" is a feedback screen
+    if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+      op_train_score = op_train_score + 1
+    }
+  }
+  op_train_score = 100*op_train_score/num_train_probs
+  
+  if (retrained) {
+    op_retrain_score = 0
+    for (prob_i in seq(22,40,2)) { #Every other "trial" is a feedback screen
+      if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+        op_retrain_score = op_retrain_score + 1
+      }
+    }
+    op_retrain_score = 100*op_retrain_score/num_train_probs
+  }
+  
+  #Inverses
+  inverse_train_score = 0
+  for (prob_i in seq(24+offset,32+offset,2)) { #Every other "trial" is a feedback screen
+    if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_train_score = inverse_train_score + 1
+    }
+  }
+  inverse_train_score = 100*inverse_train_score/5
+  
+  #Generators
+  generator_train_score = 0
+  for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+    if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+      generator_train_score = generator_train_score + 1
+    }
+  }
+  generator_train_score = 100*generator_train_score/4
+  
+  #Testing:
+  #Operation
+
+  polygon_data[[subj_i]][[52+offset]]$correct_response = "5" #Left blank because of explain answer
+  polygon_data[[subj_i]][[53+offset]]$correct_response = "3" #Left blank because of explain answer
+  
+  op_test_score = 0
+  for (prob_i in seq(47+offset,53+offset,1)) {
+    if (substr(polygon_data[[subj_i]][[prob_i]]$response,1,1) == polygon_data[[subj_i]][[prob_i]]$correct_response) { #Substr is to deal with appended explanations.
+      op_test_score = op_test_score + 1
+    }
+  }
+  op_test_score = 100*op_test_score/7
+  
+  #Inverses
+  polygon_data[[subj_i]][[57+offset]]$correct_response = "6" #Left blank because of explain answer
+    
+  inverse_test_score = 0
+  for (prob_i in seq(55+offset,56+offset,1)) {
+    if (substr(polygon_data[[subj_i]][[prob_i]]$response,1,1) == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_test_score = inverse_test_score + 1
+    }
+  }
+  inverse_test_score = 100*inverse_test_score/2
+  
+  #Generators
+  generator_test_score = 0
+  #for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+  #  if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+  #    generator_test_score = generator_test_score + 1
+  #  }
+  #}
+  #generator_test_score = 100*generator_test_score/4  
+
+  #Generic testing  
+  generator_tf_n_score = 0
+  for (prob_i in seq(66+offset,68+offset,1)) { #Every other "trial" is a feedback screen
+   if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_tf_n_score = generator_tf_n_score + 1
+   }
+  }
+  generator_tf_n_score = 100*generator_tf_n_score/3    
+  
+  generator_asn_n_score = 0
+  for (prob_i in seq(70+offset,71+offset,1)) { #Every other "trial" is a feedback screen
+   if (polygon_data[[subj_i]][[prob_i]]$response == polygon_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_asn_n_score = generator_asn_n_score + 1
+   }
+  }
+  generator_asn_n_score = 100*generator_asn_n_score/2    
+  
+  #Add this subject's data to lists used to build frame
+  op_train_scores[subj_i] = op_train_score
+  if (retrained) {
+    op_retrain_scores[subj_i] = op_retrain_score
+  } else {
+    op_retrain_scores[subj_i] = NA
+  }
+  op_retrained[subj_i] = retrained
+  inverse_train_scores[subj_i] = inverse_train_score
+  generator_train_scores[subj_i] = generator_train_score
+  op_test_scores[subj_i] = op_test_score
+  inverse_test_scores[subj_i] = inverse_test_score
+  generator_test_scores[subj_i] = generator_test_score
+  generator_tf_n_scores[subj_i] = generator_tf_n_score
+  generator_asn_n_scores[subj_i] = generator_asn_n_score
+}
+
+polygon_scores = data.frame(condition=rep("polygon",length(polygon_data)),op_train_score=op_train_scores,op_retrained=op_retrained,op_retrain_scores=op_retrain_scores,inverse_train_score=inverse_train_scores,generator_train_score=generator_train_scores,op_test_score=op_test_scores,inverse_test_score=inverse_test_scores,generator_test_score=generator_test_scores,generator_tf_n_score=generator_tf_n_scores,generator_asn_n_score=generator_asn_n_scores)
+```
+
+Modular
+```{r}
+op_train_scores = vector()
+op_retrain_scores = vector()
+op_retrained = vector()
+inverse_train_scores = vector()
+generator_train_scores = vector()
+op_test_scores = vector()
+op_retested = vector()
+inverse_test_scores = vector()
+generator_test_scores = vector()
+
+generator_tf_n_scores = vector() #True/False generator questions
+generator_asn_n_scores = vector() #Always/Sometimes/Never generator questions
+
+for (subj_i in 1:length(modular_data)){
+  offset = 0
+  retrained = FALSE
+
+  if (gsub(" ","",modular_data[[subj_i]][[22]]$trial_type) != "instructions") { #Check whether subject had to do second operation training round, if yes, add offset, etc.
+    offset = 20
+    retrained = TRUE
+  }
+
+  #Training:
+  #Operation
+  num_train_probs = 10
+   
+  op_train_score = 0
+  for (prob_i in seq(2,20,2)) { #Every other "trial" is a feedback screen
+    if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+      op_train_score = op_train_score + 1
+    }
+  }
+  op_train_score = 100*op_train_score/num_train_probs
+  
+  if (retrained) {
+    op_retrain_score = 0
+    for (prob_i in seq(22,40,2)) { #Every other "trial" is a feedback screen
+      if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+        op_retrain_score = op_retrain_score + 1
+      }
+    }
+    op_retrain_score = 100*op_retrain_score/num_train_probs
+  }
+  
+  #Inverses
+  inverse_train_score = 0
+  for (prob_i in seq(24+offset,32+offset,2)) { #Every other "trial" is a feedback screen
+    if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_train_score = inverse_train_score + 1
+    }
+  }
+  inverse_train_score = 100*inverse_train_score/5
+  
+  #Generators
+  generator_train_score = 0
+  for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+    if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+      generator_train_score = generator_train_score + 1
+    }
+  }
+  generator_train_score = 100*generator_train_score/4
+  
+  #Testing:
+  #Operation
+
+  modular_data[[subj_i]][[52+offset]]$correct_response = "5" #Left blank because of explain answer
+  modular_data[[subj_i]][[53+offset]]$correct_response = "3" #Left blank because of explain answer
+  
+  op_test_score = 0
+  for (prob_i in seq(47+offset,53+offset,1)) {
+    if (substr(modular_data[[subj_i]][[prob_i]]$response,1,1) == modular_data[[subj_i]][[prob_i]]$correct_response) { #Substr is to deal with appended explanations.
+      op_test_score = op_test_score + 1
+    }
+  }
+  op_test_score = 100*op_test_score/7
+  
+  #Inverses
+  modular_data[[subj_i]][[57+offset]]$correct_response = "6" #Left blank because of explain answer
+    
+  inverse_test_score = 0
+  for (prob_i in seq(55+offset,56+offset,1)) {
+    if (substr(modular_data[[subj_i]][[prob_i]]$response,1,1) == modular_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_test_score = inverse_test_score + 1
+    }
+  }
+  inverse_test_score = 100*inverse_test_score/2
+  
+  #Generators
+  generator_test_score = 0
+  #for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+  #  if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+  #    generator_test_score = generator_test_score + 1
+  #  }
+  #}
+  #generator_test_score = 100*generator_test_score/4  
+  
+  #Generic testing  
+  generator_tf_n_score = 0
+  for (prob_i in seq(66+offset,68+offset,1)) { #Every other "trial" is a feedback screen
+   if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_tf_n_score = generator_tf_n_score + 1
+   }
+  }
+  generator_tf_n_score = 100*generator_tf_n_score/3    
+  
+  generator_asn_n_score = 0
+  for (prob_i in seq(70+offset,71+offset,1)) { #Every other "trial" is a feedback screen
+   if (modular_data[[subj_i]][[prob_i]]$response == modular_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_asn_n_score = generator_asn_n_score + 1
+   }
+  }
+  generator_asn_n_score = 100*generator_asn_n_score/2    
+  
+  #Add this subject's data to lists used to build frame
+  op_train_scores[subj_i] = op_train_score
+  if (retrained) {
+    op_retrain_scores[subj_i] = op_retrain_score
+  } else {
+    op_retrain_scores[subj_i] = NA
+  }
+  op_retrained[subj_i] = retrained
+  inverse_train_scores[subj_i] = inverse_train_score
+  generator_train_scores[subj_i] = generator_train_score
+  op_test_scores[subj_i] = op_test_score
+  inverse_test_scores[subj_i] = inverse_test_score
+  generator_test_scores[subj_i] = generator_test_score
+  generator_tf_n_scores[subj_i] = generator_tf_n_score
+  generator_asn_n_scores[subj_i] = generator_asn_n_score
+}
+
+modular_scores = data.frame(condition=rep("modular",length(modular_data)),op_train_score=op_train_scores,op_retrained=op_retrained,op_retrain_scores=op_retrain_scores,inverse_train_score=inverse_train_scores,generator_train_score=generator_train_scores,op_test_score=op_test_scores,inverse_test_score=inverse_test_scores,generator_test_score=generator_test_scores,generator_tf_n_score=generator_tf_n_scores,generator_asn_n_score=generator_asn_n_scores)
+
+```
+
+Polygon Prompt:
+```{r}
+op_train_scores = vector()
+op_retrain_scores = vector()
+op_retrained = vector()
+inverse_train_scores = vector()
+generator_train_scores = vector()
+op_test_scores = vector()
+op_retested = vector()
+inverse_test_scores = vector()
+generator_test_scores = vector()
+
+generator_tf_n_scores = vector() #True/False generator questions
+generator_asn_n_scores = vector() #Always/Sometimes/Never generator questions
+
+for (subj_i in 1:length(polygon_prompt_data)){
+  offset = 0
+  retrained = FALSE
+
+  if (gsub(" ","",polygon_prompt_data[[subj_i]][[22]]$trial_type) != "polygon-arrow-instructions") { #Check whether subject had to do second operation training round, if yes, add offset, etc.
+    offset = 20
+    retrained = TRUE
+  }
+  #Training:
+  #Operation
+  num_train_probs = 10
+   
+  op_train_score = 0
+  for (prob_i in seq(2,20,2)) { #Every other "trial" is a feedback screen
+    if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      op_train_score = op_train_score + 1
+    }
+  }
+  op_train_score = 100*op_train_score/num_train_probs
+  
+  if (retrained) {
+    op_retrain_score = 0
+    for (prob_i in seq(22,40,2)) { #Every other "trial" is a feedback screen
+      if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+        op_retrain_score = op_retrain_score + 1
+      }
+    }
+    op_retrain_score = 100*op_retrain_score/num_train_probs
+  }
+  
+  #Inverses
+  inverse_train_score = 0
+  for (prob_i in seq(24+offset,32+offset,2)) { #Every other "trial" is a feedback screen
+    if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_train_score = inverse_train_score + 1
+    }
+  }
+  inverse_train_score = 100*inverse_train_score/5
+  
+  offset = offset+1 #Inverse prompt
+  
+  #Generators
+  generator_train_score = 0
+  for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+    if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      generator_train_score = generator_train_score + 1
+    }
+  }
+  generator_train_score = 100*generator_train_score/4
+  
+  offset = offset + 1 #generator prompt
+  
+  #Testing:
+  #Operation
+
+  polygon_prompt_data[[subj_i]][[52+offset]]$correct_response = "5" #Left blank because of explain answer
+  polygon_prompt_data[[subj_i]][[53+offset]]$correct_response = "3" #Left blank because of explain answer
+  
+  op_test_score = 0
+  for (prob_i in seq(47+offset,53+offset,1)) {
+    if (substr(polygon_prompt_data[[subj_i]][[prob_i]]$response,1,1) == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) { #Substr is to deal with appended explanations.
+      op_test_score = op_test_score + 1
+    }
+  }
+  op_test_score = 100*op_test_score/7
+  
+  #Inverses
+  polygon_prompt_data[[subj_i]][[57+offset]]$correct_response = "6" #Left blank because of explain answer
+    
+  inverse_test_score = 0
+  for (prob_i in seq(55+offset,56+offset,1)) {
+    if (substr(polygon_prompt_data[[subj_i]][[prob_i]]$response,1,1) == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_test_score = inverse_test_score + 1
+    }
+  }
+  inverse_test_score = 100*inverse_test_score/2
+  
+  #Generators
+  generator_test_score = 0
+  #for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+  #  if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+  #    generator_test_score = generator_test_score + 1
+  #  }
+  #}
+  #generator_test_score = 100*generator_test_score/4  
+
+  #Generic testing  
+  generator_tf_n_score = 0
+  for (prob_i in seq(66+offset,68+offset,1)) { #Every other "trial" is a feedback screen
+   if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_tf_n_score = generator_tf_n_score + 1
+   }
+  }
+  generator_tf_n_score = 100*generator_tf_n_score/3    
+  
+  generator_asn_n_score = 0
+  for (prob_i in seq(70+offset,71+offset,1)) { #Every other "trial" is a feedback screen
+   if (polygon_prompt_data[[subj_i]][[prob_i]]$response == polygon_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_asn_n_score = generator_asn_n_score + 1
+   }
+  }
+  generator_asn_n_score = 100*generator_asn_n_score/2    
+  
+  #Add this subject's data to lists used to build frame
+  op_train_scores[subj_i] = op_train_score
+  if (retrained) {
+    op_retrain_scores[subj_i] = op_retrain_score
+  } else {
+    op_retrain_scores[subj_i] = NA
+  }
+  op_retrained[subj_i] = retrained
+  inverse_train_scores[subj_i] = inverse_train_score
+  generator_train_scores[subj_i] = generator_train_score
+  op_test_scores[subj_i] = op_test_score
+  inverse_test_scores[subj_i] = inverse_test_score
+  generator_test_scores[subj_i] = generator_test_score
+  generator_tf_n_scores[subj_i] = generator_tf_n_score
+  generator_asn_n_scores[subj_i] = generator_asn_n_score
+}
+
+polygon_prompt_scores = data.frame(condition=rep("polygon_prompt",length(polygon_prompt_data)),op_train_score=op_train_scores,op_retrained=op_retrained,op_retrain_scores=op_retrain_scores,inverse_train_score=inverse_train_scores,generator_train_score=generator_train_scores,op_test_score=op_test_scores,inverse_test_score=inverse_test_scores,generator_test_score=generator_test_scores,generator_tf_n_score=generator_tf_n_scores,generator_asn_n_score=generator_asn_n_scores)
+```
+
+
+Modular Prompt
+```{r}
+op_train_scores = vector()
+op_retrain_scores = vector()
+op_retrained = vector()
+inverse_train_scores = vector()
+generator_train_scores = vector()
+op_test_scores = vector()
+op_retested = vector()
+inverse_test_scores = vector()
+generator_test_scores = vector()
+
+generator_tf_n_scores = vector() #True/False generator questions
+generator_asn_n_scores = vector() #Always/Sometimes/Never generator questions
+
+for (subj_i in 1:length(modular_prompt_data)){
+  offset = 0
+  retrained = FALSE
+
+  if (gsub(" ","",modular_prompt_data[[subj_i]][[22]]$trial_type) != "instructions") { #Check whether subject had to do second operation training round, if yes, add offset, etc.
+    offset = 20
+    retrained = TRUE
+  }
+
+  #Training:
+  #Operation
+  num_train_probs = 10
+   
+  op_train_score = 0
+  for (prob_i in seq(2,20,2)) { #Every other "trial" is a feedback screen
+    if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      op_train_score = op_train_score + 1
+    }
+  }
+  op_train_score = 100*op_train_score/num_train_probs
+  
+  if (retrained) {
+    op_retrain_score = 0
+    for (prob_i in seq(22,40,2)) { #Every other "trial" is a feedback screen
+      if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+        op_retrain_score = op_retrain_score + 1
+      }
+    }
+    op_retrain_score = 100*op_retrain_score/num_train_probs
+  }
+  
+  #Inverses
+  inverse_train_score = 0
+  for (prob_i in seq(24+offset,32+offset,2)) { #Every other "trial" is a feedback screen
+    if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_train_score = inverse_train_score + 1
+    }
+  }
+  inverse_train_score = 100*inverse_train_score/5
+  
+  offset = offset + 1 #inverse prompt
+  
+  #Generators
+  generator_train_score = 0
+  for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+    if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      generator_train_score = generator_train_score + 1
+    }
+  }
+  generator_train_score = 100*generator_train_score/4
+  
+  offset = offset + 1 #generator prompt
+  #Testing:
+  #Operation
+
+  modular_prompt_data[[subj_i]][[52+offset]]$correct_response = "5" #Left blank because of explain answer
+  modular_prompt_data[[subj_i]][[53+offset]]$correct_response = "3" #Left blank because of explain answer
+  
+  op_test_score = 0
+  for (prob_i in seq(47+offset,53+offset,1)) {
+    if (substr(modular_prompt_data[[subj_i]][[prob_i]]$response,1,1) == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) { #Substr is to deal with appended explanations.
+      op_test_score = op_test_score + 1
+    }
+  }
+  op_test_score = 100*op_test_score/7
+  
+  #Inverses
+  modular_prompt_data[[subj_i]][[57+offset]]$correct_response = "6" #Left blank because of explain answer
+    
+  inverse_test_score = 0
+  for (prob_i in seq(55+offset,56+offset,1)) {
+    if (substr(modular_prompt_data[[subj_i]][[prob_i]]$response,1,1) == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+      inverse_test_score = inverse_test_score + 1
+    }
+  }
+  inverse_test_score = 100*inverse_test_score/2
+  
+  #Generators
+  generator_test_score = 0
+  #for (prob_i in seq(36+offset,42+offset,2)) { #Every other "trial" is a feedback screen
+  #  if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+  #    generator_test_score = generator_test_score + 1
+  #  }
+  #}
+  #generator_test_score = 100*generator_test_score/4  
+  
+  #Generic testing  
+  generator_tf_n_score = 0
+  for (prob_i in seq(66+offset,68+offset,1)) { #Every other "trial" is a feedback screen
+   if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_tf_n_score = generator_tf_n_score + 1
+   }
+  }
+  generator_tf_n_score = 100*generator_tf_n_score/3    
+  
+  generator_asn_n_score = 0
+  for (prob_i in seq(70+offset,71+offset,1)) { #Every other "trial" is a feedback screen
+   if (modular_prompt_data[[subj_i]][[prob_i]]$response == modular_prompt_data[[subj_i]][[prob_i]]$correct_response) {
+     generator_asn_n_score = generator_asn_n_score + 1
+   }
+  }
+  generator_asn_n_score = 100*generator_asn_n_score/2    
+  
+  #Add this subject's data to lists used to build frame
+  op_train_scores[subj_i] = op_train_score
+  if (retrained) {
+    op_retrain_scores[subj_i] = op_retrain_score
+  } else {
+    op_retrain_scores[subj_i] = NA
+  }
+  op_retrained[subj_i] = retrained
+  inverse_train_scores[subj_i] = inverse_train_score
+  generator_train_scores[subj_i] = generator_train_score
+  op_test_scores[subj_i] = op_test_score
+  inverse_test_scores[subj_i] = inverse_test_score
+  generator_test_scores[subj_i] = generator_test_score
+  generator_tf_n_scores[subj_i] = generator_tf_n_score
+  generator_asn_n_scores[subj_i] = generator_asn_n_score
+}
+
+modular_prompt_scores = data.frame(condition=rep("modular_prompt",length(modular_prompt_data)),op_train_score=op_train_scores,op_retrained=op_retrained,op_retrain_scores=op_retrain_scores,inverse_train_score=inverse_train_scores,generator_train_score=generator_train_scores,op_test_score=op_test_scores,inverse_test_score=inverse_test_scores,generator_test_score=generator_test_scores,generator_tf_n_score=generator_tf_n_scores,generator_asn_n_score=generator_asn_n_scores)
+
+```
+
+
+#RT
+--------------------------------
+Full averaged RT data (including all problem types):
+```{r}
+av_RT = vector()
+for (subj_i in 1:length(polygon_data)) {
+  subj_RT = 0
+  question_count = 0
+  for (prob_i in 1:length(polygon_data[[subj_i]])) {
+    if (grepl("question",polygon_data[[subj_i]][[prob_i]]$trial_type)) {
+      subj_RT = subj_RT + polygon_data[[subj_i]][[prob_i]]$rt
+      question_count = question_count + 1
+    }
+  }
+  av_RT[subj_i] = subj_RT/question_count
+}
+polygon_scores$av_RT = av_RT
+
+av_RT = vector()
+for (subj_i in 1:length(modular_data)) {
+  subj_RT = 0
+  question_count = 0
+  for (prob_i in 1:length(modular_data[[subj_i]])) {
+    if (grepl("question",modular_data[[subj_i]][[prob_i]]$trial_type)) {
+      subj_RT = subj_RT + modular_data[[subj_i]][[prob_i]]$rt
+      question_count = question_count + 1
+    }
+  }
+  av_RT[subj_i] = subj_RT/question_count
+}
+modular_scores$av_RT = av_RT
+
+av_RT = vector()
+for (subj_i in 1:length(polygon_prompt_data)) {
+  subj_RT = 0
+  question_count = 0
+  for (prob_i in 1:length(polygon_prompt_data[[subj_i]])) {
+    if (grepl("question",polygon_prompt_data[[subj_i]][[prob_i]]$trial_type)) {
+      subj_RT = subj_RT + polygon_prompt_data[[subj_i]][[prob_i]]$rt
+      question_count = question_count + 1
+    }
+  }
+  av_RT[subj_i] = subj_RT/question_count
+}
+polygon_prompt_scores$av_RT = av_RT
+
+av_RT = vector()
+for (subj_i in 1:length(modular_prompt_data)) {
+  subj_RT = 0
+  question_count = 0
+  for (prob_i in 1:length(modular_prompt_data[[subj_i]])) {
+    if (grepl("question",modular_prompt_data[[subj_i]][[prob_i]]$trial_type)) {
+      subj_RT = subj_RT + modular_prompt_data[[subj_i]][[prob_i]]$rt
+      question_count = question_count + 1
+    }
+  }
+  av_RT[subj_i] = subj_RT/question_count
+}
+modular_prompt_scores$av_RT = av_RT
+
+```
+
+
+```{r}
+total_data = rbind(modular_scores,modular_prompt_scores,polygon_scores,polygon_prompt_scores)
+```
+
+Analysis
+----------------------------
+simple plots of percent correct by condition
+```{r}
+to_plot = c(2,7,5,8,6,10,11,12)
+column_names = colnames(total_data)
+
+for (i in 1:length(to_plot)) {
+  print(ggplot(total_data,aes(condition,total_data[,to_plot[i]],fill=condition)) +
+    geom_boxplot() +
+    theme_bw() +
+    labs(x="Condition",y=column_names[to_plot[i]]))
+}
+
+```
+
+Write data for scoring
+----------------------------
+
+polygon:
+```{r}
+write.table(complete_data[grepl("formula for the inverse",complete_data$prompt),c(1,4,5,7)],"inverse_formula_to_score.csv")
 ```
 
