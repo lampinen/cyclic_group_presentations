@@ -886,6 +886,27 @@ summary(mod)
 ```
 
 
+##RT
+
+```{r}
+complete_data$rt = complete_data$rt/1000 #convert from ms to s
+```
+
+
+```{r}
+rt_mod = lmer(rt ~ polygon + (1|subject),data=complete_data)
+summary(rt_mod)
+```
+
+No significant overall difference, but this is averaged across all questions, so there may be a larger effect in some problem types. Try just the operation training:
+
+```{r}
+rt_mod = lmer(rt ~ polygon + (1|subject),data=complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),])
+summary(rt_mod)
+```
+
+Not significant
+
 Write data for scoring
 ----------------------------
 
