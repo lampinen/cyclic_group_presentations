@@ -80,9 +80,35 @@ for (i in 1:length(files)) {
 }
 ```
 
-data frame building
+Write data for scoring
+----------------------------
+
 ```{r}
-complete_data = data.frame(subject=subject,condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score) 
+#DONE --exact answers, explanations not yet scored
+#n=9 operation questions
+#write.table(complete_data[(grepl("Whatis8",gsub(" ","",complete_data$question)) | grepl("Whatis4",gsub(" ","",complete_data$question)))& grepl("explaininwords",gsub(" ","",complete_data$question)) ,c(1,3,4,5,7)],"N9_operation_to_score.csv",sep=",")
+
+#DONE --exact answers, explanations not yet scored
+#n=9 generator questions
+# write.table(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,3,4,5,7)],"N9_generator_to_score.csv",sep=",")
+
+#DONE --exact answers, explanations not yet scored
+#n=9 inverse with explanations
+#write.table(complete_data[grepl("inverseof3",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,4,5,7)],"N9_inverse_to_score.csv",sep=",")
+
+#DONE --exact answers, explanations not yet scored
+#generator T/F and A/S/N with explanations
+#write.table(complete_data[grepl("explaininwords",gsub(" ","",complete_data$question)) & (grepl("Trueorfalse",gsub(" ","",complete_data$question)) | grepl("always,sometimes,ornever",gsub(" ","",complete_data$question))),c(1,4,5,7)],"TF_ASN_explained_to_score.csv",sep=",")
+
+#DONE -- exact answers, explanations not yet scored
+#n-1,n-x
+#write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,7)],"inverse_formula_to_score.csv",sep=",")
+```
+
+data frame building
+------------------------
+```{r}
+complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score) 
 
 #Insert scored data
 inverse_formula_scores = read.csv(paste(data_location,"inverse_formula_scored.csv",sep=""))
@@ -110,6 +136,7 @@ complete_data = complete_data %>% mutate(score_strict = floor(score)) %>%
 
 
 ```
+
 
 #Autoscoring
 -----------------------------------------
@@ -819,6 +846,11 @@ ggplot(aggregated_data,aes(condition,score,fill=condition)) +
 
 mod = lmer(score_strict ~ polygon*prompt  + (1|subject), data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
 summary(mod)
+
+mod0 = lmer(score_strict ~ polygon  + (1|subject), data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
+summary(mod0)
+
+anova(mod0,mod)
 ```
 
 The difference went in the opposite direction in the test case, where we unfortunately did not ask about the inverse of 0 when n=9.
@@ -837,6 +869,11 @@ ggplot(complete_data[inverse_formula_scores$row.names,],aes(condition,score_stri
 #Model -- Just a nicer way of  doing the above model
 mod_strict = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[inverse_formula_scores$row.names,])
 summary(mod_strict)
+mod_strict0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[inverse_formula_scores$row.names,])
+summary(mod_strict0.5)
+mod_strict0 = lmer(score_strict ~ polygon +(1|subject), data=complete_data[inverse_formula_scores$row.names,])
+summary(mod_strict0)
+anova(mod_strict0,mod_strict0.5,mod_strict)
 ```
 
 Does it make a difference using the non-strict score? (Including half credit for answers that made small errors like flipping a sign, "x-n" instead of "n-x", etc.)
@@ -852,7 +889,24 @@ summary(mod_partial_credit)
 
 ##Generators
 
-Order 9:
+Training (Order 6):
+```{r}
+ggplot(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),],aes(condition,score_strict,fill=condition)) +
+    geom_boxplot() +
+    theme_bw() +
+    labs(x="Condition",y="Generator Training Accuracy")
+
+mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
+summary(mod)
+mod0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
+summary(mod0.5)
+mod0 = lmer(score_strict ~ polygon + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
+summary(mod0)
+anova(mod0,mod0.5,mod)
+```
+
+
+Testing (order 9):
 ```{r}
 ggplot(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),],aes(condition,score_strict,fill=condition)) +
     geom_boxplot() +
@@ -863,6 +917,41 @@ mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[gre
 summary(mod)
 ```
 
+More info: including the number as possible effect, exploring different models with and without prompt and prompt x polygon interaction
+```{r}
+temp_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]
+temp_data = temp_data %>% mutate(number=ifelse(grepl("2",temp_data$question),2,ifelse(grepl("3",temp_data$question),3,ifelse(grepl("5",temp_data$question),5,6)))) 
+temp_data$number = factor(temp_data$number)
+temp_data$subject = factor(temp_data$subject)
+
+
+#Does the interactive model fit the data better than an additive model, or one with just the main effect of polygon group, and no prompt effect?
+mod0 = glmer(score_strict ~ polygon + number+ (1|subject), data=temp_data,family=binomial)
+mod1 = glmer(score_strict ~ polygon + prompt + number + (1|subject), data=temp_data,family=binomial)
+mod2 = glmer(score_strict ~ polygon * prompt + number + (1|subject), data=temp_data,family=binomial)
+anova(mod0,mod1,mod2)
+#Could there be an interaction of number and group?
+mod0.5 = glmer(score_strict ~ polygon * number+ (1|subject), data=temp_data,family=binomial)
+anova(mod0,mod0.5)
+
+summary(mod0)
+
+#Would it be better to treat number as a random effect?
+mod0a = glmer(score_strict ~ polygon + (1|number)+ (1|subject), data=temp_data,family=binomial)
+AIC(mod0a,mod0) #No
+
+#Is it just whether the number generates rather than which number it is?
+temp_data = temp_data %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))
+mod0b = glmer(score_strict ~ polygon + generator+(1|subject), data=temp_data,family=binomial)
+AIC(mod0b,mod0) #Yes, why didn't I try that first
+
+summary(mod0b)
+
+
+```
+
+It appears that there is a significant positive effect of polygon condition on ability to correctly test whether something is a generator, and a highly significant negative effect of the element actually being a generator. Subjects show a strong bias toward saying that an element is not a generator when it is.
+
 Order n T/F:
 ```{r}
 ggplot(complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),],aes(condition,score_strict,fill=condition)) +
@@ -871,8 +960,13 @@ ggplot(complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),],
     labs(x="Condition",y="Generators order n T/F Accuracy")
 
 mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-summary(mod)
+mod0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
+mod0 = lmer(score_strict ~ polygon + (1|subject), data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
+anova(mod0,mod0.5,mod)
+summary(mod0)
 ```
+
+The polygon group was significantly worse at the order n T/F questions.
 
 Order n A/S/N:
 ```{r}
@@ -883,6 +977,10 @@ ggplot(complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$
 
 mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
 summary(mod)
+mod0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
+summary(mod0.5)
+mod0 = lmer(score_strict ~ polygon + (1|subject), data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
+summary(mod0)
 ```
 
 
@@ -907,28 +1005,71 @@ summary(rt_mod)
 
 Not significant
 
-Write data for scoring
-----------------------------
+##Question by question
 
 ```{r}
-#DONE --exact answers, explanations not yet scored
-#n=9 operation questions
-#write.table(complete_data[(grepl("Whatis8",gsub(" ","",complete_data$question)) | grepl("Whatis4",gsub(" ","",complete_data$question)))& grepl("explaininwords",gsub(" ","",complete_data$question)) ,c(1,3,4,5,7)],"N9_operation_to_score.csv",sep=",")
+polygon_question = vector()
+modular_question = vector()
+polygon_question_aggregate_scores = vector()
+modular_question_aggregate_scores = vector()
+for (subj_i in 1:100) {
+  this_subj_data = complete_data[complete_data$subject == subj_i,]
+  this_subj_polygon = this_subj_data[1,]$polygon
+  index = 1
+  prob_i = 1
+  offset = 0
+  while (prob_i <= length(this_subj_data$question)) {
+    if (prob_i==(11+offset) && grepl("Remember,toperform",gsub(" ","",this_subj_data[prob_i,]$question)))   { #If subject had to repeat training
+      prob_i = prob_i+10      
+      offset = offset + 10
+    } 
+    if (prob_i == 16+offset && grepl("prompt",this_subj_data[prob_i,]$condition)) {
+      prob_i = prob_i+1
+      offset = offset + 1
+    }
+    if (prob_i == 20+offset && grepl("prompt",this_subj_data[prob_i,]$condition)) {
+      prob_i = prob_i+1
+      offset = offset + 1
+    }
+    if (prob_i == 58+offset){ #Skip background questions
+      break
+    }
+    
+    if (this_subj_polygon) {
+      this_problem_score = this_subj_data[prob_i,]$score_strict
+      if (is.na(polygon_question_aggregate_scores[index])) {
+        polygon_question_aggregate_scores[index] = this_problem_score 
+        polygon_question[index] = this_subj_data[prob_i,]$question
+      }
+      else {
+        polygon_question_aggregate_scores[index] = polygon_question_aggregate_scores[index] + this_problem_score 
+      }
+    } 
+    else {
+      this_problem_score = this_subj_data[prob_i,]$score_strict
+      if (is.na(modular_question_aggregate_scores[index])) {
+        modular_question_aggregate_scores[index] = this_problem_score 
+        modular_question[index] = this_subj_data[prob_i,]$question
+      }
+      else {
+        modular_question_aggregate_scores[index] = modular_question_aggregate_scores[index] + this_problem_score 
+      }
+      
+    }
+    
+    prob_i = prob_i+1
+    index = index + 1
+  }
+}
+```
 
-#DONE --exact answers, explanations not yet scored
-#n=9 generator questions
-# write.table(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,3,4,5,7)],"N9_generator_to_score.csv",sep=",")
+```{r}
+aggregate_score_data = data.frame(condition=c(rep('polygon',length(polygon_question_aggregate_scores)),rep('modular',length(modular_question_aggregate_scores))),score=c(polygon_question_aggregate_scores,modular_question_aggregate_scores),question_index=rep(1:length(polygon_question_aggregate_scores),2))
 
-#DONE --exact answers, explanations not yet scored
-#n=9 inverse with explanations
-#write.table(complete_data[grepl("inverseof3",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,4,5,7)],"N9_inverse_to_score.csv",sep=",")
+aggregate_score_data = aggregate_score_data %>% mutate(percent_correct = score/50)
 
-#DONE --exact answers, explanations not yet scored
-#generator T/F and A/S/N with explanations
-#write.table(complete_data[grepl("explaininwords",gsub(" ","",complete_data$question)) & (grepl("Trueorfalse",gsub(" ","",complete_data$question)) | grepl("always,sometimes,ornever",gsub(" ","",complete_data$question))),c(1,4,5,7)],"TF_ASN_explained_to_score.csv",sep=",")
-
-#DONE -- exact answers, explanations not yet scored
-#n-1,n-x
-#write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,7)],"inverse_formula_to_score.csv",sep=",")
+ggplot(data=aggregate_score_data,aes(question_index,percent_correct,fill=condition)) +
+  geom_bar(stat='identity',position='dodge',width=0.5) +
+  theme_bw()
 ```
 
