@@ -276,7 +276,8 @@ var final_page = {
 var m_op_instructions = {
 	type: "polygon-arrow-instructions",
 	timing_post_trial: 0,
-	text: "Let's define a new operation "+p_6+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. To perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. (That's why the operation is called "+p_6+".) Equivalently, you can perform the operation on the hexagon at the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. <br /><br />For example, 3 "+p_6+" 5 = 2, because 3 + 5 = 8, and 8 is bigger than 6, so we subtract 6, and 8 - 6 = 2. Equivalently, 5 steps clockwise from 3 on the hexagon brings us to 2. So 3 "+p_6+" 5 = 2.<br /><br />Similarly, 1 "+p_6+" 4 = 5, because 1 + 4 = 5, and 5 is less than 6 so we leave it alone. Equivalently, 4 steps clockwise from 1 on the hexagon brings us to 5. <br /><br />Click \"Continue\" when you're ready to move on."  
+	text: "Let's define a new operation "+p_6+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. To perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. (That's why the operation is called "+p_6+".) Equivalently, you can perform the operation on the hexagon at the right. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. <br /><br />For example, 3 "+p_6+" 5 = 2, because 3 + 5 = 8, and 8 is bigger than 6, so we subtract 6, and 8 - 6 = 2. Equivalently, 5 steps clockwise from 3 on the hexagon brings us to 2. So 3 "+p_6+" 5 = 2.<br /><br />Similarly, 1 "+p_6+" 4 = 5, because 4 steps clockwise from 1 on the hexagon brings us to 5. Equivalently, 1 + 4 = 5, and 5 is less than 6 so we leave it alone. <br /><br />Click \"Continue\" when you're ready to move on."  
+
 };
 
 var m_tr_op_1 = {
@@ -297,7 +298,7 @@ var m_tr_op_1_f = {
 var m_tr_op_2 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+p_6+" 2? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 3 "+p_6+" 2? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+p_6+" on the hexagon, you point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '5',
 		response_type: "free"
 };
@@ -312,7 +313,7 @@ var m_tr_op_2_f = {
 var m_tr_op_3 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 5? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+p_6+" 5? Try to solve this probem using the arithmetic technique. <br /><br /> (Remember, to perform "+p_6+" by arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -327,7 +328,7 @@ var m_tr_op_3_f = {
 var m_tr_op_4 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 1? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+p_6+" 1? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+p_6+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '2',
 		response_type: "free"
 };
@@ -342,7 +343,7 @@ var m_tr_op_4_f = {
 var m_tr_op_5 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+p_6+" 0? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 3 "+p_6+" 0? Try to solve this problem using the arithmetic technique. <br /><br /> (Remember, to perform "+p_6+" using arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '3',
 		response_type: "free"
 };
@@ -357,7 +358,7 @@ var m_tr_op_5_f = {
 var m_tr_op_6 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 4 "+p_6+" 4? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 4 "+p_6+" 4? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+p_6+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '2',
 		response_type: "free"
 };
@@ -372,7 +373,7 @@ var m_tr_op_6_f = {
 var m_tr_op_7 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 3? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+p_6+" 3? Try to solve this problem using the arithmetic technique. <br /><br /> (Remember, to perform "+p_6+" by arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '4',
 		response_type: "free"
 };
