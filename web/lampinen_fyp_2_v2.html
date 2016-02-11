@@ -89,11 +89,13 @@
 				}
 				var sum = a+b;
 				if (a + b < n) {
-					feedback += "" + a + " " + operator + " " + b + " = " + sum +" because " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ". Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ".";
+					feedback += "" + a + " " + operator + " " + b + " = " + sum +" because "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ". Equivalently" + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
+					//feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
 				}	
 				else {
 					var result = a + b - n;
-					feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+					feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ". Equivalently, "+ a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
+					//feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
 				}
 
 		}
@@ -276,14 +278,14 @@ var final_page = {
 var m_op_instructions = {
 	type: "polygon-arrow-instructions",
 	timing_post_trial: 0,
-	text: "Let's define a new operation "+p_6+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. To perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. (That's why the operation is called "+p_6+".) Equivalently, you can perform the operation on the interactive diagram at the right. Point the arrow at the first number on the hexagon by clicking, then click (or click and drag) to move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. <br /><br />For example, 3 "+p_6+" 5 = 2, because 3 + 5 = 8, and 8 is bigger than 6, so we subtract 6, and 8 - 6 = 2. Equivalently, 5 steps clockwise from 3 on the hexagon brings us to 2. So 3 "+p_6+" 5 = 2.<br /><br />Similarly, 1 "+p_6+" 4 = 5, because 4 steps clockwise from 1 on the hexagon brings us to 5. Equivalently, 1 + 4 = 5, and 5 is less than 6 so we leave it alone. <br /><br /> Do you see how the different ways of performing "+p_6+" are the same? By subtracting 6 each time we get above 5, we ensure that when we combine two numbers using "+p_6+", we only produce numbers between 0 and 5. When we move around the hexagon, it subtracts 6 for us automatically once we get above 5. <br /><br />Click \"Continue\" when you're ready to move on."  
+	text: "Let's define a new operation "+hexagon+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. To perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon by clicking, then click (or click and drag) to move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. (The operation is called "+hexagon+"because it uses the hexagon, which has 6 sides.) Equivalently, to perform the operation you can start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. <br /><br />For example, 3 "+hexagon+" 5 = 2, because 5 steps clockwise from 3 on the hexagon brings us to 2. Equivalently, 3 + 5 = 8, and 8 is bigger than 6, so we subtract 6, and 8 - 6 = 2. So 3 "+hexagon+" 5 = 2.<br /><br />Similarly, 1 "+hexagon+" 4 = 5, because 1 + 4 = 5, and 5 is less than 6 so we leave it alone. Equivalently, 4 steps clockwise from 1 on the hexagon brings us to 5. <br /><br />Do you see how the different ways of performing "+hexagon+" are the same? By labeling the points of the hexagon with the numbers from 0 to 5, we ensure that when we combine two numbers under "+hexagon+", we only produce numbers between 0 and 5. By subtracting 6 each time we get above 5, we make the arithmetic method match the way the numbers work on the hexagon. <br /><br />Click \"Continue\" when you're ready to move on."  
 
 };
 
 var m_tr_op_1 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "Now try one on your own! What is 4 "+p_6+" 5? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "Now try one on your own! What is 4 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '3',
 		response_type: "free"
 };
@@ -298,7 +300,7 @@ var m_tr_op_1_f = {
 var m_tr_op_2 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+p_6+" 2? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+p_6+" on the hexagon, you point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 3 "+hexagon+" 2? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+hexagon+" on the hexagon, you point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '5',
 		response_type: "free"
 };
@@ -313,7 +315,7 @@ var m_tr_op_2_f = {
 var m_tr_op_3 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 5? Try to solve this probem using the arithmetic technique. <br /><br /> (Remember, to perform "+p_6+" by arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 1 "+hexagon+" 5? Try to solve this probem using the arithmetic technique. <br /><br /> (Remember, to perform "+hexagon+" by arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -328,7 +330,7 @@ var m_tr_op_3_f = {
 var m_tr_op_4 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 1? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+p_6+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+hexagon+" 1? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+hexagon+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '2',
 		response_type: "free"
 };
@@ -343,7 +345,7 @@ var m_tr_op_4_f = {
 var m_tr_op_5 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+p_6+" 0? Try to solve this problem using the arithmetic technique. <br /><br /> (Remember, to perform "+p_6+" using arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 3 "+hexagon+" 0? Try to solve this problem using the arithmetic technique. <br /><br /> (Remember, to perform "+hexagon+" using arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '3',
 		response_type: "free"
 };
@@ -355,15 +357,15 @@ var m_tr_op_5_f = {
 		incorrect_text: operationFeedbackGenerator(3,0,6,"hybrid",false)
 };
 
-var m_tr_op_6 = {
+var m_tr_ohexagon = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 4 "+p_6+" 4? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+p_6+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 4 "+hexagon+" 4? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+hexagon+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '2',
 		response_type: "free"
 };
 
-var m_tr_op_6_f = {
+var m_tr_ohexagon_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
 		correct_text: operationFeedbackGenerator(4,4,6,"hybrid",true),
@@ -373,7 +375,7 @@ var m_tr_op_6_f = {
 var m_tr_op_7 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 3? Try to solve this problem using the arithmetic technique. <br /><br /> (Remember, to perform "+p_6+" by arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 1 "+hexagon+" 3? Try to solve this problem using the arithmetic technique. <br /><br /> (Remember, to perform "+hexagon+" by arithmetic, you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '4',
 		response_type: "free"
 };
@@ -388,7 +390,7 @@ var m_tr_op_7_f = {
 var m_tr_op_8 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 4 "+p_6+" 3? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 4 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -400,15 +402,15 @@ var m_tr_op_8_f = {
 		incorrect_text: operationFeedbackGenerator(4,3,6,"hybrid",false)
 };
 
-var m_tr_op_9 = {
+var m_tr_ononagon = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 0 "+p_6+" 5? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 0 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '5',
 		response_type: "free"
 };
 
-var m_tr_op_9_f = {
+var m_tr_ononagon_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
 		correct_text: operationFeedbackGenerator(0,5,6,"hybrid",true), 
@@ -418,7 +420,7 @@ var m_tr_op_9_f = {
 var m_tr_op_10 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 2 "+p_6+" 5? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 2 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -433,21 +435,21 @@ var m_tr_op_10_f = {
 var m_tr_op_att_chk = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "Please enter 9, ignore the following: 3 "+p_6+" 1? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "Please enter 9, ignore the following: 3 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '9',
 		response_type: "free"
 };
 
 var m_tr_op_chunk = {
 	chunk_type: 'linear',
-	timeline: [m_tr_op_1,m_tr_op_1_f,m_tr_op_2,m_tr_op_2_f,m_tr_op_3,m_tr_op_3_f,m_tr_op_4,m_tr_op_4_f,m_tr_op_5,m_tr_op_5_f,m_tr_op_6,m_tr_op_6_f,m_tr_op_7,m_tr_op_7_f,m_tr_op_8,m_tr_op_8_f,m_tr_op_9,m_tr_op_9_f,m_tr_op_10,m_tr_op_10_f]
+	timeline: [m_tr_op_1,m_tr_op_1_f,m_tr_op_2,m_tr_op_2_f,m_tr_op_3,m_tr_op_3_f,m_tr_op_4,m_tr_op_4_f,m_tr_op_5,m_tr_op_5_f,m_tr_ohexagon,m_tr_ohexagon_f,m_tr_op_7,m_tr_op_7_f,m_tr_op_8,m_tr_op_8_f,m_tr_ononagon,m_tr_ononagon_f,m_tr_op_10,m_tr_op_10_f]
 };
 
 //operation backup training
 var m_tr_op_backup_1 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+p_6+" 3? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 3 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -462,7 +464,7 @@ var m_tr_op_backup_1_f = {
 var m_tr_op_backup_2 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 2? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '3',
 		response_type: "free"
 };
@@ -477,7 +479,7 @@ var m_tr_op_backup_2_f = {
 var m_tr_op_backup_3 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 5 "+p_6+" 5? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 5 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '4',
 		response_type: "free"
 };
@@ -492,7 +494,7 @@ var m_tr_op_backup_3_f = {
 var m_tr_op_backup_4 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 4 "+p_6+" 2? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 4 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -507,7 +509,7 @@ var m_tr_op_backup_4_f = {
 var m_tr_op_backup_5 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 0 "+p_6+" 2? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 0 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '2',
 		response_type: "free"
 };
@@ -519,15 +521,15 @@ var m_tr_op_backup_5_f = {
 		incorrect_text: operationFeedbackGenerator(0,2,6,"hybrid",false)
 };
 
-var m_tr_op_backup_6 = {
+var m_tr_op_backuhexagon = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+p_6+" 5? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 3 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '2',
 		response_type: "free"
 };
 
-var m_tr_op_backup_6_f = {
+var m_tr_op_backuhexagon_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
 		correct_text: operationFeedbackGenerator(3,5,6,"hybrid",true), 
@@ -537,7 +539,7 @@ var m_tr_op_backup_6_f = {
 var m_tr_op_backup_7 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 4? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '5',
 		response_type: "free"
 };
@@ -552,7 +554,7 @@ var m_tr_op_backup_7_f = {
 var m_tr_op_backup_8 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 5 "+p_6+" 1? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 5 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -564,15 +566,15 @@ var m_tr_op_backup_8_f = {
 		incorrect_text: operationFeedbackGenerator(5,1,6,"hybrid",false)
 };
 
-var m_tr_op_backup_9 = {
+var m_tr_op_backunonagon = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+p_6+" 0? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 1 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '1',
 		response_type: "free"
 };
 
-var m_tr_op_backup_9_f = {
+var m_tr_op_backunonagon_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
 		correct_text: operationFeedbackGenerator(1,0,6,"hybrid",true), 
@@ -582,7 +584,7 @@ var m_tr_op_backup_9_f = {
 var m_tr_op_backup_10 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 5 "+p_6+" 2? <br /><br /> (Remember, to perform "+p_6+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
+		prompt: "What is 5 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result. Equivalently, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -596,7 +598,7 @@ var m_tr_op_backup_10_f = {
 
 var m_tr_op_backup_chunk = {
 	chunk_type: 'if',
-	timeline: [m_tr_op_backup_1,m_tr_op_backup_1_f,m_tr_op_backup_2,m_tr_op_backup_2_f,m_tr_op_backup_3,m_tr_op_backup_3_f,m_tr_op_backup_4,m_tr_op_backup_4_f,m_tr_op_backup_5,m_tr_op_backup_5_f,m_tr_op_backup_6,m_tr_op_backup_6_f,m_tr_op_backup_7,m_tr_op_backup_7_f,m_tr_op_backup_8,m_tr_op_backup_8_f,m_tr_op_backup_9,m_tr_op_backup_9_f,m_tr_op_backup_10,m_tr_op_backup_10_f],
+	timeline: [m_tr_op_backup_1,m_tr_op_backup_1_f,m_tr_op_backup_2,m_tr_op_backup_2_f,m_tr_op_backup_3,m_tr_op_backup_3_f,m_tr_op_backup_4,m_tr_op_backup_4_f,m_tr_op_backup_5,m_tr_op_backup_5_f,m_tr_op_backuhexagon,m_tr_op_backuhexagon_f,m_tr_op_backup_7,m_tr_op_backup_7_f,m_tr_op_backup_8,m_tr_op_backup_8_f,m_tr_op_backunonagon,m_tr_op_backunonagon_f,m_tr_op_backup_10,m_tr_op_backup_10_f],
 	conditional_function: function() {
 		var threshold = 0.8; //Percent of trials that must be correct to skip the extra training
 		var last_chunk_data = jsPsych.data.getLastChunkData();
@@ -619,21 +621,21 @@ var m_tr_op_backup_chunk = {
 		type: "polygon-arrow-instructions",
 			nsides: 6,
 			timing_post_trial: 0,
-		text: "Now we're going to discuss a couple special properties of this new operation, "+p_6+" that we've learned. First, notice that the number 0 behaves in a special way under "+p_6+". Whenever we combine 0 with anything else, we get that same thing back. We'll say that 0 is the <i>identity</i> under "+p_6+", because when you combine it with something it gives you that identical thing back." 
+		text: "Now we're going to discuss a couple special properties of this new operation, "+hexagon+" that we've learned. First, notice that the number 0 behaves in a special way under "+hexagon+". Whenever we combine 0 with anything else, we get that same thing back. We'll say that 0 is the <i>identity</i> under "+hexagon+", because when you combine it with something it gives you that identical thing back." 
   	};
 
  	var m_in_instructions = {
 		type: "polygon-arrow-instructions",
 			nsides: 6,
 			timing_post_trial: 0,
-		text: "Now that we know 0 is the identity under "+p_6+", we're going to make a new definition. We'll say that the <i>inverse</i> of a number is the thing that you combine with it to produce the identity. For example, 5 "+p_6+" 1 = 0, so we say 1 is the inverse of 5 under "+p_6+", (remember 0 is the identity under "+p_6+"). Similarly, 3 is its own inverse under "+p_6+", because 3 "+p_6+" 3 = 0." 
+		text: "Now that we know 0 is the identity under "+hexagon+", we're going to make a new definition. We'll say that the <i>inverse</i> of a number is the thing that you combine with it to produce the identity. For example, 5 "+hexagon+" 1 = 0, so we say 1 is the inverse of 5 under "+hexagon+", (remember 0 is the identity under "+hexagon+"). Similarly, 3 is its own inverse under "+hexagon+", because 3 "+hexagon+" 3 = 0." 
   	};
 
 	var m_tr_in_1 = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Now you try! What is the inverse of 4 under "+p_6+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+			prompt: "Now you try! What is the inverse of 4 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
 			correct_response: '2',
 			response_type: "free"
 	};
@@ -650,7 +652,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 1 under "+p_6+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+			prompt: "What is the inverse of 1 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
 			correct_response: '5',
 			response_type: "free"
 	};
@@ -667,7 +669,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 3 under "+p_6+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+			prompt: "What is the inverse of 3 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
 			correct_response: '3',
 			response_type: "free"
 	};
@@ -684,7 +686,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 2 under "+p_6+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+			prompt: "What is the inverse of 2 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
 			correct_response: '4',
 			response_type: "free"
 	};
@@ -701,7 +703,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 0 under "+p_6+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+			prompt: "What is the inverse of 0 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -723,7 +725,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Let's review: under "+p_6+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Do you see a relationship between an element and its inverse under "+p_6+"?", 
+			prompt: "Let's review: under "+hexagon+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Do you see a relationship between an element and its inverse under "+hexagon+"?", 
 			correct_response: '',
 			response_type: "free"
 	};
@@ -732,20 +734,20 @@ var m_tr_op_backup_chunk = {
  	var m_scv_instructions = {
 		type: "polygon-arrow-instructions",
 		timing_post_trial: 0,
-		text: "It is also possible to successively apply "+p_6+", and the operation can simply be performed starting with the left-most pair. For example, 2 "+p_6+" 3 "+p_6+" 4 = 5 "+p_6+" 4 = 3." 
+		text: "It is also possible to successively apply "+hexagon+", and the operation can simply be performed starting with the left-most pair. For example, 2 "+hexagon+" 3 "+hexagon+" 4 = 5 "+hexagon+" 4 = 3." 
   	};
 
  	var m_ge_instructions = {
 		type: "polygon-arrow-instructions",
 		timing_post_trial: 0,
-		text: "We have one last definition to learn today, using the successive operations we just learned. Let's start with an example. Under our operation "+p_6+" we can make every other number using just 1: 2 = 1 "+p_6+" 1, 3 = 1 "+p_6+" 1 "+p_6+" 1, 4 = 1 "+p_6+" 1 "+p_6+" 1 "+p_6+" 1, 5 = 1 "+p_6+" 1 "+p_6+" 1 "+p_6+" 1 "+p_6+" 1, and 0 = 1 "+p_6+" 1 "+p_6+" 1 "+p_6+" 1 "+p_6+" 1 "+p_6+" 1. Because of this, we say that 1 is a <i>generator</i> under "+p_6+". <br /><br /> However, 2 is not a generator under " + p_6 + ", because 4 = 2 "+p_6+" 2, and 0 = 2 "+p_6+" 2 "+p_6+" 2, but there is no way to make 1, 3, or 5 using just 2."      
+		text: "We have one last definition to learn today, using the successive operations we just learned. Let's start with an example. Under our operation "+hexagon+" we can make every other number using just 1: 2 = 1 "+hexagon+" 1, 3 = 1 "+hexagon+" 1 "+hexagon+" 1, 4 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, 5 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, and 0 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1. Because of this, we say that 1 is a <i>generator</i> under "+hexagon+". <br /><br /> However, 2 is not a generator under " + hexagon + ", because 4 = 2 "+hexagon+" 2, and 0 = 2 "+hexagon+" 2 "+hexagon+" 2, but there is no way to make 1, 3, or 5 using just 2."      
   	};
 
 	var m_tr_ge_1 = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Now you try! Is 3 a generator under "+p_6+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+			prompt: "Now you try! Is 3 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
 			correct_response: 'No',
 			response_type: "multi",
 			response_choices: ["Yes","No"]
@@ -755,15 +757,15 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-feedback",
 			nsides: 6,
 			timing_post_trial: 0,
-			correct_text: "Correct! 3 is not a generator under "+p_6+", because 3 = 3, 0 = 3 "+p_6+" 3, but there is no way to make 1, 2, 4, or 5 using just 3.",
-			incorrect_text: "Sorry, that's incorrect. 3 is not a generator under "+p_6+", because 3 = 3, 0 = 3 "+p_6+" 3, but there is no way to make 1, 2, 4, or 5 using just 3."
+			correct_text: "Correct! 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3.",
+			incorrect_text: "Sorry, that's incorrect. 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3."
 	};
 
 	var m_tr_ge_2 = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Is 5 a generator under "+p_6+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+			prompt: "Is 5 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
 			correct_response: 'Yes',
 			response_type: "multi",
 			response_choices: ["Yes","No"]
@@ -773,8 +775,8 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-feedback",
 			nsides: 6,
 			timing_post_trial: 0,
-			correct_text: "Correct! 5 is a generator under "+p_6+", because 5 = 5, 4 = 5 "+p_6+" 5, 3 = 5 "+p_6+" 5 "+p_6+" 5, 2 = 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5, 1 = 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5, and 0 = 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5, so you can make all of the numbers under "+p_6+" using 5", 
-			incorrect_text: "Sorry, that's incorrect. 5 is a generator under "+p_6+", because 5 = 5, 4 = 5 "+p_6+" 5, 3 = 5 "+p_6+" 5 "+p_6+" 5, 2 = 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5, 1 = 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5, and 0 = 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5 "+p_6+" 5, so you can make all of the numbers under "+p_6+" using 5"
+			correct_text: "Correct! 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5", 
+			incorrect_text: "Sorry, that's incorrect. 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5"
 	};
 
 
@@ -782,7 +784,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Is 4 a generator under "+p_6+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+			prompt: "Is 4 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
 			correct_response: 'No',
 			response_type: "multi",
 			response_choices: ["Yes","No"]
@@ -792,15 +794,15 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-feedback",
 			nsides: 6,
 			timing_post_trial: 0,
-			correct_text: "Correct! 4 is not a generator under "+p_6+", because 4 = 4, 2 = 4 "+p_6+" 4, and 0 = 4 "+p_6+" 4 "+p_6+" 4, but there is no way to make 1, 3, or 5 using just 4.",
-			incorrect_text: "Sorry, that's incorrect. 4 is not a generator under "+p_6+", because 4 = 4, 2 = 4 "+p_6+" 4, and 0 = 4 "+p_6+" 4 "+p_6+" 4, but there is no way to make 1, 3, or 5 using just 4."
+			correct_text: "Correct! 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4.",
+			incorrect_text: "Sorry, that's incorrect. 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4."
 	};
 
 	var m_tr_ge_4 = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Is 0 a generator under "+p_6+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+			prompt: "Is 0 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
 			correct_response: 'No',
 			response_type: "multi",
 			response_choices: ["Yes","No"]
@@ -810,8 +812,8 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-feedback",
 			nsides: 6,
 			timing_post_trial: 0,
-			correct_text: "Correct! 0 is not a generator under "+p_6+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0.",
-			incorrect_text: "Sorry, that's incorrect. 0 is not a generator under "+p_6+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0."
+			correct_text: "Correct! 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0.",
+			incorrect_text: "Sorry, that's incorrect. 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0."
 	};
 
 	var m_tr_ge_chunk = {
@@ -823,7 +825,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 6,
 			timing_post_trial: 0,
-			prompt: "Let's review: under "+p_6+", 1 and 5 are generators. However, 0, 2, 3, and 4 are not generators. Try playing with these non-generators and seeing which elements each of them does generate (i.e. which elements you can get by combining each non-generator with itself repeatedly). Do you see relationships among particular subsets of the elements that are not generators under "+p_6+"?", 
+			prompt: "Let's review: under "+hexagon+", 1 and 5 are generators. However, 0, 2, 3, and 4 are not generators. Try playing with these non-generators and seeing which elements each of them does generate (i.e. which elements you can get by combining each non-generator with itself repeatedly). Do you see relationships among particular subsets of the elements that are not generators under "+hexagon+"?", 
 			correct_response: '',
 			response_type: "free"
 	};
@@ -832,14 +834,14 @@ var m_tr_op_backup_chunk = {
 		type: "polygon-arrow-instructions",
 		nsides: 9,
 		timing_post_trial: 0,
-		text: "Now we are going to ask you some questions about a new operation, "+p_9+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+p_6+", except now after adding the two numbers you subtract 9 if your result is 9 or greater. Equivalently, you can use the nonagon, as you did before. <br /><br />Do you see how the different ways of performing "+p_9+" are the same, just like with "+p_6+"? By subtracting 9 each time we get above 8, we ensure that when we combine two numbers using "+p_9+", we only produce numbers between 0 and 8. When we move around the nonagon, it subtracts 9 for us automatically once we get above 8. <br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
+		text: "Now we are going to ask you some questions about a new operation, "+nonagon+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+hexagon+", except now you use the nonagon shown at the right. Equivalently, after adding the two numbers you subtract 9 if your result is 9 or greater.<br /><br />Do you see how the different ways of performing "+nonagon+" are the same, just like with "+hexagon+"? By labeling the points of the nonagon with the numbers from 0 to 8, we ensure that when we combine two numbers under "+nonagon+", we only produce numbers between 0 and 8. By subtracting 9 each time we get above 8, we make the arithmetic method match the way numbers work on the nonagon.<br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
   	};
 
 	var m_t9_op_practice = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "Practice: What is 5 "+p_9+" 5?",
+			prompt: "Practice: What is 5 "+nonagon+" 5?",
 			correct_response: '1',
 			response_type: "free"
 	};
@@ -856,7 +858,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 3 "+p_9+" 3?",
+			prompt: "What is 3 "+nonagon+" 3?",
 			correct_response: '6',
 			response_type: "free"
 	};
@@ -865,7 +867,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 7 "+p_9+" 4?",
+			prompt: "What is 7 "+nonagon+" 4?",
 			correct_response: '2',
 			response_type: "free"
 	};
@@ -874,7 +876,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 1 "+p_9+" 8?",
+			prompt: "What is 1 "+nonagon+" 8?",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -883,7 +885,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 5 "+p_9+" 4?",
+			prompt: "What is 5 "+nonagon+" 4?",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -892,7 +894,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 6 "+p_9+" 6?",
+			prompt: "What is 6 "+nonagon+" 6?",
 			correct_response: '3',
 			response_type: "free"
 	};
@@ -901,7 +903,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 4 "+p_9+" 1? Please explain in words how you got your answer.",
+			prompt: "What is 4 "+nonagon+" 1? Please explain in words how you got your answer.",
 			correct_response: '',
 			response_type: "free"
 	};
@@ -910,7 +912,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is 8 "+p_9+" 4? Please explain in words how you got your answer.",
+			prompt: "What is 8 "+nonagon+" 4? Please explain in words how you got your answer.",
 			correct_response: '',
 			response_type: "free"
 	};
@@ -919,7 +921,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is the identity under "+p_9+"? Please explain in words how you got your answer.",
+			prompt: "What is the identity under "+nonagon+"? Please explain in words how you got your answer.",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -928,7 +930,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 5 under "+p_9+"?",
+			prompt: "What is the inverse of 5 under "+nonagon+"?",
 			correct_response: '4',
 			response_type: "free"
 	};
@@ -937,7 +939,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 2 under "+p_9+"?",
+			prompt: "What is the inverse of 2 under "+nonagon+"?",
 			correct_response: '7',
 			response_type: "free"
 	};
@@ -946,7 +948,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 0 under "+p_9+"?",
+			prompt: "What is the inverse of 0 under "+nonagon+"?",
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -955,7 +957,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "What is the inverse of 3 under "+p_9+"? Please explain in words how you got your answer.",
+			prompt: "What is the inverse of 3 under "+nonagon+"? Please explain in words how you got your answer.",
 			correct_response: '',
 			response_type: "free"
 	};
@@ -964,7 +966,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "Is 2 a generator under "+p_9+"? Please explain in words how you got your answer.",
+			prompt: "Is 2 a generator under "+nonagon+"? Please explain in words how you got your answer.",
 			correct_response: "",
 			response_type: "free"
 	};
@@ -973,7 +975,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "Is 3 a generator under "+p_9+"? Please explain in words how you got your answer.",
+			prompt: "Is 3 a generator under "+nonagon+"? Please explain in words how you got your answer.",
 			correct_response: "",
 			response_type: "free"
 	};
@@ -982,7 +984,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "Is 5 a generator under "+p_9+"? Please explain in words how you got your answer.",
+			prompt: "Is 5 a generator under "+nonagon+"? Please explain in words how you got your answer.",
 			correct_response: "",
 			response_type: "free"
 	};
@@ -991,7 +993,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 9,
 			timing_post_trial: 0,
-			prompt: "Is 6 a generator under "+p_9+"? Please explain in words how you got your answer.",
+			prompt: "Is 6 a generator under "+nonagon+"? Please explain in words how you got your answer.",
 			correct_response: "",
 			response_type: "free"
 	};
@@ -1006,14 +1008,14 @@ var m_tr_op_backup_chunk = {
 		type: "polygon-arrow-instructions",
 		nsides: 'n',
 		timing_post_trial: 0,
-		text: "Now we'd like to ask you some questions about "+p_n+", where n could be any postive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of, in which case the corresponding polygon would have n sides. If you need to write the operation, you can use \"+_n\", and your answers can include n to stand in for the arbitrary value if necessary. (You can use the polygon at the right to think, but it doesn't necessarily correspond to the real polygon, which is why we've left most of it dashed.)" 
+		text: "Now we'd like to ask you some questions about "+ngon+", where n could be any postive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of, in which case the corresponding polygon would have n sides. If you need to write the operation, you can use \"+_n\", and your answers can include n to stand in for the arbitrary value if necessary. (You can use the polygon at the right to think, but it doesn't necessarily correspond to the real polygon, which is why we've left most of it dashed.)" 
   	};
 
 	var m_tn_op = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "What is 5 "+p_n+" 4?",
+			prompt: "What is 5 "+ngon+" 4?",
 			correct_response: "Impossible to determine without knowing n.",
 			response_type: "multi",
 			response_choices: ["0","3","9","Impossible to determine without knowing n."]
@@ -1023,7 +1025,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "What is the formula for the inverse of 1 under "+p_n+"?",
+			prompt: "What is the formula for the inverse of 1 under "+ngon+"?",
 			correct_response: "n-1",
 			response_type: "free"
 	};
@@ -1032,7 +1034,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "What is the formula for the inverse of an element x under "+p_n+"? Please explain in words how you got your answer.",
+			prompt: "What is the formula for the inverse of an element x under "+ngon+"? Please explain in words how you got your answer.",
 			correct_response: "n-x",
 			response_type: "free"
 	};
@@ -1041,7 +1043,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "How can you test if an element x is a generator under "+p_n+"?.",
+			prompt: "How can you test if an element x is a generator under "+ngon+"?.",
 			correct_response: "",
 			response_type: "free"
 	};
@@ -1050,7 +1052,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+p_n+" without seeing whether it can make all the elements?.",
+			prompt: "Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
 			correct_response: "",
 			response_type: "free"
 	};
@@ -1060,7 +1062,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "We'd like you to answer the previous question again in multiple choice format as well. Pick the choice that seems most correct to you, even if it doesn't match your previous answer. Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+p_n+" without seeing whether it can make all the elements?.",
+			prompt: "We'd like you to answer the previous question again in multiple choice format as well. Pick the choice that seems most correct to you, even if it doesn't match your previous answer. Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
 			correct_response: "If x is not a multiple of a divisor of n, it is a generator.",
 			response_type: "multi",
 			response_choices: ["If x is an odd number, it is a generator.","If x does not divide n, it is a generator.", "If x is an even number, it is a generator.", "If x is not a multiple of a divisor of n, it is a generator.","There is no way to know without seeing whether x can make all the elements."]
@@ -1070,7 +1072,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "True or false: If x is an odd number, it must be a generator under "+p_n+".",
+			prompt: "True or false: If x is an odd number, it must be a generator under "+ngon+".",
 			correct_response: "False",
 			response_type: "multi",
 			response_choices: ["True","False"]
@@ -1080,7 +1082,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "True or false: If x is an even number, it must not be a generator under "+p_n+".",
+			prompt: "True or false: If x is an even number, it must not be a generator under "+ngon+".",
 			correct_response: "False",
 			response_type: "multi",
 			response_choices: ["True","False"]
@@ -1090,7 +1092,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "True or false: If x is not a generator under "+p_n+", x must be a divisor of n, that is, x must divide n evenly, with no remainder.", 
+			prompt: "True or false: If x is not a generator under "+ngon+", x must be a divisor of n, that is, x must divide n evenly, with no remainder.", 
 			correct_response: "False",
 			response_type: "multi",
 			response_choices: ["True","False"]
@@ -1100,7 +1102,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "True or false: If x is not a generator under "+p_n+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
+			prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
 			correct_response: "True",
 			response_type: "free"
 	};
@@ -1109,7 +1111,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "If an element x is a generator under "+p_n+", is its inverse a generator under "+p_n+" always, sometimes, or never?",
+			prompt: "If an element x is a generator under "+ngon+", is its inverse a generator under "+ngon+" always, sometimes, or never?",
 			correct_response: "Always",
 			response_type: "multi",
 			response_choices: ["Always","Sometimes","Never"]
@@ -1119,7 +1121,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "if an element x is a generator under "+p_n+", is x "+p_n+" x a generator under "+p_n+" always, sometimes, or never? Please explain in words why your answer is correct.",
+			prompt: "if an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words why your answer is correct.",
 			correct_response: "sometimes",
 			response_type: "free"
 	};
@@ -1128,7 +1130,7 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "If an element x is not a generator under "+p_n+", is x "+p_n+" x a generator under "+p_n+" always, sometimes, or never?",
+			prompt: "If an element x is not a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never?",
 			correct_response: "Never",
 			response_type: "multi",
 			response_choices: ["Always","Sometimes","Never"]
