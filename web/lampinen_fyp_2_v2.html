@@ -121,7 +121,7 @@ function inverseFeedbackGenerator(x,n,polygon,correct) {
 		if (x == 0) {
 			inverse = 0;
 		}
-		feedback += "The inverse of " + x + " under " + operator + " is " + inverse +" because " + inverse + " steps clockwise on the " + polygon_name + " from " + x + " brings us to 0, and 0 is the identity under " + operator + ".";
+		feedback += "The inverse of " + x + " under " + operator + " is " + inverse +" because " + x + " " +operator + " " + inverse + " = 0, and 0 is the identity under " + operator + ".";
 	}
 	else if (polygon === false || polygon === "hybrid") {
 		var operator = p_6;
