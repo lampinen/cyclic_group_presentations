@@ -67,7 +67,13 @@
 			if (a + b >= n) {
 				var result = a + b - n;
 			}
-			feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+			if (b != 1) {
+				feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+			}
+			else {
+				feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+
+			}
 		}
 		else if (polygon === false) {
 			var operator = p_6;
@@ -91,21 +97,46 @@
 					var operator = nonagon;
 				}
 				var sum = a+b;
+				var result = sum;
 				if (a + b < n) {
 					if (reorder) {
-						feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+						if (b != 1) {
+							feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+						}
+						else {
+							feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+
+						}
 					}
 					else {
-						feedback += "" + a + " " + operator + " " + b + " = " + sum +" because "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ". Equivalently, " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
+						if (b != 1) {
+							feedback += "" + a + " " + operator + " " + b + " = " + sum +" because "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ". Equivalently, " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
+						}
+						else {
+							feedback += "" + a + " " + operator + " " + b + " = " + sum +" because "+ b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ". Equivalently, " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
+
+						}
 					}
 				}	
 				else {
 					var result = a + b - n;
 					if (reorder) {
-						feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+						if (b != 1) {
+							feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+						}
+						else {
+							feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+
+						}
 					}
 					else {
-						feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ". Equivalently, "+ a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
+						if (b != 1) {
+							feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ". Equivalently, "+ a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
+						}
+						else {
+							feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ". Equivalently, "+ a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
+
+						}
 					}
 				}
 

@@ -64,7 +64,13 @@
 			if (a + b >= n) {
 				var result = a + b - n;
 			}
-			feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+                        if (b != 1) {
+                                feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+                        }
+                        else {
+                                feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+
+                        }
 		}
 		else {
 			var operator = p_6;
