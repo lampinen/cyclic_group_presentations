@@ -44,7 +44,10 @@
 
 //Feedback generator functions////////////////////////////////////////////////////////////
 
-	function operationFeedbackGenerator(a,b,n,polygon,correct) {
+	function operationFeedbackGenerator(a,b,n,polygon,correct,reorder) {
+		if (typeof(reorder) === 'undefined') {
+			reorder = false;
+		}
 		var feedback = "";
 		if (correct) {
 			feedback += "Correct! ";
@@ -89,13 +92,21 @@
 				}
 				var sum = a+b;
 				if (a + b < n) {
-					feedback += "" + a + " " + operator + " " + b + " = " + sum +" because "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ". Equivalently, " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
-					//feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+					if (reorder) {
+						feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+					}
+					else {
+						feedback += "" + a + " " + operator + " " + b + " = " + sum +" because "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ sum + ". Equivalently, " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
+					}
 				}	
 				else {
 					var result = a + b - n;
-					feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ". Equivalently, "+ a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
-					//feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+					if (reorder) {
+						feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".  Equivalently, "+ b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ".";
+					}
+					else {
+						feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result + ". Equivalently, "+ a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
+					}
 				}
 
 		}
@@ -285,7 +296,7 @@ var m_op_instructions = {
 var m_op_instructions_2 = {
 	type: "polygon-arrow-instructions",
 	timing_post_trial: 0,
-	text: "Do you see how the different ways of performing "+hexagon+" give the same result? By labeling the points of the hexagon with the numbers from 0 to 5, we ensure that when we combine two numbers under "+hexagon+", we only produce numbers between 0 and 5. When we use the arithmetic strategy, adding the second number to the first mimics counting around the hexagon, and subtracting 6 each time we get above 5 makes sense, because 0 comes after 5 when counting on the hexagon. <br /><br />Click \"Continue\" when you're ready to move on."  
+	text: "Do you see how the different ways of performing "+hexagon+" give the same result? By labeling the points of the hexagon with the numbers from 0 to 5, we ensure that when we combine two numbers under "+hexagon+", we only produce numbers between 0 and 5. When we use the arithmetic strategy, adding the second number to the first mimics counting around the hexagon, and subtracting 6 each time we get above 5 makes sure the results correspond to the numbers on the points of the hexagon. <br /><br />Click \"Continue\" when you're ready to move on."  
 
 };
 
@@ -331,8 +342,8 @@ var m_tr_op_3 = {
 var m_tr_op_3_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
-		correct_text: operationFeedbackGenerator(1,5,6,"hybrid",true), 
-		incorrect_text: operationFeedbackGenerator(1,5,6,"hybrid",false)
+		correct_text: operationFeedbackGenerator(1,5,6,"hybrid",true,true), 
+		incorrect_text: operationFeedbackGenerator(1,5,6,"hybrid",false,true)
 };
 
 var m_tr_op_4 = {
@@ -361,8 +372,8 @@ var m_tr_op_5 = {
 var m_tr_op_5_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
-		correct_text: operationFeedbackGenerator(3,0,6,"hybrid",true),
-		incorrect_text: operationFeedbackGenerator(3,0,6,"hybrid",false)
+		correct_text: operationFeedbackGenerator(3,0,6,"hybrid",true,true),
+		incorrect_text: operationFeedbackGenerator(3,0,6,"hybrid",false,true)
 };
 
 var m_tr_op = {
@@ -391,8 +402,8 @@ var m_tr_op_7 = {
 var m_tr_op_7_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
-		correct_text: operationFeedbackGenerator(1,3,6,"hybrid",true), 
-		incorrect_text: operationFeedbackGenerator(1,3,6,"hybrid",false)
+		correct_text: operationFeedbackGenerator(1,3,6,"hybrid",true,true), 
+		incorrect_text: operationFeedbackGenerator(1,3,6,"hybrid",false,true)
 };
 
 var m_tr_op_8 = {
@@ -842,7 +853,7 @@ var m_tr_op_backup_chunk = {
 		type: "polygon-arrow-instructions",
 		nsides: 9,
 		timing_post_trial: 0,
-		text: "Now we are going to ask you some questions about a new operation, "+nonagon+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+hexagon+", except now you use the nonagon shown at the right. Equivalently, after adding the two numbers you subtract 9 if your result is 9 or greater.<br /><br />Do you see how the different ways of performing "+nonagon+" are the same, just like with "+hexagon+"? By labeling the points of the nonagon with the numbers from 0 to 8, we ensure that when we combine two numbers under "+nonagon+", we only produce numbers between 0 and 8. By subtracting 9 each time we get above 8, we make the arithmetic method match the way numbers work on the nonagon.<br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
+		text: "Now we are going to ask you some questions about a new operation, "+nonagon+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+hexagon+", except now you use the nonagon shown at the right. Equivalently, after adding the two numbers you subtract 9 if your result is 9 or greater.<br /><br />Do you see how the different ways of performing "+nonagon+" are the same, just like with "+hexagon+"? By labeling the points of the nonagon with the numbers from 0 to 8, we ensure that when we combine two numbers under "+nonagon+", we only produce numbers between 0 and 8. When we use the arithmetic strategy, adding the second number to the first mimics counting around the nonagon, and subtracting 9 each time we get above 8 makes sure the results correspond to the numbers on the points of the nonagon.<br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
   	};
 
 	var m_t9_op_practice = {
