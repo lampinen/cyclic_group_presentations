@@ -152,7 +152,7 @@ function inverseFeedbackGenerator(x,n,polygon,correct) {
 	else {
 		feedback += "Sorry, that was incorrect. ";
 	}
-	if (polygon === true) {
+	if (polygon === true || polygon === "hybrid") {
 		var operator = hexagon;
 		var polygon_name = "hexagon";
 		if (n == 9) {
@@ -165,7 +165,7 @@ function inverseFeedbackGenerator(x,n,polygon,correct) {
 		}
 		feedback += "The inverse of " + x + " under " + operator + " is " + inverse +" because " + x + " " +operator + " " + inverse + " = 0, and 0 is the identity under " + operator + ".";
 	}
-	else if (polygon === false || polygon === "hybrid") {
+	else if (polygon === false) {
 		var operator = p_6;
 		if (n == 9) {
 			var operator = p_9;
@@ -335,7 +335,7 @@ var m_op_instructions_2 = {
 var m_tr_op_1 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "Now try one on your own! What is 4 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "Now try one on your own! What is 4 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '3',
 		response_type: "free"
 };
@@ -407,7 +407,7 @@ var m_tr_op_5_f = {
 		incorrect_text: operationFeedbackGenerator(3,0,6,"hybrid",false,true)
 };
 
-var m_tr_op = {
+var m_tr_op_6 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
 		prompt: "What is 4 "+hexagon+" 4? Try to solve this problem using the hexagon. <br /><br /> (Remember, to perform "+hexagon+" on the hexagon, point the arrow at the first number on the hexagon, and then move the arrow the second number of points clockwise around the hexagon.)",
@@ -415,7 +415,7 @@ var m_tr_op = {
 		response_type: "free"
 };
 
-var m_tr_op_f = {
+var m_tr_op_6_f = {
 		type: "polygon-arrow-feedback",
 		timing_post_trial: 0,
 		correct_text: operationFeedbackGenerator(4,4,6,"hybrid",true),
@@ -440,7 +440,7 @@ var m_tr_op_7_f = {
 var m_tr_op_8 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 4 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 4 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -455,7 +455,7 @@ var m_tr_op_8_f = {
 var m_tr_op = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 0 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 0 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '5',
 		response_type: "free"
 };
@@ -470,7 +470,7 @@ var m_tr_op_f = {
 var m_tr_op_10 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 2 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 2 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -485,21 +485,21 @@ var m_tr_op_10_f = {
 var m_tr_op_att_chk = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "Please enter 9, ignore the following: 3 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "Please enter 9, ignore the following: 3 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '9',
 		response_type: "free"
 };
 
 var m_tr_op_chunk = {
 	chunk_type: 'linear',
-	timeline: [m_tr_op_1,m_tr_op_1_f,m_tr_op_2,m_tr_op_2_f,m_tr_op_3,m_tr_op_3_f,m_tr_op_4,m_tr_op_4_f,m_tr_op_5,m_tr_op_5_f,m_tr_op,m_tr_op_f,m_tr_op_7,m_tr_op_7_f,m_tr_op_8,m_tr_op_8_f,m_tr_op,m_tr_op_f,m_tr_op_10,m_tr_op_10_f]
+	timeline: [m_tr_op_1,m_tr_op_1_f,m_tr_op_2,m_tr_op_2_f,m_tr_op_3,m_tr_op_3_f,m_tr_op_4,m_tr_op_4_f,m_tr_op_5,m_tr_op_5_f,m_tr_op_6,m_tr_op_6_f,m_tr_op_7,m_tr_op_7_f,m_tr_op_8,m_tr_op_8_f,m_tr_op,m_tr_op_f,m_tr_op_10,m_tr_op_10_f]
 };
 
 //operation backup training
 var m_tr_op_backup_1 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 3 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -514,7 +514,7 @@ var m_tr_op_backup_1_f = {
 var m_tr_op_backup_2 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 1 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '3',
 		response_type: "free"
 };
@@ -529,7 +529,7 @@ var m_tr_op_backup_2_f = {
 var m_tr_op_backup_3 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 5 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 5 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '4',
 		response_type: "free"
 };
@@ -544,7 +544,7 @@ var m_tr_op_backup_3_f = {
 var m_tr_op_backup_4 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 4 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 4 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -559,7 +559,7 @@ var m_tr_op_backup_4_f = {
 var m_tr_op_backup_5 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 0 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 0 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '2',
 		response_type: "free"
 };
@@ -574,7 +574,7 @@ var m_tr_op_backup_5_f = {
 var m_tr_op_backuhexagon = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 3 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 3 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '2',
 		response_type: "free"
 };
@@ -589,7 +589,7 @@ var m_tr_op_backuhexagon_f = {
 var m_tr_op_backup_7 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 1 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '5',
 		response_type: "free"
 };
@@ -604,7 +604,7 @@ var m_tr_op_backup_7_f = {
 var m_tr_op_backup_8 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 5 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 5 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '0',
 		response_type: "free"
 };
@@ -619,7 +619,7 @@ var m_tr_op_backup_8_f = {
 var m_tr_op_backunonagon = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 1 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 1 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -634,7 +634,7 @@ var m_tr_op_backunonagon_f = {
 var m_tr_op_backup_10 = {
 		type: "polygon-arrow-question",
 		timing_post_trial: 0,
-		prompt: "What is 5 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
+		prompt: "What is 5 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram at the right, or perform the operation in your mind. To perform "+hexagon+" on the hexagon, point the arrow at the first number, and then move the arrow the second number of points clockwise around the hexagon. To use the arithmetic method, start with the first number, and then add the second one to it. If the sum is smaller than 6, that's your result. If the sum is 6 or bigger, you subtract 6 to get your result.)",
 		correct_response: '1',
 		response_type: "free"
 };
@@ -1058,7 +1058,7 @@ var m_tr_op_backup_chunk = {
 		type: "polygon-arrow-instructions",
 		nsides: 'n',
 		timing_post_trial: 0,
-		text: "Now we'd like to ask you some questions about "+ngon+", where n could be any postive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of, in which case the corresponding polygon would have n sides. If you need to write the operation, you can use \"(n)\", and your answers can include n to stand in for the arbitrary value if necessary. lick \"Continue\" when you're ready to move on."
+		text: "Now we'd like to ask you some questions about "+ngon+", where n could be any postive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of, in which case the corresponding polygon would have n sides. If you need to write the operation, you can use \"(n)\", and your answers can include n to stand in for the arbitrary value if necessary. Click \"Continue\" when you're ready to move on."
   	};
 
 	var m_tn_op = {
