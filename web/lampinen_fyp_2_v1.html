@@ -667,528 +667,528 @@ var final_page = {
 		text: "Now that we know 0 is the identity under "+hexagon+", we're going to make a new definition. We'll say that the <i>inverse</i> of a number is the element that you combine with it to produce the identity under our operation. For example, 5 "+hexagon+" 1 = 0, so we say 1 is the inverse of 5 under "+hexagon+", (remember 0 is the identity under "+hexagon+"). Similarly, 3 is its own inverse under "+hexagon+", because 3 "+hexagon+" 3 = 0." 
   	};
 
-	var p_tr_in_1 = {
-			type: "polygon-arrow-question",
+		var p_tr_in_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Now you try! What is the inverse of 4 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '2',
+				response_type: "free"
+		};
+
+		var p_tr_in_1_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(4,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(4,6,true,false)
+		};
+
+		var p_tr_in_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 1 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '5',
+				response_type: "free"
+		};
+
+		var p_tr_in_2_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(1,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(1,6,true,false)
+		};
+
+		var p_tr_in_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 3 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '3',
+				response_type: "free"
+		};
+
+		var p_tr_in_3_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(3,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(3,6,true,false)
+		};
+
+		var p_tr_in_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 2 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '4',
+				response_type: "free"
+		};
+
+		var p_tr_in_4_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(2,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(2,6,true,false)
+		};
+		
+		var p_tr_in_5 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 0 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '0',
+				response_type: "free"
+		};
+
+		var p_tr_in_5_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(0,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(0,6,true,false)
+		};
+
+		var p_tr_in_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_tr_in_1,p_tr_in_1_f,p_tr_in_2,p_tr_in_2_f,p_tr_in_3,p_tr_in_3_f,p_tr_in_4,p_tr_in_4_f,p_tr_in_5,p_tr_in_5_f]
+		};
+
+		var p_in_prompt = {
+				type: "polygon-arrow-question",
+				nsides: 6,
+				timing_post_trial: 0,
+				prompt: "Let's review: under "+hexagon+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Try playing with some of these pairs on the hexagon. Do you see a spatial relationship between an element and its inverse under "+hexagon+"?", 
+				correct_response: '',
+				response_type: "free"
+		};
+
+		//Generators
+		var p_scv_instructions = {
+			type: 'instructions',
 			timing_post_trial: 0,
 			nsides: 6,
-			prompt: "Now you try! What is the inverse of 4 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
-			correct_response: '2',
-			response_type: "free"
-	};
+			text: "It is also possible to successively apply "+hexagon+", and the operation can simply be performed starting with the left-most pair. For example, 2 "+hexagon+" 3 "+hexagon+" 4 = 5 "+hexagon+" 4 = 3." 
+		};
 
-	var p_tr_in_1_f = {
-			type: "polygon-arrow-feedback",
+		var p_ge_instructions = {
+			type: 'polygon-arrow-instructions',
 			timing_post_trial: 0,
 			nsides: 6,
-			correct_text: inverseFeedbackGenerator(4,6,true,true), 
-			incorrect_text: inverseFeedbackGenerator(4,6,true,false)
-	};
+			text: "We have one last definition to learn today. Let's start with an example. Under our operation "+hexagon+" we can make every other number using just 1: 2 = 1 "+hexagon+" 1, 3 = 1 "+hexagon+" 1 "+hexagon+" 1, 4 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, 5 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, and 0 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1. Because 1 can make every other element under "+hexagon+", we say that 1 is a <i>generator</i> under "+hexagon+". <br /><br /> However, 2 is not a generator under " + hexagon + ", because 4 = 2 "+hexagon+" 2, and 0 = 2 "+hexagon+" 2 "+hexagon+" 2, but there is no way to make 1, 3, or 5 using just 2."  
+		};
 
-	var p_tr_in_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "What is the inverse of 1 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
-			correct_response: '5',
-			response_type: "free"
-	};
+		var p_tr_ge_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Now you try! Is 3 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'No',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
 
-	var p_tr_in_2_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: inverseFeedbackGenerator(1,6,true,true), 
-			incorrect_text: inverseFeedbackGenerator(1,6,true,false)
-	};
+		var p_tr_ge_1_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3.",
+				incorrect_text: "Sorry, that's incorrect. 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3."
+		};
 
-	var p_tr_in_3 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "What is the inverse of 3 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
-			correct_response: '3',
-			response_type: "free"
-	};
+		var p_tr_ge_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Is 5 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'Yes',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
 
-	var p_tr_in_3_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: inverseFeedbackGenerator(3,6,true,true), 
-			incorrect_text: inverseFeedbackGenerator(3,6,true,false)
-	};
-
-	var p_tr_in_4 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "What is the inverse of 2 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
-			correct_response: '4',
-			response_type: "free"
-	};
-
-	var p_tr_in_4_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: inverseFeedbackGenerator(2,6,true,true), 
-			incorrect_text: inverseFeedbackGenerator(2,6,true,false)
-	};
-	
-	var p_tr_in_5 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "What is the inverse of 0 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
-			correct_response: '0',
-			response_type: "free"
-	};
-
-	var p_tr_in_5_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: inverseFeedbackGenerator(0,6,true,true), 
-			incorrect_text: inverseFeedbackGenerator(0,6,true,false)
-	};
-
-	var p_tr_in_chunk = {
-		chunk_type: 'linear',
-		timeline: [p_tr_in_1,p_tr_in_1_f,p_tr_in_2,p_tr_in_2_f,p_tr_in_3,p_tr_in_3_f,p_tr_in_4,p_tr_in_4_f,p_tr_in_5,p_tr_in_5_f]
-	};
-
-	var p_in_prompt = {
-			type: "polygon-arrow-question",
-			nsides: 6,
-			timing_post_trial: 0,
-			prompt: "Let's review: under "+hexagon+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Try playing with some of these pairs on the hexagon. Do you see a spatial relationship between an element and its inverse under "+hexagon+"?", 
-			correct_response: '',
-			response_type: "free"
-	};
-
-	//Generators
- 	var p_scv_instructions = {
-		type: 'instructions',
-		timing_post_trial: 0,
-		nsides: 6,
-		text: "It is also possible to successively apply "+hexagon+", and the operation can simply be performed starting with the left-most pair. For example, 2 "+hexagon+" 3 "+hexagon+" 4 = 5 "+hexagon+" 4 = 3." 
-  	};
-
- 	var p_ge_instructions = {
-		type: 'polygon-arrow-instructions',
-		timing_post_trial: 0,
-		nsides: 6,
-		text: "We have one last definition to learn today. Let's start with an example. Under our operation "+hexagon+" we can make every other number using just 1: 2 = 1 "+hexagon+" 1, 3 = 1 "+hexagon+" 1 "+hexagon+" 1, 4 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, 5 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, and 0 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1. Because 1 can make every other element under "+hexagon+", we say that 1 is a <i>generator</i> under "+hexagon+". <br /><br /> However, 2 is not a generator under " + hexagon + ", because 4 = 2 "+hexagon+" 2, and 0 = 2 "+hexagon+" 2 "+hexagon+" 2, but there is no way to make 1, 3, or 5 using just 2."  
-  	};
-
-	var p_tr_ge_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "Now you try! Is 3 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
-			correct_response: 'No',
-			response_type: "multi",
-			response_choices: ["Yes","No"]
-	};
-
-	var p_tr_ge_1_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: "Correct! 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3.",
-			incorrect_text: "Sorry, that's incorrect. 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3."
-	};
-
-	var p_tr_ge_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "Is 5 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
-			correct_response: 'Yes',
-			response_type: "multi",
-			response_choices: ["Yes","No"]
-	};
-
-	var p_tr_ge_2_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: "Correct! 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5", 
-			incorrect_text: "Sorry, that's incorrect. 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5"
-	};
+		var p_tr_ge_2_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5", 
+				incorrect_text: "Sorry, that's incorrect. 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5"
+		};
 
 
-	var p_tr_ge_3 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "Is 4 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
-			correct_response: 'No',
-			response_type: "multi",
-			response_choices: ["Yes","No"]
-	};
+		var p_tr_ge_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Is 4 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'No',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
 
-	var p_tr_ge_3_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: "Correct! 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4.",
-			incorrect_text: "Sorry, that's incorrect. 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4."
-	};
+		var p_tr_ge_3_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4.",
+				incorrect_text: "Sorry, that's incorrect. 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4."
+		};
 
-	var p_tr_ge_4 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 6,
-			prompt: "Is 0 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
-			correct_response: 'No',
-			response_type: "multi",
-			response_choices: ["Yes","No"]
-	};
+		var p_tr_ge_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Is 0 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'No',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
 
-	var p_tr_ge_4_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 6,
-			correct_text: "Correct! 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0.",
-			incorrect_text: "Sorry, that's incorrect. 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0."
-	};
+		var p_tr_ge_4_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0.",
+				incorrect_text: "Sorry, that's incorrect. 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0."
+		};
 
-	var p_tr_ge_chunk = {
-		chunk_type: 'linear',
-		timeline: [p_tr_ge_1,p_tr_ge_1_f,p_tr_ge_2,p_tr_ge_2_f,p_tr_ge_3,p_tr_ge_3_f,p_tr_ge_4,p_tr_ge_4_f]
-	};
+		var p_tr_ge_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_tr_ge_1,p_tr_ge_1_f,p_tr_ge_2,p_tr_ge_2_f,p_tr_ge_3,p_tr_ge_3_f,p_tr_ge_4,p_tr_ge_4_f]
+		};
 
-	var p_ge_prompt = {
-			type: "polygon-arrow-question",
-			nsides: 6,
-			timing_post_trial: 0,
-			prompt: "Let's review: under "+hexagon+", 1 and 5 are generators. However, 0, 2, 3 and 4 are not generators. Try playing with these non-generators on the hexagon and seeing which elements each of them does generate (i.e. which elements you can get by combining each non-generator with itself repeatedly). Do you see spatial relationships among particular subsets of the elements that are not generators under "+hexagon+"?", 
-			correct_response: '',
-			response_type: "free"
-	};
+		var p_ge_prompt = {
+				type: "polygon-arrow-question",
+				nsides: 6,
+				timing_post_trial: 0,
+				prompt: "Let's review: under "+hexagon+", 1 and 5 are generators. However, 0, 2, 3 and 4 are not generators. Try playing with these non-generators on the hexagon and seeing which elements each of them does generate (i.e. which elements you can get by combining each non-generator with itself repeatedly). Do you see spatial relationships among particular subsets of the elements that are not generators under "+hexagon+"?", 
+				correct_response: '',
+				response_type: "free"
+		};
 
-	//nonagon testing
- 	var p_t9_instructions = {
-		type: 'polygon-arrow-instructions',
-		timing_post_trial: 0,
-		nsides: 9,
-		text: "Now we are going to ask you some questions about a new operation, "+nonagon+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+hexagon+", except now you use the nonagon shown at the right. <br /><br />Do you see how "+nonagon+" works just like "+hexagon+"? By labeling the points of the nonagon with the numbers from 0 to 8, we ensure that when we combine two numbers under "+nonagon+", we only produce numbers between 0 and 8. <br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
-  	};
-
-	var p_t9_op_practice = {
-			type: "polygon-arrow-question",
+		//nonagon testing
+		var p_t9_instructions = {
+			type: 'polygon-arrow-instructions',
 			timing_post_trial: 0,
 			nsides: 9,
-			prompt: "Practice: What is 5 "+nonagon+" 5?",
-			correct_response: '1',
-			response_type: "free"
-	};
+			text: "Now we are going to ask you some questions about a new operation, "+nonagon+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+hexagon+", except now you use the nonagon shown at the right. <br /><br />Do you see how "+nonagon+" works just like "+hexagon+"? By labeling the points of the nonagon with the numbers from 0 to 8, we ensure that when we combine two numbers under "+nonagon+", we only produce numbers between 0 and 8. <br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
+		};
 
-	var p_t9_op_practice_f = {
-			type: "polygon-arrow-feedback",
-			timing_post_trial: 0,
-			nsides: 9,
-			correct_text: operationFeedbackGenerator(5,5,9,true,true), 
-			incorrect_text: operationFeedbackGenerator(5,5,9,true,false)
-	};
+		var p_t9_op_practice = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Practice: What is 5 "+nonagon+" 5?",
+				correct_response: '1',
+				response_type: "free"
+		};
 
-	var p_t9_op_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 3 "+nonagon+" 3?",
-			correct_response: '6',
-			response_type: "free"
-	};
+		var p_t9_op_practice_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 9,
+				correct_text: operationFeedbackGenerator(5,5,9,true,true), 
+				incorrect_text: operationFeedbackGenerator(5,5,9,true,false)
+		};
 
-	var p_t9_op_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 7 "+nonagon+" 4?",
-			correct_response: '2',
-			response_type: "free"
-	};
-	
-	var p_t9_op_3 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 1 "+nonagon+" 8?",
-			correct_response: '0',
-			response_type: "free"
-	};
+		var p_t9_op_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 3 "+nonagon+" 3?",
+				correct_response: '6',
+				response_type: "free"
+		};
 
-	var p_t9_op_4 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 5 "+nonagon+" 4?",
-			correct_response: '0',
-			response_type: "free"
-	};
+		var p_t9_op_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 7 "+nonagon+" 4?",
+				correct_response: '2',
+				response_type: "free"
+		};
+		
+		var p_t9_op_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 1 "+nonagon+" 8?",
+				correct_response: '0',
+				response_type: "free"
+		};
 
-	var p_t9_op_5 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 6 "+nonagon+" 6?",
-			correct_response: '3',
-			response_type: "free"
-	};
+		var p_t9_op_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 5 "+nonagon+" 4?",
+				correct_response: '0',
+				response_type: "free"
+		};
 
-	var p_t9_ope_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 4 "+nonagon+" 1? Please explain in words how you got your answer.",
-			correct_response: '',
-			response_type: "free"
-	};
+		var p_t9_op_5 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 6 "+nonagon+" 6?",
+				correct_response: '3',
+				response_type: "free"
+		};
 
-	var p_t9_ope_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is 8 "+nonagon+" 4? Please explain in words how you got your answer.",
-			correct_response: '',
-			response_type: "free"
-	};
+		var p_t9_ope_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 4 "+nonagon+" 1? Please explain in words how you got your answer.",
+				correct_response: '',
+				response_type: "free"
+		};
 
-	var p_t9_ide_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is the identity under "+nonagon+"? Please explain in words how you got your answer.",
-			correct_response: '0',
-			response_type: "free"
-	};
+		var p_t9_ope_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 8 "+nonagon+" 4? Please explain in words how you got your answer.",
+				correct_response: '',
+				response_type: "free"
+		};
 
-	var p_t9_in_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is the inverse of 5 under "+nonagon+"?",
-			correct_response: '4',
-			response_type: "free"
-	};
+		var p_t9_ide_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the identity under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: '0',
+				response_type: "free"
+		};
 
-	var p_t9_in_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is the inverse of 2 under "+nonagon+"?",
-			correct_response: '7',
-			response_type: "free"
-	};
+		var p_t9_in_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 5 under "+nonagon+"?",
+				correct_response: '4',
+				response_type: "free"
+		};
 
-	var p_t9_in_3 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is the inverse of 0 under "+nonagon+"?",
-			correct_response: '0',
-			response_type: "free"
-	};
+		var p_t9_in_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 2 under "+nonagon+"?",
+				correct_response: '7',
+				response_type: "free"
+		};
 
-	var p_t9_ine_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "What is the inverse of 3 under "+nonagon+"? Please explain in words how you got your answer.",
-			correct_response: '',
-			response_type: "free"
-	};
+		var p_t9_in_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 0 under "+nonagon+"?",
+				correct_response: '0',
+				response_type: "free"
+		};
 
-	var p_t9_gee_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "Is 2 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
-	};
+		var p_t9_ine_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 3 under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: '',
+				response_type: "free"
+		};
 
-	var p_t9_gee_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "Is 3 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
-	};
+		var p_t9_gee_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 2 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
 
-	var p_t9_gee_3 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "Is 5 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
-	};
+		var p_t9_gee_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 3 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
 
-	var p_t9_gee_4 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 9,
-			prompt: "Is 6 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
-	};
+		var p_t9_gee_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 5 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
 
-	var p_t9_chunk = {
-		chunk_type: 'linear',
-		timeline: [p_t9_op_practice,p_t9_op_practice_f,p_t9_op_1,p_t9_op_2,p_t9_op_3,p_t9_op_4,p_t9_op_5,p_t9_ope_1,p_t9_ope_2,p_t9_ide_1,p_t9_in_1,p_t9_in_2,p_t9_in_3,p_t9_ine_1,p_t9_gee_1,p_t9_gee_2,p_t9_gee_3,p_t9_gee_4]
-	};
+		var p_t9_gee_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 6 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
 
-	//ngon testing
- 	var p_tn_instructions = {
-		type: 'polygon-arrow-instructions',
-		timing_post_trial: 0,
-		nsides: 'n',
-		text: "Now we'd like to ask you some questions about "+ngon+", where n could be any positive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of. If you need to write the operation, you can use \"(n)\", and your answers can include n to stand in for the arbitrary value if necessary. (You can use the polygon at the right to think, but it doesn't necessarily correspond to the real polygon, which is why we've left most of it dashed.)" 
-  	};
+		var p_t9_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_t9_op_practice,p_t9_op_practice_f,p_t9_op_1,p_t9_op_2,p_t9_op_3,p_t9_op_4,p_t9_op_5,p_t9_ope_1,p_t9_ope_2,p_t9_ide_1,p_t9_in_1,p_t9_in_2,p_t9_in_3,p_t9_ine_1,p_t9_gee_1,p_t9_gee_2,p_t9_gee_3,p_t9_gee_4]
+		};
 
-	var p_tn_op = {
-			type: "polygon-arrow-question",
+		//ngon testing
+		var p_tn_instructions = {
+			type: 'polygon-arrow-instructions',
 			timing_post_trial: 0,
 			nsides: 'n',
-			prompt: "What is 5 "+ngon+" 4?",
-			correct_response: "Impossible to determine without knowing n.",
-			response_type: "multi",
-			response_choices: ["0","3","9","Impossible to determine without knowing n."]
-	};
+			text: "Now we'd like to ask you some questions about "+ngon+", where n could be any positive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of. If you need to write the operation, you can use \"(n)\", and your answers can include n to stand in for the arbitrary value if necessary. (You can use the polygon at the right to think, but it doesn't necessarily correspond to the real polygon, which is why we've left most of it dashed.)" 
+		};
 
-	var p_tn_in = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 'n',
-			prompt: "What is the formula for the inverse of 1 under "+ngon+"?",
-			correct_response: "n-1",
-			response_type: "free"
-	};
+		var p_tn_op = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "What is 5 "+ngon+" 4?",
+				correct_response: "Impossible to determine without knowing n.",
+				response_type: "multi",
+				response_choices: ["0","3","9","Impossible to determine without knowing n."]
+		};
 
-	var p_tn_ine = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 'n',
-			prompt: "What is the formula for the inverse of an element x under "+ngon+"? Please explain in words why your answer is correct.",
-			correct_response: "n-x",
-			response_type: "free"
-	};
+		var p_tn_in = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "What is the formula for the inverse of 1 under "+ngon+"?",
+				correct_response: "n-1",
+				response_type: "free"
+		};
 
-	var p_tn_gee_1 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 'n',
-			prompt: "How can you test if an element x is a generator under "+ngon+"?.",
-			correct_response: "",
-			response_type: "free"
-	};
+		var p_tn_ine = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "What is the formula for the inverse of an element x under "+ngon+"? Please explain in words why your answer is correct.",
+				correct_response: "n-x",
+				response_type: "free"
+		};
 
-	var p_tn_gee_2 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 'n',
-			prompt: "Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
-			correct_response: "",
-			response_type: "free"
-	};
+		var p_tn_gee_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "How can you test if an element x is a generator under "+ngon+"?.",
+				correct_response: "",
+				response_type: "free"
+		};
 
-/*
-	var p_tn_gee_3 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 'n',
-			prompt: "We'd like you to answer the previous question again in multiple choice format. Pick the choice that seems most correct to you, even if it doesn't match your previous answer. Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
-			correct_response: "If x is not a multiple of a divisor of n, it is a generator.",
-			response_type: "multi",
-			response_choices: ["If x is an odd number, it is a generator.","If x does not divide n, it is a generator.", "If x is an even number, it is a generator.", "If x is not a multiple of a divisor of n, it is a generator.","There is no way to know without seeing whether x can make all the elements."]
-	};
-*/
+		var p_tn_gee_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
+				correct_response: "",
+				response_type: "free"
+		};
 
-	var p_tn_gee_3_1 = {
-			type: "polygon-arrow-question",
-			nsides: 'n',
-			timing_post_trial: 0,
-			prompt: "True or false: If x is an odd number, it must be a generator under "+ngon+".",
-			correct_response: "False",
-			response_type: "multi",
-			response_choices: ["True","False"]
-	};
+	/*
+		var p_tn_gee_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "We'd like you to answer the previous question again in multiple choice format. Pick the choice that seems most correct to you, even if it doesn't match your previous answer. Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
+				correct_response: "If x is not a multiple of a divisor of n, it is a generator.",
+				response_type: "multi",
+				response_choices: ["If x is an odd number, it is a generator.","If x does not divide n, it is a generator.", "If x is an even number, it is a generator.", "If x is not a multiple of a divisor of n, it is a generator.","There is no way to know without seeing whether x can make all the elements."]
+		};
+	*/
 
-	var p_tn_gee_3_2 = {
-			type: "polygon-arrow-question",
-			nsides: 'n',
-			timing_post_trial: 0,
-			prompt: "True or false: If x is an even number, it must not be a generator under "+ngon+".",
-			correct_response: "False",
-			response_type: "multi",
-			response_choices: ["True","False"]
-	};
+		var p_tn_gee_3_1 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is an odd number, it must be a generator under "+ngon+".",
+				correct_response: "False",
+				response_type: "multi",
+				response_choices: ["True","False"]
+		};
 
-	var p_tn_gee_3_3 = {
-			type: "polygon-arrow-question",
-			nsides: 'n',
-			timing_post_trial: 0,
-			prompt: "True or false: If x is not a generator under "+ngon+", x must be a divisor of n, that is, x must divide n evenly, with no remainder.", 
-			correct_response: "False",
-			response_type: "multi",
-			response_choices: ["True","False"]
-	};
+		var p_tn_gee_3_2 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is an even number, it must not be a generator under "+ngon+".",
+				correct_response: "False",
+				response_type: "multi",
+				response_choices: ["True","False"]
+		};
 
-	var p_tn_gee_3_4 = {
-			type: "polygon-arrow-question",
-			nsides: 'n',
-			timing_post_trial: 0,
-			prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
-			correct_response: "True",
-			response_type: "free"
-	};
+		var p_tn_gee_3_3 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is not a generator under "+ngon+", x must be a divisor of n, that is, x must divide n evenly, with no remainder.", 
+				correct_response: "False",
+				response_type: "multi",
+				response_choices: ["True","False"]
+		};
+
+		var p_tn_gee_3_4 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
+				correct_response: "True",
+				response_type: "free"
+		};
 
 
-	var p_tn_gee_4 = {
-			type: "polygon-arrow-question",
-			timing_post_trial: 0,
-			nsides: 'n',
-			prompt: "If an element x is a generator under "+ngon+", is its inverse a generator under "+ngon+" always, sometimes, or never?",
-			correct_response: "Always",
-			response_type: "multi",
-			response_choices: ["Always","Sometimes","Never"]
-	};
+		var p_tn_gee_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "If an element x is a generator under "+ngon+", is its inverse a generator under "+ngon+" always, sometimes, or never?",
+				correct_response: "Always",
+				response_type: "multi",
+				response_choices: ["Always","Sometimes","Never"]
+		};
 
-	var p_tn_gee_5 = {
-			type: "polygon-arrow-question",
-			nsides: 'n',
-			timing_post_trial: 0,
-			prompt: "If an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words why your answer is correct.",
-			correct_response: "Sometimes",
-			response_type: "free"
-	};
+		var p_tn_gee_5 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "If an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words why your answer is correct.",
+				correct_response: "Sometimes",
+				response_type: "free"
+		};
 
-	var p_tn_gee_6 = {
-			type: "polygon-arrow-question",
-			nsides: 'n',
-			timing_post_trial: 0,
-			prompt: "If an element x is not a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never?",
-			correct_response: "Never",
-			response_type: "multi",
-			response_choices: ["Always","Sometimes","Never"]
-	};
+		var p_tn_gee_6 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "If an element x is not a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never?",
+				correct_response: "Never",
+				response_type: "multi",
+				response_choices: ["Always","Sometimes","Never"]
+		};
 
-	var p_tn_chunk = {
-		chunk_type: 'linear',
-		timeline: [p_tn_in,p_tn_ine,p_tn_gee_2,p_tn_gee_3_1,p_tn_gee_3_2,p_tn_gee_3_3,p_tn_gee_3_4,p_tn_gee_4,p_tn_gee_6,p_tn_gee_5] //Removed p_tn_op, p_tn_gee_1
-	};
+		var p_tn_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_tn_in,p_tn_ine,p_tn_gee_2,p_tn_gee_3_1,p_tn_gee_3_2,p_tn_gee_3_3,p_tn_gee_3_4,p_tn_gee_4,p_tn_gee_5,p_tn_gee_6] //Removed p_tn_op, p_tn_gee_1
+		};
 
-//Initialize//////////////////////////////////////////////////////////////////////////////////
-        experiment_structure = [initial_page,p_op_instructions,p_op_instructions_2,p_tr_op_chunk,p_tr_op_backup_chunk,p_id_instructions,p_in_instructions,p_tr_in_chunk,p_scv_instructions,p_ge_instructions,p_tr_ge_chunk,p_t9_instructions,p_t9_chunk,p_tn_instructions,p_tn_chunk,bg_chunk,final_page];
+	//Initialize//////////////////////////////////////////////////////////////////////////////////
+		experiment_structure = [initial_page,p_op_instructions,p_op_instructions_2,p_tr_op_chunk,p_tr_op_backup_chunk,p_id_instructions,p_in_instructions,p_tr_in_chunk,p_scv_instructions,p_ge_instructions,p_tr_ge_chunk,p_t9_instructions,p_t9_chunk,p_tn_instructions,p_tn_chunk,bg_chunk,final_page];
 
-	jsPsych.init({
-		display_element: $('#jspsych-target'),
-		experiment_structure: experiment_structure 
-	});
-	}
-</script>
+		jsPsych.init({
+			display_element: $('#jspsych-target'),
+			experiment_structure: experiment_structure 
+		});
+		}
+	</script>
 </html>
