@@ -83,31 +83,28 @@ Write data for scoring
 ----------------------------
 
 ```{r}
-#DONE --exact answers, explanations not yet scored
-#n=9 operation questions
+#complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score) 
+
+##n=9 operation questions
 #write.table(complete_data[(grepl("Whatis8",gsub(" ","",complete_data$question)) | grepl("Whatis4",gsub(" ","",complete_data$question)))& grepl("explaininwords",gsub(" ","",complete_data$question)) ,c(1,3,4,5,7)],"N9_operation_to_score.csv",sep=",")
 
-#DONE --exact answers, explanations not yet scored
-#n=9 generator questions
-# write.table(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,3,4,5,7)],"N9_generator_to_score.csv",sep=",")
+##n=9 generator questions
+#write.table(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,3,4,5,7)],"N9_generator_to_score.csv",sep=",")
 
-#DONE --exact answers, explanations not yet scored
-#n=9 inverse with explanations
+##n=9 inverse with explanations
 #write.table(complete_data[grepl("inverseof3",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,4,5,7)],"N9_inverse_to_score.csv",sep=",")
 
-#DONE --exact answers, explanations not yet scored
-#generator T/F and A/S/N with explanations
+##generator T/F and A/S/N with explanations
 #write.table(complete_data[grepl("explaininwords",gsub(" ","",complete_data$question)) & (grepl("Trueorfalse",gsub(" ","",complete_data$question)) | grepl("always,sometimes,ornever",gsub(" ","",complete_data$question))),c(1,4,5,7)],"TF_ASN_explained_to_score.csv",sep=",")
 
-#DONE -- exact answers, explanations not yet scored
-#n-1,n-x
+##n-1,n-x
 #write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,7)],"inverse_formula_to_score.csv",sep=",")
 ```
 
 data frame building
 ------------------------
 ```{r}
-complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score) 
+complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score)  
 
 #Insert scored data
 inverse_formula_scores = read.csv(paste(data_location,"inverse_formula_scored.csv",sep=""))
@@ -130,8 +127,21 @@ complete_data[N9_inverse_scores$row.names,]$score = N9_inverse_scores$score
 complete_data[N9_inverse_scores$row.names,]$correct_response = 6 #omitted because of answer explanation
 
 #Strict scoring -- Some questions have "partial credit" of 0.5 for almost correct answers
-complete_data = complete_data %>% mutate(score_strict = floor(score)) %>% 
-  mutate(polygon=grepl("polygon",condition),prompt=grepl("prompt",condition)) #Factors of condition
+complete_data = complete_data %>% mutate(score_strict = floor(score)) 
+
+
+```
+
+
+Subject exclusion
+----------------------
+Exclude subjects who responded 4 or higher on familiarity with modular arithmetic or mathematical groups: they know too much
+
+```{r}
+complete_unfiltered_data = complete_data
+subjects_to_exclude = unique(complete_data[grepl("Howfamiliarareyou",gsub(" ","",complete_data$question)) & (grepl("4",complete_data$response) | grepl("5",complete_data$response)),]$subject)
+
+complete_data = complete_unfiltered_data %>% filter(!(subject %in% subjects_to_exclude))
 
 
 ```
@@ -139,23 +149,27 @@ complete_data = complete_data %>% mutate(score_strict = floor(score)) %>%
 
 Statistics
 ---------------------
+
+Change dummy coding to compare hybrid and polygon to modular.
+```{r}
+contrasts(complete_data$condition) = cbind(c(0,0,1),c(1,0,0))
+colnames(contrasts(complete_data$condition)) = c('polygon','hybrid')
+contrasts(complete_data$condition) 
+```
+
+
+
 ##Operation
 train
 ```{r}
-mod = lmer(score_strict ~ polygon  + (1|subject), data=complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),]) #Collapsing across prompt/non-prompt conditions because they are equivalent up to this point
-summary(mod)
-
-gmod = glmer(score_strict ~ polygon  + (1|subject), family="binomial", data=complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),]) #Collapsing across prompt/non-prompt conditions because they are equivalent up to this point
+gmod = glmer(score_strict ~ condition  + (1|subject), family="binomial", data=complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),])
 summary(gmod)
 
 ```
 
 test
 ```{r}
-mod = lmer(score_strict ~ polygon  + (1|subject), data=complete_data[!(grepl("identity",gsub(" ","",complete_data$question)) | grepl("inverse",gsub(" ","",complete_data$question)) | grepl("generator",gsub(" ","",complete_data$question))) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]) #Collapsing across prompt/non-prompt conditions because they are equivalent up to this point
-summary(mod)
-
-gmod = glmer(score_strict ~ polygon  + (1|subject), family="binomial", data=complete_data[!(grepl("identity",gsub(" ","",complete_data$question)) | grepl("inverse",gsub(" ","",complete_data$question)) | grepl("generator",gsub(" ","",complete_data$question))) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]) #Collapsing across prompt/non-prompt conditions because they are equivalent up to this point
+gmod = glmer(score_strict ~ condition  + (1|subject), family="binomial", data=complete_data[!(grepl("identity",gsub(" ","",complete_data$question)) | grepl("inverse",gsub(" ","",complete_data$question)) | grepl("generator",gsub(" ","",complete_data$question))) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]) 
 summary(gmod)
 ```
 
@@ -166,42 +180,33 @@ Inverse train score model:
 ```{r}
 
 
-aggregated_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(correct_response=gsub(" ","",correct_response)) %>% select(score_strict,condition,polygon,prompt,correct_response,subject) %>% spread(correct_response,score_strict) %>% mutate(score = `0`+`2`+`3`+`4`+`5`)
-  
-ggplot(aggregated_data,aes(condition,score,fill=condition)) +
-    geom_boxplot() +
-    theme_bw() +
-    labs(x="Condition",y="Inverse Train Accuracy")
+# aggregated_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(correct_response=gsub(" ","",correct_response)) %>% select(score_strict,condition,correct_response,subject) %>% spread(correct_response,score_strict) %>% mutate(score = `0`+`2`+`3`+`4`+`5`)
+#   
+# ggplot(aggregated_data,aes(condition,score,fill=condition)) +
+#     geom_boxplot() +
+#     theme_bw() +
+#     labs(x="Condition",y="Inverse Train Accuracy")
 
-mod = lmer(score_strict ~ polygon  + (1|subject), data=complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]) #Collapsing across prompt/non-prompt conditions because they are equivalent up to this point
-summary(mod)
+changed_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(is_0 = grepl('0',correct_response))
 
-mod = glmer(score_strict ~ polygon  + (1|subject), family="binomial", data=complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]) #Collapsing across prompt/non-prompt conditions because they are equivalent up to this point
-summary(mod)
+mod = glmer(score_strict ~ condition + (1|subject), family="binomial", data=complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]) #fitting failed
+
+mod1 = glmer(score_strict ~ condition *is_0 +  (1|subject), family="binomial", data=changed_data) 
+summary(mod1)
 
 ```
 
 Is this effect driven by performance on the "inverse of 0" question? 
 ```{r}
-ggplot(aggregated_data,aes(condition,`0`,fill=condition)) +
-    geom_boxplot() +
-    theme_bw() +
-    labs(x="Condition",y="Inverse of 0 Train Accuracy")
+# ggplot(aggregated_data,aes(condition,`0`,fill=condition)) +
+#     geom_boxplot() +
+#     theme_bw() +
+#     labs(x="Condition",y="Inverse of 0 Train Accuracy")
 
-mod0 = lm(score_strict ~ polygon, data=complete_data[grepl("Whatistheinverseof0",gsub(" ","",complete_data$question)),]) #Test only the results on the inverse of 0 question
+mod0 = glm(score_strict ~ condition, family='binomial', data=complete_data[grepl("Whatistheinverseof0",gsub(" ","",complete_data$question)),]) #Test only the results on the inverse of 0 question
 summary(mod0)
 
-aggregated_data = aggregated_data %>% mutate(score_non_zero = score - `0`)
-
-ggplot(aggregated_data,aes(condition,score_non_zero,fill=condition)) +
-    geom_boxplot() +
-    theme_bw() +
-    labs(x="Condition",y="Inverse of Non-zero Elements Train Accuracy")
-
-
-modnz = lmer(score_strict ~ polygon  + (1|subject), data=complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & !grepl("Whatistheinverseof0",gsub(" ","",complete_data$question)) ,]) #Test results on the non-zero questions
-summary(modnz)
-gmodnz = glmer(score_strict ~ polygon  + (1|subject), family="binomial", data=complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & !grepl("Whatistheinverseof0",gsub(" ","",complete_data$question)) ,]) #Test results on the non-zero questions
+gmodnz = glmer(score_strict ~ condition  + (1|subject), family="binomial", data=complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & !grepl("Whatistheinverseof0",gsub(" ","",complete_data$question)) ,]) #Test results on the non-zero questions
 summary(gmodnz)
 ```
 
@@ -211,33 +216,31 @@ Inverse test score model:
 ```{r}
 
 
-aggregated_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(correct_response=gsub(" ","",correct_response)) %>% select(score_strict,condition,polygon,prompt,correct_response,subject) %>% spread(correct_response,score_strict) %>% mutate(score = `4`+`7`)
-  
-ggplot(aggregated_data,aes(condition,score,fill=condition)) +
-    geom_boxplot() +
-    theme_bw() +
-    labs(x="Condition",y="Inverse Test Accuracy")
-
-mod = lmer(score_strict ~ polygon*prompt  + (1|subject), data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
-summary(mod)
-
-mod0 = lmer(score_strict ~ polygon  + (1|subject), data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
-summary(mod0)
-
-anova(mod0,mod)
+# aggregated_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(correct_response=gsub(" ","",correct_response)) %>% select(score_strict,condition,correct_response,subject) %>% spread(correct_response,score_strict) %>% mutate(score = `4`+`7`+`0`)
+#   
+# ggplot(aggregated_data,aes(condition,score,fill=condition)) +
+#     geom_boxplot() +
+#     theme_bw() +
+#     labs(x="Condition",y="Inverse Test Accuracy")
 
 
-gmod = glmer(score_strict ~ polygon*prompt  + (1|subject), family="binomial", data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
+
+
+gmod = glmer(score_strict ~ condition + (1|subject),family="binomial", data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
 summary(gmod)
 
-gmod0 = glmer(score_strict ~ polygon  + (1|subject),family="binomial", data=complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) ,])
-summary(gmod0)
 
-anova(gmod0,gmod)
+#Testing if inverse of 0 still causes problems, or if they learned from their errors
+mod0 = glm(score_strict ~ condition, family='binomial', data=complete_data[grepl("Whatistheinverseof0",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]) #Test only the results on the inverse of 0 question
+summary(mod0)
 
+#
+changed_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)), ] %>% mutate(is_0 = grepl('0',correct_response))
+gmodint = glmer(score_strict ~ condition*is_0 + (1|subject),family="binomial", data=changed_data)
+summary(gmodint)
 ```
 
-The difference went in the opposite direction in the test case, where we unfortunately did not ask about the inverse of 0 when n=9.
+
   
 Inverse of 1, inverse of x questions
 ```{r}
@@ -246,25 +249,10 @@ ggplot(complete_data[inverse_formula_scores$row.names,],aes(condition,score_stri
     theme_bw() +
     labs(x="Condition",y="Accuracy")
 
-# aggregated_data = complete_data[inverse_formula_scores$row.names,] %>% mutate(x_question = ifelse(grepl("x",correct_response),"x","one")) %>% select(score_strict,polygon,prompt,x_question,subject) %>% spread(x_question,score_strict) %>% mutate(score_strict = (one + x)/2)
-#mod = lm(score_strict ~ polygon * prompt, data=aggregated_data)
-#summary(mod)
 
-#Model -- Just a nicer way of  doing the above model
-mod_strict = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[inverse_formula_scores$row.names,])
-summary(mod_strict)
-mod_strict0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[inverse_formula_scores$row.names,])
-summary(mod_strict0.5)
-mod_strict0 = lmer(score_strict ~ polygon +(1|subject), data=complete_data[inverse_formula_scores$row.names,])
-summary(mod_strict0)
-anova(mod_strict0,mod_strict0.5,mod_strict)
-anova(mod_strict0,mod_strict)
 
-gmod_strict = glmer(score_strict ~ polygon * prompt + (1|subject), family="binomial",data=complete_data[inverse_formula_scores$row.names,])
+gmod_strict = glmer(score_strict ~ condition+ (1|subject), family="binomial",data=complete_data[inverse_formula_scores$row.names,])
 summary(gmod_strict)
-gmod_strict0 = glmer(score_strict ~ polygon +(1|subject),family="binomial", data=complete_data[inverse_formula_scores$row.names,])
-summary(gmod_strict0)
-anova(gmod_strict0,gmod_strict)
 ```
 
 Does it make a difference using the non-strict score? (Including half credit for answers that made small errors like flipping a sign, "x-n" instead of "n-x", etc.)
@@ -274,8 +262,8 @@ ggplot(complete_data[inverse_formula_scores$row.names,],aes(condition,score,fill
     theme_bw() +
     labs(x="Condition",y="Score w/ Partial Credit")
 
-mod_partial_credit = lmer(score ~ polygon * prompt + (1|subject), data=complete_data[inverse_formula_scores$row.names,])
-summary(mod_partial_credit)
+gmod_partial_credit = glmer(score ~ condition+ (1|subject), family="binomial",data=complete_data[inverse_formula_scores$row.names,])
+summary(gmod_partial_credit)
 ```
 
 ##Generators
@@ -287,22 +275,11 @@ ggplot(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question))
     theme_bw() +
     labs(x="Condition",y="Generator Training Accuracy")
 
-mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
-summary(mod)
-mod0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
-summary(mod0.5)
-mod0 = lmer(score_strict ~ polygon + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
-summary(mod0)
-anova(mod0,mod0.5,mod)
-
-temp_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]
+temp_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),]
 temp_data = temp_data %>% mutate(generator = (gsub(" ","",correct_response)) == "Yes")
 
-mod0a = glmer(score_strict ~ polygon +  (1|subject),family="binomial", data=temp_data)
-mod0.5a = glmer(score_strict ~ polygon + generator + (1|subject),family="binomial", data=temp_data)
-summary(mod0a)
-anova(mod0a,mod0.5a)
-summary(mod0.5a)
+mod = glmer(score_strict ~ condition + generator + (1|subject),family="binomial", data=temp_data)
+summary(mod)
 ```
 
 
@@ -313,42 +290,24 @@ ggplot(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question))
     theme_bw() +
     labs(x="Condition",y="Generators order 9 Test Accuracy")
 
-mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
+mod = lmer(score_strict ~ condition + (1|subject), data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),])
 summary(mod)
 ```
 
-More info: including the number as possible effect, exploring different models with and without prompt and prompt x polygon interaction
 ```{r}
 temp_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]
 temp_data = temp_data %>% mutate(number=ifelse(grepl("2",temp_data$question),2,ifelse(grepl("3",temp_data$question),3,ifelse(grepl("5",temp_data$question),5,6)))) 
 temp_data$number = factor(temp_data$number)
 temp_data$subject = factor(temp_data$subject)
-
-
-#Does the interactive model fit the data better than an additive model, or one with just the main effect of polygon group, and no prompt effect?
-mod0 = glmer(score_strict ~ polygon + number+ (1|subject), data=temp_data,family=binomial)
-mod1 = glmer(score_strict ~ polygon + prompt + number + (1|subject), data=temp_data,family=binomial)
-mod2 = glmer(score_strict ~ polygon * prompt + number + (1|subject), data=temp_data,family=binomial)
-anova(mod0,mod1,mod2)
-#Could there be an interaction of number and group?
-mod0.5 = glmer(score_strict ~ polygon * number+ (1|subject), data=temp_data,family=binomial)
-anova(mod0,mod0.5)
-
-summary(mod0)
-
-#Would it be better to treat number as a random effect?
-mod0a = glmer(score_strict ~ polygon + (1|number)+ (1|subject), data=temp_data,family=binomial)
-AIC(mod0a,mod0) #No
-
-#Is it just whether the number generates rather than which number it is?
 temp_data = temp_data %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))
-mod0b = glmer(score_strict ~ polygon + generator+(1|subject), data=temp_data,family=binomial)
-AIC(mod0b,mod0) #Yes, why didn't I try that first
+mod = glmer(score_strict ~ condition+ generator+(1|subject), data=temp_data,family=binomial)
+summary(mod)
 
-summary(mod0b)
+#EXPLORATORY ANALYSIS
+mod1 = glmer(score_strict ~ condition *generator+(1|subject), data=temp_data,family=binomial)
+summary(mod1)
 
-mod0c = glmer(score_strict ~ polygon *generator+(1|subject), data=temp_data,family=binomial)
-summary(mod0c)
+anova(mod,mod1)
 ```
 
 It appears that there is a significant positive effect of polygon condition on ability to correctly test whether something is a generator, and a highly significant negative effect of the element actually being a generator. Subjects show a strong bias toward saying that an element is not a generator when it is.
@@ -360,18 +319,9 @@ ggplot(complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),],
     theme_bw() +
     labs(x="Condition",y="Generators order n T/F Accuracy")
 
-mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-mod0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-mod0 = lmer(score_strict ~ polygon + (1|subject), data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-anova(mod0,mod0.5,mod)
-summary(mod0)
 
-
-gmod = glmer(score_strict ~ polygon * prompt + (1|subject),family="binomial", data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-gmod0.5 = glmer(score_strict ~ polygon + prompt + (1|subject),family="binomial", data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-gmod0 = glmer(score_strict ~ polygon + (1|subject),family="binomial", data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
-anova(gmod0,gmod0.5,gmod)
-summary(gmod0)
+gmod = glmer(score_strict ~ condition + (1|subject),family="binomial", data=complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),])
+summary(gmod)
 ```
 
 The polygon group was significantly worse at the order n T/F questions.
@@ -383,19 +333,9 @@ ggplot(complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$
     theme_bw() +
     labs(x="Condition",y="Generators order n A/S/N Accuracy")
 
-mod = lmer(score_strict ~ polygon * prompt + (1|subject), data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
-summary(mod)
-mod0.5 = lmer(score_strict ~ polygon + prompt + (1|subject), data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
-summary(mod0.5)
-mod0 = lmer(score_strict ~ polygon + (1|subject), data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
-summary(mod0)
 
-gmod = glmer(score_strict ~ polygon * prompt + (1|subject),family="binomial", data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
+gmod = glmer(score_strict ~ condition + (1|subject),family="binomial", data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
 summary(gmod)
-gmod0.5 = glmer(score_strict ~ polygon + prompt + (1|subject),family="binomial", data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
-summary(gmod0.5)
-gmod0 = glmer(score_strict ~ polygon + (1|subject),family="binomial", data=complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),])
-summary(gmod0)
 ```
 
 
@@ -407,34 +347,39 @@ complete_data$rt = complete_data$rt/1000 #convert from ms to s
 
 
 ```{r}
-rt_mod = lmer(rt ~ polygon + (1|subject),data=complete_data)
+rt_mod = lmer(rt ~ condition + (1|subject),data=complete_data)
 summary(rt_mod)
 ```
 
 No significant overall difference, but this is averaged across all questions, so there may be a larger effect in some problem types. Try just the operation training:
 
 ```{r}
-rt_mod = lmer(rt ~ polygon + (1|subject),data=complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),])
+rt_mod = lmer(rt ~ condition+ (1|subject),data=complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),])
+
 summary(rt_mod)
 ```
 
-Not significant
+Interesting, but not entirely surprising. Polygon and hybrid conditions were slower at performing the early operation.
 
 ##Question by question
 
 ```{r}
 polygon_question = vector()
 modular_question = vector()
+hybrid_question = vector()
 polygon_question_aggregate_scores = vector()
 modular_question_aggregate_scores = vector()
-for (subj_i in 1:100) {
+hybrid_question_aggregate_scores = vector()
+num_subjects = length(unique(complete_data$subject))
+for (subj_i in 1:num_subjects) {
   this_subj_data = complete_data[complete_data$subject == subj_i,]
-  this_subj_polygon = this_subj_data[1,]$polygon
+  this_subj_condition = this_subj_data[1,]$condition
   index = 1
   prob_i = 1
-  offset = 0
+  offset = 0 
   while (prob_i <= length(this_subj_data$question)) {
     if (prob_i==(11+offset) && grepl("Remember,toperform",gsub(" ","",this_subj_data[prob_i,]$question)))   { #If subject had to repeat training
+      print(subj_i)
       prob_i = prob_i+10      
       offset = offset + 10
     } 
@@ -450,7 +395,7 @@ for (subj_i in 1:100) {
       break
     }
     
-    if (this_subj_polygon) {
+    if (this_subj_condition == 'polygon') {
       this_problem_score = this_subj_data[prob_i,]$score_strict
       if (is.na(polygon_question_aggregate_scores[index])) {
         polygon_question_aggregate_scores[index] = this_problem_score 
@@ -460,7 +405,7 @@ for (subj_i in 1:100) {
         polygon_question_aggregate_scores[index] = polygon_question_aggregate_scores[index] + this_problem_score 
       }
     } 
-    else {
+    else if (this_subj_condition == 'modular') {
       this_problem_score = this_subj_data[prob_i,]$score_strict
       if (is.na(modular_question_aggregate_scores[index])) {
         modular_question_aggregate_scores[index] = this_problem_score 
@@ -471,6 +416,19 @@ for (subj_i in 1:100) {
       }
       
     }
+    else {
+       this_problem_score = this_subj_data[prob_i,]$score_strict
+      if (is.na(hybrid_question_aggregate_scores[index])) {
+        hybrid_question_aggregate_scores[index] = this_problem_score 
+        hybrid_question[index] = this_subj_data[prob_i,]$question
+      }
+      else {
+        hybrid_question_aggregate_scores[index] = hybrid_question_aggregate_scores[index] + this_problem_score 
+      }
+           
+      
+      
+    }
     
     prob_i = prob_i+1
     index = index + 1
@@ -479,9 +437,15 @@ for (subj_i in 1:100) {
 ```
 
 ```{r}
-aggregate_score_data = data.frame(condition=c(rep('polygon',length(polygon_question_aggregate_scores)),rep('modular',length(modular_question_aggregate_scores))),score=c(polygon_question_aggregate_scores,modular_question_aggregate_scores),question_index=rep(1:length(polygon_question_aggregate_scores),2))
+aggregate_score_data = data.frame(condition=c(rep('polygon',length(polygon_question_aggregate_scores)),rep('modular',length(modular_question_aggregate_scores)),rep('hybrid',length(modular_question_aggregate_scores))),score=c(polygon_question_aggregate_scores,modular_question_aggregate_scores,hybrid_question_aggregate_scores),question_index=rep(1:length(polygon_question_aggregate_scores),3))
 
-aggregate_score_data = aggregate_score_data %>% mutate(percent_correct = score/50)
+
+
+aggregate_score_data$percent_correct = rep(0,length(aggregate_score_data$score))
+
+aggregate_score_data[aggregate_score_data$condition == 'hybrid',]$percent_correct= aggregate_score_data[aggregate_score_data$condition == 'hybrid',]$score/length(unique(complete_data[complete_data$condition == 'hybrid',]$subject))
+aggregate_score_data[aggregate_score_data$condition == 'modular',]$percent_correct= aggregate_score_data[aggregate_score_data$condition == 'modular',]$score/length(unique(complete_data[complete_data$condition == 'modular',]$subject))
+aggregate_score_data[aggregate_score_data$condition == 'polygon',]$percent_correct= aggregate_score_data[aggregate_score_data$condition == 'polygon',]$score/length(unique(complete_data[complete_data$condition == 'polygon',]$subject))
 
 ggplot(data=aggregate_score_data,aes(question_index,percent_correct,fill=condition)) +
   geom_bar(stat='identity',position='dodge',width=0.5) +
@@ -496,122 +460,146 @@ sem <- function(x) {sd(x, na.rm=TRUE) / sqrt(length(x))}
 theme_set(theme_bw())
 ```
 
-```{r}
-complete_data = complete_data %>% mutate(condition=ifelse(polygon,"Polygon","Modular"))
-```
 
-
-Operation train:
+Operation order 6:
 ```{r}
 summarized_data = complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)),] %>% group_by(subject) %>% summarize(percent_correct = mean(score_strict),condition=head(condition,n=1)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem)) +
-  ggtitle("Operation Training Results")
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25)) +
+  ggtitle("Operation Order 6 Results")
 ```
 
 
-Operation test:
+Operation order 9:
 ```{r}
 summarized_data = complete_data[!(grepl("identity",gsub(" ","",complete_data$question)) | grepl("inverse",gsub(" ","",complete_data$question)) | grepl("generator",gsub(" ","",complete_data$question))) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),] %>% group_by(subject) %>% summarize(percent_correct = mean(score_strict),condition=head(condition,n=1)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem)) +
-  ggtitle("Operation Testing Results")
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25)) +
+  ggtitle("Operation Order 9 Results")
 ```
 
 
 Inverse train:
 ```{r}
-summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(is_0 = grepl('0',correct_response)) %>% group_by(subject,condition,is_0) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,is_0) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
+
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=is_0)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='p = 0.0125',alpha=0.5)+
-  ggtitle("Inverse Training Results")
+  scale_fill_brewer(palette='Dark2')+
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+  ggtitle("Inverse Order 6 Results")
 ```
 
 
 Inverse test:
 ```{r}
-summarized_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,prompt) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(is_0 = grepl('0',correct_response)) %>% group_by(subject,condition,is_0) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,is_0) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=prompt)) +
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=is_0)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='mod vs. poly, p = 0.0487',alpha=0.5)+
-  ggtitle("Inverse Testing Results")
+  scale_fill_brewer(palette='Dark2')+
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+  ggtitle("Inverse Order 9 Results")
 ```
+
 
 
 Inverse of 0:
 ```{r}
-summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% filter(grepl("0",correct_response)) %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
-
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
-  geom_bar(stat="identity",position="dodge") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='p < 0.001',alpha=0.5)+
-  ggtitle("Inverse of 0 Results")
+# summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% filter(grepl("0",correct_response)) %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+# 
+# ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
+#   geom_bar(stat="identity",position="dodge") +
+#   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position="dodge") +
+# #  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+#   ggtitle("Inverse of 0 Results (Order 6)")
 ```
 
+```{r}
+# summarized_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)), ] %>% filter(grepl("0",correct_response)) %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+# 
+# ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
+#   geom_bar(stat="identity",position="dodge") +
+#   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position="dodge") +
+# #  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+#   ggtitle("Inverse of 0 Results (Order 9)")
+```
 
 Inverse of 1, x:
 
 ```{r}
 
 
-summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,prompt) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$question)) & grepl("1",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=prompt)) +
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: all effects sig @ p < 0.001',alpha=0.5)+
-  ggtitle("Inverse of 1,x Results")
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position="dodge") +
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+  ggtitle("Inverse of 1 Results")
 
 ```
-
-
-Generator testing:
 
 ```{r}
 
 
-summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),] %>% mutate(number=ifelse(grepl("2",temp_data$question),2,ifelse(grepl("3",temp_data$question),3,ifelse(grepl("5",temp_data$question),5,6)))) %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))%>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$question)) & grepl("x",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=generator)) +
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: condition p = 0.02, \n generator p < 0.001',alpha=0.5)+
-  ggtitle("Generator Testing Results")
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position="dodge") +
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+  ggtitle("Inverse of x Results")
+
 ```
+
+
+
 
 Generator training:
 
 ```{r}
-
-
-summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),] %>% mutate(generator = (gsub(" ","",correct_response)) == "Yes") %>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),] %>% mutate(generator = (gsub(" ","",correct_response)) == "Yes") %>% group_by(subject,condition,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=generator)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: main effects p < 0.01',alpha=0.5)+
-  ggtitle("Generator Training Results")
+  scale_fill_brewer(palette='Dark2')+
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+  ggtitle("Generator Order 6 Results")
+```
+
+Generator testing:
+
+```{r}
+temp_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]
+
+summarized_data = temp_data %>% mutate(number=ifelse(grepl("2",question),2,ifelse(grepl("3",question),3,ifelse(grepl("5",question),5,6)))) %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))%>% group_by(subject,condition,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=generator)) +
+  geom_bar(stat="identity",position="dodge") +
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
+  scale_fill_brewer(palette='Dark2')+
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
+  ggtitle("Generator Order 9 Results")
 ```
 
 Generator T/F:
 
 ```{r}
-summarized_data = complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: polygon worse, p < 0.05',alpha=0.5)+
+#  annotate("text",x=1.5,y=1.0,label='',alpha=0.5)+
   ggtitle("Generator T/F Results")
 ```
 
