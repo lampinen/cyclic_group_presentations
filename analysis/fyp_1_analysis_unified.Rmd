@@ -1,0 +1,221 @@
+---
+title: "fyp_1_analysis_unified"
+output: html_document
+---
+```{r}
+library(rjson)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(lme4)
+library(lmerTest)
+```
+
+#Read files:
+```{r}
+data_location = "../data/fyp_1_data/" 
+files = list.files(path = data_location,pattern="data_subject_.*.json")
+modular_data = vector()
+polygon_data = vector()
+modular_prompt_data = vector()
+polygon_prompt_data = vector()
+#data frame building
+subject = vector()
+prompt = vector()
+correct_response = vector()
+rt = vector()
+response = vector()
+condition = vector()
+trial_index = vector()
+score = vector()
+
+j = 1
+for (i in 1:length(files)) {
+  path = paste(data_location,files[i],sep="")
+  print(i)
+  print(path)
+  c = file(path, "r")
+  l = readLines(c, -1L)
+  close(c)
+  these_data = lapply(X=l, fromJSON)
+  if (these_data[1][[1]][[1]]$trial_type == "instructions") {
+    if (length(these_data[1][[1]]) == 85 || length(these_data[1][[1]]) == 105) { #The OR checks for people who had to repeat the initial training
+      this_condition = "modular"
+      modular_data[length(modular_data) + 1] = these_data[1]
+    }
+    else {
+      this_condition = "modular_prompt"
+      modular_prompt_data[length(modular_prompt_data) + 1] = these_data[1]
+    }
+  } else {
+    if (length(these_data[1][[1]]) == 85 || length(these_data[1][[1]]) == 105) { #The OR checks for people who had to repeat the initial training
+     this_condition = "polygon"
+     polygon_data[length(polygon_data) + 1] = these_data[1]
+    }
+    else {
+     this_condition = "polygon_prompt"
+     polygon_prompt_data[length(polygon_prompt_data) + 1] = these_data[1]
+    }
+  }
+  
+  for (trial_i in 1:length(these_data[1][[1]])) {
+    if(grepl("question",gsub(" ","",these_data[1][[1]][[trial_i]]$trial_type))) {
+      subject[j] = i
+      condition[j] = this_condition
+      prompt[j] = these_data[1][[1]][[trial_i]]$question
+      correct_response[j] = these_data[1][[1]][[trial_i]]$correct_response
+      
+      response[j] = these_data[1][[1]][[trial_i]]$response
+      if (response[j] == correct_response[j]) {
+        score[j] = 1
+      } else {
+        score[j] = 0        
+      }
+      rt[j] = these_data[1][[1]][[trial_i]]$rt
+      trial_index[j] = trial_i
+      
+      j = j+1
+    }
+  }
+}
+```
+
+Write data for scoring
+----------------------------
+
+```{r}
+#DONE --exact answers, explanations not yet scored
+#n=9 operation questions
+#write.table(complete_data[(grepl("Whatis8",gsub(" ","",complete_data$question)) | grepl("Whatis4",gsub(" ","",complete_data$question)))& grepl("explaininwords",gsub(" ","",complete_data$question)) ,c(1,3,4,5,7)],"N9_operation_to_score.csv",sep=",")
+
+#DONE --exact answers, explanations not yet scored
+#n=9 generator questions
+# write.table(complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,3,4,5,7)],"N9_generator_to_score.csv",sep=",")
+
+#DONE --exact answers, explanations not yet scored
+#n=9 inverse with explanations
+#write.table(complete_data[grepl("inverseof3",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),c(1,4,5,7)],"N9_inverse_to_score.csv",sep=",")
+
+#DONE --exact answers, explanations not yet scored
+#generator T/F and A/S/N with explanations
+#write.table(complete_data[grepl("explaininwords",gsub(" ","",complete_data$question)) & (grepl("Trueorfalse",gsub(" ","",complete_data$question)) | grepl("always,sometimes,ornever",gsub(" ","",complete_data$question))),c(1,4,5,7)],"TF_ASN_explained_to_score.csv",sep=",")
+
+#DONE -- exact answers, explanations not yet scored
+#n-1,n-x
+#write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,7)],"inverse_formula_to_score.csv",sep=",")
+
+#Done, Highest math class completed, 1 if algebra 2/trig/stats or higher, 0 else
+#write.table(complete_data[grepl('mathclass',gsub(' ','',complete_data$question)),c(1,4,5,7)],"highest_math_class_to_score.csv",sep=",")
+```
+
+data frame building
+------------------------
+```{r}
+complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score) 
+
+#Insert scored data
+inverse_formula_scores = read.csv(paste(data_location,"inverse_formula_scored.csv",sep=""))
+complete_data[inverse_formula_scores$row.names,]$score = inverse_formula_scores$score
+
+TF_ASN_explained_scores = read.csv(paste(data_location,"TF_ASN_explained_scored.csv",sep=""))
+complete_data[TF_ASN_explained_scores$row.names,]$score = TF_ASN_explained_scores$score
+
+N9_operation_scores =read.csv(paste(data_location,"N9_operation_scored.csv",sep=""))
+complete_data[N9_operation_scores$row.names,]$score = N9_operation_scores$score
+N9_operation_scores[grepl("Whatis4",gsub(" ","",N9_operation_scores$question)),]$correct_response = 5
+N9_operation_scores[grepl("Whatis8",gsub(" ","",N9_operation_scores$question)),]$correct_response = 3
+complete_data[N9_operation_scores$row.names,]$correct_response = N9_operation_scores$correct_response #omitted because of answer explanation
+
+N9_generator_scores = read.csv(paste(data_location,"N9_generator_scored.csv",sep=""))
+complete_data[N9_generator_scores$row.names,]$score = N9_generator_scores$score
+
+N9_inverse_scores =read.csv(paste(data_location,"N9_inverse_scored.csv",sep=""))
+complete_data[N9_inverse_scores$row.names,]$score = N9_inverse_scores$score
+complete_data[N9_inverse_scores$row.names,]$correct_response = 6 #omitted because of answer explanation
+
+#Strict scoring -- Some questions have "partial credit" of 0.5 for almost correct answers
+complete_data = complete_data %>% mutate(score_strict = floor(score)) %>% 
+  mutate(polygon=grepl("polygon",condition),prompt=grepl("prompt",condition)) #Factors of condition
+
+
+```
+
+Subject Demographics
+-----------------
+
+```{r}
+subject_data = complete_data %>% 
+  filter(grepl('education',gsub(" ","",question)) | grepl('yourgender',gsub(" ","",question)) ) %>%
+  mutate(demographic_type = ifelse(grepl('education',gsub(" ","",question)),'education','gender')) %>%
+  select(subject,demographic_type,response,polygon) %>%
+  mutate(response = gsub(' ','',response)) %>%
+  spread(demographic_type,response) %>%
+  mutate(education_high = ifelse(grepl('Bachelors',education),1,ifelse(grepl('Masters',education),1,ifelse(grepl('graduate',education),1,ifelse(grepl('Doctorate',education),1,0)))))
+
+highest_math_classes =read.csv(paste(data_location,"highest_math_class_scored.csv",sep=""))
+subject_data$math_high = highest_math_classes$math_high
+```
+
+
+
+Unified model - all 3
+---------------
+
+```{r}
+complete_data = complete_data %>% mutate(question_type = rep(NA,nrow(complete_data))) %>% inner_join(subject_data)
+
+#Operation questions
+complete_data[grepl("Remember,toperform",gsub(" ","",complete_data$question)) & trial_index <= 20,]$question_type = 'a_operation_6' #a is so it will appear at the beginning of models as reference level, to make life easier than manually altering the contrasts
+complete_data[!(grepl("identity",gsub(" ","",complete_data$question)) | grepl("inverse",gsub(" ","",complete_data$question)) | grepl("generator",gsub(" ","",complete_data$question))) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]$question_type = 'operation_9'
+
+#Inverse Questions -- Order 6
+complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]$question_type = 'inverse_nonzero_6'
+complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & complete_data$correct_response == '0',]$question_type = 'inverse_zero_6'
+  
+#Inverse Questions -- Order 9
+complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]$question_type = 'inverse_nonzero_9'
+#complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & gsub(" ","",complete_data$correct_response) == '0',]$question_type = 'inverse_zero_9' 
+
+#Inverse Questions -- order n
+complete_data[inverse_formula_scores$row.names,]$question_type = 'inverse_formula_n'
+
+#Generator Questions -- 6
+complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_6'
+complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ) & gsub(" ","",correct_response) == 'Yes',]$question_type = 'generator_true_6'
+
+#Generator Questions -- 9
+complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_9'
+complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ) & (grepl('5',gsub(" ","",complete_data$question)) | grepl('2',gsub(" ","",complete_data$question))),]$question_type = 'generator_true_9'
+
+#Generator A/S/N Questions -- n
+complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),]$question_type = 'generator_ASN_n'
+```
+
+```{r}
+model_data = complete_data %>% filter(!is.na(question_type))
+model_data$question_type = factor(model_data$question_type)
+```
+
+```{r}
+mod = lmer(data=model_data, score_strict ~ question_type*(polygon)+gender+education_high+math_high+(1|subject))
+mod_polygon = lmer(data=model_data[model_data$polygon,], score_strict ~ question_type+gender+education_high+math_high+(1|subject))
+mod_modular = lmer(data=model_data[!(model_data$polygon),], score_strict ~ question_type+gender+education_high+math_high+(1|subject))
+```
+
+```{r}
+summary(mod)
+summary(mod_polygon)
+summary(mod_modular)
+```
+
+Do demographics matter?
+```{r}
+
+mod0 = lmer(data=model_data, score_strict ~ question_type*polygon+(1|subject))
+mod0.5 = lmer(data=model_data, score_strict ~ question_type*polygon+math_high+(1|subject))
+anova(mod0,mod,refit=F)
+anova(mod0,mod0.5,mod,refit=F)
+```
+
+No, they don't seem to matter much at all, but we will include math_high as a predictor, in case there are large discrepancies among group assignments.
+
