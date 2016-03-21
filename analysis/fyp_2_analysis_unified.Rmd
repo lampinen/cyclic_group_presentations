@@ -206,6 +206,9 @@ complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (gre
 complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_9'
 complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ) & (grepl('5',gsub(" ","",complete_data$question)) | grepl('2',gsub(" ","",complete_data$question))),]$question_type = 'generator_true_9'
 
+#Generator T/F Questions -- n
+complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),]$question_type = 'generator_TF_n'
+
 #Generator A/S/N Questions -- n
 complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),]$question_type = 'generator_ASN_n'
 ```

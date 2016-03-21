@@ -1144,7 +1144,8 @@ summarized_data = complete_data[grepl("Remember,toperform",gsub(" ","",complete_
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem)) +
-  ggtitle("Operation Training Results")
+  annotate("text",x=1.5,y=1.0,label='p = 0.49',alpha=0.5)+
+  ggtitle("Operation Order 6 (Learning) Results")
 ```
 
 
@@ -1155,30 +1156,32 @@ summarized_data = complete_data[!(grepl("identity",gsub(" ","",complete_data$que
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem)) +
-  ggtitle("Operation Testing Results")
+  annotate("text",x=1.5,y=1.0,label='p = 0.38',alpha=0.5)+
+  ggtitle("Operation Order 9 (Testing) Results")
 ```
 
 
 Inverse train:
 ```{r}
-summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(is_0 = grepl('0',correct_response)) %>% group_by(subject,condition,is_0) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,is_0) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
+ggplot(data=summarized_data,aes(is_0,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='p = 0.0125',alpha=0.5)+
-  ggtitle("Inverse Training Results")
+  annotate("text",x=1,y=1.0,label='p = 0.21',alpha=0.5)+
+  annotate("text",x=2,y=1.0,label='p < 0.001',alpha=0.5)+
+  ggtitle("Inverse Order 6 (Learning) Results")
 ```
 
 
 Inverse test:
 ```{r}
-summarized_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,prompt) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=prompt)) +
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='mod vs. poly, p = 0.0487',alpha=0.5)+
+  annotate("text",x=1.5,y=1.0,label='p < 0.001',alpha=0.5)+
   ggtitle("Inverse Testing Results")
 ```
 
@@ -1200,12 +1203,12 @@ Inverse of 1, x:
 ```{r}
 
 
-summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,prompt) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=prompt)) +
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: all effects sig @ p < 0.001',alpha=0.5)+
+  annotate("text",x=1.5,y=1.0,label='p = 0.02',alpha=0.5)+
   ggtitle("Inverse of 1,x Results")
 
 ```
@@ -1214,15 +1217,14 @@ ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=prompt)) +
 Generator testing:
 
 ```{r}
+summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),] %>% mutate(number=ifelse(grepl("2",question),2,ifelse(grepl("3",question),3,ifelse(grepl("5",question),5,6)))) %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))%>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-
-summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),] %>% mutate(number=ifelse(grepl("2",temp_data$question),2,ifelse(grepl("3",temp_data$question),3,ifelse(grepl("5",temp_data$question),5,6)))) %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))%>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
-
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=generator)) +
+ggplot(data=summarized_data,aes(generator,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: condition p = 0.02, \n generator p < 0.001',alpha=0.5)+
-  ggtitle("Generator Testing Results")
+  annotate("text",x=1.0,y=1.0,label='p = 0.048',alpha=0.5)+
+  annotate("text",x=2.0,y=1.0,label='p = 0.002',alpha=0.5)+
+  ggtitle("Generator Order 9 (Testing) Results")
 ```
 
 Generator training:
@@ -1232,11 +1234,12 @@ Generator training:
 
 summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),] %>% mutate(generator = (gsub(" ","",correct_response)) == "Yes") %>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
-ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=generator)) +
+ggplot(data=summarized_data,aes(generator,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: main effects p < 0.01',alpha=0.5)+
-  ggtitle("Generator Training Results")
+  annotate("text",x=1.0,y=1.0,label='p = 0.98',alpha=0.5)+
+  annotate("text",x=2.0,y=1.0,label='p = 0.046',alpha=0.5)+
+  ggtitle("Generator Order 6 (Learning) Results")
 ```
 
 Generator T/F:
@@ -1247,7 +1250,19 @@ summarized_data = complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$qu
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='log. reg.: polygon worse, p < 0.05',alpha=0.5)+
+  annotate("text",x=1.5,y=1.0,label='p = 0.004',alpha=0.5)+
   ggtitle("Generator T/F Results")
 ```
 
+
+Generator A/S/N:
+
+```{r}
+summarized_data = complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+
+ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
+  geom_bar(stat="identity",position="dodge") +
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
+  annotate("text",x=1.5,y=1.0,label='p = 0.49',alpha=0.5)+
+  ggtitle("Generator A/S/N Results")
+```
