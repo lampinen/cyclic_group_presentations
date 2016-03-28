@@ -1163,9 +1163,9 @@ ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) 
 
 Inverse train:
 ```{r}
-summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(is_0 = grepl('0',correct_response)) %>% group_by(subject,condition,is_0) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,is_0) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),] %>% mutate(is_0 = grepl('0',correct_response)) %>% group_by(subject,condition,is_0) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,is_0) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct)) %>% mutate(inverse_type = ifelse(is_0,'inverse of zero','inverse of non-zero'))
 
-ggplot(data=summarized_data,aes(is_0,percent_correct.mean,fill=condition)) +
+ggplot(data=summarized_data,aes(inverse_type,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
   annotate("text",x=1,y=1.0,label='p = 0.21',alpha=0.5)+
@@ -1217,13 +1217,13 @@ ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) 
 Generator testing:
 
 ```{r}
-summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),] %>% mutate(number=ifelse(grepl("2",question),2,ifelse(grepl("3",question),3,ifelse(grepl("5",question),5,6)))) %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))%>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),] %>% mutate(number=ifelse(grepl("2",question),2,ifelse(grepl("3",question),3,ifelse(grepl("5",question),5,6)))) %>% mutate(generator=ifelse(number==2 | number==5,TRUE,FALSE))%>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct)) %>% mutate(generator = ifelse(generator,"Is a generator","Is not a generator"))
 
 ggplot(data=summarized_data,aes(generator,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.0,y=1.0,label='p = 0.048',alpha=0.5)+
-  annotate("text",x=2.0,y=1.0,label='p = 0.002',alpha=0.5)+
+  annotate("text",x=2.0,y=1.0,label='p = 0.048',alpha=0.5)+
+  annotate("text",x=1.0,y=1.0,label='p = 0.002',alpha=0.5)+
   ggtitle("Generator Order 9 (Testing) Results")
 ```
 
@@ -1232,13 +1232,13 @@ Generator training:
 ```{r}
 
 
-summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),] %>% mutate(generator = (gsub(" ","",correct_response)) == "Yes") %>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),] %>% mutate(generator = (gsub(" ","",correct_response)) == "Yes") %>% group_by(subject,condition,prompt,generator) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))%>% mutate(generator = ifelse(generator,"Is a generator","Is not a generator"))
 
 ggplot(data=summarized_data,aes(generator,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.0,y=1.0,label='p = 0.98',alpha=0.5)+
-  annotate("text",x=2.0,y=1.0,label='p = 0.046',alpha=0.5)+
+  annotate("text",x=2.0,y=1.0,label='p = 0.98',alpha=0.5)+
+  annotate("text",x=1.0,y=1.0,label='p = 0.046',alpha=0.5)+
   ggtitle("Generator Order 6 (Learning) Results")
 ```
 
