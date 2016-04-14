@@ -9,6 +9,7 @@ library(tidyr)
 library(dplyr)
 library(lme4)
 library(lmerTest)
+library(boot)
 ```
 
 #Read files:
@@ -177,7 +178,7 @@ complete_data = complete_unfiltered_data %>% filter(!(subject %in% subjects_to_e
 
 
 
-Unified model - all 3
+Unified model - all 3 (Planned analysis)
 ---------------
 
 ```{r}
@@ -225,3 +226,129 @@ mod = lmer(data=model_data, score_strict ~ question_type*condition+math_high+(1|
 ```{r}
 summary(mod)
 ```
+
+
+Difference in means confidence intervals (bootstrapped)
+```{r}
+questions = unique(model_data$question_type)
+bootstrap_delta_mean_95CI = function(data_1,data_2,num_iterations=1000,na.rm=TRUE) {
+  results = rep(0,num_iterations)
+  for (i in 1:num_iterations) {
+    n1 = length(data_1)
+    n2 = length(data_2)
+    results[i] = mean(sample(data_1,n1,replace=TRUE),na.rm=na.rm)-mean(sample(data_2,n2,replace=TRUE),na.rm=na.rm)
+  }
+  return(quantile(results,probs=c(0.025,0.975)))
+}
+
+for (q_i in 1:length(questions)) {
+  print(questions[q_i])
+  boot_delta_means = bootstrap_delta_mean_95CI(model_data[model_data$question_type == questions[q_i] & model_data$condition=='polygon',]$score_strict,model_data[model_data$question_type == questions[q_i] & model_data$condition=='modular',]$score_strict)
+  print('Polygon - Modular:')
+  print(boot_delta_means)
+  boot_delta_means = bootstrap_delta_mean_95CI(model_data[model_data$question_type == questions[q_i] & model_data$condition=='hybrid',]$score_strict,model_data[model_data$question_type == questions[q_i] & model_data$condition=='modular',]$score_strict)
+  print('Hybrid - Modular:')
+  print(boot_delta_means)
+}
+```
+
+Post-hoc 
+------------------------------------
+
+
+###Hierarchical modeling of hybrid condition data
+```{r}
+math_high_coefficient = summary(mod)$coefficients[16,1]
+modular_coefficients = summary(mod)$coefficients[c(1:13),1]
+polygon_coefficients = summary(mod)$coefficients[c(14,17:28),1]+modular_coefficients
+perfect_combination_coefficients = pmax(polygon_coefficients,modular_coefficients)
+```
+
+```{r}
+#print(paste(lapply(levels(model_data$question_type),function(x) return(paste(x,'=(question_type==\'',x,'\')',sep=''))),collapse=', '))
+# print(paste(lapply(1:length(levels(model_data$question_type)),function(x) return(paste('coeffs[',x,']*',levels(model_data$question_type)[x],sep=''))),collapse='+'))
+hierarchical_data = model_data %>% filter(condition == 'hybrid') %>%
+  mutate(a_operation_6=(question_type=='a_operation_6'), generator_ASN_n=(question_type=='generator_ASN_n'), generator_false_6=(question_type=='generator_false_6'), generator_false_9=(question_type=='generator_false_9'), generator_TF_n=(question_type=='generator_TF_n'), generator_true_6=(question_type=='generator_true_6'), generator_true_9=(question_type=='generator_true_9'), inverse_formula_n=(question_type=='inverse_formula_n'), inverse_nonzero_6=(question_type=='inverse_nonzero_6'), inverse_nonzero_9=(question_type=='inverse_nonzero_9'), inverse_zero_6=(question_type=='inverse_zero_6'), inverse_zero_9=(question_type=='inverse_zero_9'), operation_9=(question_type=='operation_9'))
+
+#Augment the data with weights and indicators for E-M algorithm
+augmenting_frame = data.frame(theta=c(T,F,F),phi=c(NA,T,F),weight=c(1,1,1))
+augmented_data = merge(hierarchical_data,augmenting_frame,by=NULL) 
+
+#Subjects
+hybrid_subjects = unique(hierarchical_data$subject)
+```
+
+
+```{r}
+log_likelihood_of_data = function(data,coeffs) { #Given a fixed set of coefficients, calculates the log-likelihood of the data
+  model = lm(data=data,score ~ 0+offset(math_high_coefficient*math_high+coeffs[1]+coeffs[2]*generator_ASN_n+coeffs[3]*generator_false_6+coeffs[4]*generator_false_9+coeffs[5]*generator_TF_n+coeffs[6]*generator_true_6+coeffs[7]*generator_true_9+coeffs[8]*inverse_formula_n+coeffs[9]*inverse_nonzero_6+coeffs[10]*inverse_nonzero_9+coeffs[11]*inverse_zero_6+coeffs[12]*inverse_zero_9+coeffs[13]*operation_9))
+  return(logLik(model))
+}
+
+log_likelihood_of_full_data = function(data,theta,phi) {
+  LL = 0.0
+  for (subj in hybrid_subjects) {
+    perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    LL = LL+log(perfect_weight+polygon_weight+modular_weight)
+  }
+  return(LL)
+}
+```
+
+
+Naive -- How well is data explained by assuming everybody just did one of three possibilities?
+```{r}
+print('polygon: ')
+print(log_likelihood_of_full_data(hierarchical_data,0,1))
+print('modular: ')
+print(log_likelihood_of_full_data(hierarchical_data,0,0))
+print('50-50 modular polygon: ')
+print(log_likelihood_of_full_data(hierarchical_data,0,0.5))
+print('max of the two: ')
+print(log_likelihood_of_full_data(hierarchical_data,1,0))
+
+```
+
+Expectation-maximization
+```{r}
+#max number of iterations
+num_iterations = 100
+delta_LL_threshold =  0.0001
+#initial values - uniform
+theta = 0.5
+phi = 0.5 
+
+LL_hist = vector()
+
+LL_hist[1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+
+for (iter in 1:num_iterations) {
+  #E step
+  for (subj in hybrid_subjects) {
+    perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    sum_weights = perfect_weight+polygon_weight+modular_weight
+    augmented_data[augmented_data$subject == subj & augmented_data$theta,]$weight = perfect_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & augmented_data$phi,]$weight = polygon_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & !augmented_data$phi,]$weight = modular_weight/sum_weights
+  }
+  
+  #M step
+  theta = sum(augmented_data[augmented_data$theta,]$weight)/sum(augmented_data$weight)
+  phi = sum(augmented_data[!augmented_data$theta & (augmented_data$phi==TRUE),]$weight)/sum(augmented_data[!augmented_data$theta,]$weight)
+  
+  #LL and termination
+  LL_hist[iter+1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+  print(paste("theta: ",theta,", phi: ",phi,', LL: ',LL_hist[iter+1]))
+  if (LL_hist[iter+1]-LL_hist[iter] < delta_LL_threshold) {
+    print("Difference of log likelihood from previous step is below threshold, terminating.")
+    break
+  }
+}
+
+```
+
+

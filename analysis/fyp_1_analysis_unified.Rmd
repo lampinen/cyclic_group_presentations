@@ -200,7 +200,7 @@ model_data$question_type = factor(model_data$question_type)
 ```
 
 ```{r}
-mod = lmer(data=model_data, score_strict ~ question_type*(polygon)+gender+education_high+math_high+(1|subject))
+mod = lmer(data=model_data, score_strict ~ question_type*polygon+gender+education_high+math_high+(1|subject))
 mod_polygon = lmer(data=model_data[model_data$polygon,], score_strict ~ question_type+gender+education_high+math_high+(1|subject))
 mod_modular = lmer(data=model_data[!(model_data$polygon),], score_strict ~ question_type+gender+education_high+math_high+(1|subject))
 ```
@@ -210,6 +210,28 @@ summary(mod)
 summary(mod_polygon)
 summary(mod_modular)
 ```
+
+Difference in means confidence intervals (bootstrapped)
+```{r}
+questions = unique(model_data$question_type)
+bootstrap_delta_mean_95CI = function(data_1,data_2,num_iterations=1000) {
+  results = rep(0,num_iterations)
+  for (i in 1:num_iterations) {
+    n1 = length(data_1)
+    n2 = length(data_2)
+    results[i] = mean(sample(data_1,n1,replace=TRUE))-mean(sample(data_2,n2,replace=TRUE))
+  }
+  return(quantile(results,probs=c(0.025,0.975)))
+}
+
+for (q_i in 1:length(questions)) {
+  print(questions[q_i])
+  boot_delta_means = bootstrap_delta_mean_95CI(model_data[model_data$question_type == questions[q_i] & model_data$polygon,]$score_strict,model_data[model_data$question_type == questions[q_i] & !model_data$polygon,]$score_strict)
+  print('Polygon - Modular:')
+  print(boot_delta_means)
+}
+```
+
 
 Do demographics matter?
 ```{r}
