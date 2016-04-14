@@ -1,0 +1,1194 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="./jspsych/jquery.min.js"></script>
+    <script src="./jspsych/jquery-ui.min.js"></script>
+    <script src="./jspsych/jspsych.js"></script>
+    <script src="./plugins/polygon-arrow-question-plugin.js"></script>
+    <script src="./plugins/polygon-arrow-instructions-plugin.js"></script>
+    <script src="./plugins/question-plugin.js"></script>
+    <script src="./plugins/instructions-plugin.js"></script>
+    <script src="./plugins/polygon-arrow-feedback-plugin.js"></script>
+    <script src="./plugins/feedback-plugin.js"></script>
+    <script src="./plugins/turk-final-plugin.js"></script>
+    <script src="./plugins/turk-initial-plugin.js"></script>
+    <script src="https://uniqueturker.myleott.com/lib.js" type="text/javascript"></script>
+ <script src="./plugins/testing-display-data-plugin.js"></script>
+    <link rel="stylesheet" href="./css/jquery-ui.css"></link>
+    <link rel="stylesheet" href="./css/jspsych.css"></link>
+    <link rel="stylesheet" href="./css/fyp.css"></link>
+  </head>
+  <body>
+    <div id="jspsych-target"></div>
+  </body>
+  <script>
+	//Check if unique participant
+	repeat_worker = false;
+	(function(){
+	    var ut_id = "lampinen-fyp-1";
+	    if (UTWorkerLimitReached(ut_id)) {
+		repeat_worker = true;
+		$('#jspsych-target').append("<p style='color:red'><b>You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.</b></p>");
+	    }
+	})(jQuery);
+	
+	if (!repeat_worker) { //Continue with experiment
+
+//Variables (macros for symbols)/////////////////////////////////////////////////////////
+	var p_6 = "+<sub>6</sub>";
+	var p_9 = "+<sub>9</sub>";
+	var p_n = "+<sub>n</sub>";
+	var hexagon = '<img src="./images/hexagon_symbol.png" style="width:14px;height:14px">';
+	var nonagon = '<img src="./images/nonagon_symbol.png" style="width:14px;height:14px">';
+	var ngon = '<img src="./images/ngon_symbol.png" style="width:14px;height:14px">';
+
+//Feedback generator functions////////////////////////////////////////////////////////////
+
+	function operationFeedbackGenerator(a,b,n,polygon,correct) {
+		var feedback = "";
+		if (correct) {
+			feedback += "Correct! ";
+		}
+		else {
+			feedback += "Sorry, that was incorrect. ";
+		}
+		if (polygon) {
+			var operator = hexagon;
+			var polygon_name = "hexagon";
+			if (n == 9) {
+				var operator = nonagon;
+				var polygon_name = "nonagon";
+			}
+			var sum = a+b;
+			var result = sum;
+			if (a + b >= n) {
+				var result = a + b - n;
+			}
+                        if (b != 1) {
+                                feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " steps clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+                        }
+                        else {
+                                feedback += "" + a + " " + operator + " " + b + " = " + result +" because " + b + " step clockwise on the " + polygon_name + " from " + a + " brings us to "+ result;
+
+                        }
+		}
+		else {
+			var operator = p_6;
+			if (n == 9) {
+				var operator = p_9;
+			}
+			var sum = a+b;
+		if (a + b < n) {
+			feedback += "" + a + " " + operator + " " + b + " = " + sum +" because " + a +" + " + b +" = " + sum +" and " + sum +" is less than " + n + ".";
+		}	
+		else {
+			var result = a + b - n;
+			feedback += "" + a + " " + operator + " " + b + " = " + result  +" because " + a +" + " + b +" = " + sum +" and " + sum +" - " + n +" = " +result + ".";
+		}
+
+	}
+	return feedback;
+}
+
+function inverseFeedbackGenerator(x,n,polygon,correct) {
+	var feedback = "";
+	if (correct) {
+		feedback += "Correct! ";
+	}
+	else {
+		feedback += "Sorry, that was incorrect. ";
+	}
+	if (polygon) {
+		var operator = hexagon;
+		var polygon_name = "hexagon";
+		if (n == 9) {
+			var operator = nonagon;
+			var polygon_name = "nonagon";
+		}
+		var inverse = n-x;
+		if (x == 0) {
+			inverse = 0;
+		}
+		feedback += "The inverse of " + x + " under " + operator + " is " + inverse +" because " + x + " " +operator + " " + inverse + " = 0, and 0 is the identity under " + operator + ".";
+	}
+	else {
+		var operator = p_6;
+		if (n == 9) {
+			var operator = p_9;
+		}
+		var inverse = n-x;
+		if (x == 0) {
+			inverse = 0;
+		}
+		feedback += "The inverse of " + x + " under " + operator + " is " + inverse +" because " + x + " " +operator + " " + inverse + " = 0, and 0 is the identity under " + operator + ".";
+	}
+	return feedback;
+}
+
+//Shared Modules//////////////////////////////////////////////////////////////////////////////
+var initial_page = {
+	type: 'turk-initial',
+	timing_post_trial: 0,
+	intro_text: 'Hello! Today we\'re going to teach you about a new kind of math.<br /><br /><b>Please note that we will only accept workers who have carefully followed the instructions on each question. Please make sure you read each question carefully before responding. </b> <br /><br /><small>Legal information: By answering the following questions, you are participating in research conducted by cognitive scientists at Stanford Department of Psychology. There are no risks to participating, and no benefits except the payment for a successfully completed HIT. You must be at least 18 years old to participate. Your participation in this research is voluntary. You may decline further participation at any time by returning the HIT, without adverse consequences (other than forfeiting the payment for a succesfully completed HIT). We may request basic demographic information about you (age, education level, etc.), and may incorporate group level statistics in our analysis, but your personal information will be kept strictly confidential. By clicking "Begin Experiment" you acknowledge and accept these conditions.</small>'
+};
+
+var debug_data = {
+	type: 'testing-display-data',
+	timing_post_trial: 0
+};
+
+var bg_intro = {
+	type: 'instructions',
+	timing_post_trial: 0,
+	text: 'We would like to ask you some questions about your background. Please press "Continue" to continue.'
+};
+var bg_q_1 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "What is your age?",
+		correct_response: "",
+		response_type: "free"
+};
+
+var bg_q_2 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "What is your level of education?",
+		correct_response: "",
+		response_type: "multi",
+		response_choices: ["Did not graduate high school","High school diploma","Some college, no degree","Associates Degree","Bachelors Degree","Some graduate school, no degree","Masters Degree","Doctorate, M.D., etc."]
+};
+
+var bg_q_3 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "What is the most advanced math class you've completed? If you have multiple classes and you're not sure which one is most advanced, please list them.",
+		correct_response: "",
+		response_type: "free"
+};
+
+var bg_q_3_1 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "How familiar are you with the concept of modular arithmetic?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - never heard of it','2 - heard of it but didn\'t know what it was','3 - seen it used or explained','4 - used it but not often or recently','5 - used it, remember and understand it']
+};
+
+var bg_q_3_2 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "How familiar are you with the concept of a mathematical group?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - never heard of it','2 - heard of it but didn\'t know what it was','3 - seen it used or explained','4 - used it but not often or recently','5 - used it, remember and understand it']
+};
+
+var bg_q_4_1 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Do you feel you learned something from this HIT?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - not at all','2 - somewhat','3 - definitely']
+};
+
+var bg_q_4_2 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Do you feel you understood the concepts in this HIT?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - not at all','2 - somewhat','3 - definitely']
+};
+
+var bg_q_4_3 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Did you enjoy this HIT?",
+		correct_response: "1",
+		response_type: "multi",
+		response_choices: ['1 - not at all','2 - somewhat','3 - definitely']
+};
+
+var bg_q_5 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "What is your gender?",
+		correct_response: "",
+		response_type: "multi",
+		force_response: false,
+		response_choices: ["Female","Male","Other"]
+};
+
+var bg_q_6 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "What is/are your native language(s)? (The languages spoken in your household when you were a child.)",
+		correct_response: "",
+		response_type: "free"
+};
+
+var bg_q_7 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Did you use pen and paper at any point on this HIT?",
+		force_response: false,
+		correct_response: "",
+		response_type: "free"
+};
+
+var bg_q_8 = {
+		type: "question",
+		timing_post_trial: 0,
+		prompt: "Do you have any comments on this HIT?",
+		force_response: false,
+		correct_response: "",
+		response_type: "free"
+};
+
+var bg_chunk = {
+	chunk_type: 'linear',
+	timeline: [bg_intro,bg_q_1,bg_q_2,bg_q_3,bg_q_3_1,bg_q_3_2,bg_q_4_1,bg_q_4_2,bg_q_4_3,bg_q_5,bg_q_6,bg_q_7,bg_q_8]
+};
+
+var final_page = {
+	type: 'turk-final',
+	timing_post_trial: 0,
+	text: "Thank you for participating in the HIT. Please click the button below to submit the results to mechanical turk and return. The data may take a minute or two to transmit, and your HIT will not be marked as complete with mechanical turk until then. YOU WILL NOT RECEIVE PAYMENT IF YOU DO NOT CLICK SUBMIT AND THEN WAIT FOR THE MECHANICAL TURK ACKNOWLEDGEMENT OF COMPLETION. <br /><br />",
+	post_text:"Thank you! If you have questions about this experiment, you can find the experimenters contact information at <a href='http://web.stanford.edu/~lampinen/contact.html'>http://web.stanford.edu/~lampinen/contact.html</a>.<br /><br />If you are interested in what you were learning about today, the concepts you were learning were some examples of what mathematicians call <i>groups</i>, specifically <i>cyclic groups</i>. Groups are one of the most important concepts in modern mathematics, and have relevance to everything from quantum mechanics to computer science. If you want to learn more about them, see <a href='http://dogschool.tripod.com/' target='_blank'>http://dogschool.tripod.com/</a> for a relatively easy introduction or <a href='https://en.wikipedia.org/wiki/Group_(mathematics)' target='_blank'>https://en.wikipedia.org/wiki/Group_(mathematics)</a> for a more abstract description and many links to further reading."
+};
+
+
+//Polygon version///////////////////////////////////////////////////////////////////////////
+
+	//Polygon operation instructions
+ 	var p_op_instructions = {
+		type: 'polygon-arrow-instructions',
+		timing_post_trial: 0,
+		nsides: 6,
+		text: "Let's define a new operation "+hexagon+". This operation will give us a way of combining two of the numbers 0, 1, 2, 3, 4, 5 to get another one of them back. Consider the hexagon at the right, where I've labeled each point with one of the numbers. To perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon by clicking, then click (or click and drag) to move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result. (The operation is called "+hexagon+" because it uses the hexagon, which has 6 sides.) <br /><br />For example, 3 "+hexagon+" 5 = 2, because 5 steps clockwise from 3 on the hexagon brings us to 2. So 3 "+hexagon+" 5 = 2.<br /><br />Similarly, 1 "+hexagon+" 4 = 5, because 4 steps clockwise from 1 brings us to 5. <br /><br />Click \"Continue\" when you're ready to move on."
+  	};
+
+ 	var p_op_instructions_2 = {
+		type: 'polygon-arrow-instructions',
+		timing_post_trial: 0,
+		nsides: 6,
+		text: "Do you see how "+hexagon+" works? By labeling the points of the hexagon with the numbers from 0 to 5, we ensure that when we combine two numbers under "+hexagon+", we only produce numbers between 0 and 5.<br /><br />Click \"Continue\" when you are ready to move on."  
+  	};
+
+	var p_tr_op_1 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "Now try one on your own! What is 4 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '3',
+			response_type: "free"
+	};
+
+	var p_tr_op_1_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(4,5,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(4,5,6,true,false)
+	};
+
+	var p_tr_op_2 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 3 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '5',
+			response_type: "free"
+	};
+
+	var p_tr_op_2_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(3,2,6,true,true),
+			incorrect_text: operationFeedbackGenerator(3,2,6,true,false)
+	};
+
+	var p_tr_op_3 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 1 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '0',
+			response_type: "free"
+	};
+
+	var p_tr_op_3_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(1,5,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(1,5,6,true,false)
+	};
+
+	var p_tr_op_4 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 1 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '2',
+			response_type: "free"
+	};
+
+	var p_tr_op_4_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(1,1,6,true,true),
+			incorrect_text: operationFeedbackGenerator(1,1,6,true,false)
+	};
+
+	var p_tr_op_5 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			prompt: "What is 3 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '3',
+			response_type: "free"
+	};
+
+	var p_tr_op_5_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(3,0,6,true,true),
+			incorrect_text: operationFeedbackGenerator(3,0,6,true,false)
+	};
+
+	var p_tr_op_6 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 4 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '2',
+			response_type: "free"
+	};
+
+	var p_tr_op_6_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(4,4,6,true,true),
+			incorrect_text: operationFeedbackGenerator(4,4,6,true,false)
+	};
+
+	var p_tr_op_7 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 1 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '4',
+			response_type: "free"
+	};
+
+	var p_tr_op_7_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(1,3,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(1,3,6,true,false)
+	};
+
+	var p_tr_op_8 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 4 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '1',
+			response_type: "free"
+	};
+
+	var p_tr_op_8_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(4,3,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(4,3,6,true,false)
+	};
+
+	var p_tr_op_9 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 0 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '5',
+			response_type: "free"
+	};
+
+	var p_tr_op_9_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(0,5,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(0,5,6,true,false)
+	};
+
+	var p_tr_op_10 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 2 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '1',
+			response_type: "free"
+	};
+
+	var p_tr_op_10_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(2,5,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(2,5,6,true,false)
+	};
+
+	var p_tr_op_chunk = {
+		chunk_type: 'linear',
+		timeline: [p_tr_op_1,p_tr_op_1_f,p_tr_op_2,p_tr_op_2_f,p_tr_op_3,p_tr_op_3_f,p_tr_op_4,p_tr_op_4_f,p_tr_op_5,p_tr_op_5_f,p_tr_op_6,p_tr_op_6_f,p_tr_op_7,p_tr_op_7_f,p_tr_op_8,p_tr_op_8_f,p_tr_op_9,p_tr_op_9_f,p_tr_op_10,p_tr_op_10_f]
+	};
+
+	//operation backup training
+	var p_tr_op_backup_1 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 3 "+hexagon+" 3? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '0',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_1_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(3,3,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(3,3,6,true,false)
+	};
+
+	var p_tr_op_backup_2 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 1 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '3',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_2_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(1,2,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(1,2,6,true,false)
+	};
+
+	var p_tr_op_backup_3 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 5 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '4',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_3_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(5,5,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(5,5,6,true,false)
+	};
+
+	var p_tr_op_backup_4 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 4 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '0',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_4_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(4,2,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(4,2,6,true,false)
+	};
+
+	var p_tr_op_backup_5 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 0 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '2',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_5_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(0,2,6,true,true),
+			incorrect_text: operationFeedbackGenerator(0,2,6,true,false)
+	};
+
+	var p_tr_op_backup_6 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 3 "+hexagon+" 5? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '2',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_6_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(3,5,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(3,5,6,true,false)
+	};
+
+	var p_tr_op_backup_7 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 1 "+hexagon+" 4? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '5',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_7_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(1,4,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(1,4,6,true,false)
+	};
+
+	var p_tr_op_backup_8 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 5 "+hexagon+" 1? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '0',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_8_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(5,1,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(5,1,6,true,false)
+	};
+
+	var p_tr_op_backup_9 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 1 "+hexagon+" 0? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '1',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_9_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(1,0,6,true,true), 
+			incorrect_text: operationFeedbackGenerator(1,0,6,true,false)
+	};
+
+	var p_tr_op_backup_10 = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "What is 5 "+hexagon+" 2? <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '1',
+			response_type: "free"
+	};
+
+	var p_tr_op_backup_10_f = {
+			type: "polygon-arrow-feedback",
+			timing_post_trial: 0,
+			nsides: 6,
+			correct_text: operationFeedbackGenerator(5,2,6,true,true),
+			incorrect_text: operationFeedbackGenerator(5,2,6,true,false)
+	};
+
+	var p_tr_op_backup_chunk = {
+		chunk_type: 'if',
+		timeline: [p_tr_op_backup_1,p_tr_op_backup_1_f,p_tr_op_backup_2,p_tr_op_backup_2_f,p_tr_op_backup_3,p_tr_op_backup_3_f,p_tr_op_backup_4,p_tr_op_backup_4_f,p_tr_op_backup_5,p_tr_op_backup_5_f,p_tr_op_backup_6,p_tr_op_backup_6_f,p_tr_op_backup_7,p_tr_op_backup_7_f,p_tr_op_backup_8,p_tr_op_backup_8_f,p_tr_op_backup_9,p_tr_op_backup_9_f,p_tr_op_backup_10,p_tr_op_backup_10_f],
+		conditional_function: function() {
+			var threshold = 0.8; //Percent of trials that must be correct to skip the extra training
+			var last_chunk_data = jsPsych.data.getLastChunkData();
+			var score = 0;
+			var num_trials = 0;
+			for (trial_i in last_chunk_data) {
+				if (last_chunk_data[trial_i].trial_type == 'polygon-arrow-question') {
+					num_trials++;
+					if (last_chunk_data[trial_i].response == last_chunk_data[trial_i].correct_response) {
+						score++;
+					}
+				}
+			}
+			return !(score > threshold*num_trials);
+		}
+	};
+
+	var p_tr_op_att_chk = {
+			type: "polygon-arrow-question",
+			timing_post_trial: 0,
+			nsides: 6,
+			prompt: "Please enter 9, ignore the following: 3 "+hexagon+" 1?. <br /><br /> (Remember, to perform "+hexagon+", you can use the interactive diagram on the right, or perform the operation in your mind. Point the arrow at the first number on the hexagon, then move the arrow the second number of points clockwise around the hexagon. The number the arrow arrives at is your result.)",
+			correct_response: '9',
+			response_type: "free"
+	};
+
+	//Identity & inverse training
+ 	var p_id_instructions = {
+		type: 'polygon-arrow-instructions',
+		timing_post_trial: 0,
+		nsides: 6,
+		text: "Now we're going to discuss a couple special properties of this new operation, "+hexagon+" that we've learned. First, notice that the number 0 behaves in a special way under "+hexagon+". Whenever we combine 0 with anything else, we get that same thing back. We'll say that 0 is the <i>identity</i> under "+hexagon+", because when you combine it with something it gives you that identical thing back." 
+  	};
+
+ 	var p_in_instructions = {
+		type: 'polygon-arrow-instructions',
+		timing_post_trial: 0,
+		nsides: 6,
+		text: "Now that we know 0 is the identity under "+hexagon+", we're going to make a new definition. We'll say that the <i>inverse</i> of a number is the element that you combine with it to produce the identity under our operation. For example, 5 "+hexagon+" 1 = 0, so we say 1 is the inverse of 5 under "+hexagon+", (remember 0 is the identity under "+hexagon+"). Similarly, 3 is its own inverse under "+hexagon+", because 3 "+hexagon+" 3 = 0." 
+  	};
+
+		var p_tr_in_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Now you try! What is the inverse of 4 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '2',
+				response_type: "free"
+		};
+
+		var p_tr_in_1_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(4,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(4,6,true,false)
+		};
+
+		var p_tr_in_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 1 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '5',
+				response_type: "free"
+		};
+
+		var p_tr_in_2_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(1,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(1,6,true,false)
+		};
+
+		var p_tr_in_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 3 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '3',
+				response_type: "free"
+		};
+
+		var p_tr_in_3_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(3,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(3,6,true,false)
+		};
+
+		var p_tr_in_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 2 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '4',
+				response_type: "free"
+		};
+
+		var p_tr_in_4_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(2,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(2,6,true,false)
+		};
+		
+		var p_tr_in_5 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "What is the inverse of 0 under "+hexagon+"? <br /><br /> (Remember, the inverse of an element is the thing which you combine with it to produce the identity.)", 
+				correct_response: '0',
+				response_type: "free"
+		};
+
+		var p_tr_in_5_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: inverseFeedbackGenerator(0,6,true,true), 
+				incorrect_text: inverseFeedbackGenerator(0,6,true,false)
+		};
+
+		var p_tr_in_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_tr_in_1,p_tr_in_1_f,p_tr_in_2,p_tr_in_2_f,p_tr_in_3,p_tr_in_3_f,p_tr_in_4,p_tr_in_4_f,p_tr_in_5,p_tr_in_5_f]
+		};
+
+		var p_in_prompt = {
+				type: "polygon-arrow-question",
+				nsides: 6,
+				timing_post_trial: 0,
+				prompt: "Let's review: under "+hexagon+", the inverse of 0 is 0, the inverse of 1 is 5 and the inverse of 5 is 1, the inverse of 2 is 4 and the inverse of 4 is 2, and finally the inverse of 3 is 3. Try playing with some of these pairs on the hexagon. Do you see a spatial relationship between an element and its inverse under "+hexagon+"?", 
+				correct_response: '',
+				response_type: "free"
+		};
+
+		//Generators
+		var p_scv_instructions = {
+			type: 'instructions',
+			timing_post_trial: 0,
+			nsides: 6,
+			text: "It is also possible to successively apply "+hexagon+", and the operation can simply be performed starting with the left-most pair. For example, 2 "+hexagon+" 3 "+hexagon+" 4 = 5 "+hexagon+" 4 = 3." 
+		};
+
+		var p_ge_instructions = {
+			type: 'polygon-arrow-instructions',
+			timing_post_trial: 0,
+			nsides: 6,
+			text: "We have one last definition to learn today. Let's start with an example. Under our operation "+hexagon+" we can make every other number using just 1: 2 = 1 "+hexagon+" 1, 3 = 1 "+hexagon+" 1 "+hexagon+" 1, 4 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, 5 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, and 0 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1. Because 1 can make every other element under "+hexagon+", we say that 1 is a <i>generator</i> under "+hexagon+". <br /><br /> However, 2 is not a generator under " + hexagon + ", because 4 = 2 "+hexagon+" 2, and 0 = 2 "+hexagon+" 2 "+hexagon+" 2, but there is no way to make 1, 3, or 5 using just 2."  
+		};
+
+		var p_tr_ge_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Now you try! Is 3 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'No',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
+
+		var p_tr_ge_1_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3.",
+				incorrect_text: "Sorry, that's incorrect. 3 is not a generator under "+hexagon+", because 3 = 3, 0 = 3 "+hexagon+" 3, but there is no way to make 1, 2, 4, or 5 using just 3."
+		};
+
+		var p_tr_ge_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Is 5 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'Yes',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
+
+		var p_tr_ge_2_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5", 
+				incorrect_text: "Sorry, that's incorrect. 5 is a generator under "+hexagon+", because 5 = 5, 4 = 5 "+hexagon+" 5, 3 = 5 "+hexagon+" 5 "+hexagon+" 5, 2 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, 1 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, and 0 = 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5 "+hexagon+" 5, so you can make all of the numbers under "+hexagon+" using 5"
+		};
+
+
+		var p_tr_ge_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Is 4 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'No',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
+
+		var p_tr_ge_3_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4.",
+				incorrect_text: "Sorry, that's incorrect. 4 is not a generator under "+hexagon+", because 4 = 4, 2 = 4 "+hexagon+" 4, and 0 = 4 "+hexagon+" 4 "+hexagon+" 4, but there is no way to make 1, 3, or 5 using just 4."
+		};
+
+		var p_tr_ge_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 6,
+				prompt: "Is 0 a generator under "+hexagon+"? <br /><br /> (Remember, a generator is an element which can make every other element.)", 
+				correct_response: 'No',
+				response_type: "multi",
+				response_choices: ["Yes","No"]
+		};
+
+		var p_tr_ge_4_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 6,
+				correct_text: "Correct! 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0.",
+				incorrect_text: "Sorry, that's incorrect. 0 is not a generator under "+hexagon+", because 0 = 0, but there is no way to make 1, 2, 3, 4, or 5 using just 0."
+		};
+
+		var p_tr_ge_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_tr_ge_1,p_tr_ge_1_f,p_tr_ge_2,p_tr_ge_2_f,p_tr_ge_3,p_tr_ge_3_f,p_tr_ge_4,p_tr_ge_4_f]
+		};
+
+		var p_ge_prompt = {
+				type: "polygon-arrow-question",
+				nsides: 6,
+				timing_post_trial: 0,
+				prompt: "Let's review: under "+hexagon+", 1 and 5 are generators. However, 0, 2, 3 and 4 are not generators. Try playing with these non-generators on the hexagon and seeing which elements each of them does generate (i.e. which elements you can get by combining each non-generator with itself repeatedly). Do you see spatial relationships among particular subsets of the elements that are not generators under "+hexagon+"?", 
+				correct_response: '',
+				response_type: "free"
+		};
+
+		//nonagon testing
+		var p_t9_instructions = {
+			type: 'polygon-arrow-instructions',
+			timing_post_trial: 0,
+			nsides: 9,
+			text: "Now we are going to ask you some questions about a new operation, "+nonagon+", on the numbers 0, 1, 2, 3, 4, 5, 6, 7, 8. It works exactly like "+hexagon+", except now you use the nonagon shown at the right. <br /><br />Do you see how "+nonagon+" works just like "+hexagon+"? By labeling the points of the nonagon with the numbers from 0 to 8, we ensure that when we combine two numbers under "+nonagon+", we only produce numbers between 0 and 8. <br /><br />We'll give you one practice question with feedback to make sure you understand the new operation. After that, try to complete the remaining questions as accurately as possible."
+		};
+
+		var p_t9_op_practice = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Practice: What is 5 "+nonagon+" 5?",
+				correct_response: '1',
+				response_type: "free"
+		};
+
+		var p_t9_op_practice_f = {
+				type: "polygon-arrow-feedback",
+				timing_post_trial: 0,
+				nsides: 9,
+				correct_text: operationFeedbackGenerator(5,5,9,true,true), 
+				incorrect_text: operationFeedbackGenerator(5,5,9,true,false)
+		};
+
+		var p_t9_op_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 3 "+nonagon+" 3?",
+				correct_response: '6',
+				response_type: "free"
+		};
+
+		var p_t9_op_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 7 "+nonagon+" 4?",
+				correct_response: '2',
+				response_type: "free"
+		};
+		
+		var p_t9_op_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 1 "+nonagon+" 8?",
+				correct_response: '0',
+				response_type: "free"
+		};
+
+		var p_t9_op_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 5 "+nonagon+" 4?",
+				correct_response: '0',
+				response_type: "free"
+		};
+
+		var p_t9_op_5 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 6 "+nonagon+" 6?",
+				correct_response: '3',
+				response_type: "free"
+		};
+
+		var p_t9_ope_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 4 "+nonagon+" 1? Please explain in words how you got your answer.",
+				correct_response: '',
+				response_type: "free"
+		};
+
+		var p_t9_ope_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is 8 "+nonagon+" 4? Please explain in words how you got your answer.",
+				correct_response: '',
+				response_type: "free"
+		};
+
+		var p_t9_ide_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the identity under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: '0',
+				response_type: "free"
+		};
+
+		var p_t9_in_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 5 under "+nonagon+"?",
+				correct_response: '4',
+				response_type: "free"
+		};
+
+		var p_t9_in_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 2 under "+nonagon+"?",
+				correct_response: '7',
+				response_type: "free"
+		};
+
+		var p_t9_in_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 0 under "+nonagon+"?",
+				correct_response: '0',
+				response_type: "free"
+		};
+
+		var p_t9_ine_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "What is the inverse of 3 under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: '',
+				response_type: "free"
+		};
+
+		var p_t9_gee_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 2 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
+
+		var p_t9_gee_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 3 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
+
+		var p_t9_gee_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 5 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
+
+		var p_t9_gee_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 9,
+				prompt: "Is 6 a generator under "+nonagon+"? Please explain in words how you got your answer.",
+				correct_response: "",
+				response_type: "free"
+		};
+
+		var p_t9_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_t9_op_practice,p_t9_op_practice_f,p_t9_op_1,p_t9_op_2,p_t9_op_3,p_t9_op_4,p_t9_op_5,p_t9_ope_1,p_t9_ope_2,p_t9_ide_1,p_t9_in_1,p_t9_in_2,p_t9_in_3,p_t9_ine_1,p_t9_gee_1,p_t9_gee_2,p_t9_gee_3,p_t9_gee_4]
+		};
+
+		//ngon testing
+		var p_tn_instructions = {
+			type: 'polygon-arrow-instructions',
+			timing_post_trial: 0,
+			nsides: 'n',
+			text: "Now we'd like to ask you some questions about "+ngon+", where n could be any positive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of. If you need to write the operation, you can use \"(n)\", and your answers can include n to stand in for the arbitrary value if necessary. (You can use the polygon at the right to think, but it doesn't necessarily correspond to the real polygon, which is why we've left most of it dashed.)" 
+		};
+
+		var p_tn_op = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "What is 5 "+ngon+" 4?",
+				correct_response: "Impossible to determine without knowing n.",
+				response_type: "multi",
+				response_choices: ["0","3","9","Impossible to determine without knowing n."]
+		};
+
+		var p_tn_in = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "What is the formula for the inverse of 1 under "+ngon+"?",
+				correct_response: "n-1",
+				response_type: "free"
+		};
+
+		var p_tn_ine = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "What is the formula for the inverse of an element x under "+ngon+"? Please explain in words why your answer is correct.",
+				correct_response: "n-x",
+				response_type: "free"
+		};
+
+		var p_tn_gee_1 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "How can you test if an element x is a generator under "+ngon+"?.",
+				correct_response: "",
+				response_type: "free"
+		};
+
+		var p_tn_gee_2 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
+				correct_response: "",
+				response_type: "free"
+		};
+
+	/*
+		var p_tn_gee_3 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "We'd like you to answer the previous question again in multiple choice format. Pick the choice that seems most correct to you, even if it doesn't match your previous answer. Is there a pattern to which elements are generators? How can you know if an element x is a generator under "+ngon+" without seeing whether it can make all the elements?.",
+				correct_response: "If x is not a multiple of a divisor of n, it is a generator.",
+				response_type: "multi",
+				response_choices: ["If x is an odd number, it is a generator.","If x does not divide n, it is a generator.", "If x is an even number, it is a generator.", "If x is not a multiple of a divisor of n, it is a generator.","There is no way to know without seeing whether x can make all the elements."]
+		};
+	*/
+
+		var p_tn_gee_3_1 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is an odd number, it must be a generator under "+ngon+".",
+				correct_response: "False",
+				response_type: "multi",
+				response_choices: ["True","False"]
+		};
+
+		var p_tn_gee_3_2 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is an even number, it must not be a generator under "+ngon+".",
+				correct_response: "False",
+				response_type: "multi",
+				response_choices: ["True","False"]
+		};
+
+		var p_tn_gee_3_3 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is not a generator under "+ngon+", x must be a divisor of n, that is, x must divide n evenly, with no remainder.", 
+				correct_response: "False",
+				response_type: "multi",
+				response_choices: ["True","False"]
+		};
+
+		var p_tn_gee_3_4 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
+				correct_response: "True",
+				response_type: "free"
+		};
+
+
+		var p_tn_gee_4 = {
+				type: "polygon-arrow-question",
+				timing_post_trial: 0,
+				nsides: 'n',
+				prompt: "If an element x is a generator under "+ngon+", is its inverse a generator under "+ngon+" always, sometimes, or never?",
+				correct_response: "Always",
+				response_type: "multi",
+				response_choices: ["Always","Sometimes","Never"]
+		};
+
+		var p_tn_gee_5 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "If an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words why your answer is correct.",
+				correct_response: "Sometimes",
+				response_type: "free"
+		};
+
+		var p_tn_gee_6 = {
+				type: "polygon-arrow-question",
+				nsides: 'n',
+				timing_post_trial: 0,
+				prompt: "If an element x is not a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never?",
+				correct_response: "Never",
+				response_type: "multi",
+				response_choices: ["Always","Sometimes","Never"]
+		};
+
+		var p_tn_chunk = {
+			chunk_type: 'linear',
+			timeline: [p_tn_in,p_tn_ine,p_tn_gee_2,p_tn_gee_3_1,p_tn_gee_3_2,p_tn_gee_3_3,p_tn_gee_3_4,p_tn_gee_4,p_tn_gee_5,p_tn_gee_6] //Removed p_tn_op, p_tn_gee_1
+		};
+
+	//Initialize//////////////////////////////////////////////////////////////////////////////////
+		experiment_structure = [initial_page,p_op_instructions,p_op_instructions_2,p_tr_op_chunk,p_tr_op_backup_chunk,p_id_instructions,p_in_instructions,p_tr_in_chunk,p_scv_instructions,p_ge_instructions,p_tr_ge_chunk,p_t9_instructions,p_t9_chunk,p_tn_instructions,p_tn_chunk,bg_chunk,final_page];
+
+		jsPsych.init({
+			display_element: $('#jspsych-target'),
+			experiment_structure: experiment_structure 
+		});
+		}
+	</script>
+</html>

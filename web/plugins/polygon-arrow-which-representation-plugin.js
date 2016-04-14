@@ -18,6 +18,7 @@
                     "timing_post_trial": (typeof params.timing_post_trial === 'undefined') ? 0 : params.timing_post_trial,
                     "force_response":  (typeof params.force_response === 'undefined') ? true : params.force_response,
 		    "response_choices": ["Not at all", "Somewhat", "Very much"],
+		    "response_values": [0,1,2],
                     "canvas_width": params.canvas_width || 300,
                     "canvas_height": params.canvas_height || 300
                 };
@@ -37,13 +38,13 @@
 	display_element.append('<div id="polygon-question-div"></div>');
 	var modular_likert = 'How much did you use the arithmetic method when solving that problem?<br /><br /><ul class="likert">'
 	for (var j in trial.response_choices) {
-		modular_likert += '<li>' + '<input id="representation-modular-response-'+j+' name="representation-modular-response" type=radio value='+trial.response_choices[j]+'><label>'+trial.response_choices[j]+'</label></li>'	
+		modular_likert += '<li>' + '<input id="representation-modular-response-'+j+'" name="representation-modular-response" type=radio value='+trial.response_values[j]+'><label>'+trial.response_choices[j]+'</label></li>'	
 	}
 	modular_likert += '</ul><br /><br />'
 	$('#polygon-question-div').append(modular_likert)
 	var polygon_likert = 'How much did you use the polygon method when solving that problem?<br /><br /><ul class="likert">'
 	for (var j in trial.response_choices) {
-		polygon_likert += '<li>' + '<input id="representation-polygon-response-'+j+' name="representation-polygon-response" type=radio value='+trial.response_choices[j]+'><label>'+trial.response_choices[j]+'</label></li>'	
+		polygon_likert += '<li>' + '<input id="representation-polygon-response-'+j+'" name="representation-polygon-response" type=radio value='+trial.response_values[j]+'><label>'+trial.response_choices[j]+'</label></li>'	
 	}
 	polygon_likert += '</ul><br /><br />'
 	$('#polygon-question-div').append(polygon_likert)
@@ -56,10 +57,12 @@
 		}
 		var end_time = (new Date()).getTime();
 		var rt = end_time - start_time;
-
 		
+	        var prev_data = jsPsych.data.getLastTrialData();
+	
 		jsPsych.data.write({
 			"nsides": trial.nsides,
+			"question": prev_data.question,
 			"polygon_response": polygon_response,
 			"modular_response": modular_response,
 			"orientation_history": orientation_history,
