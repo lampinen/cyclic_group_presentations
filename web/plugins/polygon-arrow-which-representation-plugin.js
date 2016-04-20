@@ -16,9 +16,10 @@
                     //"stim_width": params.stim_width || 100,
 		    "nsides": params.nsides || 6, //Number or 'n' for the arbitrary polygon sketch
                     "timing_post_trial": (typeof params.timing_post_trial === 'undefined') ? 0 : params.timing_post_trial,
+                    "added_prompt": (typeof params.added_prompt === 'undefined') ? '' : params.added_prompt,
                     "force_response":  (typeof params.force_response === 'undefined') ? true : params.force_response,
-		    "response_choices": ["Not at all", "Somewhat", "Very much"],
-		    "response_values": [0,1,2],
+		    "response_choices": ["Not at all", "", "Somewhat", "", "Very much"],
+		    "response_values": [0,1,2,3,4],
                     "canvas_width": params.canvas_width || 300,
                     "canvas_height": params.canvas_height || 300
                 };
@@ -36,17 +37,18 @@
 
 
 	display_element.append('<div id="polygon-question-div"></div>');
+	$('#polygon-question-div').append(trial.added_prompt)
 	var modular_likert = 'How much did you use the arithmetic method when solving that problem?<br /><br /><ul class="likert">'
 	for (var j in trial.response_choices) {
 		modular_likert += '<li>' + '<input id="representation-modular-response-'+j+'" name="representation-modular-response" type=radio value='+trial.response_values[j]+'><label>'+trial.response_choices[j]+'</label></li>'	
 	}
-	modular_likert += '</ul><br /><br />'
-	$('#polygon-question-div').append(modular_likert)
+	modular_likert += '</ul><br />'
 	var polygon_likert = 'How much did you use the polygon method when solving that problem?<br /><br /><ul class="likert">'
 	for (var j in trial.response_choices) {
 		polygon_likert += '<li>' + '<input id="representation-polygon-response-'+j+'" name="representation-polygon-response" type=radio value='+trial.response_values[j]+'><label>'+trial.response_choices[j]+'</label></li>'	
 	}
-	polygon_likert += '</ul><br /><br />'
+	polygon_likert += '</ul><br />'
+	$('#polygon-question-div').append(modular_likert)
 	$('#polygon-question-div').append(polygon_likert)
 	var end_function = function() {
 		var polygon_response = $('input[name="representation-polygon-response"]:checked').val();
@@ -63,6 +65,7 @@
 		jsPsych.data.write({
 			"nsides": trial.nsides,
 			"question": prev_data.question,
+			"added_prompt": trial.added_prompt,
 			"polygon_response": polygon_response,
 			"modular_response": modular_response,
 			"orientation_history": orientation_history,
