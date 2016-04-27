@@ -244,3 +244,25 @@ anova(mod0,mod0.5,mod,refit=F)
 
 No, they don't seem to matter much at all, but we will include math_high as a predictor, in case there are large discrepancies among group assignments.
 
+###Can we identify condition based on words used in explanations?
+This would be useful for hybrid case in experiment 2, to get an idea of what strategy hybrid subjects are using from their explanations
+```{r}
+model_data = model_data %>% mutate(polygon_word_count = str_count(response,'move') + str_count(response,'spaces') + str_count(response,'clockwise') + str_count(response,'steps') + str_count(response,'count') + str_count(response,'arrow') + str_count(response,'hexagon') + str_count(response,'nonagon') + str_count(response,'ngon') + str_count(response,'spots') + str_count(response,'positions'),modular_word_count = str_count(response,'add') + str_count(response,'subtract') + str_count(response,'plus') + str_count(response,'minus') + str_count(response,'[+]')) %>% mutate(polygon_wc_higher = polygon_word_count > modular_word_count)
+```
+
+```{r}
+xtabs(~polygon+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~polygon+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~polygon+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+```
+
+```{r}
+ggplot(data=model_data[grepl('explain',gsub(' ','',model_data$question)),],aes(polygon_word_count,fill=polygon)) +
+  geom_histogram(position=position_dodge(),binwidth=1) +
+  theme_bw()
+
+ggplot(data=model_data[grepl('explain',gsub(' ','',model_data$question)),],aes(modular_word_count,fill=polygon)) +
+  geom_histogram(position=position_dodge(),binwidth=1) +
+  theme_bw()
+```
+

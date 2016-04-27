@@ -9,6 +9,7 @@ library(tidyr)
 library(dplyr)
 library(lme4)
 library(lmerTest)
+library(stringr)
 ```
 
 #Read files:
@@ -1072,6 +1073,12 @@ summary(rt_mod) #what the heck
 ggplot(data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ) & (grepl('5',gsub(" ","",complete_data$question)) | grepl('2',gsub(" ","",complete_data$question))),],aes(x=rt,fill=polygon)) +
   geom_histogram(position='dodge') +
   theme_bw()
+
+#Get rid of the crazy outliers
+tempstuff = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ) & (grepl('5',gsub(" ","",complete_data$question)) | grepl('2',gsub(" ","",complete_data$question))),]
+ggplot(data=tempstuff[tempstuff$rt < 2000,],aes(x=rt,fill=polygon)) +
+  geom_histogram(position='dodge') +
+  theme_bw()
 ```
 ##Question by question
 
@@ -1207,6 +1214,9 @@ ggplot(data=summarized_data[summarized_data$generator,],aes(group_order,percent_
 ```
 
 It would appear that 1) Subjects in the polygon group who interacted with the diagram performed better, though only a few did so, and 2) this was not the sole source of the positive effect of the polygon group. It might be, however, that some subjects just pointed at the diagram on their screen, for example, we only know whether they actually clicked to move the arrow around.
+
+
+
 
 Lab Meeting Presentation Stuff
 ----------------------
