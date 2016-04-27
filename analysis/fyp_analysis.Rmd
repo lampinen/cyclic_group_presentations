@@ -1063,6 +1063,16 @@ summary(rt_mod)
 
 Not significant
 
+We have reason to suspect there might be a difference for the generator true questions.
+```{r}
+# rt_mod = lm(rt ~ polygon,data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ) & gsub(" ","",correct_response) == 'Yes',])
+rt_mod = lmer(rt ~ polygon+(1|subject),data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ) & (grepl('5',gsub(" ","",complete_data$question)) | grepl('2',gsub(" ","",complete_data$question))),])
+summary(rt_mod) #what the heck
+
+ggplot(data=complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ) & (grepl('5',gsub(" ","",complete_data$question)) | grepl('2',gsub(" ","",complete_data$question))),],aes(x=rt,fill=polygon)) +
+  geom_histogram(position='dodge') +
+  theme_bw()
+```
 ##Question by question
 
 ```{r}
