@@ -1,0 +1,437 @@
+row.names,subject,question,correct_response,response,score,trial_index
+32,1,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, I can make 0-9 by just moving clockwise by 2. ",1,58
+33,1,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, I can only make 3, 6, and 0 with 3 as a generator",1,59
+34,1,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, I can only make 5 and 0 with 5 as a generator",0,60
+35,1,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, I can only make 6, 3, and 0 with 6 ",1,61
+89,2,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, you can make every number using just 2 under +9",1,58
+90,2,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, it's not possible to make any number that's not 0 or a multiple of 3 with just 3.",1,59
+91,2,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, you can't make several numbers with just a 5 under +9.",0,60
+92,2,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, you can't make numbers other  than 3,  6, and 9 with just 6.",1,61
+146,3,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes because if you move 2 starting from zero and keep moving in twos then you make all the numbers,1,58
+147,3,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Plea se expla in in words how you got your answer.",,"no because if you start at 0 and move in threes you can only make 0, 3, 6",1,59
+148,3,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes because if you start at 0 and move in 5s clockwise you will make all the numbers,1,60
+149,3,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No because if you start at 0 and move in 6s then you will only be able to make 0, 3, 6",1,61
+205,4,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because every number can be reached by 2.",1,60
+206,4,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because every number can be reached by 3.",0,61
+207,4,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because every number can be reached by 5.",1,62
+208,4,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you g ot your  answer.",,"Yes, because every number can be reached by 6.",0,63
+264,5,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"2 is not a generator under the new symbol because 0,2,3 and 4, cannot make all the elements  ",0,60
+265,5,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,3 is ot a generator under the new symbol because it cannot make every element,0,61
+266,5,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,5 is a generator because it can factor all the elements in some way.,1,62
+267,5,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I think 6 is not a  generator because it cannot be factored ti make all the elements ,1,63
+321,6,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, 2 is never a generator",0,58
+322,6,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes because it's a fraction of 9,0,59
+323,6,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no it's an odd number,0,60
+324,6,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes because 3 is it's half,0,61
+380,7,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes.  You can make every number with the number 2.  2:1= 3, 2:2=4, 2:3=5 and so on.",1,60
+381,7,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because there is no way to make all number just using the number 3.  3:3=6, 3:3:3:0, 3:3:3:3:3",1,61
+382,7,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">?  Please  explain in words how you got your answer.",,"Yes because if generated enough times the numbers will all match.  5:5=1, 5:5:5=6 and so on",1,62
+383,7,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because the sides of the function are a multiple of three, there is no way the generator would hit any number that wasn't a multiple.",1,63
+439,8,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" styl e=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, this is a guess, I really don't know",0,60
+440,8,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, this is a guess, I really don't know",0,61
+441,8,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, this is a guess, I really don't know",0,62
+442,8,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, this is a guess,  I really  don't know",0,63
+498,9,"Is 2 a generator un der <img  src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I honestly cannot say with definitive certainty. However, given that the rules for identity and inverse remain the same with the 9 symbol as with the 6 symbol, my best guess is no, 2 is not a generator. I am guessing that, in this case, 1 and 8 would be the generator in line with the previous rule dictating that 1 and 5 were generators. ",0,60
+499,9,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Again, I did not entirely understand the generator function, but in line with the previous rules, and given that the inverse and identity function of those rules seem applicable to this case as well, I am guessing that no, three is not a generator, as the numbers on the bottom portion of the previous function were not generators. ",1,61
+500,9,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I am guessing, again, no -- 5 is not a generator, for precisely the same reason as stated previously: it does not seem to align with the rules for the former function, which appear to be applicable here as well, given the analogous function of inverse and identity. ",0,62
+501,9,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,,1,63
+557,10,Is 2 a gen erator u nder +<sub>9</sub>? Please explain in words how you got your answer.,,"I dont know, still confused",0,60
+558,10,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I am not sure ._.,0,61
+559,10,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I dont know D:,0,62
+560,10,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I think so...,0,63
+616,11,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because you can't use it with every number to get to 9,0,60
+617,11,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because you can't use it with any number to get to 9",1,61
+618,11,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes because you can use it with any number to get to 9,1,62
+619,11,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because you are unable to use it with any number to reach the number 9",1,63
+673,12,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because you cannot (get values??) for 1,3 and 5.",0,58
+674,12,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because you cannot return the numbers for 2 and 4.,1,59
+675,12,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, because 5 can be multiplied (if this was in a class I would have to ask a question about how 1,2,3, and 4 were explained)",1,60
+676,12,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, and I submitted my last answer right when I realized I was wrong, so I'd like to correct that here. Under +9 5 is NOT a generator because of the number 7, I think? 6 would not be a generator under that conclusion as well, but again if I was in a class, I would need this explained again.",1,61
+730,13,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,2. 2(9)2 = 4. 2(9)2 (9)2 = 6. 2(9)2 (9)2 (9)2 = 8. 2(9)2 (9)2 (9)2 (9) 2 = 0. . .,0,58
+731,13,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"(Sorry, enter submitted on the last answer rather than giving me a new line, so I only offered my example without explaining it!) No, 3 can generate 3, 6 and 0, but none of the other numbers.",1,59
+732,13,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, running 5 through its paces, it appears that it can generate all the other numbers.",1,60
+733,13,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" styl e=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, it appears 6 can only generate 0, 3 and 6.",1,61
+799,14,Is 2 a generator under +<sub>9</sub>? Please explain in words how you  got your  answer.,,No because there is not a way to make certain numbers with 2 as a generator under +9.,0,80
+800,14,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes because we can make every other number using it.,0,81
+801,14,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because there is no way to make every other number.,0,82
+802,14,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because there is no way to make every number.,1,83
+856,15,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, because adding to 2 will not give you number. ",0,58
+857,15,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes; because 3+6=9,0,59
+858,15,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no; because 5+1 does not equal 9,0,60
+859,15,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because 6+3=9",0,61
+915,16,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,, No because adding 2 together repeatedly does not give a way to make all other numbers under +9,0,60
+916,16,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, while you can make 6, 0, 4, you can't make the other numbers by using +9",1,61
+917,16,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, while you can make 1 and 6 using +9, you can't make the other numbers.",0,62
+918,16,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, while you can make 3 and 9, you can't make any of the other numbers.",1,63
+974,17,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes. If 2 is added to each numbered point starting at 0, all the other  numbers  can be generated. ",1,60
+975,17,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No. Adding 3 to each numbered point starting at 0 does not generate all the other numbers.,1,61
+976,17,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, starting at point 0, moving 5 points clockwise will generate all the other numbers.",1,62
+977,17,"Is 6  a gener ator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, adding 6 to the points starting at 0 will repeat the same numbers instead of generating all of them.",1,63
+1031,18,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, because it could be used with all other numbers to make the identity. ",1,58
+1032,18,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, because it can't be used with all other numbers to get to the identity.",1,59
+1033,18,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because it can be used with all other numbers to get to the identity.",1,60
+1034,18,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, it can't  be used  with all of the other numbers to get to the identity. ",1,61
+1090,19,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, using it as itself you can achieve all other number sets",1,60
+1091,19,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, it only recurs by itself not achieving all numbers",1,61
+1092,19,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, when shifted by itself all other number  sets occ ur",1,62
+1093,19,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, it only recurs by itself not achieving all numbers",1,63
+1147,20,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, if you add two plus zero it is two, if you add two plus one it is three, if you add two plus two it is four, if you add two plus three it is five, if you add two plus four it is six, if you add two plus five, you get seven,if you add two plus six it is eight, if you add two plus seven it is nine,if you add two plus eight it is ten, you must remove nine from and get one. You can get all other numbers. ",1,58
+1148,20,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer. ,,"3,4,5,6,7,8,9(0),10(3),11(8)",0,59
+1149,20,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, you cannot get four from it. I add 0-8 to five for each and subtract nine from any sums of nine or over, four is not possible. ",0,60
+1150,20,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer., ,"No, you cannot get five by adding 0-8 to it after subtracting nine from any sums of nine or above. ",1,61
+1204,21,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I don't know.,0,58
+1205,21,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I don't know.,0,59
+1206,21,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I don't know.,0,60
+1207,21,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I don't know.,0,61
+1263,22,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Using only 2, you can make 2,4,6, and 8, and then 10-9=1, 12-9=3, 14-9=5, 16-9=7, and 18-9=9, so yes, 2 is a generator under +9",1,60
+1264,22,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"using only 3, you can make 3, 6, and 9 (which then returns 0), but 12-9=3, so you can only get multiples of 3 under +9. No, 3 is not  a gener ator. (Also, I just realized I was wrong on the last one... 2 is NOT a generator, because there's no way to get 0 using just 2)",1,61
+1265,22,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"using only 5, you can get 1 (5+5-9=1)and 6(5+5+5-9=6), but no other single-digit results. No, 5 is not a generator",0,62
+1266,22,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"using only 6, you can get 0 (6 +9 6 +9 6 = 0), 3 (6 +9 6 = 3) and 6 (6 +9 6 +9 6 +9 6 = 6), but no other single digit results, because at that point it starts repeating. 6 is not a generator.",1,63
+1322,23, Is 2 a g enerator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, because you can't get all numbers with 2",0,60
+1323,23,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because you can get all number with 3",0,61
+1324,23,Is 5 a generator under +<sub>9</sub>? Please explain in word s how yo u got your answer.,,"yes, because you can get all numbers",1,62
+1325,23,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, you can get all numbers",0,63
+1381,24,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes you can generate all numbers with 2,1,60
+1382,24,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes you can generate all numbers with 3,0,61
+1383,24,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes you can generate all numbers with 5,1,62
+1384,24,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes you can generate all numbers with 6,0,63
+1440,25,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, if you keep combining two, you get all of the other numbers.",1,60
+1441,25,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, three is not a generator because you can not get all of the other numbers by combining it with itself.",1,61
+1442,25,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, fiv e is not a generator because you can not get all of the numbers by combing it with itself.",0,62
+1443,25,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, six is not a generator because it cannot be combined with itself under this rule to get the rest of the numbers.",1,63
+1509,26,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because you can add 7 to it get 9",1,80
+1510,26,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because you can add 6 to it and get 9",0,81
+1511,26,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because you can add 4 to it and get 9",1,82
+1512,26,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because you can add 3 to it and get 9",0,83
+1566,27,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes because you can get all the numbers,1,58
+1567,27,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes because you can get all the numbers,0,59
+1568,27,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cant get all the nmbers,0,60
+1569,27,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes because you can get all the numbers,0,61
+1625,28,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because you can't get 1 or 0 from it.,0,60
+1626,28,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes because you can land on all numbers using 3???,0,61
+1627,28,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No you can not land on all the numbers from 5???,0,62
+1628,28,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please  explain  in words how you got your answer.",,No because you can't land on all the numbers ,1,63
+1684,29,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cannot get the number 7 by adding the number together,0,60
+1685,29,Is 3 a  generat or under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cannot get the numbers 1 through 9 by adding the 3's,1,61
+1686,29,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got y our answ er.,,no. because you cannot get the number 1 through 9 by adding 5's and subtracting 9's for anything higher than 9,0,62
+1687,29,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no/ because you cannot get the number 1 through 9 by adding 6's and subtracting 9's for anything over 9,1,63
+1741,30,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, it can generate all numbers using only 2",1,58
+1742,30,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, it can't generate 4,5,7,8,1,2 using only 3",1,59
+1743,30,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, it can generate all numbers using only 5",1,60
+1744,30,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, it can't generate 1,2,4,5,7,8 using only 6",1,61
+1800,31,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because 2 is not a multiplier of 9.,0,60
+1801,31,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes because 3 is a multiplier of 9.,0,61
+1802,31,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because 5 is not a multiplier of 9.,0,62
+1803,31,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because 6 is not a multiplie r of 9.,1,63
+1857,32,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes: starting with 2 +9 2 = 4 and repeating the operation +9 2 with each result produces the sequence 4, 6, 8, 1, 3, 5, 7, 0, 2.",1,58
+1858,32,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, 3 can only generate 6, 0, 3.",1,59
+1859,32,Is 5 a generator under +<sub>9</sub>? Pleas e explai n in words how you got your answer.,,"Yes, iterating +9 5 starting with 5 +9 5 produces the sequence 1, 6, 2, 7, 3, 8, 4, 0 5.",1,60
+1860,32,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, 6 can only produce 3, 0, 6.",1,61
+1914,33,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, checked all cases, 2 = 2, 2+2=4, 2+2+2=6, 2+2+2+2=8, 2+2+2+2+2=1, etc. 3, 5, 7, 0",1,58
+1915,33,Is 3 a generator un der +<su b>9</sub>? Please explain in words how you got your answer.,,"No, 3, 6, 0, 3 ... keeps cycling no 1,4,5,7,8",1,59
+1916,33,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, checked all cases, 5, 1, 6, 2, 7, 3, 8 , 4",1,60
+1917,33,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, 6, 3, 0, 6, 3, 0 keeps cycling leaves out 1,2,4,5,7,8",1,61
+1973,34,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,not sure,0,60
+1974,34,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,don't know,0,61
+1975,34,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,not sure,0,62
+1976,34,Is 6 a generator under +<sub>9</sub>? Please explain in words how yo u got yo ur answer.,,not sure,0,63
+2030,35,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, I'm not sure. I don't understand this one",1,58
+2031,35,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes. Not sure how,0,59
+2032,35,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes. I don't know,1,60
+2033,35,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. I don't know,1,61
+2087,36,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"2 is a generator under +9 because it is possible to create every other number. 2+7=0, 2+8=1, 2+9=2, 2+10=3, etc. ",1,58
+2088,36,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,3 is a generator under +9 because it is possible to get all other numbers using the +9 operation.,0,59
+2089,36,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"It is possible to get all the other numbers using the +9 operation, so 5 is a generator under +9.",1,60
+2090,36,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"It is possible to get all other numbers using the +9 operation, so 6 is a generator under +9",0,61
+2146,37,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, 2 can be combined with other numbers to come up with every number on the dial.",1,60
+2147,37,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, it can be used with each number on the dial and come up with an answer that includes every number.",0,61
+2148,37,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I really don't know. I'm confused and can't remember how the generator works. I keep getting the same results regardless of every way I try it. I am clearly doing something wrong.,0,62
+2149,37,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I guess so. It seems to be able to  produce  each number as an answer. I'm not really sure I understand this concept at all.,0,63
+2203,38,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, 2 can get anywhere",1,58
+2204,38,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, 3 will not get to any number",1,59
+2205,38,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please expla in in wo rds how you got your answer.",,"No, 5 will not get to any number",0,60
+2206,38,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I don't know,0,61
+2270,39,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes because it has an inverse.,1,78
+2271,39,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because it has no inverse.,1,79
+2272,39,Is 5 a generator under +<sub>9</sub>? P lease ex plain in words how you got your answer.,,Yes because there is an inverse.,1,80
+2273,39,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes because there is an inverse.,0,81
+2329,40,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because for some numbers like 6 and 8 you wouldn't be able to reach 2 with just using 2s in the equation.,0,60
+2330,40,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because you can't reach number 3 just by using 3 alone for some numbers.,1,61
+2331,40,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because for some numbers you can't reach them only using 5.,0,62
+2332,40,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because for some numbers you can't reach them only using 6s.,1,63
+2386,41,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you can't make all of the odd numbers using only 2,0,58
+2387,41,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, you can't make all of the numbers using only 3",1,59
+2388,41,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,You can make all of the numbers using only 5 ,1,60
+2389,41,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,there is no way to make all of the numbers usin g only 6 ,1,61
+2443,42,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because we can't make the odd numbers using 2,0,58
+2444,42,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because we can't make 4, 5, 7 or 8 using just 3",1,59
+2445,42,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, because we can make all the numbers using 5",1,60
+2446,42,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because we cant make all of the numbers using 6",1,61
+2500,43,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I am not sure how to get the generator results ,0,58
+2501,43,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" sty le=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,again I do not remember the procedure to get this answer ,0,59
+2502,43," Is 5 a g enerator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I am not clear on the procedure for this answer I was abit overwhelmed when trying to learn this.,0,60
+2503,43,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I am not sure how to work out the answer to this set ,0,61
+2557,44,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes.  Starting at any number on the image and counting 2 clockwise brings you to a different number.  All numbers in the imag e can be  achieved with 2 as a generator.,1,58
+2558,44,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes.  Using the graph at the right, all numbers can be achieved by counting clockwise on the graph.",0,59
+2559,44,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, if I understand correctly, starting at any number and counting 5 clockwise on the image will bring you to a different number, and all numbers on the graph can be achieved.",1,60
+2560,44,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I think so.  I think that all numbers on the image can be achieved by counting 6 clockwise. ,0,61
+2614,45,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes - I can generate all of the numbers using the 2.,1,58
+2615,45,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no - I cannot generate all of the numbers using a 3.,1,59
+2616,45,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, I moved the arrow to the five and counted five spaces and arrived at one, and then I moved five more spaces continued until I had reached all of the numbers by just moving five spaces.",1,60
+2617,45,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style= \""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no - I moved the arrow to the six and counted six spaces and arrived at three, I counted six spaces and then arrived at the zero. I counted six spaces and arrive at the six and then I counted six spaces and arrived at the three again.",1,61
+2673,46,"Is 2 a generator under <img src =\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no- 2 can only generate even numbers and 0,0,60
+2674,46,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes- I manually checked and it brought me, eventually, to all of the numbers in the nonagon.",0,61
+2675,46,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes- I manually checked and it brought me, eventually, to all of the numbers in the nonagon.",1,62
+2676,46,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no- six only generates a few numbers, even ones (manually checked)",1,63
+2730,47,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, you can get every number from using multiples of 2 going around in a clockwise direction",1,58
+2731,47,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, you won't get 4,5,7,8,1 or 2 using 3",1,59
+2732,47,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, you will get all of the number back after using 5 multiple times",1,60
+2733,47,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, you will not get all of the numbers, you will only get 0,3, and 6, but none of the other numbers",1,61
+2789,48,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes. Adding 2 each time eventually gets aroudn to each number,1,60
+2790,48,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no.  Only 3 numbers are ggenerated by 3,1,61
+2791,48,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes. Adding 5 each time goes, 0,5,1,6,2,7,3,8",1,62
+2792,48,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" st yle=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, only 3 numbers are generated using 6",1,63
+2846,49,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,i forget what a generator is,0,58
+2847,49,Is 3 a generator unde r +<sub> 9</sub>? Please explain in words how you got your answer.,,i forget what a generator is,0,59
+2848,49,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,i forget what a generator is ,0,60
+2849,49,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,i forget what a generator is,0,61
+2913,50,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, it is across from 7",1,78
+2914,50," Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes it is across from 8,0,79
+2915,50,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No. it doesn't have a number across from it,0,80
+2916,50,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, no number across from it",1,81
+2972,51,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes. Because 2 can make any number under (9), which I found by counting clockwise.",1,60
+2973,51,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No. Because 3 can only make 3,6 and 0 under (9).",1,61
+2974,51,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes. Because 5 can make all of the numbers under (9). I found this by counting clockwise.,1,62
+2975,51,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your a nswer.",,"No, because 6 can only make 0, 3 and 6. I found this by counting clockwise.",1,63
+3029,52,"Is 2 a generator under <img s rc=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,I do not know. You're directions were totally confusing. I don't think I should have to return this after spending so much time on it--and a lot of effort. It makes NO sense to me!,0,58
+3030,52,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got you r answer .",,No clue.,0,59
+3031,52,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I haven't the foggiest. Will I be rejected for not understanding the confusing direction? I am an artist, not a math wiz!",0,60
+3032,52,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No idea.,0,61
+3088,53,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. 2 can not be a generator.,0,60
+3089,53,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. 3 can not be a generator.,1,61
+3090,53,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No.5 can not be a generator.,0,62
+3091,53,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. 6 can not be a generator.,1,63
+3147,54,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No it is not because O cam,0,60
+3148,54,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No it is not because I can not make all of the numbers with just 3. For example I can't make 5  with 3. ,1,61
+3149,54,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,5 is not a generator. I can make the numbers with it. For example. 5 5 = 1,0,62
+3150,54,"Is 6  a gener ator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, it is a generator. I can't make some numbers with 6. I come up with even numbers and not odd numbers.",1,63
+3206,55,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I believe it is because with the number of positions on the dial being an odd number, counti ng 2 ste ps at a time will eventually generate all numbers.",1,60
+3207,55,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because 3 is divisible into 9 and will skip over those number that are not.,1,61
+3208,55,"Is 5  a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I believe so. It seems that certain odd numbers will be a generators on a odd-numbered dial, other than those divisible into 9.",1,62
+3209,55,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, 6 will only arrive at multiples of 3.",1,63
+3263,56,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. Because you cant add 2 continuously to get 9. ,0,58
+3264,56,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes. Because 3+3+3=9,0,59
+3265,56,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. Because you can't add 5 continuously to get 9. ,0,60
+3266,56,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. Because you can't add 6 continuously to get 9. ,1,61
+3322,57,Is 2 a generator under +<sub>9</sub>? P lease ex plain in words how you got your answer.,,I'm not for sure the answer to this.,0,60
+3323,57,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I'm not for sure the answer to this.,0,61
+3324,57,Is 5 a generator under +<sub>9</sub>? Please explain  in words  how you got your answer.,,I'm not for sure the answer to this.,0,62
+3325,57,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I'm not for sure the answer to this.,0,63
+3379,58,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because it cannot get to every other number.",0,58
+3380,58,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because it cannot get to every other number.",1,59
+3381,58,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, for the same reason as the others.",0,60
+3382,58,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, If I am correct you can get to the other numbers using 6",0,61
+3436,59,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I am not sure,0,58
+3437,59,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I am honestly not sure,0,59
+3438,59,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I am forgetting how to get to the generator,0,60
+3439,59,Is 6 a generator under +<sub>9</sub>? Please explain in words how  you got  your answer.,,no,0,61
+3493,60,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes because 2 can be used to get to every number.,1,58
+3494,60,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No because 3 cannot get to every number, only 3, 6, and 0.",1,59
+3495,60,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes because it can be used to create every number.,1,60
+3496,60,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No. I went around the shape and it can only equal 6, 3, and 0.",1,61
+3552,61,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, because if you continue to go around the hexagon 2 at a time, you will eventually end up hitting every number",1,60
+3553,61,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, because if you go around the, starting at 3, and go 3 spaces at a time, you end up back at three without being able to hit every number.",1,61
+3554,61,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, because starting at 5,you can go 5 at a time around the hexagon and touch every number.",1,62
+3555,61,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, because you will not be able to hit every number by starting at 6 and going 6 spots at a time.",1,63
+3609,62,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because every number from 0 to 8 cannot be created with just 2s.",0,58
+3610,62,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because every number from 1 to 8 cannot be reproduced with just 3s.",1,59
+3611,62,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because every number between 0 and 8 cannot be reproduced with just 5s.",0,60
+3612,62,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because every number between 0 and 8 cannot be reproduced with just 6s.",1,61
+3666,63,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes.  You can use 2+2 and so on to generate any number under +9.  For example 2+2+2+2 would equal 1.,1,58
+3667,63,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No.  You can not you 3+3 and so on to generate any number.3+3 =6 but 3+3+3=0.  There is no way to get a number like 1 using 3 as a generator.,1,59
+3668,63,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No.  There is no way to get a number like 2 from using 5 as a generator.  5+5+5 would equal 3.  5+5 would equal 1.  ,0,60
+3669,63,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No.  There is no way to get a number like 1 fro m using  6 as a generator. 6+6 = 3 and 6+6+6 = 9.,1,61
+3725,64,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no. You can't get all the numbers from it,0,60
+3726,64,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes? I think you can get all the numbers from 3,0,61
+3727,64,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, I don't think you can get all the numbers from 5",0,62
+3728,64,Is 6 a  generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes. You should be able to generate all the numbers using 6,0,63
+3782,65,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because it's an even number and cannot generate all the numbers in the function",0,58
+3783,65,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because it cannot form all the numbers in the function",1,59
+3784,65,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\""  style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, it can form every number in the function",1,60
+3785,65,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, it cannot form every number in the function",1,61
+3841,66,"Is 2 a generator under  <img src =\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes. it is possible to reach every number by moving around by 2 positions,1,60
+3842,66,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, it is only possible to reach 3, 6, and 0 with 3 as a generator",1,61
+3843,66,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, it is possible to reach every number when moving around every 5 positions",1,62
+3844,66,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, it is only possible to reach 3, 6, and 0",1,63
+3898,67,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes. 2 by itself can get to every number. It covers all single digit even numbers, and covers all odd numbers by the subtraction of 9 in the +9 system when the raw addition goes to 10, 12, etc.",1,58
+3899,67,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No. 3 cannot cover many numbers in +9 by itself. 1, 2, 4, 5, 7, 8 are all impossible to generate with 3 by itself.",1,59
+3900,67,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No. 5 leaves too many numbers uncovered if used by itself. The only numbers 5 covers in +9 are 1, 5, and 6.",0,60
+3901,67,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. It leaves too many uncovered numbers in +9. only 3 and 6 can be generated.,1,61
+3957,68,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in  words ho w you got your answer.",,"Yes because there's an odd number of points, so you can get to every number by going around in 2s.",1,60
+3958,68,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No 3, only goes to 3,6, and 0.",1,61
+3959,68,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, you can't get to every number by going around the circle in 5s.",0,62
+3960,68,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, going around in 6s will only go to 6, 3, and 0.",1,63
+4016,69,Is 2 a generator under +<sub>9</sub>? Please explain in words how y ou got y our answer.,,Yes.  Every other number can be made with 2 since 2 is even and 9 is odd.,1,60
+4017,69,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No.  You cannot produce all #'s with 2 odds.,1,61
+4018,69,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes.  You will get 5, 1, 6, 2, 7, 3, 8, 4, and 0 as you add 5's.",1,62
+4019,69,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No. You will get 6, 3, 0, 6, 3, 0, etc.",1,63
+4073,70,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes because 0 - 2
+1 = 2,2,2,2,2
+2 = 2
+3 = 2,2,2,2
+4 = 2,2,2,2,2,2 ,2,2
+5  = 2,2,2
+6 = 2,2,2,2,2,2,2
+7 = 2,2
+8 = 2,2,2,2,2,2",1,58
+4074,70,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No because 3 = 3
+6 = 3,3
+0 = 3",1,59
+4075,70,"Is 5 a generator under <img src =\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes because -
+0 = 5
+1 = 5,5,5,5,5,5,5,5
+2 = 5,5,5,5,5,5
+3 = 5,5,5,5
+4 = 5,5
+5 = 5
+6 = 5,5,5,5,5,5,5
+7 = 5,5,5,5,5
+8 = 5,5,5",1,60
+4076,70,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No because - 
+0 = 6
+3 = 6,6
+6 = 6
+but nothing else does",1,61
+4132,71,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because it cant be used to equal ine withitsef,0,60
+4133,71,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes because yu can use that number with itself to get to 9,0,61
+4134,71,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cant use it with itself to get to 9,0,62
+4135,71,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes because you can use it to get to 9 ,0,63
+4189,72,"Is 2 a  generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I have no idea, I really didn't understand this part.",0,58
+4190,72,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I have no idea, I really didn't understand this part.",0,59
+4191,72,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I have no idea, I really didn't understand this part.",0,60
+4192,72,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"I have no idea, I really didn't understand this part.",0,61
+4248,73,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because 2 can be used to make every other number",1,60
+4249,73,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because 3 only goes to 3 a nd 6 and  0, but none of the other numbers",1,61
+4250,73,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because 5 can be used to reach every other number",1,62
+4251,73,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because 6 only goes to 0 and 3 and 6",1,63
+4305,74,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes because you can +9 multiple twos to get any number,1,58
+4306,74,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cannot get some of the numbers such as 1 and 2 using just 3s.,1,59
+4307,74,Is 5 a  generato r under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cannot get some numbers such as 2 or 3 using just 5s.,0,60
+4308,74,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no because you cannot get some numbers such as 1 or 2 using just 6s.,1,61
+4364,75,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, I just don't think it is.",0,60
+4365,75,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"I do not think so, from what I worked out.",1,61
+4366,75,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, I think 5 is because.",1,62
+4367,75,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,I am not sure.,0,63
+4423,76,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in wor ds how y ou got your answer.",,"Yes, 9 is an odd number, so 2 can go into everything. 1=2+2+2+2 2=2+0 3=2+2+2+2+2",1,60
+4424,76,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No. The arrow lands on 3, 6, and 0 and no other numbers.",1,61
+4425,76,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes. The arrow continues to go up 1 number every full rotation of the arrow.,1,62
+4426,76,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No. The arrow only lands on 0, 3 and 6..",1,63
+4490,77,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no,  it does not satisfy the requirements by returning all the other numbers defining the points.",0,78
+4491,77,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, I think it will return all of the other numbers on the points",0,79
+4492,77,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, it does not satisfy the requirements by returning all the other numbers assigned to the points on the shape.",0,80
+4493,77,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, it does not return all the numbers assigned to the points on the shape",1,81
+4557,78,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no not enough steps,0,78
+4558,78,"Is 3  a genera tor under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,7 steps to zero,0,79
+4559,78,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes it has enough to make to zero,1,80
+4560,78,"Is  6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes it has enough to make to zero,0,81
+4614,79,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,Yes. You can get the other numbers with two as follows:,1,58
+4615,79,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"2+2=4
+2+2+2=6
+2+2+2+2=8
+2+2+2+2+2=10=1
+2+2+ 2+2+2+2= 12=3
+etc. 
+",0,59
+4616,79,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes. Under the rule for +9 you can get the other numbers as follows:
+2+2=4
+2+2+2=6
+2+2+2+2=8
+2+2+2+2+2=10=1
+2+2+2+2+2+2=12=3
+etc. 
+",1,60
+4617,79,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No. You will not be able to get the other numbers with just 6. ,1,61
+4671,80,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, because 2 can't make 1,3,4,5,6,7,8 by itself under +9",0,58
+4672,80,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because 3+3 can equal 6 and that would remain 6 under +9",0,59
+4673,80,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, because it can't produce 1,2,3,4,6,7,8 by itself under +9",0,60
+4674,80,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because 6+3 is 0 under +9, because 6+3=9 and you must subtract 9 from it, making 0.",0,61
+4728,81,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes. I added 2 to itself multiple times and reached all the numbers 0 through 8. For example, 2+2=4, 2+2+2=6, 2+2+2+2=8, 2+2+2+2+2=1, etc.",1,58
+4729,81,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, you can only get 0,3 & 6 by adding 3 to itself: 3=3, 3+3=6, 3+3+3=9(-9)=0.",1,59
+4730,81,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes. By adding 5 to itself you can make all of the numbers from 0-8. For example, 5=5, 5+5=1, 5+5+5=6, 5+5+5+5=2, etc.",1,60
+4731,81,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No. You can only make the numbers 0, 3 & 6 from adding 6 to itself.",1,61
+4787,82,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> ? Please explain in words how you got your answer.",,"yes, because i can use 2 to get to every other number",1,60
+4788,82,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, i can only get to 3, 6, and 0 using 3",1,61
+4789,82,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, i can use 5 to get to every other number",1,62
+4790,82,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your ans wer.",,"no, i can only get to 0, 3, and 6",1,63
+4846,83,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no because it does not correspond with the other numbers,0,60
+4847,83,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes because almost every number divides into it,0,61
+4848,83,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes because 4 would work with it,1,62
+4849,83,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes because it would work with 3,0,63
+4903,84,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, can't make 1",0,58
+4904,84,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, can't make 1 or 2",1,59
+4905,84,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, can't make 1 thru 4",0,60
+4906,84,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, can't make 1 thru 5",1,61
+4960,85,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes. It lets every number have a t urn on t his dial.,1,58
+4961,85,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No. If I jump 3 spots on this dial I will not come upon every number.,1,59
+4962,85,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes. Because as I jump 5 digits I will come to every number eventually.,1,60
+4963,85,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No. After a few turns It becomes clear that not every number will come up.,1,61
+5019,86,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, because its able to produce all the other numbers.",1,60
+5020,86,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, it is incapable of producing 1",1,61
+5021,86,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"5*1=5, 5*2=10-9=1, 5*3=15-9=6, 5*4=20-9-9=2, 7,3.... Yes, it's able to produce all the other numbers.",1,62
+5022,86,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"6*1=6; 6*2=12-9=3; 6*3=18-9-9=0; 6*4=24-9-9=6. No, it is not capable of producing all the other numbers",1,63
+5076,87,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no you cant get 1 3 5,0,58
+5077,87,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,you can get 0-9 using 3,0,59
+5078,87,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no you cant get all numbers,0,60
+5079,87,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, i cant get many numbers",1,61
+5133,88,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because there is no way to  make 2,  5, 7 under 9.",0,58
+5134,88,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because there is no way to make 1, 2, 4, 5, 7, 8 under 9.",1,59
+5135,88,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your ans wer.,,"No, because there is no way to make 2, 3, 4, 5, 7, 8 under 9 with just 5.",0,60
+5136,88,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because there is no way to make 1, 2, 4, 5, 6, 7, 8 under 9 with just 6.",1,61
+5192,89,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no,0,60
+5193,89,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no because it doesn't line up with 0. I'm sorry I am a little confused.,1,61
+5194,89,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, because it's not even with 0.",0,62
+5195,89,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, I\""mnotsurewhy.Ihavelosttheabilitytounderstandthispart.",1,63
+5249,90,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, there are a lot of ways to get to 2. and multiples of it (4, 8)",1,58
+5250,90,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"yes, I think you can go from 0,3,6, etc. ",0,59
+5251,90,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, you can't go back or forward 5 and land on the same (equal) number.",0,60
+5252,90,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"no, you can't land  equally on the same number by moving 6  places.",1,61
+5306,91,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because you can't make all of the sums by adding 2 to 2 repeatedly.",0,58
+5307,91,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because it is not possible to get all of the numbers 0-5 as answers using only the number 3 as an additive.",1,59
+5308,91,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"yes, because you can use 5 to generate every other number below 9",1,60
+5309,91,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, because you can't use 6 to generate every number under 9",1,61
+5365,92,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your a nswer.",,no since not all nuumbers can be made from 2,0,60
+5366,92,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no since other numbers can be generated,1,61
+5367,92,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,yes since all numbers can be made from 5,1,62
+5368,92,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,no since 6 can only can make 3 and 0,1,63
+5434,93,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,cant remember,0,80
+5435,93,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,i think you just remove 3 from 9,0,81
+5436,93,Is 5 a generator under +<sub>9</sub>? Please explain in words  how you  got your answer.,,no because its odd,0,82
+5437,93,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes beause its even and equals odd,0,83
+5491,94,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,Yes because you can move by 2's and still make other numbers going around in 2s.,1,58
+5492,94,"Is 3 a  generato r under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because you can not make the other numbers using 3 and moving in 3s.,1,59
+5493,94,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because you can make the other numbers by using 5s.",1,60
+5494,94,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,No because you can only make 3 and 6 from 6 as a generator.,1,61
+5550,95,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because 2 added to itself cannot come to equal all of the other numbers.",0,60
+5551,95,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because 3 added to itself will come yield all of the other numbers.",1,61
+5552,95,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because 5 added to itself will come yield all of the other numbers.",0,62
+5553,95,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No, because 6 added to itself will come yield all of the other numbers.",1,63
+5609,96,"Is 2 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please expla in in wo rds how you got your answer.",,"No, because moving 2 positions will never reach every number within the shape no matter where you start from so it is not a generator.",0,60
+5610,96,"Is 3 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because moving 3 positions clockwise will only reach 3 locations within the shape so it will not ge nerate e ach number.",1,61
+5611,96,"Is 5 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"Yes, because eventually moving 5 positions clockwise will eventually generate each number 0-8 no matter the starting position.",1,62
+5612,96,"Is 6 a generator under <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">? Please explain in words how you got your answer.",,"No, because moving 6 positions clockwile will only reach a few numbers so it cannot generate each number.",1,63
+5668,97,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, because you can make all other numbers with it by adding something",1,60
+5669,97,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes, because you can make all other numbers with it",0,61
+5670,97,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because you cannot make all other numbers with it,0,62
+5671,97,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,No because you cannot make all other numbers with it,1,63
+5727,98,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"2 give you 2, 4, 6, and 8 if you start with 2 +9 0 and do +9 operation with 2 successive ly on ea ch answer. When you get to 10, you must subtract nine, which gives you 1. The same is true for every odd number between 0 and 10, and this is suggestive that 2 is a generator for +9",1,60
+5728,98,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"No. It seems that any number that creates zero with itself under these types of operations is not a generator. 3, no matter how many times operated on with +9, never creates numbers between 0 and 10 other than 3, 6, and 9.",1,61
+5729,98,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"Yes. It appears that 5 can create the all numbers betwe en 0 and  10, and this has so far been suggestive that it is an operator.",1,62
+5730,98,Is 6 a generator under +<sub>9</sub>? Please explain in  words ho w you got your answer.,,"No. 6 +9 0 = 6. But then 6 +9 6 = 3 and 6 +9 3 = 0. As we discussed, it is almost certain that it is not a generator because it can make 0.",1,63
+5786,99,Is 2 a generator under +<sub>9</sub>? Please explain i n words  how you got your answer.,,"i dont think that 2 is a generator under +9,. it wasn't a generator under +6 if i recall correctly. ",0,60
+5787,99,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,"no, because i dont think that 3 can make all the numbers between 0-8 with +9.",1,61
+5788,99,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,i dont think that 5 is a generator under +9 because it doesnt make every number 0-8,0,62
+5789,99,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,i dont think that 6 is a generator under +9 because it doesnt make every number 0-8,1,63
+5845,100,Is 2 a generator under +<sub>9</sub>? Please explain in words how you got your an swer.,,no. I cant think of a combination to make 8,0,60
+5846,100,Is 3 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes. It makes all numbers 1-9,0,61
+5847,100,Is 5 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,no. I cant think of a combination  to make 8,0,62
+5848,100,Is 6 a generator under +<sub>9</sub>? Please explain in words how you got your answer.,,yes. i can make all numbers ,0,63

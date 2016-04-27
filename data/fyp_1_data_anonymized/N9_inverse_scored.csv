@@ -1,0 +1,101 @@
+row.names,subject,correct_response,response,score,trial_index
+31,1,,6. I started from 3 and went clockwise to 0 and counted how many spots it took me to get there,1,57
+88,2,,"6. The identity is 0, and 6+3 = 9, which becomes 0 due to the +9 rule.",1,57
+145,3,,6 because that's how much I have to move from 3 to get to 0,1,57
+204,4,,"6, because that will yield a result of 0, which is the identity.",1,59
+263,5,,"3, the inverse of a number is the thing you conrol the number with",0,59
+320,6,,0 because you count backwards from the information given (3),0,57
+379,7,,8. It is the opposite placement from the number 3.,0,59
+438,8,,"3, move 3 positions back to get to 0",0,59
+497,9,,6 -- because 6 steps clockwise is what produces the identity  ,1,59
+556,10,,"6, because 6 + 3 = 9",1,59
+615,11,,"6, because 6+3=9 and anything equal to or greater than 9 means that we subtract 9 and in this case we get 0",1,59
+672,12,,6 because 3 plus 6 equals 9,1,57
+729,13,,I believe the inverse is 6. The inverse is [a number](9)[the inverse]=0. So 3(9)6=0.,1,57
+798,14,,6 because 3 + 6 = 9.,1,79
+855,15,,6; 6+3=9; 9-9=0,1,57
+914,16,,"6, because when combined with 3 in +9 the sum is 0 which would give you the identifier",1,59
+973,17,,"6. The inverse of 3 is the number that gets it to 0, which I needed to move 6 spaces clockwise to reach 0.",1,59
+1030,18,,"6, because that is how many spaces it would have to move to get to 0.",1,57
+1089,19,,"It is 6 because you move forward that many spaces to 0, which is the inverse",1,59
+1146,20,,"6.If you subtract three from nine you get six, which would add up to nine, so you would have to subtract nine and get zero the identity.",1,57
+1203,21,,6. The number of location moves to reach 0.,1,57
+1262,22,,"6 because 3+6=9, and 9-9=0",1,59
+1321,23,,"6 plus 3 equals 9, under +9 that will equal 0",1,59
+1380,24,,6 because 3+6-9=0,1,59
+1439,25,,"To find the inverse, I would find out what nine minus three was. That resulted in six. Plugging it back in, you get three plus six which is nine. Since it is nine, you have to subtract nine from that, which is zero. That means that six is the inverse .",1,59
+1508,26,,6,1,79
+1565,27,,6 6+3=9,1,57
+1624,28,,6 how ever many steps it takes to get to 0,1,59
+1683,29,,The inverse is 6 because when added to 3 the result is 9,1,59
+1740,30,,"6, start at 3 and count clockwise until you reach 0",1,57
+1799,31,,3 because  3+3+3=9  which you would then subtract 9 to come to 0.,0,59
+1856,32,,"6: 3 +9 6 equals 0 (the identity), which makes 6 the inverse of 3 under this operation.",1,57
+1913,33,,"6, the inverse is a number when added to a number X, equals the identity, 0. 3 plus 6 equals 9, that is greater or equal to 9 so we subtract 9, answer is 0",1,57
+1972,34,,don't know,0,59
+2029,35,,6 I add what it would take to get 9,1,57
+2086,36,,"To get the identity back, you need to fin d what c ombines with 3 to return 0 under the operation +9. Adding 6 to 3 = 9. After the +9 operation, the answer 0 is returned, therefore the inverse is 6.",1,57
+2145,37,,"Start at 3, count the spaces until I get to zero, the answer is 6.",1,59
+2202,38,,6,1,57
+2269,39,,3,0,77
+2328,40,,3 but I'm honestly not 100% sure as I'm not so sure what the inverse is after all the other instructions.,0,59
+2385,41,,6 because if you add 3 and 6 you get 9 and then you subtract 9 and get 0,1,57
+2442,42,,"6 It is 6 because when 6 and 3 is added, we get 9. ( minus 9 gives us 0.",1,57
+2499,43,,you star on the 3 and count the numbers to get to the 0 in this case the answer is 6,1,57
+2556,44,,"6. Starting at 3 on the image and counting 6 brings me to 0.  I think 0 is the identity.  (I am not sure if I answered the previous few questions correctly, because now I find I am confusing myself). ",1,57
+2613,45,,6 - The inverse is number that you combine to get  the iden tity. I put the arrow on the three and counted how many numbers it took to get to the identity which is zero.,1,57
+2672,46,,6- I started at 3 then counted the points until I got to 0,1,59
+2729,47,,"6, since it takes 6 moves clockwise to get back to 0 or 3(9)6 = 0 ",1,57
+2788,48,,"6. 9=0 in this case, so 9-3=6",1,59
+2845,49,,find the number that adds up to 9,0.5,57
+2912,50,,"8, it's across from 3.",0,77
+2971,51,,"6. Because to get the identity of (9) which is 0, I must count exactly 6 steps clockwise.",1,59
+3028,52,,6,1,57
+3087,53,,answer is 6. 6+3 = 9. 9 minus 9 = 0.,1,59
+3146,54,,6. Because 6 steps clockwise from 3 to 0 is 6.,1,59
+3205,55,,6. I started at 3 and counted the steps it took to arrive at 0 which is 6.,1,59
+3262,56,,6. Subtract 3 from 9 to get 6. ,1,57
+3321,57,,6.  If you add 3 and 6 you get 9.,1,59
+3378,58,,"8, I just looked at the nonagon.",0,57
+3435,59,,6 since it gets 3 to 9,1,57
+3492,60,,6 because it took 6 moves to get to 0.,1,57
+3551,61,,3. I don't think I am doing this right. I was thinking the answer would be 3 plus the identity (0) which would be 3 but I am really doubting that now.,0,59
+3608,62,,"6, because 3 + 6 = 9 which will then become 0 again.",1,57
+3665,63,,6.  When you combine 6 with 3 you get 0 back which means that is 6 is 3's inverse.,1,57
+3724,64,,"6. You want to equal 9 when you add, so that you subtract 9 to get 0. 3+6=9-9=0",1,59
+3781,65,,"6, I looked for the number opposite of 3",1,57
+3840,66,,"I started at 3 and moved until I reached ). It was 6 space to reach 0, so 6 is the inverse of 3 under 9",1,59
+3897,67,,"6. If you add 6 to 3 in +9, you get 0 as the final amount after backing out  the 9.",1,57
+3956,68,,6 because it takes 6 moves to go from 3 to 0.,1,59
+4015,69,,"6.  3 + 6 = 9, which results in 0 (the identity) when you subtract 9.",1,59
+4072,70,,6 - because you move 6 to get to 0,1,57
+4131,71,,6 because the 6+3=9,1,59
+4188,72,,6. This is how many spaces it takes to get to 0.,1,57
+4247,73,,"6, they both reach zero when used: 3*6 and 6*3",1,59
+4304,74,,"6 because when you 3+6 you get 9 then 9-9=0, and inverse of a number is a number you add to get 0.",1,57
+4363,75,,"6, bevcause this makes 9, once you subtract 9 you're left with 0",1,59
+4422,76,,"6. You start by placing the arrow at 3, and count how many times u go pass a point til you get to 0.",1,59
+4489,77,,"8, I followed the patter of the shape to find the number directly across from 3",0,77
+4556,78,,6 steps to zero from 3,1,77
+4613,79,,6 will be the inverse. The sum of 3 and 6 is 9 so the final answer would be 0. ,1,57
+4670,80,,"6, because the inverse just means the other number it would take in order to add up to 9. 6+3=9, so 6 is the inverse of 3. ",1,57
+4727,81,,"The answer is 6, because 3+6=9. Since 9 is equal to 9, I then have to subtract 9, which equals 0 (the identity).",1,57
+4786,82,,6,1,59
+4845,83,,3 because it is a third of 9,0,59
+4902,84,,"6, 6 steps clockwise of 3 position is 0",1,57
+4959,85,,6. ITis three after three.,1,57
+5018,86,,6. 3+6 = 9; The inverse is any number added to the other number that equals 9.,1,59
+5075,87,,6,1,57
+5132,88,,It's 6 because you need to add 6 to 3 to get to 9.,1,57
+5191,89,,6,1,59
+5248,90,,0? I am unsure about this part. I don't think I remembered this part well. ,0,57
+5305,91,,"6 because the inverse of a # is the # you combine it with to get the identity, which is 0.  3+6=9 and if answer is =9 than answer is 0",1,57
+5364,92,,6 since it is on the other side of the shape,1,59
+5433,93,,6 because - 3,1,79
+5490,94,,3 because I went by 3 around until I came to the number 3 again.  So three groups of three to return to 3.  (I think),0,57
+5549,95,,Six. Because the number 3 added to it's inverse = 9.,1,59
+5608,96,,The inverse is 6. In order to reach 0 you must move 6 positions clockwise from 3.,1,59
+5667,97,,"6, because they  add up  to 9",1,59
+5726,98,,"You need to  add 6 t o 3 in order to get 9 so that you can subtract 9 and get zero. thus, 6 is the needed number.",1,59
+5785,99,,"6, the  number added to 3 to get to 9, which would make the function +9 subtract from to make 0.",1,59
+5844,100,,6. 9 minus 6 is 3,1,59

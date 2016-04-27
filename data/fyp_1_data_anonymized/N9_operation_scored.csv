@@ -1,0 +1,201 @@
+row.names,subject,question,correct_response,response,score,trial_index
+26,1,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, I went one move clockwise from 4",1,52
+27,1,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, I moved 4 spots clockwise from 8",1,53
+83,2,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5. Since 4 + 1 is less than 9, you leave the result alone",1,52
+84,2,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3. Since 8 + 4 = 12, which >9, you subtract 9 from the result (12-9=3)",1,53
+140,3,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. Moved one clockwise,1,52
+141,3,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"moved four clockwise starting at 8, 3",1,53
+199,4,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5,1,54
+200,4,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3,1,55
+258,5,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",, 5   Point the arrow at the first number then move the number of point of the second number clockwise.  ,1,54
+259,5,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you go t your a nswer.",,"3, point the arrow at the first# then move the # of points as the second number",1,55
+315,6,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"noting the first number (4) on the diagram and moving clockwise the amount on the right of the equation, to get to the answer of 5.",1,52
+316,6,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"noting the first number of the equation, 8, in the diagram, then moving clockwise the number on the right in the equation, 4, to find the answer of 3.",1,53
+374,7,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, looked at the numeral 4 and moved one space clockwise",1,54
+375,7,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I moved four spaces clockwis e from 8 ,1,55
+433,8,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, start at  positio n 4, move 1 place clockwise",1,54
+434,8,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, start at 8 move 4 positions clockwise",1,55
+492,9,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5 -- by going 1 step clockwise from 4 per the 9 symbol ,1,54
+493,9,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3 -- by going 4 steps clockwise from 8, per the 9 symbol ",1,55
+551,10,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5 I added 4 and 1 and it was less than 9,1,54
+552,10,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3,1,55
+610,11,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, because 4+1 is less than 9 so I would just add th em like  normal.",1,54
+611,11,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3, because 8+4 is greater than 9, so I need to subtract 9 from the total.",1,55
+667,12,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"The answer is 5 because 4 plus 1 equals 5, and 5 is less than 9.",1,52
+668,12,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3 because 8 plus 4 equals 12 and 12 minus 9 equals 3.,1,53
+724,13,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"Start at 4, move 1 spot clockwise. The answer is 5.",1,52
+725,13,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,Start at 8 and move 4 spots clockwise. The answer is 3.,1,53
+793,14,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,4+1 = 5 which is less than 9 so we leave it alone and don't subtract anything.,1,74
+794,14,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,8+4 = 12 which is more than 9 so we subtract from that and are left with 3.,1,75
+850,15,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5; 4 + 1 is 5 and 5 is less than 9 so 5 is the answer. ,1,52
+851,15,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3; 8 + 4 = 12; subtract 9 because 12 is greater than 9 to get 3. ,1,53
+909,16,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, 4+1 = 5, five is lower than 9 so the answer is the sum of the numbers.",1,54
+910,16,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3, 8+4 =12 whic h is greater than 9 so you must subtract 9 for the answer, 12-9=3",1,55
+968,17,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. I went over 1 clockwise from 4 to reach 5.,1,54
+969,17,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I went 4 points around the nonagon clockwise.,1,55
+1025,18,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, I moved one spot clockwise from 4",1,52
+1026,18,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, I moved four spots clockwise from 8",1,53
+1084,19,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,Moving clockwise one space from 4 you get 5,1,54
+1085,19,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,Moving clockwise 4 spaces from 8 you get 3,1,55
+1141,20,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5.Add four plus one and you get five, which is less than nine so it is the answer. ",1,52
+1142,20,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3.Add eight plus four and you get twelve, this is greater than nine, so you must subtract nine from twelve and you get three.",1,53
+1198,21,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. 5 is one location clockwise from 4.,1,52
+1199,21,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. 3 is four locations clockwise from 8.,1,53
+1257,22,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, because 4+1=5, and 5<9",1,54
+1258,22,What is 8 +<sub>9</sub> 4? Please explain in words how you got your  answer.,,"3, because 8+4=12, and 12>9, so 12-9=3",1,55
+1316,23,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,," add four  to one, get 5, 5 is less than 9 so it is the answer",1,54
+1317,23,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"add 8 to 4 and get 12, 12 is greater than 9 so subtract 9 from it, get 3 as the answer",1,55
+1375,24,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5 because don't subtract 9,1,54
+1376,24,What is 8 +<sub>9</sub> 4? Please explain in word s how yo u got your answer.,,3 because 12-9,1,55
+1434,25,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"I just added four to one and that was five. Since it was not nine or larger than nine, I did not subtract nine. That left me with an answer of five.",1,54
+1435,25,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"I added eight to four and that was twelve. Since twelve is larger than  nine, I  subtracted nine from it. That left me with an answer of three.",1,55
+1503,26,What is 4 +<sub>9</sub> 1? Please  explain  in words how you got your answer.,,5,1,74
+1504,26,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3,1,75
+1560,27,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5  4+1=5 which is less than 9 so no need to subtract,1,52
+1561,27,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3  8+4=12 minus 9 because its greater than 9,1,53
+1619,28,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? P lease ex plain in words how you got your answer.",,I counted one space clockwise from 4 on the image.,0.5,54
+1620,28,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3,1,55
+1678,29,What is 4 +<sub>9</sub> 1? Please explain in words how you got  your an swer.,,I got my answer by adding 4 and 1 and since it is less than 9 it stays the same. the answer is 5,1,54
+1679,29,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,The answer is 3. I added 8 and 4. Since 12 is greater than 9 i subtract 9 from 12 which leaves the answer 3,1,55
+1735,30,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, start at 4 and move 1 number clockwise",1,52
+1736,30,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, start at 8 and move 4 numbers clockwise",1,53
+1794,31,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5. Since 4+1 is less than 9, the answer remains the same.",1,54
+1795,31,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3 because 8+4=12 which is greater than 9, so you need to subtract 9 from the total. ",1,55
+1851,32,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5: 4 plus 1 is 5; 5 is less than 9, so that is the answer.",1,52
+1852,32,What is 8 +<sub>9</sub> 4? Please explain in words how you got your an swer.,,"3: 8 plus 4 is 12; since 12 is greater than 9, subtract 9 from 12 to get the answer.",1,53
+1908,33,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, add the numbers, if less than 9 leave alone, if greater than or equal to 9, subtract 9. In this case the sum is 5, that is less than 9, so leave alone.",1,52
+1909,33,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3, sum the numbers, if less than 9 leave alone, if greater than or equal to 9, subtract nine. The sum is 12, that  is great er than 9, so subtract 9, the answer is 3.",1,53
+1967,34,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"4 plus one is smaller than 9, so the answer is 5",1,54
+1968,34,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"8 plus 4 is larger than 9, so i add the two and subtract 9",0.5,55
+2024,35,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5,1,52
+2025,35,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3,1,53
+2081,36,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"4+1 = 5, which is under 9, so we leave the answer as is, which is 5",1,52
+2082,36,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"8+4=12-9= 3. Becau se 8+4 is greater than 9, we take the sum and subtract 9 from it. 12-9=3 so the final answer is 3.",1,53
+2140,37,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1?  Please e xplain in words how you got your answer.",,"Start at 4, count one space clockwise, the answer is 5.",1,54
+2141,37,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"Start at 8, count 4 spaces clockwise, the answer is 3.",1,55
+2197,38,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5,1,52
+2198,38,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3,1,53
+2264,39,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5 because 4+1 is 5 and 5 is less than 9,1,72
+2265,39,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3 because 8+4 is 12 and 12-9 is 3.,1,73
+2323,40,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,The answer would be 5 because 1 step clockwise from 4 would be take you to the number 5.,1,54
+2324,40,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,The answer would be 3 because 4 steps clockwise from 8 would land on 3.,1,55
+2380,41,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5 because it is less than 9 it stays the same,1,52
+2381,41,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3 because 8 plus 4 is 12 and then you subtract 9 which leaves 3,1,53
+2437,42,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5,1,52
+2438,42,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3 I added 8 and 4 and then subtracted 9. ,1,53
+2494,43,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,you start on the 4 than you go clockwise one step,0.5,52
+2495,43,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",, start on the 8 and go clockwise 4 steps,0.5,53
+2551,44,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5. I started at the number 4 on the diagram and, moving clockwise, counted one number to the right, which brought me to 5.",1,52
+2552,44,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I started at 8 and counted clockwise 4 numbers to reach number 3.,1,53
+2608,45,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5 - I put the arrow on the four of the nonagram and moved clockwise one space to arrive at five.,1,52
+2609,45,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3 - I put the arrow on the three and then moved four spaces to the number three.,1,53
+2667,46,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5- I started at 4, then moved the arrow clockwise 1 point, and landed on 5",1,54
+2668,46,"What is 8 <img src=\""./images/nonagon_symbol.png\"" st yle=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3- I started at 8 then moved the arrow clockwise 4 points to land on 3,1,55
+2724,47,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, because after moving clockwise 1 from 4 you arrive at 5",1,52
+2725,47,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, since 4 clockwise from 8 is 3",1,53
+2783,48,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5,1,54
+2784,48,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3,1,55
+2840,49,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5,1,52
+2841,49,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3,1,53
+2907,50,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, I added 1 to 4.",1,72
+2908,50,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, added 4 to 8 on the scale",1,73
+2966,51,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5. I found this answer by counting clockwise, starting from the first number, which is 4, the n counti ng down by the second number, which was 1.",1,54
+2967,51,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3. I found this answer by starting at the first number of the problem, which is 8. Then counting clockwise by the second number of the problem, which is 4.",1,55
+3023,52,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5 I used the chart and went 1 to the left.,1,52
+3024,52,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,4 I used the chart.,0,53
+3082,53,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,Answer is 5. 4+1 = 5 which less than 9 so answer is 5.,1,54
+3083,53,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,answer is 3. 8+4 = 12 minus 9 = 3.,1,55
+3141,54,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how  you got  your answer.",,5. I simply put the arrow on the 4 and moved it clockwise one space which lead me to the 5. 4 comes after 5.,1,54
+3142,54,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I put the arrow on the 8 and moved it clockwise 4 spaces which led me to the 3.,1,55
+3200,55,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. I started at 4 and moved 1 number clockwise to get 5.,1,54
+3201,55,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I started at 8 and moved 4 numbers clockwise.,1,55
+3257,56,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5. 4+1=5. Since 5 is less than 9, the answer stays at 5. ",1,52
+3258,56,What is 8 +<sub>9< /sub> 4?  Please explain in words how you got your answer.,,"3. 8+4=12. Since 12 is more than 9, subtract 9 to get 3. ",1,53
+3316,57,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5.  4+1 is 5, which is less than 9 so the answer is 5.",1,54
+3317,57,What  is 8 +<s ub>9</sub> 4? Please explain in words how you got your answer.,,"3. 8+4 is 12 which is greater than 9, so you do 12-9 = 3",1,55
+3373,58,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, I just went clockwise once.",1,52
+3374,58,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, just went forward clockwise.",1,53
+3430,59,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,4 plus 1 is 5 which is less than 9 so it will just be 5,1,52
+3431,59,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,8 and 4 equal 12 which is higher than 9 so it will be 3,1,53
+3487,60,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5 Because I moved over 1 from 4 to 5,1,52
+3488,60,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I moved 4 spaces right from 8.,1,53
+3546,61,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5. I think it is 5 because I would be starting at 4 and moving over one spot, which would be 5.",1,54
+3547,61,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3. Because I started at 8 and moved clockwise 4 spots, which brought me  to 3.",1,55
+3603,62,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5,1,52
+3604,62,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3,1,53
+3660,63,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5.  I added 4 plus 1 and since it was not 9 or more I did not subtract 9.,1,52
+3661,63,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3.  I added 8 plus 4 and since it was 9 or more I subtracted 9.,1,53
+3719,64,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"4+1 = 5. 5 is less than 9, so the answer is 5",1,54
+3720,64,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"8+4 = 12, which is more than 9. so 12-9=3",1,55
+3776,65,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, I went clockwise towards the number after 4, 1 time",1,52
+3777,65,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, I went clockwise from 8, 4 spots",1,53
+3835,66,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you  got you r answer.",,I started at the 4 and moved clockwise 1 position to get to 5,1,54
+3836,66,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in wor ds how y ou got your answer.",,I started at 8 and moved clockwise 4 spots. I ended up at 3,1,55
+3892,67,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5. 4 + 1 equals 5, which is less than 9, and thus I used the actual number from addition.",1,52
+3893,67,What is 8 +< sub>9</s ub> 4? Please explain in words how you got your answer.,,"3. 8 plus 4 equals 12, which is greater than 9. Subtracting 9 from 12 equals 3, the answer.",1,53
+3951,68,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5,1,54
+3952,68,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3,1,55
+4010,69,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5.  4 + 1 is 5, which is less than 9, so I don't subtract 9.",1,54
+4011,69,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3.  4 + 8 is 12, which is greater than 9, so I subtract 9.",1,55
+4067,70,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5 - because you start at 4 and move once,1,52
+4068,70,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3 - because you start at 8 and then move clockwise 4 times,1,53
+4126,71,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5   because 4+ 1 is less than 9,1,54
+4127,71,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3 because 8+4=12 so you subtract 9 because 12 is greater than 9,1,55
+4183,72,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. You move one space clockwise from 4 to get to 5.,1,52
+4184,72,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. You move 4 spaces clockwise from 8 to get to 3.,1,53
+4242,73,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you  got you r answer.",,"5, you start at 4 and move one number clockwise",1,54
+4243,73,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, you start at 8 and move 4 spaces clockwise",1,55
+4299,74,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5 because 4+1=5 and you do not have to subtract the answer from 9 because 5 is less than 9.,1,52
+4300,74,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answ er.,,"3 because first, 8+4=12, then 12-9=3",1,53
+4358,75,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, because the sum is less than 9, I do not subtract 9.",1,54
+4359,75,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3. The number is larger than 9, therefore I subtract 9 from 12.",1,55
+4417,76,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"You start by placing the arrow t o 4, tha n moving 1 number clockwise, 5.",1,54
+4418,76,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\"">  4? Plea se explain in words how you got your answer.",,"You start by placing the arrow to 8, than counting 4 places clockwise, to 3.",1,55
+4484,77,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5. I j ust coun ted up (clockwise) from 4, by 1",1,72
+4485,77,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3. I counted clockwise from 8, by 4",1,73
+4551,78,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,9 steps to zero,0,72
+4552,78,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3 4 steps after 8,1,73
+4608,79,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"The sum of 4 and 1 is equal to 5. 5 is less than 9, therefore the final answer is 5. ",1,52
+4609,79,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"The sum of 8 and 4 is 12. 12 is greater than 9, therefore the final answer will be the difference of 12 and 9 which is 3. ",1,53
+4665,80,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, because 4+1 equals five, and this is less than 9, so  you don't have to do anything else to it. ",1,52
+4666,80,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3, because 8+4 is 12, and because that is 9 or higher, you have to subtract 9 from it. 12-9=3",1,53
+4722,81,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"I added 4+1, which equals 5. Since 5 is less than 9, it stays at 5. So the answer = 5.",1,52
+4723,81,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,8+4=12. Since 12 is more than 9 I have to subtract 9. 12-9=3. ,1,53
+4781,82,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"starting at 4, move on place clockwise to 5",1,54
+4782,82,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"starting at 8, move 4 places clockwise to 3",1,55
+4840,83,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,4 because 1 is an integer of 4,0,54
+4841,83,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,2 because 4 is half of 8,0,55
+4897,84,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, 1 step clockwise of 4 position is 5",1,52
+4898,84,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, 4 steps clockwise from 8 position is 3",1,53
+4954,85,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. I began at 4 and moved left 1 to 5.,1,52
+4955,85,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. From 8 on the dial I mov ed left  4 stopping at 3.,1,53
+5013,86,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5. 4 + 1 = 5 since 5 is not greater than or equal to 9 we don't have to subtract 9 from the answer. ,1,54
+5014,86,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3. 8+4=12. since 12 is greater than 9 we subtract 12 - 9 = 3,1,55
+5070,87,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5,1,52
+5071,87,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3,1,53
+5127,88,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"4+1=5, 5 is less than 9 so we leave the answer at 5.",1,52
+5128,88,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"8+4=12, 12 is more than  9 so we  subtract 12-9=3",1,53
+5186,89,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5,1,54
+5187,89,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3,1,55
+5243,90,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5. I started at 4 and moved left one to 5.,1,52
+5244,90,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,3. I started at 8 and moved 4 numbers and landed on 3.,1,53
+5300,91,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5 because 4+1=5, 5<9 it is the answer.",1,52
+5301,91,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3 because 8+4=12, 12>9 so subtract 9 from 12. 12-9=3",1,53
+5359,92,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,"5, i went one right of 4",1,54
+5360,92,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,"3, i went from 8 to 0,1,2,3",1,55
+5428,93,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5 is under 6 so just leave it,1,74
+5429,93,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,12 - 6 because its over 6,0,75
+5485,94,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,5.  I started at 4 and moved one counter-clockwise using the diagram to the number five.,1,52
+5486,94,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please expla in in wo rds how you got your answer.",,3.  I started at the number 8 and moved 4 spaces counter clockwise to the number 3.,1,53
+5544,95,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5. Four plus one equals 5. Because 5 is less than 9, we leave it alone.",1,54
+5545,95,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3. Eight plus 4 equals 12. Because 12 is greater than 9, we subtract 9 from it, which is 3.",1,55
+5603,96,"What is 4 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 1? Please explain in words how you got your answer.",,The answer is 5. I moved 1 position clockwise to determine the answer.,1,54
+5604,96,"What is 8 <img src=\""./images/nonagon_symbol.png\"" style=\""width:14px;height:14px\""> 4? Please explain in words how you got your answer.",,The answer is 3. I moved 4 positions clockwise to determine the answer.,1,55
+5662,97,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"5, because 4+1 is 5 and is less than 9",1,54
+5663,97,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3, because 8+4 is 12 and is greater than 9 so you have to subtract 9",1,55
+5721,98,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,"The answer is 5. 4 plus 1 is 5. 5 is less than 9, so the answer is 5.",1,54
+5722,98,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3. 8 plus 4 is 12. 12 is greater than 9, so subtract 9. ",1,55
+5780,99,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5. +9 on 4+1 is less than 9 so the sum stands instead of subtracting 9 from it,1,54
+5781,99,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,"3. sum of 8+4 is greater than 9, so subtract 9 from the sum.",1,55
+5839,100,What is 4 +<sub>9</sub> 1? Please explain in words how you got your answer.,,5. 4 plus 1 is 5,1,54
+5840,100,What is 8 +<sub>9</sub> 4? Please explain in words how you got your answer.,,3.  8 plus 4 is 12 minus 9,1,55

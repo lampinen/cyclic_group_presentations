@@ -1,0 +1,201 @@
+row.names,subject,correct_response,response,score,trial_index
+36,1,n-1,1(n),0,63
+37,1,n-x,I don't know,0,64
+93,2, n-1,n-1,1,63
+94,2,n-x,"n-x. The inverse is the value that causes it plus x to equal n, which changes the result to 0 (the identity).",1,64
+150,3,n-1,Er I have no idea,0,63
+151,3,n-x,Aga in I have no idea,0,64
+209,4,n-1,n-1,1,65
+210,4,n-x,"n-x, because this will always yield a result of 0.",1,66
+268,5,n-1,1,0,65
+269,5,n-x,xunder n =5 because n can stand for any positive counting  number I randomly chose 5 to illustrate  my explaination.,0,66
+325,6,n-1,n=0,0,63
+326,6,n-x,n=x because there isn't enough information given ,0,64
+384,7,n-1,inverse of 1 = n+ (n-1),1,65
+385,7,n-x,The inverse of an element under n would be the adjacent number so it would be n plus half of the total of n,0,66
+443,8,n-1,1-n,0.5,65
+444,8,n-x,"x-n,  the inv erse would be the number of positions from 0",0.5,66
+502,9,n-1,"1(n) = 8 or 1 (n) 8 ? I honestly don't know, but I'm doing my best to figure it out. ",0,65
+503,9,n-x,n = 1x <---- I know this is probably not correct. I am guessing that the correct formula somehow specifies that x will be equal to the number of steps needed to reach the inverse? I am very confused. ,0,66
+561,10,n-1,I have no idea O_O ,0,65
+562,10,n-x,I am so far gone at this point. I really don't know... I think it can be any positive number? D: ,0,66
+620,11,n-1,1 +8(n)7=0,0,65
+621,11,n-x,x +n y= (x+y) -n. The inverse would be whatever number plus x would be equal to +n,0,66
+677,12,n-1,1+1n=0,0,63
+678,12,n-x,"-X+Xn=0 This is all I can come up with, and I have written it out, but I can't explain the procedure.",0,64
+734,13,n-1,1+(n-1)=n,1,63
+735,13,n-x,n is the sum of x and the distance from x to n. So the formula would be n = x + (x-n),1,64
+803,14,n-1,1 +n 4 = n,0,85
+804,14,n-x,"x +n x = x, because x and n can be any counting number.",0,86
+860,15,n-1,1_n,0,63
+861,15,n-x,x_n; x could stand for any positive number _n,0,64
+919,16,n-1,1+ +_n n,0,65
+920,16,n-x,"X+ +_n X, I got this answer because X would be the unknown element. ",0,66
+978,17,n-1,1 + (n - 1) = 0,1,65
+979,17,n-x,x + (n - x) = 0; you need to move n-x number of spaces in order to reach 0 and thus find the inverse.,1,66
+1035,18,n-1,inverse = 1-n,0.5,63
+1036,18,n-x,inverse = x-n.  You would have to move completely around the figure to get to the inverse. ,0.5,64
+1094,19,n-1,n = 0,0,65
+1095,19,n-x,"X + n = 0, you will move n number of spaces to achieve zero forming the inverse",0,66
+1151,20,n-1,1+n=n-1,1,63
+1152,20,n-x,x inverse=n-1.I would subtract x from n to come up with inverse of x. ,1,64
+1208,21,n-1,I don't know.,0,63
+1209,21,n-x,I don't know.,0,64
+1267,22,n-1,"(Man, I suck at algebra!)",0,65
+1268,22,n-x,"(Woops, hit enter on the previous... formula for the inverse  of 1 un der +n would be ... 1 +_n N = N)                                               THIS QUESTION: X +_n N = N",0,66
+1326,23,n-1,1 +_n 1,0,65
+1327,23,n-x,"Really not sure, getting lost now.",0,66
+1385,24,n-1,n-1,1,65
+1386,24,n-x,n-x,1,66
+1444,25,n-1,1+_n1=0,0,65
+1445,25,n-x,"Theformulawouldxplus+_nequalszerobecausetheinversehastobeaddedtothevalueattachedto\""+_n\""toequaltheidentity,whichiszero.",0,66
+1513,26,n-1,n-1,1,85
+1514,26,n-x,the invese is going to be the number 'n'  minus wh atever the element is.,1,86
+1570,27,n-1,not sure,0,63
+1571,27,n-x,dont know,0,64
+1629,28,n-1,1(n)=0,0,65
+1630,28,n -x,I really do not know the answer here. ,0,66
+1688,29,n-1,1+n_1,0,65
+1689,29,n-x,x+n_x The formula for the inverse is the number which gives the answer 0,0,66
+1745,30,n-1,1 + n,0,63
+1746,30,n-x,"x + n, i don't know this is confusing",0,64
+1804,31,n-1,0= 1+n,0,65
+1805,31,n-x,0= x+n,0,66
+1861,32,n-1,(n - 1),1,63
+1862,32,n-x,"(n - x): if y is the inverse, x +_n y must equal 0. For x +_n y to equal 0, x + y must equal n: x + y = n, therefore y = n - x.",1,64
+1918,33,n-1,Inverse of 1 = N - 1,1,63
+1919,33,n-x,"IX = N - X, the inverse is the number added to X that when summed equals the identity, 0. The identity is also equal to N, since N is equal or greate r than N , so we subtract N when N is an answer. So we want X and IX to equal N, subtract X from both sides and you get my formula",1,64
+1977,34,n-1,don't know,0,65
+1978,34,n-x,not sure,0,66
+2034,35,n-1,1+n=0,0,63
+2035,35,n-x,X+n=0 The inverse will equal 0,0,64
+2091,36,n-1,n-1 is the formula for the inverse of 1 under +n ,1,63
+2092,36,n-x,"I don't know the exact formula, but for X under +n, anything combined with x+n to make the identity 0 would be the inverse. So, if +n was +3 for example and x was 1, 1+2=3, and under  the +3 o peration, we'd get 0, and 2 would be the inverse.",0.5,64
+2150,37,n-1,1 + n = 0,0,65
+2151,37,n-x,x+n=0 x is any number when added to n that is equal to zero.,0,66
+2207,38,n-1,I don't know,0,63
+2208,38,n-x,I don't know,0,64
+2274,39,n-1,I don't really know.,0,83
+2275,39,n-x,"I honestly don't know, I get really confused when it comes to variables.",0,84
+2333,40,n-1,Really not sure but I would guess 1.,0,65
+2334,40,n-x,"Don't know, honestly not sure.",0,66
+2390,41,n-1,1 +n n-1,1,63
+2391,41,n-x,x +n n-x  The inverse is the difference between n and x. ,1,64
+2447,42,n-1,+n1,0,63
+2448,42,n-x,x+n1 This is how the formula is written. 1 is going to be comb ined wit h x.,0,64
+2504,43,n-1,start on the 1 and then count up all the numbers to get to the zero going clockwise.,0,63
+2505,43,n-x,I have no clue what is being asked here. I a only a beginner on these tasks and my knowledge is limited.,0,64
+2561,44,n-1,n-1,1,63
+2562,44,n-x,"x+2.  The inverse is the number combined with another n umber to  produce the identity, so adding 2 to x will equal the inverse.  ",0,64
+2618,45,n-1,n 1 = 0,0,63
+2619,45,n-x,xn=0 - The inverse has to lead to the identity.,0,64
+2677,46,n-1,1nX=0,0,65
+2678,46,n-x,"0*x=1n   I think this is correct, because the inverse is whatever brings the arrow around to 0",0,66
+2734,47,n-1,"1\""(n)\""n-1",1,63
+2735,47,n-x,"x\""(n)\""n-x",1,64
+2793,48,n-1,In=n-x,1,65
+2794,48,n-x,"In = n-x because n is the goal whe n findin g the inverse. Therefore, n-x givse you the inverse",1,66
+2850,49,n-1,1+n +x,0,63
+2851,49,n-x,x+n. Whatever equals x+n is the inverse,0,64
+2917,50,n-1,7,0,83
+2918,50,n-x,Any number after that number.,0,84
+2976,51,n-1,? (n) 1 = 0,0,65
+2977,51,n-x,"? (n) x = 0. My answer is  correct  because an inverse always equals the identity, 0. and while I improvised for some characters in the formula they are comprehensible.",0,66
+3033,52,n-1,Huh?,0,63
+3034,52,n-x,What are you talking about?,0,64
+3092,53,n-1,1 +1 = 0,0,65
+3093,53,n-x,I can't answer this.,0,66
+3151,54,n-1,"(n)=1, 0",0,65
+3152,54,n-x,"(n)=(x)   The an swer is (x), while the question is (n). ",0,66
+3210,55,n-1,1 (1) n-1 = 0,1,65
+3211,55,n-x,x + (n-x) = 0,1,66
+3267,56,n-1,+n - 1,1,63
+3268,56,n-x,+n - x,1,64
+3326,57,n-1,I don't know how to answer this question.  :(,0,65
+3327,57,n-x,I don't know.  :(,0,66
+3383,58,n-1,1 n 4,0,63
+3384,58,n-x,1n4,0,64
+3440,59,n-1,1,0,63
+3441,59,n-x,I am not sure,0,64
+3497,60,n-1,1-n=0,0,63
+3498,60,n-x,n-x=inverse. n minus the number x will bring the circle around to 0 again.,1,64
+3556,61,n-1,"1, 0=n",0,65
+3557,61,n-x,"x,0=x I have no idea. I am thinking the inverse is a number plus 0 but I have no idea if that is correct.",0,66
+3613,62,n-1,1 + (n - 1) would be the inverse.,1,63
+3614,62,n-x,"x + (n - x) would be the formula. This equals n, and according to the rules for +n, whenever the total equals n, it reverts back to 0, which is the inverse.",1,64
+3670,63,n-1,The formula is 1 + n-1.,1,63
+3671,63,n-x,The formula is x+n-x.  I got this formula because to get the inverse you alway want to add the number that is equal to n minus the value of x.  For example if x = 2 and n=6 then the inverse of 2 would be 6-2 or 4.,1,64
+3729,64,n-1,+_1,0,65
+3730,64,n-x,+_x? I'm not really sure I understand.,0,66
+3786,65,n-1,I don't know,0,63
+3787,65,n-x,I don't know,0,64
+3845,66,n-1,1-n,0.5,65
+3846,66,n-x,"take the element x plus whatever number will equal n, that will be the inverse",0.5,66
+3902,67,n-1,1 +n (n-1),1,63
+3903,67,n-x,The inverse of 1 in an +n formula is going to be one less than whatever n is.,0,64
+3961,68,n-1,(n)-1,1,65
+3962,68,n-x,(n)-x because that would lead to 0 on the chart.,1,66
+4020,69,n-1,0 = 1 +_n(n-1),1,65
+4021,69,n-x,"0 = x +_n(n - x).  The 2 numbers must sum to get n to return the identity (0).  So for a +_n base, the number added to x will be n - x.",1,66
+4077,70,n-1,1(n)2,0,63
+4078,70,n-x,"0(n)0 - I am 90% it is not correct, I am so confused by this section. It was extremely hard to understand",0,64
+4136,71,n-1,1+n=5,0,65
+4137,71,n-x,i have no idea,0,66
+4193,72,n-1,I have no idea.,0,63
+4194,72,n-x,I have no idea.,0,64
+4252,73,n-1,n-1,1,65
+4253,73,n-x,"n-x, because you need to add x and it's inverse in order to reach 0/n",1,66
+4309,74,n-1,n-1,1,63
+4310,74,n-x,n-x because inverse is the number that you need to add to x to get n.,1,64
+4368,75,n-1,Inverse 1 +n -n,0,65
+4369,75,n-x,Inverse = x-n,0.5,66
+4427,76,n-1,9,0,65
+4428,76,n-x,10-x= y,0,66
+4494,77,n-1,n = 8,0,83
+4495,77,n-x,"I think it is correct because 8 is the inverse, on this shape, of 1",0,84
+4561,78,n-1,1,0,83
+4562,78,n-x,not sure,0,84
+4618,79,n-1,1 under +n = 1 + (n-1),1,63
+4619,79,n-x,The inverse is found when the sum of the numbers under +n is equal to 0. x under +n = (x under +n) + (n-x),1,64
+4675,80,n-1,(inverse of 1) + (+n) 1 = n,0,63
+4676,80,n-x,(inverse of x) + (+n) X = n. The inverse of a number (X) is just whatever number plus X that it would take to get to n. ,0,64
+4732,81,n-1,Inverse = +_n - 1. ,1,63
+4733,81,n-x,The inverse is what is added to x to equal n. So the formula would be n - x. (I can see that I got the previous answer wrong now.),1,64
+4791,82,n-1,1+(n-1),1,65
+4792,82,n-x,"starting at X, you need to count however many sides are in the shape, minus 1",0,66
+4850,83,n-1,1(n)8,0,65
+4851,83,n-x,x(n)1 because it would work with almost any number,0,66
+4907,84,n-1,n-1,1,63
+4908,84,n-x,"n-x, because after taking x clockwise steps, there is always going to be a set of clockwise steps from 1 full revolution of n remaining.",1,64
+4964,85,n-1,1 x N = Inverse.,0,63
+4965,85,n-x,X times N = Inverse.  This is the number that inverts the dial number.,0,64
+5023,86,n-1,1 +n X = n - n = 0,0,65
+5024,86,n-x,The inverse element is any number plus X that equals n.,0,66
+5080,87,n-1,n = +_n - 1,0.5,63
+5081,87,n-x,n = +_n - x you need to take away n value from x so it totals to n,0.5,64
+5137,88,n-1,1 is the inverse of 5 under +_6,0,63
+5138,88,n-x,2 is the inverse of 4 under +_6 because you need 4 added to 2 to make 6.,0,64
+5196,89,n-1,2,0,65
+5197,89,n-x,I do not know.,0,66
+5253,90,n-1,n-1,1,63
+5254,90,n-x,"n-x. So whatever n is (say, 4) you minus it by how many the predetermined number is. so...n-1=3? I am not sure I did it right but I was thinking of where you'd start on the numbers and moving forwards or backwards, where you'd lan d. like  in the earlier examples.",1,64
+5310,91,n-1,1 + _n = 0,0,63
+5311,91,n-x,x + _n = 0 because the inverse of the number is the answer that will equal 0,0,64
+5369,92,n-1,2,0,65
+5370,92,n-x,it takes two steps in the shape,0,66
+5438,93,n-1,anything that is a positive number,0,85
+5439,93,n-x,anything that is positive,0,86
+5495,94,n-1,n+1,0,63
+5496,94,n-x,The inverse for element x is x+(X-x) because the zero will always be equal to the number.,0,64
+5554,95,n-1,5n,0,65
+5555,95,n-x,I do not know,0,66
+5613,96,n-1,n-1,1,65
+5614,96,n-x,"The inverse is x-n, because each number  will rea ch the inverse by subtracting n from itself in order to reach 0.",0.5,66
+5672,97,n-1,1+n-1,1,65
+5673,97,n-x,n-x,1,66
+5731,98,n-1,1 +n (n - 1) = 0,1,65
+5732,98,n-x,"x +n (x-n) = 0. We know that the inverse must add with the element, x, to make zero by definition. We also know that n will be subtracted if the given element and the other number equal n or greater. Therefore, in order to get zero x and the other number must add to n. The way to guarantee this is by subtracting n from x to arrive at the other number.",1,66
+5790,99,n-1,1+x?,0,65
+5791,99,n-x,"I am so confused here, sorry. The +n is killing me I wouldn't know how to explain a +n formula ",0,66
+5849,100,n-1,n-1,1,65
+5850,100,n-x,n-x thats how it went before,1,66

@@ -1,0 +1,303 @@
+row.names,subject,correct_response,response,score,trial_index
+37,1,n-1,1 + 0,0,65
+38,1,n-x,1x +n - since the inverse is going to be 1.,0,66
+95,2,n-1,inverse = (n)-1,1,65
+96,2,n-x,"0 is in the N spot, so to speak, and you're only 1 step into the circle.  if you're at N, the inverse is N.  If you're one step in, it's n-1",0,66
+153,3,n-1,inv erse = n umber of sides - 1,1,65
+154,3,n-x,The number of the inverse would be however many clicks it would take to move from point X to the the identity in our example. X + identity = number of sides,0.5,66
+211,4,n-1,I don't know,0,65
+212,4,n-x,I don't know how to get this answer,0,66
+269,5,n- 1,unsure,0,65
+270,5,n-x,unsure,0,66
+327,6,n-1,1 + 2 = 3 and 3 - 3 = 0,0,65
+328,6,n-x,"I can't answer this. I'm sorry, I just don't know.",0,66
+385,7,n-1,(n) - 1,1,65
+386,7,n-x,"The formula would be (n) - x, because it follows the pattern shown by shapes of every other size, and also, if you think about it, to make one whole rotation around the shape, you need to make (n) jumps, so if you have already taken x, you need to take the rest o f n, whi ch is represented by (n) - x. Kind of hard to explain.",1,66
+443,8,n-1,n -n,0,65
+444,8,n-x,It is a number that will give zero,0,66
+501,9,n-1,1n0,0,65
+502,9,n-x,I'm not sure.,0,66
+559,10,n-1,n-1,1,65
+560,10,n-x,x-n. That is the remaining distance back to 0.,0.5,66
+617,11,n-1,1n8=0,0,65
+618,11,n-x,x n ? = 0,0,66
+675,12,n-1,n-1,1,65
+676,12,n-x,x-n and idk how to explain it,0.5,66
+733,13,n-1,"6, because 1 +6 +n (6) = 0",0,65
+734,13,n-x,"I am sorry, I am totally unsure how to answer. I have put a lot of time into this HIT, and I hope this doesn't effect my approval. I am genuinely trying my hardest.",0,66
+791,14,n-1,not sure,0,65
+792,14,n-x,not sure,0,66
+849,15,n-1,x=n-1,1,65
+850,15,n-x,x=n+x,0.5,66
+907,16,n-1,(n)*2,0,65
+908,16,n-x,2(n) * x,0,66
+965,17,n-1,i'm not sure,0,65
+966,17,n-x,i have no idea,0,66
+1023,18,n-1,1 + n _ = 0,0,65
+1024,18,n-x,x + n _ = 0 what number added to x minus  n equals zero ,0.5,66
+1091,19,n-1,ok now im lost. ,0,85
+1092,19,n-x,i cant math. i havent been in algebra in almost 20 years. ,0,86
+1149,20,n-1,3n,0,65
+1150,20,n-x,Since n can be any counting number then it would be xn ,0,66
+1207,21,n-1,n - 1 = 0,1,65
+1208,21,n-x,x - n =0,1,66
+1265,22,n-1,1+n,0,65
+1266,22,n-x,I honestly have no clue this is getting a little too complicated for me,0,66
+1323,23,n-1,1 n 1,0,65
+1324,23,n-x,x n 1 I really don't know. I assume the inverse would be whatever it is plus itself.,0,66
+1381,24,n-1,1+2=3,0,65
+1382,24,n-x,It is 1+2=3.,0,66
+1439,25,n-1,+n-2,0,65
+1440,25,n-x,x=+n-2. I have no idea I'm just guessing,0,66
+1497,26,n-1,n-1,1,65
+1498,26,n-x,"n-x, the value nee ded for  inverse would be the result after element x is subtracted from n, whatever the value",1,66
+1555,27,n-1,I can't remember how to figure these. I didn't write it down.,0,65
+1556,27,n-x,I don't remember how to figure this. I didn't take notes.,0,66
+1613,28,n-1,n-1,1,65
+1614,28,n-x,"n-x, x + n - x = n",1,66
+1681,29,n-1,2n3,0,85
+1682,29,n-x,the formula is xn because is x under n,0,86
+1739,30,n-1,1n1,0,65
+1740,30,n-x," xnx   ,my answer is correct because the x is positive and could always go into itself and the starting point of 0.",0,66
+1797,31,n-1,n-1,1,65
+1798,31,n-x,"n-x. The inverse is just the number that when added to another number = 0, and in the case of these shapes, 0 and the total number of nodes in the shape in the same (so for a hexagon, 0=6). So the inverse of a number is just the number of nodes n, minus the number we are trying to find the inverse for (x).",1,66
+1855,32,n-1,n+1=0,0,65
+1856,32,n-x,x-n=0 because the goal is to reach 0.,0,66
+1913,33,n-1,1+n,0,65
+1914,33,n-x,I think its x + yn,0,66
+1971,34,n-1,6,0,65
+1972,34,n-x,"x + y = z. If z > 9, z - 9 = z. N is nine from the way the looks on the clock. So basically, X + (random number on clock). If the result is higher than nine, you subtract nine from it. If not, it's the correct answer. ",0,66
+2029,35,n-1,1,0,65
+2030,35,n-x,I don't understand any of this,0,66
+2087,36,n-1,1(n) (n-1),1,65
+2088,36,n-x,"x (n) (n-x) because for any given number X the inverse to reach the 0 point on the polygon will be the identifier on the polygon sides, n, minus the number X. For example the inverse of 2 on a polygon 5 is 3.",1,66
+2145,37,n-1,I don't know,0,65
+2146,37,n-x,I don't know,0,66
+2203,38,n-1,1+(n)=0,0,65
+2204,38,n-x,(n)x=0. I think because if you count x number of spaces under (n) you should get 0,0,66
+2261,39,n-1,1+_n=n,0,65
+2262,39,n-x,I have no clue. I don't even understand what you're asking. I am so honestly lost now. I understood the first part of the lesson but after that I just don't get it. I am so terrible at math terminology. I'm sorry.,0,66
+2319,40,n-1,1 n 26,0,65
+2320,40,n-x,I really don't know,0,66
+2377,41,n-1,1 (n) n-1,1,65
+2378,41,n-x,x (n) n-x = 0,1,66
+2435,42,n-1,1-n,0.5,65
+2436,42,n-x,x-n. Because this gives you the right value.,0.5,66
+2493,43,n-1,inverse of 1 = 1 - n,0.5,65
+2494,43,n-x,inverse of x = x - n,0.5,66
+2551,44,n-1,(1+n)-1,0.5,65
+2552,44,n-x,n-x because subtracting from 0 will land on the number that is used in addition to x to reach the inverse.,1,66
+2609,45,n-1,n = 0 + 2,0,65
+2610,45,n-x,"I have no idea, I am very bad at math.",0,66
+2667,46,n-1,I do not know.,0,65
+2668,46,n-x,I do not know.,0,66
+2725,47,n-1,x = n - 1,1,65
+2726,47,n-x,y = n - x. The inverse added to x should be equal to n. n-n = 0 (identity).,1,66
+2783,48,n-1,6,0,65
+2784,48,n-x,I dont know,0,66
+2841,49,n-1,don't know ,0,65
+2842,49,n-x,don't know ,0,66
+2899,50,n-1,1 + n,0,65
+2900,50,n-x,"x + n, where x is the number you start at, and n is the number of steps it takes to reach 0.",0,66
+2957,51,n-1,1(n)5=4,0,65
+2958,51,n-x,no idea you lost me,0,66
+3015,52,n-1,I think is 0-1 ,0,65
+3016,52,n-x,if you have 2 the inverse is 0-2 so the answer is 0-x ,0,66
+3073,53,n-1,n-1,1,65
+3074,53,n-x,n-x becasue that takes us backwards. Argh this is why I hated math in school...,1,66
+3131,54,n-1,inverse = n - 1,1,65
+3132,54,n-x,inverse = n - x because the inverse is the number you need t move to get to 0 and using that formula will find the number that will end up with 0,1,66
+3189,55,n-1,1+n=n,0,65
+3190,55,n-x,"To get the inverse, you would need to add n-x to x. I think my previous answer was wrong. It should be 1+(n-1)",0,66
+3247,56,n-1,0 + n = 0,0,65
+3248,56,n-x,0 is the element that you would combine with n to achieve it's identity since whatever you add to 0 will be n. since n=n you would subtract n to get an identity of 0. ,0,66
+3305,57,n-1,n - 1,1,65
+3306,57,n-x,"n - x, because (x + n - x) mod n = 0",1,66
+3363,58,n-1,n-1,1,65
+3364,58,n-x,x and n-x make 0,1,66
+3421,59,n-1,2,0,65
+3422,59,n-x,x - n equals the inverse number  ,0.5,66
+3489,60,n-1,1+n,0,85
+3490,60,n-x,"I don't know, I'm sorry. I would be guessing if I wrote x+n",0,86
+3547,61,n-1,-N,0,65
+3548,61,n-x,N-x. You would have to subtract X from N to find the inverse,1,66
+3605,62,n-1,n-1,1,65
+3606,62,n-x,x plus (n-x) is the inverse this brings it to the zero position,1,66
+3663,63,n-1,2,0,65
+3664,63,n-x,x+n=xn,0,66
+3721,64,n-1,i have no idea,0,65
+3722,64,n-x,i don't know the answer,0,66
+3779,65,n-1,Not sure,0,65
+3780,65,n-x,Not sure,0,66
+3837,66,n-1,I dont know,0,65
+3838,66,n-x,I dont know,0,66
+3895,67,n-1,n - 1 = x,1,65
+3896,67,n-x,"(n) = x + y. inverse is whatever creates zero, or (n).",1,66
+3963,68,n-1,???,0,85
+3964,68,n-x,???,0,86
+4021,69,n-1,0(n)1,0,65
+4022,69,n-x,Any positive number.,0,66
+4079,70,n-1,2,0,65
+4080,70,n-x,No idea lol,0,66
+4137,71,n-1,1 + n =0,0,65
+4138,71,n-x,I have no idea. You lost me at this point. ,0,66
+4195,72,n-1,1,0,65
+4196,72,n-x,I have no idea to be honest ,0,66
+4253,73,n-1,8,0,65
+4254,73,n-x,9-x because the inverse is what you combine it with to make nine,0,66
+4311,74,n-1,3?,0,65
+4312,74,n-x,I honestly don't know. This is confusing.,0,66
+4369,75,n-1,I dunno,0,65
+4370,75,n-x,I don't know! I don't understand!,0,66
+4427,76,n-1,1(n)n,0,65
+4428,76,n-x,x(n)n-x,1,66
+4485,77,n-1,1+n=0,0,65
+4486,77,n-x,"I think it's where x+n=0, but I'm honestly not sure if that's correct, so I can't explain it. ",0,66
+4543,78,n-1,n-1,1,65
+4544,78,n-x,"n-x, this would lead to the opposite end",1,66
+4601,79,n-1,"1 +_n x = n, inverse=x",0.5,65
+4602,79,n-x,inverse + x = n. The inverse is the number needed to add to arrive at the identity.,0.5,66
+4659,80,n- 1,1 + n0,0,65
+4660,80,n-x,I don't know,0,66
+4717,81,n-1,n-1,1,65
+4718,81,n-x,"n-x. I got this answer because we are looking for the number that will result in 0 if we add the number to x. For example, lets say x is 1 and n is 3, the inverse for 1 under +_3 is 2 because 2+1 = 3 and we will have to subtract 3 so that the result is 0.",1,66
+4775,82,n-1,2-n,0,65
+4776,82,n-x,x - 2.  Because that will return the spot to zero.,0,66
+4833,83,n-1,5 +n 1,0,65
+4834,83,n-x,"I'm lost. i had a rough idea of how +n worked, but I have no idea what element x is supposed to be. If x can  be any  number then assuming x was five and +n was six then the inverse of element x would be one.",0,66
+4891,84,n-1,1+(+n-x),0,65
+4892,84,n-x,I have no idea...this question is too hard for me.,0,66
+4949,85,n-1,n-1,1,65
+4950,85,n-x,n-1,0,66
+5007,86,n-1,0=1(n)y,0,65
+5008,86,n-x,The value of x (n) and some other number is equal to the identi ty 0,0,66
+5065,87,n-1,1,0,65
+5066,87,n-x,"X-n=0, I'm not sure about this one. But the inverse is the amount of steps it takes to get back to zero.",0,66
+5123,88,n-1,n-1,1,65
+5124,88,n-x,n-x because you need to find the difference between x and n to see how many steps are needed to reach n,1,66
+5181,89,n-1,Don't know,0,65
+5182,89,n- x,Don't know,0,66
+5239,90,n-1,1 + n = 0,0,65
+5240,90,n-x,x + n = 0. The inverse of a number is the number that when combined with it equals 0. ,0,66
+5297,91,n-1,1-n,0.5,65
+5298,91,n-x,n-2 because you can start at the unknown of 0 and move it 2 to get answer,0,66
+5365,92,n-1,2,0,85
+5366,92,n-x,"3, and I'm not sure",0,86
+5423,93,n-1,1 - n = 0,0,65
+5424,93,n-x,"x + 0 = n, To get the inverse, two numbers have to add to n",0,66
+5481,94,n-1,1 under +n = +n minus 1,0.5,65
+5482,94,n-x ,x under +n = +n minus x,0.5,66
+5539,95,n-1,9,0,65
+5540,95,n-x,not sure I understand,0,66
+5597,96,n-1,(n-1) + 1,1,65
+5598,96,n-x,"(n - x) + x, Whatever number n is gets subtracted by whatever number x is. You're left with the inverse that way. So if n is 5 and x is 2, then you would subtract 2 from 5 and be left with 3. So, 3 is the inverse to 2.",1,66
+5655,97,n-1,"1,1=2",0,65
+5656,97,n-x,This has to generate every number,0,66
+5713,98,n-1,1-0,0,65
+5714,98,n-x,"0n, 1n, 2n I basically guessed because I do not really know.",0,66
+5771,99,n-1,Inverse of 1 is n-1,1,65
+5772,99, n-x,"inverse of x = n - x because whatever equals n is how you get the identity. So if n were 3, x would be 1 and the inverse would be 3-1, or 2. 2+1 would equal 3. Since 3 is equal to 3, which is n, subtract 3-3=0.",1,66
+5829,100,n-1,I don't know,0,65
+5830,100,n-x,"I am not sure, n plus n but I don't think so",0,66
+5887,101,n-1,1 - 1 = n,0,65
+5888,101,n-x,"x - n = the original starting point, and again, I have no idea. ",0,66
+5945,102,n-1,1 + (1+n),0,65
+5946,102,n-x,x + (n-x) - n,1,66
+6003,103,n-1,1 (n) 1,0,65
+6004,103,n-x,"x (n) x, as forwarding the element as itself clockwise can result in the inverse.",0,66
+6061,104,n-1,+n-1,1,65
+6062,104,n-x,+n-x.,1,66
+6119,105,n-1,1n1n1n1n1n1n1n1n1n1,0,65
+6120,105,n-x,10-x=n beca use it t akes the whatever amount of x moves fewer to reach 0 ,0,66
+6177,106,n-1,1 + n-1 = n,1,65
+6178,106,n-x,"x + n-x = n. The inverse property is two numbers which add up to the n and become 0. So the element x, plus the difference between x and n, will equal n.",1,66
+6235,107,n-1,Not sure.,0,65
+6236,107,n-x,Not sure.,0,66
+6293,108,n-1,3,0,65
+6294,108,n-x,I honestly have no idea I am very confused at this point ,0,66
+6351,109,n-1,Starting point: x,0,65
+6352,109,n-x,x + ((n) - x) = 0.  This is correct because this will bring you back to zero.  ,1,66
+6409,110,n-1,n-1,1,65
+6410,110,n-x,n-x,1,66
+6467,111,n-1,1,0,65
+6468,111,n-x,n+2,0,66
+6525,112,n-1,1:1,0,65
+6526,112,n-x,x N x. N plus n minus whatever the figure is will give you the answer.,0,66
+6583,113,n-1,1-1,0,65
+6584,113,n-x,3n1=4  I have no clue. I'm completely guessing. I used positive numbers because n represents all positive numbers. ,0,66
+6641,114,n-1,1 + n,0,65
+6642,114,n-x,x = n because n could be any other number.,0,66
+6699,115,n-1,"I have no clue. I can't tell what your dots do and couldn't play with it, and the instructions are confusing to my dyslexia.",0,65
+6700,115,n-x,n is something.....,0,66
+6757,116,n-1,1 n 8 =0,0,65
+6758,116,n-x,"x n x =0, I am not sure exactly what element x represents, however whichever point x represents would need move to the 0 point to be considered the inverse.",0,66
+6815,117,n-1,1 + (n-1),1,65
+6816,117,n-x,x + (n-x) the inverse of a number x is the number that must be added to x so that the result is 0. 0 is reached whenever the operation results in the total being equal to n... x + (n-x) = x-x+n=n,1,66
+6873,118,n-1,1+1,0,65
+6874,118,n-x,"+x whatever the number x is, is also n.",0,66
+6941,119,n-1,1+2,0,85
+6942,119,n-x,I do not understand,0,86
+6999,120,n-1,1 + 6 7.  6 would be N ,0,65
+7000,120,n-x,Im not sure how to do this one.,0,66
+7057,121,n-1,"Erm ... I admit I'm not sure exactly what you're asking for here. I am not sure if n has the value of 3 or not. Assuming that it does, the inverse of 1 would be 2? I'm not sure if that's what you're looking for. I don't know what you mean by formula. 3 (n) 2?",0,65
+7058,121,n-x,"The inverse of an element x under n would be the number that you need to combine with it to express the shape's identity. OMG, I'm REALLY bad at anything that involves letters AND numbers, sorry ... I'm trying! :-( How can I know the formula if I don't know what x represents? It doesn't make sense to me.",0,66
+7115,122,n-1,1,0,65
+7116,122,n-x,It will be the opposite number of whatever x actually is.,0,66
+7173,123,n-1,1 +n 0 = ,0,65
+7174,123,n-x,"It would be nice if I could go back and look at the instructions as the inverse confused me.  Maybe it's,  x +n 3 = n-3=inverse",0,66
+7231,124,n-1,n=1@9,0,65
+7232,124,n-x,x-n=inverse. because this is my understanding that the inverse is the amount of sides it takes to return to nine or zero.,0.5,66
+7289,125,n-1,10-1=inverse,0,65
+7290,125,n-x,10-x=inverse because it will cancel out the number and leave you with the 0.,0,66
+7347,126,n-1,(n)-1,1,65
+7348,126,n-x,if x=0 the inverse is always also 0,0,66
+7405,127,n-1,n-1,1,65
+7406,127,n-x,n-x.,1,66
+7463,128,n-1,n-1,1,65
+7464,128,n-x,n-x,1,66
+7531,129,n-1," Now we'd like to ask you some questions about , where n could b e any po stive counting number. For example, n could be 3, and the polygon a triangle, or n could be any other counting number you can think of, in which case the corresponding polygon would have n sides. Just as before, you can use either the polygon or arithmetic methods. If you need to write the operation, you can use (n), and your answers can include n to stand in for the arbitrary value if necessary. (You can use the polygon at the right to think, but it doesn't necessarily correspond to the real polygon, which is why we've left most of it dashed.) There was no laid out formula in the last instructions, it was all words",0,85
+7532,129,n-x,"N could be anything, I think, from the instrutions. Like N could be a 3 if you want it to be, and i nstead o f a polygon,  you would use a triangle. So 3 for the numbers shown on the diagram??",0,86
+7589,130,n-1,n-1,1,65
+7590,130,n-x,n-x because you need the number that adds to x to get n,1,66
+7647,131,n-1,1+(n - x) - n = 0,0,65
+7648,131,n-x,"n-x because if n was 5 and x was 3, then we would just subtract x from n  because the returned value would equal 5 if it were added together and would mean it would be 0 under the operation.",1,66
+7705,132,n-1,2,0,65
+7706,132,n-x,X (n) ? = 0,0,66
+7763,133,n-1,n-1,1,65
+7764,133,n-x,n-x. It's the number of sides minus the element because that would be the number that would lead to a sum of 0.,1,66
+7821,134,n-1,1 + 1 +1n,0,65
+7822,134,n-x,x +n x  I added x to get an amount higher or equal to x.  So x is the number that makes that possible.,0,66
+7879,135,n-1,n - 1,1,65
+7880,135,n-x,n - x. The inverse is whatever needs to be added to x to equal n.,1,66
+7937,136,n-1,1+n,0,65
+7938,136,n-x,"x+n would be the inverse, I think. Since you subtract n from the sum of operation, you want that sum to be x+n, so that you end up with x after subtracting n. If x=2 and n=4 for example, the inverse would be 6. Since 2 is what you would get after subtracting 4 from a sum of 6.",0,66
+7995,137,n-1,(n) + 1,0,65
+7996,137,n-x,(n) = x + 1,0,66
+8053,138,n-1,(n)-1,1,65
+8054,138,n-x,(n)-x,1,66
+8111,139,n-1,1 +_n = 9,0,65
+8112,139,n-x,N_+ this allows you to create a number and variable to get the inverse.,0,66
+8169,140,n-1,I don't know.,0,65
+8170,140,n-x,I don't know how to explain it. ,0,66
+8227,141,n-1,1+2n 2= ,0,65
+8228,141,n-x,I have no idea.,0,66
+8285,142,n-1,1 (n) = 1,0,65
+8286,142,n-x,"It's the number of intervals to get back to the identity, which is 0, I think. I don't know what the formula would be. Maybe something like x (n) y.",0,66
+8343,143,n-1,n=1+8,0,65
+8344,143,n-x,I really do not understand this very well. If n was 3 than the inverse would be say 7. I am really confused by what is suppose to be happening and how to answer this.,0,66
+8401,144,n-1,n + 1,0,65
+8402,144,n-x,x=n the reverse of x would be n.,0,66
+8459,145,n-1, n+1 _n=0,0,65
+8460,145,n-x,x + _n = 0   I don't know how to solve this if I don't know the value of x or _n,0,66
+8517,146,n-1,+1n,0,65
+8518,146,n-x,I think it would be +xn because wouldn't the cancel them out? I'm really not sure... since there is no number it's just the letter x,0,66
+8575,147,n-1,1+_n,0,65
+8576,147,n-x,You have not provided enough information to do this. ,0,66
+8633,148,n-1,1=n,0,65
+8634,148,n-x,x=n .  Not sure how to get this particular answer,0,66
+8691,149,n-1,1+(n+1),0,65
+8692,149,n-x,inverse is x= (n-x),1,66
+8749,150,n-1,1+1+n=0,0,65
+8750,150,n-x,The inverse of 1+8+n=0 the inverse of x is 1 and +n is 9,0,66
+8817,151,n-1,1(n)n=0,0,85
+8818,151,n-x,"x(n)n=0 an element-x under (n ), moved  n amount of times equals 0",0,86

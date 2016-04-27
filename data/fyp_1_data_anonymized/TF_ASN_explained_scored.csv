@@ -1,0 +1,201 @@
+row.names,subject,correct_response,response,score,trial_index
+42,1,True,because it will likely only hit 4 numbers that it will be able to divie into,0,69
+45,1,Sometimes,a guess,0,72
+99,2,True,"True. If you can't form every element, then you'll only be able to form whatever is a common multiple of x and n",1,69
+101,2,sometimes,"Sometimes (I just realized after choosing always). If x +n x is odd (and n is even), then it should be able to form every element. It won't otherwise, I think",1,71
+156,3,True,I don't know,0,69
+159,3,Sometimes,I don't know the answer to this,0,72
+215,4,True,"I don't know, I can't think about it this abstractly.",0,71
+218,4,Sometimes,"I don't know, I'm having trouble at this point.",0,74
+274,5,True,It must be a multiple of a divisor of n because it is either an inverse number or the new operation.,0,71
+277,5,Sometimes,I f element x is a generator under n then x n x is not a generator under n because it would not be a 5 or a 1,0,74
+331,6,True,because only even numbers have divisors ,0,69
+334,6,Sometimes,it's not an even number,0,72
+390,7,True,"True, if x is not a multiple of the imaginary number it must be another function of that number",1,71
+393,7,Sometimes,It's never a generator under n because x n x would be a multiple of that number.,0,74
+449,8,True,"false, I really don't know",0,71
+452,8,Sometimes,"yes, if one is true the other should be true as well",0,74
+508,9,True,"I believe this is false, but cannot, even remotely, begin to explain why. I am so sorry; I do not know the answer, and it's not for lack of effort -- I'm really just not understanding this. My best guess: It is false because x not being a generator would imply (based on my understanding) that it is either 0,2,3,4,5,6,7 -- which, I don't believe accurately corresponds to *not* being a multiple of a divisor of n. I realize  this is,  more than likely, breathtakingly inaccurate. ",0,71
+511,9,Sometimes,"I do not know. I am guessing always because, based on my understanding, x would only correspond to 1 and 8 in that case. ",0,74
+567,10,True,I really have no idea....,0,71
+569,10,sometimes,I dont know if it is ._. I am so confused ,0,73
+626,11,True,"I think it might be true because in the case of +6, 2,4, and 3 were not generators. And each of those numbers are multiples/divisors of 6 itself or the other non generators while the generator numbers(1,5) were not multiples/divisors of 6 or any numbers related to it.",1,71
+628,11,sometimes,"I chose sometimes because in the case of +6, 1 and 5 were generators and they are both the inverse of each other. However, 2 and 4 were non generators and they were the inverse of each other.",1,73
+683,12,True,If x is not higher than the generator it is a multiple,0,69
+685,12,sometimes,"I can't. I don't understand this far along since I would have had questions, and I don't understand the divisor portion.",0,71
+740,13,True,"If x can be multiplied or divided by n, the only numbers it can return are the factors that it and n have in common. ",0,69
+743,13,Sometimes,"Sometimes. 5(9)5 is a generator, but 5(6)5 is not. If there is a rule defining when it is or is not the case, it's beyond me.",1,72
+809,14,True,"True because it still needs to equal +n, I'm not really sure at all though.",1,91
+811,14,sometimes,"Sometimes, it depends on the formula? I'm not sure at all.",1,93
+866,15,True,I believe that there would be nothing that could be divided by n to be a generator. ,0,69
+868,15,sometimes,Sometimes; it depends on what x is.,1,71
+925,16,True,Because it would keep it from creating all other numbers when done with +_n,0,71
+927,16,sometimes,Because sometimes it would be able to create all other numbers depending on what n was.,0,73
+984,17,True,"A generator needs to generate every other number, but that's not possible if n is evenly divisible by x.",0,71
+987,17,Sometimes,I have no idea if my answer is correct. I'm having difficulty following this statement and understanding whether x(n)x is an expression.,0,74
+1041,18,True,"True, I don't understand generators, I'm just guessing. ",1,69
+1044,18,Sometimes,"Sometimes, another guess, I have no idea what this is even asking. ",1,72
+1100,19,True,Because it would be an even number no matter it's multiplication by the divisor ,0,71
+1103,19,Sometimes,"Yes because the inherent property of a generator is X by X, therefore proving it",0,74
+1157,20,True,False.Ithinkthiswouldhaveexceptions.,0,69
+1159,20,sometimes,Sometimes.Ithinktherewouldalwaysbeexceptionsuchashow+6and+9haddifferentgenerators.,1,71
+1214,21,True,I don't know.,0,69
+1217,21,Sometimes,I don't know.,0,72
+1273,22,True,"(I freely admit that you've lost me. I'm trying, I really am, but SO NOT an algebra person here.) This one at least seems to make sense... if x is a multi ple of a  divisor of n, it can't be a generator, because it's just going to start looping as you repeat the operation in sequence.",1,71
+1275,22,sometimes,"Sometimes... I don't know why across any  +n, but  1 is a generator under +6, but 1 +6 1 is not a generator, because 2 under +6 is not a generator, being only able to produce even results. But... without testing out every possibility, I can conceive circumstances under which x +n x could produce a generator element. I'm just having trouble getting my head around it enough to prove it. :(",1,73
+1332,23,True,When I knew n it seemed that way.,0,71
+1334,23,sometimes,Beyond my ability.,0,73
+1391,24,True,I don't even understand the question,0,71
+1393,24,sometimes,No one knows what you're talking about,0,73
+1450,25,True,"Ithinkthat'sfalsebecause+_ncanbeanypositivenumber,whichmeansthatanyofitsdivisorscouldbeamultipleofit.",0,71
+1452,25,sometimes,I think this is always correct since +_n can be any positive number and can change to make any number into a generator.,0,73
+1519,26,True,"because in order to be a generator, it needs to be able to divide evenly with a number 'n'",0,91
+1521,26,sometimes,"Yes, because x should be divisible by x",0,93
+1576,27,True,"yes, because it must be a multiple",1,69
+1578,27,sometimes,"always, it remains the same",0,71
+1635,28,True,"True, it has to land on the 0 position. ",1,71
+1638,28,Sometimes,"Always, because x(n)x will land on 0",0,74
+1694,29,True,It doesn't have to be a multiple of a divisor of n because if it is greater than n and n has to be subtracted the number might end up not being a multiple of n,0,71
+1696,29,sometimes,It will always be the generator for th e number . It never changes.,0,73
+1751,30,True,"true, because its even",1,69
+1754,30,Sometimes,"always, because its a generator",0,72
+1810,31,True,X must be a divisor of n because that would be the only way to have a result of 0.,0,71
+1812,31,sometimes,It is always correct because x must be a divisor in order to r esult in  0.,0,73
+1867,32,True,"True? I can't figure out a way to prove it generally, but this sequence seems always to hit the inverse before the full sequence of numbers is generated; since x and the inverse produce 0, no new numbers can be generated after that iteration.",1,69
+1869,32,sometimes,"Not always, since 1 is a generator under +_4, but 2 isn't. I don't know if it's never the case.",0,71
+1924,33,True,Because that is the only way to generate a cycle through the elements.,0,69
+1926,33,sometimes,"sometimes, 1 +4 1 = 2, 2 is not a generator when n = 4, 1 +3 1 = 2, 2 is a generator when n = 3",1,71
+1983,34,True,don't know,0,71
+1985,34,sometimes,don't know,0,73
+2040,35,True,False. I'm not sure,0,69
+2042,35,sometimes,It depends on what the number is,1,71
+2097,36,True,"I do not know for certain, but using the previous example of the +6 operator, 2 was not a generator, and is a divisor and multiple of 6. Seems to work.",1,69
+2099,36,sometimes,"Uncertain - if the element x is a generator, then x+nx is sometimes a generator but not always the case.",1,71
+2156,37,True,"False. X doesn't have to be a multiple of a divisor of n. Honestly, this just went so far over my head that you might as well be speaking Greek. I'm lost.",0,71
+2159,37,Sometimes,Sometimes. I say this because I don't think it would work the same way with every number.,1,74
+2213,38,True ,I'm so confused right now.,0,69
+2216,38,Sometimes,I don't know,0,72
+2280,39,True,I don't know whether it's true or false.,0,89
+2282,39,sometimes,I really don't know.,0,91
+2339,40,True,Honestly don't know this answer.,0,71
+2342,40,Sometimes,Don't know.,0,74
+2396,41,True,That will mean that it can divide to make all of the other numbers. ,0,69
+2398,41,sometimes,sometimes because the second number could be a completely different nu mber for  instance 1 and 2 and they might not both be generators. ,1,71
+2453,42,True,"Because if its not a generator, it must be an odd number. It has to be a multiple of divisor in order for it be right.",0,69
+2455,42,sometimes,Because it can't be always a generator under +n.,0,71
+2510,43,True,I have to take a guess and say this is true as I have a very limited knowledge of what is being asked.,1,69
+2513,43,Sometimes,I am not knowledgeable to what is being asked here.,0,72
+2567,44,True,"IF x is not a generator, then it has to be obtained by multiplying a number that was divided by n.",0,69
+2570,44,Sometimes,"it is sometimes  generator, because you are already starting with a generator and then adding to it, so the result will sometimes be a generator and sometimes it will not be a generator.",1,72
+2624,45,True,I don't have an answer.,0,69
+2627,45,Sometimes,I don't  have an  answer. Element x is unclear to me.,0,72
+2683,46,True,"False- n could be 9, however 2 would not be a generator and 9 is not divisible by 2",0,71
+2686,46,Sometimes,"sometimes- the example is 3 in a hexagon, which can only make 3 and 0, however 5 and 7 work.",1,74
+2740,47,True,"false,  this will not be true in every case, for example in a nonagon \""(9)\"" 4 is a generator, but 9 is not divisible by 4.",0,69
+2743,47,Sometimes,"I say sometimes, because 2\""(9)\""2=4 in a nonagon gives us 4 which is a generator, but 1\""(9)\""1 = 2 giv es us 2  which is not a generator ",1,72
+2799,48,True,"If x is a divisor of N, it will always lead to a sequence of numbers that do not include all",0,71
+2802,48,Sometimes,"Sometimes, if 1 is a generator, it does not lead to another generat or",1,74
+2856,49,True,I don't know,0,69
+2858,49,sometimes,I don't know,0,71
+2923,50,True,I don't understand this. ,0,89
+2926,50, Sometime s,I don't know.,0,92
+2982,51,True,"False. I do not recall using multiplication or division in these formulas, so I do not believe they are apart of th is eithe r.",0,71
+2985,51,Sometimes,"Sometimes, because if x is a generator under (n), then x (n) x must sometimes be a generator under (9).",1,74
+3039,52,True,This is ridiculous. I have no idea what you are talking about . I gues s I am not smart enough for your experiement.,0,69
+3042,52,Sometimes,"Do people really understand this? Am I the dumbest person in the world, or do your instructions suck?",0,72
+3098,53,True,False. I can't explain the answer.,0,71
+3100,53,sometimes,Sometimes. I can't explain the answer sorry.,1,73
+3157,54,True,"If it is not a generator, it must be an even number, which is easier to end up being a multiple of an odd number in n",0,71
+3160,54,Sometimes,"Ch ances are it will be an odd number, which means it will be a generator under n as well. Odd numbers have a higher chance of being generators here. ",0,74
+3216,55,True,"For x to not be a generator, it must be a multiple of a divisor of n because it can then skip over other elements in a \""pattern\"" which only includes n's multiples/divisors.",0,71
+3219,55,Sometimes,Not sure how to explain this one.,0,74
+3273,56,True,True. The only way for it to work would be for it to be a divisor. ,1,69
+3275,56,sometimes,"Always. If X is a generator under x, than it has to follow the pattern that +n, is x +n x a generator under +n as well. ",0,71
+3332,57,True,I'm not for sure.  This is confusing me.,0,71
+3334,57,sometimes,I'm not for sure.,0,73
+3389,58,True,So that way you can make all the other numbers.,0,69
+3392,58,Sometimes,It seemed to follow from my very lack of expertise.,0,72
+3446,59,True,it has to be able to be divided into that number,0,69
+3448,59,sometimes,"sometimes, it depends on other numbers",1,71
+3503,60,True,I th ink so.  If x is odd then n must be even. So all the non generators would also be odd.,0,69
+3506,60,Sometimes,Yes because moving the generator over the same number as itself will still make the following number a generator always.,0,72
+3562,61,True,I don't know. I could probably figure it out if I had a diagram to look at but I simply don't know. I will say true just to guess but I have no reason why.,0,71
+3565,61,Sometimes,"I just guessed. In the previous examples, I couldn't find a pattern to why something is a generator. So, It would make sense that \""sometimes\"" anything could be a generator, but I'm sure that isn't correct. I really am trying.",0,74
+3619,62,True,"I think only multiples of a divisor of n can be generators, therefore this is false. Otherwise,  every nu mber could not be generated.",0,69
+3621,62,sometimes,"Always, because x + n(x) should always revert to being x again.",0,71
+3676,63,True,True.  If x is a  multipl e of n then it means that it won't be possible for you to generate odd numbers using only x.,1,69
+3678,63,sometimes,Never.  If x is added to itself it will become a number that is divisible by n and will therefore no longer be a generator.,0,71
+3735,64,True,"No, I don't think so. But I'm not really sure I understand?",0,71
+3737,64,sometimes,I don't really know.,0,73
+3792,65,True,It's false because it can still create all the numbers in the function even without being a divisor of n.,0,69
+3795,65,Sometimes,I don't know.,0,72
+3851,66,True,it will move in equal amounts around n,0,71
+3854,66,Sometimes,"if x is not a generator, x nx or any other variation will not be a generator either",0,74
+3908,67,True,"False. I think if it is a divisor of a multiple of n, that this makes x a generator. For instance, 3 is a generator under +9, and is a divisor of a multiple. ",0,69
+3910,67,sometimes,"Sometimes, but it can change with whether n is and x are even or odd numbers.",1,71
+3967,68,True,"They always go around to the same numbers when they are multiples of those n umbers.   Non-multiples go to different numbers, but multiples go to the same numbers in a repeated cycle.",1,71
+3970,68,Sometimes,"Yes because (n)x would just be x multiple times, so it's everything that x is.",0,74
+4026,69,True,"Take the example of n = 7 and x = 5.  The series would be:5, 5 +_7 5 = 3, 5 + _7 5 + _7 5 = 4, 5 + _7 5 + _7 5 + _7 5 = 6, ",0,71
+4028,69,sometimes,My last answer wasn't complete . . . I thought I could insert line breaks with the Enter key.  I believe it is always a generator.  This is the formula shown in the generator definition.,0,73
+4083,70,True,False - I do not understand this n part,0,69
+4086,70,Sometimes,Sometimes - it probably isn't correct as I don't understand this n section,1,72
+4142,71,True,its the only way to get a number for the answer,0,71
+4144,71,sometimes," sometime s, it depends on what the number is",1,73
+4199,72,True,I have no idea.,0,69
+4202,72,Sometimes,I have no idea.,0,72
+4258,73,True,"True, if x divides evenly into n then it will just keep reaching the same set of numbers. If there is a remainder it will \""travel\"" until it reaches all of the numbers",1,71
+4261,73,Sometimes,"Yes, that's the definition of a generator, it can be used to generate every number",0,74
+4315,74,True,True. ,1,69
+4317,74,sometimes,never because you will not be able to get x from just using multiples of x +_n x,0,71
+4374,75,True,"I'm not sure, it just seems right to me.",0,71
+4376,75,sometimes,"From what I learned, I think this is right.",0,73
+4433,76,True,"Say you have 6 as N in this case. The wheel will be 1-2-3-4-5-0. 6, being divisible by 2, 3 and 6, will only land on the respected numbers. 2 will only land on 2-4-0. 3  only on 3-0, and 0 won't move.",0,71
+4436,76,Sometimes,"(made a mistake and put the previous answer as never when it's supposed to be sometimes) x+x=2x which is j ust doub le the amount of x. So if x is a generator, 2x will sometimes be a generator. If x is 1, which is always a generator, and n=10, x(1)+x(1)= 2 wont be a generator to  10.",1,74
+4500,77,True,"no, because it is not necessarily a multiple of the divisor",0,89
+4503,77,Sometimes,"never, because it will no longer be a factor of the total points",0,92
+4567,78,True,because it has a even number on the polygon in must divide into,0,89
+4570,78,Sometimes,not sure,0,92
+4624,79,True,"True. As seen in another question,  6 is not  a generator under +9. 6 is a multiple of 3 which is a divisor of 9. ",1,69
+4626,79,sometimes,I would assume sometimes but I'm not entirely sure. ,1,71
+4681,80,True,"If x isn't a generator under +n, it must be a multiple of a divisor of n because that is the only way it wouldn't be able to make the other numbers",1,69
+4683,80,sometimes,"If this  is the  case, it is sometimes a generator under +n because it just depends on what the number is",1,71
+4738,81,True,"That sounds correct/true, but I am not exactly sure why it is correct.",1,69
+4740,81,sometimes,"Yes, because if x is a generator then by adding it to itself (with the +_n) will create all the numbers that comprise n.",0,71
+4797,82,True,"i am not sure i follow the question, i just guessed.",0,71
+4800,82,Sometimes,i don't know the answer,0,74
+4856,83,Tru e,"because if x isn't a generator, that means it has to be another number, and if you multiply it it will more than likely become a divisor",0,71
+4859,83,Sometimes,it should not be a generator if the original x is not either,0,74
+4913,84,True,no idea.,0,69
+4916,84,Sometimes,no idea.,0,72
+4970,85,True,True. If it divides in it will skip numbers and repeat this pattern.,1,69
+4973,85,Sometimes,It depends on the final numer on the dial. If it is in line or out of line.,1,72
+5029,86,True,True. I'm just guessing.,1,71
+5031,86,sometimes,I don't know if it's correct,0,73
+5086,87,True,"no, because then 2/4 would more often be generator",0,69
+5088,87,sometimes,"no, because if 1 was a generator, then 2 would always be, so it's sometimes",1,71
+5143,88,True,I'm not sure how to explain whether this is true or false.,0,69
+5145,88,sometimes,I'm not sure what the answer is to this question.,0,71
+5202,89,True,"I'm very sorry. I tried to learn as best as I could. I\""mgonnacontinuetotrythroughoutthisthing.Iwillnotgiveup.",0,71
+5205,89,Sometimes,0,0,74
+5259,90,True,"It has to be a multiple so it can generate an equal number, like 2 to 4 or 4 to 8. otherwise it wouldn't make sense.",0,69
+5262,90,Sometimes,"I would say sometimes and it would depend on what the number is. if it was odd it wouldn't work, even, most likely it would.",1,72
+5316,91,True,"Only odd numbers seem to be generators, unless it can be divided evenly into +n.  Once it can be evenly divided into it, the same numbers keep coming up in a pattern.",0,69
+5318,91,sometimes,"Never, but I can't be positive and I can't explain why.  ",0,71
+5375,92,True,since it doesnt land on the same number it must be a multiple,0,71
+5378,92,Sometimes,guess,0,74
+5444,93,True,i dont remember,0,91
+5446,93,sometimes,positive numbers + 6,0,93
+5501,94,True ,True because multiples will always end up at the original element.,1,69
+5504,94,Sometimes,Yes because it will come back to the source element in a multiple form.,0,72
+5560,95,True,False. For example 2 is not generator under +9. 2 is also not a multip le of a  divisor of 9.,0,71
+5562,95,sometimes,A generator is always a generator.,0,73
+5619,96,True,"False, because depending on the number of elements x might not always be a multiple of a divisor of n.",0,71
+5622,96,Sometimes,"Sometimes, because it would depend on the number of elements under n.",1,74
+5678,97,True,"True, because that is the only way to make the other elements",1,71
+5680,97,sometimes,If they are the inverse then they make the number,0,73
+5737,98,True,"True. A generator of +n should be able to make all numbers with only itself and 0. When x is added to itself enough times to equal or exceed n, n is s ubtracte d. If the resulting answer is greater than 0, then when x is added successively it will continue to generate unique solutions that fill in gaps. However, if x is ever added in such a way that it equals n, the result will be zero. In effect, successive operations will play a loop of repeating responses. Thus, such a number could not produce all numbers, only those within the loop.",1,71
+5739,98,sometimes,"Always. The number will just be another 'step' in the previous one, and will therefore reflect the same pattern.",0,73
+5796,99,True,I am sorry I do not understand the generator portion of this exercise well enough to explain it.,0,71
+5798,99,sometimes,"I am sorry, I do not understand the generator portion of this HIT and I couldnt begin to explain the above.",0,73
+5855,100,True,false. generators were prime numbers,0,71
+5857,100,sometimes,5 plus 5 is 10 minus 6 (the original n) is 4 which was not ,0,73

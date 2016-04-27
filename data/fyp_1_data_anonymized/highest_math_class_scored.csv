@@ -1,0 +1,104 @@
+row.names,subject,correct_response,response,math_high,trial_index
+48,1,,algebra,0,76
+105,2,,Integral calculus,1,76
+162,3,,I took Calculus but truthfully last I learned anything in math was algebra in middle school,1,76
+221,4,,Calculus III,1,78
+280,5,,Precalculus,1,78
+337,6,,"Algebra II, Geometry",1,76
+396,7,,Calculus,1,78
+455,8,,calculus,1,78
+514,9,,"College algebra -- I don't recall the exact name of the class; it was nearly 20 years ago -- and believe me, it was every bit as disastrous as you would probably imagine based on my answers.",0,78
+573,10,,"I got my GED, I didnt take much math in HS. I took college algebra and passed but I dont retain math well. ",0,78
+632,11,,Algebra 2,1,78
+689,12,,AlgebraII,1,76
+746,13,,Pre-Calculus,1,76
+815,14,,"Not sure, maybe pre-algebra. I didn't complete high-school and later got a GED, I have very little advanced math experience and wasn't really ever taught.",0,98
+872,15,,Calculus,1,76
+931,16,,Beginning college algebra,0,78
+990,17,,Precalculus,1,78
+1047,18,,College algebra,0,76
+1106,19,,Applied Calculus ,1,78
+1163,20,,"calculus,physics",1,76
+1220,21,,Algebra,0,76
+1279,22,,Saxon Math series Algebra II. High school. Squeaked out a B after the 4th time through.,1,78
+1338,23,,"Calculus, Trig",1,78
+1397,24,,Pre-calculus,1,78
+1456,25,,AlgebraII,1,78
+1525,26,,college statistics,1,98
+1582,27,,geometry,0,76
+1641,28,,High School Geometry,0,78
+1700,29,,calculus 2,1,78
+1757,30,,algebra 2 trig,1,76
+1816,31,,Business calculus and statistics. ,1,78
+1873,32,,High school calculus.,1,76
+1930,33,,"Calc II, But I did take Symbolic logic I & II, Theory of Computation, Philosophy of Math,  and a Seminar on Inductive Bayesian Logic, as a Philosophy grad student.",1,76
+1989,34,,algeb ra II,1,78
+2046,35,,Algebra 1,0,76
+2103,36,,Statistics,1,76
+2162,37,,"matrix, calculus",1,78
+2219,38,,Calculus,1,76
+2286,39,,Algebra 1,0,96
+2345,40,,Calculus.,1,78
+2402,41,,"Statistics, pre calculus",1,76
+2459,42,,Math 132. I do not remember the title of the class. It was some kind of statistics I think.,1,76
+2516,43,,I have to say algebra in college ,0,76
+2573,44,,Alg ebra,0,76
+2630,45,,"Algebra II
+
+",1,76
+2689,46,,"College Algebra, however I received a D...",0,78
+2746,47,,"abstract algebra in college or maybe the class where I had to do all of the proofs for all of calculus (I don't remember what class that was).  I was an math education major, but I don't remember what class was most advanced as I took many math classes in college",1,76
+2805,48,,"statistics, quantitative business systems",1,78
+2862,49,,Algebra 1,0,76
+2929,50,,Geometry in high school,0,96
+2988,51,,Algebra 2,1,78
+3045,52,,High School Algebra,0,76
+3104,53,,Algebra,0,78
+3163,54,,Geometry,0,78
+3222,55,,Trigonometry.,1,78
+3279,56,,algebra,0,76
+3338,57,,Algebra,0,78
+3395,58,,Geometry,0,76
+3452,59,,High school calculus,1,76
+3509,60,,Algebra 1,0,76
+3568,61,,"Itwas\""Math3\""inhighschool,ithadaprimaryfocusoftrig.",1,78
+3625,62,,Calculus I,1,76
+3682,63,,Advanced Calculus and Advanced Geometry.,1,76
+3741,64,,Calculus II,1,78
+3798,65,,Calculus,1,76
+3857,66,,Algebra,0,78
+3914,67,,college algebra I,0,76
+3973,68,,"College algebra, statistics (which I never understood well but still passed)",1,78
+4032,69,,Calc II Honors,1,78
+4089,70,,"Algebra 1
+Statistics",1,76
+4148,71,,pre calculas,1,78
+4205,72,,Algebra,0,76
+4264,73,,Statistics,1,78
+4321,74,,calculus,1,76
+4380,75,,High School,0,78
+4439,76,,Algebra 2(3-4),1,78
+4506,77,,college algebra,0,96
+4573,78,,trigonometry,1,96
+4630,79,,Differential and Integral Calculus,1,76
+4687,80,,College algebra and statistics,1,76
+4744,81,,I had  calculu s many years ago but I was terrible at it and don't remember a single thing. ,1,76
+4803,82,,calculus,1,78
+4862,83,,high school statistics,1,78
+4919,84,,"calculus 3, linear algebra",1,76
+4976,85,,Business Math. Pre Algebra. Thirty years ago...,0,76
+5035,86,,pre-calculus ,1,78
+5092,87,,calc for business college,1,76
+5149,88,,General algebra.,0,76
+5208,89,,basic math.,0,78
+5265,90,,"just high school stuff, algebra, etc.",0,76
+5322,91,,Prob ably 11th grade algebra.,1,76
+5381,92,,calculus 3,1,78
+5450,93,,alegbra 1,0,98
+5507,94,,Algebra,0,76
+5566,95,,Advanced algebra and trigonometry.,1,78
+5625,96,,Calculus II or Linear Algebra.,1,78
+5684,97,,calculus,1,78
+5743,98,,"Hm. I suppose algebra or trig? Took Calc, but I don't think I ever passed. Was pretty distracted by life at the time.",1,78
+5802,99,,"high school calculus, and in college math for social sciences.",1,78
+5861,100,,statistics,1,78

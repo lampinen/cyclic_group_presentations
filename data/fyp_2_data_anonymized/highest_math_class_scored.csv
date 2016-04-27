@@ -1,0 +1,152 @@
+row.names,subject,correct_response,response,math_high,trial_index
+49,1,, College Algebra,0,78
+107,2,,Calculus III (quarter system),1,78
+165,3,,Pre calculus,1,78
+223,4,,College Algebra,0,78
+281,5,,I am in Corporate Finance at the moment. I have taken Business Calculus and some accounting courses.,1,78
+339,6,,College Algebra,0,78
+397,7,,Calculus 3 and Advanced Statistics,1,78
+455,8,,pre calculus in high school and statistics in college.,1,78
+513,9,,Algebra 1,0,78
+571,10,,Precalculus,1,78
+629,11,,"Trigonometry, Geometry",1,78
+687,12,,calculus ,1,78
+745,13,,Probably AP Calc because I never completed the college math course because of a job opportunity. ,1,78
+803,14,,statistics,1,78
+861,15,,Calculus.,1,78
+919,16,,Geometry,0,78
+977,17,,Algebra 1,0,78
+1035,18,,"basic math, I hope I understood this OK ",0,78
+1103,19,,geometry and pre-algebra. ,0,98
+1161,20,,Pharmacology,0,78
+1219,21,,Statistics.,1,78
+1277,22,,algebra 1. I'm horrible at math.,0,78
+1335,23,,College Algebra,0,78
+1393,24,,algebra,0,78
+1451,25,,algebra I think,0,78
+1509,26,,Calculus 3,1,78
+1567,27,,"Trigonometry. I have used very little math since I left school, so I remember little of it.   ",1,78
+1625,28,,L inear Algebra,1,78
+1693,29,,cant remember right now but algebra something,0,98
+1751,30,,College Algebra,0,78
+1809,31,,differential equations,1,78
+1867,32,,"Algebra 2 in HS, College Math",1,78
+1925,33,,Algebra,0,78
+1983,34,,High school Algebra 2.,1,78
+2041,35,,college algebra and statistics,1,78
+2099,36,,"Calculus, I think",1,78
+2157,37,,Statistics in college,1,78
+2215,38,,I had a college calculus class about 7 years ago. I think that was the most advanced.,1,78
+2273,39,,Basic algebra  in high school is the last I remember and I cannot complete the coursework today. ,0,78
+2331,40,,algebra 3,1,78
+2389,41,,AP Calculus A & B,1,78
+2447,42,,College Algebra,0,78
+2505,43,,Trig. Pre-calculus ,1,78
+2563,44,,"Trigonometry, Calculus",1,78
+2621,45,,Algebra,0,78
+2679,46,,College Calculus III,1,78
+2737,47,,Calculus BC,1,78
+2795,48,,basic math,0,78
+2853,49,,"Algebra 1, Geometry, Algebra 2, Trigonometry",1,78
+2911,50,,College Algebra,0,78
+2969,51,,"Algebra II (Im not entirely sure, that was 20 yrs ago)",1,78
+3027,52,, Algebra 1 and 2 and Geometry,1,78
+3085,53,,"College Algebra. I'll be really honest, I had to take it 3 times because I hated going to class.",0,78
+3143,54,,calculus,1,78
+3201,55,,My most advanced classical math is Algebra 3 / Trig in high school. I took 2 classes of statistics in undergrad as well as accounting and finance classes in both college and grad school.,1,78
+3259,56,,"Trigonometry, Statistics. ",1,78
+3317,57,,Ordinary differential equations,1,78
+3375,58,,Calculus ,1,78
+3433,59,,Algebra 2,1,78
+3501,60,,I've only taken math 101 in college.,0,98
+3559,61,,Statistics,1,78
+3617,62,,bc calc,1,78
+3675,63,,AP Statis tics ,1,78
+3733,64,,algebra,0,78
+3791,65,,Algebra,0,78
+3849,66,,College Algebra,0,78
+3907,67,,high school precalc/trig; college statistics,1,78
+3975,68,,high school math,0,98
+4033,69,,High school calculus,1,78
+4091,70,,Pre-calculus alegebra,1,78
+4149,71,,Algebra II,1,78
+4207,72,,Calculus at college level but I barley passed and had to take it 2,1,78
+4265,73,,algebra,0,78
+4323,74,,Calculus,1,78
+4381,75,,"High school calculus, dropped out after 1 semester",1,78
+4439,76,,Statistic,1,78
+4497,77,,High School Geometry,0,78
+4555,78,,calc 3,1,78
+4613,79,,"I was in a test class for a project called Elements of Math that covered everything from number theory to codes and ciphers, geometry,  calc, lo gic, etc. This started in 7th grade and we would cover subjects in weeks not months or years. It was very advanced. But, it was a long time ago.",1,78
+4671,80,,Basic math course in college for non-math/science majors,0,78
+4729,81,,"Calculus, statistics, boolean algebra.",1,78
+4787,82,,Calculus,1,78
+4845,83,,If memory serves I never did anything beyond basic high school math.,0,78
+4903,84,,I took a low level calculus class in college.  It may have been pre-Calculus  but I am  not sure,1,78
+4961,85,,Algebra?,0,78
+5019,86,,Calculus,1,78
+5077,87,,Calculus,1,78
+5135,88,,College Algebra,0,78
+5193,89,,Precalculus ,1,78
+5251,90,,Math 112.The last algebra class you take before having to move on to calculus or something else more advanced.,1,78
+5309,91,,algebra,0,78
+5377,92,,Geometry,0,98
+5435,93,,college algebra,0,78
+5493,94,,"Algebra I - high school many, many years ago",0,78
+5551,95,,Statistics for Business,1,78
+5609,96,,"Trigonometry, Algebra 2, Pre-Calculus",1,78
+5667,97,,Algebra,0,78
+5725,98,,Algebra,0,78
+5783,99,,calculus,1,78
+5841,100,,"College Algebra, one class, about 20 years ago",0,78
+5899,101,,Algebra ,0,78
+5957,102,,College Calculus (literally decades ago),1,78
+6015,103,," In high  school: Probabilities & Statistics, Pre-Calculus",1,78
+6073,104,,Algebra 2,1,78
+6131,105,,algebra 1,0,78
+6189,106,,Calculus II,1,78
+6247,107,,Algebra,0,78
+6305,108,,algebra ,0,78
+6363,109,,Calculus,1,78
+6421,110,,sociological statistics,1,78
+6479,111,,Algebra I ,0,78
+6537,112,,Pre-Calculus ,1,78
+6595,113,,I believe the highest was algebra. I'm not sure what level. Low would be my guess. ,0,78
+6653,114,,Geometry ,0,78
+6711,115,,Alegbra 2,1,78
+6769,116,,College Algebra,0,78
+6827,117,,calculus - differential equations,1,78
+6885,118,,Pre-trig.,0,78
+6953,119,,Statistics in College,1,98
+7011,120,,High School Algebra,0,78
+7069,121,,Pre-Algebra.,0,78
+7127,122,,Algebra II in high school and remedial math in college,1,78
+7185,123,,Algebra 1,0,78
+7243,124,,no,0,78
+7301,125,,Calculus,1,78
+7359,126,,College Algebra,0,78
+7417,127,,"Calculus 3, differential equations",1,78
+7475,128,,calculus for business,1,78
+7543,129,,prealgebra,0,98
+7601,130,,statistics,1,78
+7659,131,,Calculus I,1,78
+7717,132,,Trigonometry.,1,78
+7775,133,,Calculus I,0,78
+7833,134,,The most advanced class was a basic college level math course.,0,78
+7891,135,,"I took a curriculum that was a combination of trig, algebra, etc. rather than any specific subject. ",1,78
+7949,136,,Pre-calculus,1,78
+8007,137,,Spirit of Mathematics,0,78
+8065,138,,Mathematical Methods in Physics,1,78
+8123,139,,College Algebra or Statistics,1,78
+8181,140,,"high school Trig, college algebra. ",1,78
+8239,141,,I think just a basic high school math class which is obvious based on my responses here.,0,78
+8297,142,,Algebra,0,78
+8355,143,,College Algebra,0,78
+8413,144,,high school algebra.,0,78
+8471,145,,Algebra 3/4 in high school.  College Math (for non-science majors),1,78
+8529,146,,math 092 and I couldn't even complete it because I could not understand algebra what so ever.,0,78
+8587,147,,College Algebra,0,78
+8645,148,,College level Calculus or Statistics,1,78
+8703,149,,algebra 2,1,78
+8761,150,,"Wow it's been a while I would say geometry in high school, maybe algebra, I honestly do not remember, but I remember taking those classes though.",0,78
+8829,151,,"MATH0002, currently in the middle of MATH1021",0,98

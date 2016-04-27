@@ -1,0 +1,303 @@
+"subject","correct_response","response","trial_index"
+"43","1","True","False, it doesn't sound right.",71
+"45","1","sometimes","Never, it sounds right, I have no idea beyond that.",73
+"101","2","True","If I'm parsing that correctly (I'm ~22 years removed from calculus), a  multipl e of a divisor would produce a loop effect -- the same numbers each rotation.",71
+"103","2","Sometimes","Wouldn't that depend on the value of N?",73
+"159","3","True","True, as an even number (as 'x') would have to be a divisor of the number of sides in the s hape (if  even-sided, as it would be if not a generator)",71
+"161","3","Sometimes","Sometimes as depending on what 'n' is will determine whether or not x 'n' x can generate every number",73
+"217","4","True","because it would be an even number that can be equally divided. I really don't know though honestly",71
+"219","4","Sometimes","I'm not sure of the answer to the previous question. I just guessed, because now I am confused. ",73
+"275","5","True","unsure",71
+"277","5","Sometimes","uncertain",73
+"333","6","True","I can't. I am so confused by this question. I'm sorry again!",71
+"335","6","sometimes","I don't know. I had to guess. I really am trying here, I swear.",73
+"391","7","True","I think I explained this to the best of my ability a moment ago. If (n) is divisible by x, then you will keep hitting the same points on the diagram, if you think of it visually. For example, for an (n) of 9 and an x of 3, if you start at 0, the generated values will be 0,3,6,0,3,6... - you can tell that other numbers will never be generated.",71
+"393","7","sometimes","If x is divisible by n, then it's inverse will not necessarily be divisi ble by n , but it will be a generator. I don't know how to explain this other than by considering the example given before - when x=3 and n=9, x is not a generator, nor is its inverse, although 9/6 is not a whole number.",73
+"449","8","True","False because when you multiply it out it could be a generator or not",71
+"451","8","sometimes","It's never a generator because you cou ld have  a value that produces 0.",73
+"507","9","True","I think as long as it is even it is correct.",71
+"509","9","Sometimes","I think it sometimes could be.",73
+"565","10","True","True. If it's a multiple of a divisor of n, it will always go past a section the size of that divisor.",71
+"567","10","Sometimes","Sometimes. It just depends on whether the next number shares a factor with n or not.",73
+"623","11","True","I don't know the answer",71
+"625","11","Sometimes","I don't know the answer",73
+"681","12","True","no idea",71
+"683","12","Sometimes","no idea",73
+"739","13","True","It depends on what X is, if it's 1 it is a generator and if it's 2 it  isn",71
+"741","13","som etimes","Again, depending on what X is, undoubtedly sometime its inverse will be a generator. ",73
+"797","14","True","not sure",71
+"799","14","sometimes","not sure",73
+"855","15","True","I have no idea, this all seems over my head right now.",71
+"857","15","Sometimes","I have no idea, this is all over my head right now.",73
+"913","16","True","yes",71
+"915","16","sometimes","Never because its not divisible",73
+"971","17","True",".",71
+"973","17","Sometimes","i don't know and i'm guessing at this point",73
+"1029","18","True","you need to be able to subtract n from the answers greater than n to get to 0 through n for answers",71
+"1031","18","sometimes","some answers less than n wont use n so the rule won't always apply ",73
+"1097","19","True","i really dont understand this. why are there numbers in math?!?! ",91
+"1099","19","sometimes","maybe because you add it",93
+"1155","20","True","Well for example take the number 2. If tw o is add ed to 2, it gives the number 4, instead of 1 1. I think this is why is is not a generator under n",71
+"1157","20","sometimes","I guess it would depend on the number. For example if the number under is 6 and I have 3 then the inverse would be 3 which is a generator under",73
+"1213","21","True","No idea.",71
+"1215","21","sometimes","No idea.",73
+"1271","22","True","true? I don't know anymore",71
+"1273","22","sometimes","I have absolutely no clue at all",73
+"1329","23","True","I really don't know. To guess, I'll say that if x isn't a generator under n, then it wouldn't be a multiple or divisible since it wouldn't equally hit every number.",71
+"1331","23","Sometimes","I totally guessed. I would say that the inverse and generator could end up being the same but maybe not.",73
+"1387","24","True","Because you have to get an even number,",71
+"1389","24","sometimes","Sometimes it would depend on the number under the generator.",73
+"1445","25","True","No idea just guessing. this is over my head",71
+"1447","25","sometimes","not sure, don't understand",73
+"1503","26","True","false, some number are not divisors like 4 in +6",71
+"1505","26","sometimes","yes, doubling is just the next step",73
+"1561","27","True","I don't understand any of this.",71
+"1563","27","Sometimes","I don't understand any of this.",73
+"1619","28","True","if not, every possible number could be generated",71
+"1621","28","sometimes","the generator could be close to 0 or n",73
+"1687","29","True","because you cant subtract x from n",91
+"1689","29","sometimes","because it can be an even number",93
+"1745","30","True","False, I dont think this is true when the generator is odd.",71
+"1747","30","Sometimes","I think it is sometimes but only if its an even number.",73
+"1803","31","True","True. A multiple of a non-generator will act the same as that original divisor, by restricting the possible numbers to the same set as the original divisor.",71
+"1805","31","sometimes","I'm not sure how to explain it, I just sort of visualized it on various shapes and it worked.",73
+"1861","32","True","Divisors will fail to be generators, but not all non-generators are even divisors.",71
+"1863","32","Sometimes","This one's a bit out of my grasp, but I came by my answer intuitively.",73
+"1919","33","True","Because you can't get the other numbers from it.",71
+"1921","33","sometimes","I don't know, this got really complicated.",73
+"1977","34","True","X cannot be divided by N to be a generator. Because if X is able to be divided by N, there are no leftover digits. The leftover digits is what causes a number to be a generator -- because it's able to produce leftover digits going through all of the ones of the clock before hitting the same original digit.",71
+"1979","34","sometimes","Not sure.",73
+"2035","35","True","I don't understand any of this",71
+"2037","35","sometimes","I don't understand any of this",73
+"2093","36","True","It is true because a multiple of a divisor of n, like 6 on the 9 scale, was not a generator.",71
+"2095","36","Sometimes","I don't think so because it 5n5 on the hexagon made 4 and 4 was not a generator",73
+"2151","37","True","yes, because they would share a same denominator ",71
+"2153","37","Sometimes","because there are too many math words that I can't remember what is going on",73
+"2209","38","True","If it isn't a generator, x must be a multiple because it can still be used to calculate (n)?",71
+"2211","38","Sometimes","x is always going be under (n).",73
+"2267","39","True","I'm not sure.",71
+"2269","39","sometimes","I'm not sure.",73
+"2325","40","True","Because it must be able to fit into n.",71
+"2327","40","Sometimes","It sometimes might, depending on the number. ",73
+"2383","41","True","True, this was my explanation for knowing if a number is a generator, only I used the term product and not multiple. 2, 3, and 4 are multiples of a divisor of 6, and 3 and 6 are multiples of a divisor of 9. If n were 15 then 3, 5, 6, 9, 10, and 12 would not be generators.",71
+"2385","41","Sometimes","It could be sometimes. If n=3, then 1 (3) 1 would yield 2 and 1(3)1(3)1 would yield 0. 2(3)2 would yield 1 and 2(3)2(3)2 would yield 0. However, in the case of n=6, 1(6)1, or 2, and 5(6)5, or 4, are not generators.",73
+"2441","42","True","Because it would be an even number.",71
+"2443","42","sometimes","Because it depends on if the number is even or correct.",73
+"2499","43","True","Sorry I don't understand.  ",71
+"2501","43","sometimes","never  If n=6 then 1 N 1 = 2 not  a generator and 5 N 5 = 4 also not a generator",73
+"2557","44","True","Because the number divides evenly it will always land on the same number of spaces.",71
+"2559","44","sometimes","Never because the number the number will only reach 0",73
+"2615","45","True","In my mind it seems right, I just can't explain it properly.",71
+"2617","45","Sometimes","I think it's possible to be a generator.",73
+"2673","46","True ","Because then it would make the value 0.",71
+"2675","46","sometimes","It depends if the value comes out to be 0.",73
+"2731","47","True","Tr ue. Otherwise you would increment bit by bit every pass around.",71
+"2733","47","som etimes","I actually think it's always. I played with some examples and couldn't find exceptions.",73
+"2789","48","True","true I dont know you lost me",71
+"2791","48","sometimes","sometimes because not all numbers are a generator",73
+"2847","49","True","don't know ",71
+"2849","49","Sometimes","don't know ",73
+"2905","50","True","Because if you take successive steps, the number will always hit the same numbers again and again.",71
+"2907","50","sometimes","Because if you take successive steps with the inverse number, it also will always hit the same numbers.",73
+"2963","51","True","False, if it is a generator then it must be a multiple or divisor?",71
+"2965","51","somet imes","i have no idea, always",73
+"3021","52","True","I don't know the answer to this question. ",71
+"3023","52","Sometimes","I don't know the answer to this question. ",73
+"3079","53","True","True becasue it is still going to bring me around to one of the same points in the circle if it is a multiple.",71
+"3081","53","Sometimes","Sometimes because it depends on what number n is.    ???",73
+"3137","54","True","false because if it is divisible by n then it cant be a generator",71
+"3139","54","Sometimes","sometimes because if x is the mid value then it is a generator",73
+"3195","55","True","I'm not totally positive but I think x must be a multiple of n in order to reach every point on the polygon.",71
+"3197","55","sometimes","If x is a generator, it must be able to generate every number which would include itself.",73
+"3253","56","True","False. if x = 2 and n = 3, then 3/2 leaves a remainder of 1. ",71
+"3255","56","sometimes","Never. If x = 2 and n = 4 then 2 + 2 2. You would not be able to get numbers 1,2, or 3. ",73
+"3311","57","True","False, because 0 is not a generator under (n) and 0 is not a multiple of a divisor of n.",71
+"3313","57","Sometimes","False, because 1 is a generator under (1), but 1 (1) 1 = 0 is not a generator under (1).",73
+"3369","58","True","x is an even number. ",71
+"3371","58","Sometimes","I don't know ",73
+"3427","59","True","the number x must be evenly divisible by n",71
+"3429","59","sometimes","It's sometimes a generator depending on what number x is",73
+"3495","60","True","I have no idea, this is getting really complicated.",91
+"3497","60","sometimes","I don't know, this is getting really confusing...",93
+"3553","61","True","This will allow for all numbers to be achieved",71
+"3555","61","sometimes","There are some cases where this will be true",73
+"3611","62","True","it has to be small enough",71
+"3613","62","Sometimes","not sure",73
+"3669","63","True","False, i'm guessing. I am really confused now",71
+"3671","63","sometimes","Guessing, Confused",73
+"3727","64","True","true? i guessed",71
+"3729","64","sometimes","i do not know",73
+"3785","65","True","I am not sure.",71
+"3787","65","Sometimes","I am not sure",73
+"3843","66","True","Im so lost",71
+"3845","66","sometimes","i dont know",73
+"3901","67","True","if x is a multiple, it will continue to circle back to other multiples.",71
+"3903","67","sometimes","always - a generator's inverse wouldn't be a multiple",73
+"3969","68","True","???",91
+"3971","68","sometimes","???",93
+"4027","69","True","I am not sure.",71
+"4029","69","Sometimes","It can be depending on the is the number is positive or negative.",73
+"4085","70","True","No idea",71
+"4087","70","sometimes"," I have no idea did I miss some instructions or something?",73
+"4143","71","True","True. Because if it's not a generator it has to be a divisor. ",71
+"4145","71","Sometimes","sometimes. It depends on how many positions your diagram has. ",73
+"4201","72","True","I have no idea to how to solve or explain ",71
+"4203","72","sometimes","I have no idea I was just guessing ",73
+"4259","73","True","true because x is always related to n",71
+"4261","73","sometimes","sometimes because it sometimes is and sometimes isn't with no pattern",73
+"4317","74","True","True? I don't really get this, so I can't explain it.",71
+"4319","74","sometimes","Sometimes? I really don't understand this.",73
+"4375","75","True","I don't know! I don't understand!",71
+"4377","75","Sometimes","I don't know!  I don't  understand!",73
+"4433","76","True","true. for instance in (9) 6 is not a generator but it is a multiple of 3 a divisor of 9.",71
+"4435","76","Sometimes","never. x(n)x will lead you to a the next divisor of n which is not a generator. or in the case of 1. the next element which will not be a generator",73
+"4491","77","True","False, because I believe that odd numbers are not generators. Odd numbers may or may not be multiples or divisors of n.",71
+"4493","77","Sometimes","Oh my goodness, I have no idea. I think the answer is always, because it will be an even number, but I'm not sure if that's correct.",73
+"4549","78","True","because it can divide evenly there are numbers it has to skip when going around",71
+"4551","78","Sometimes","the inverse could also be able to divide n into a whole number",73
+"4607","79","True","True. This is true because once you hit a multiple of n, the system repeats.",71
+"4609","79","sometimes","Sometimes. One is always a generator. 2 isn't always a generator.",73
+"4665","80","True","No, because that does not make sense",71
+"4667","80","sometimes","Sometimes - depends on the numbers",73
+"4723","81","True","True, because if n = 8, I can NOT find a number x where x  is both  a generator and a multiple of a divisor of 8.",71
+"4725","81","sometimes","Sometimes, because there can be an element x that is a generator under +_n and x +_n x is not a generator. For example, 2 is a generator under +_8, but 2 +_8 2 is NOT a generator under +_8. Therefore, the answer is sometimes.",73
+"4781","82","True","Because the rule will not hold true in all circumstances.",71
+"4783","82","Sometimes","Sometimes, because it will not match the proper number in all cases.",73
+"4839","83","True","I'm leaning towards true because in the first example of +6 the number 3 isn't a generator although it is a multiple of a divisor of 6. The same thing held true in +9 as well.",71
+"4841","83","sometimes","I think the correct answer is somethings becasue the result of x ",73
+"4897","84","True","I am sorry I have no idea and any answer I would give would be a guess",71
+"4899","84","sometimes","I have no clue anything I write is just a guess I do not even know where to start",73
+"4955","85","True","Explain what any of these things mean first",71
+"4957","85","sometimes","I don't know",73
+"5013","86","True","Because you will only get multiples of x, and not the other numbers",71
+"5015","86","sometimes","BEcause X plus X can equal an even number that is divisible by (n)",73
+"5071","87","True","True. I'm really not sure I understand the concept of x and n. But I believe that this is correct.",71
+"5073","87","Sometimes","I think it would always be because if x was 1, 1n1 would also be a generator.",73
+"5129","88","True","True. Because if it divides evenly, it will only  reach ce rtain points on the polygon",71
+"5131","88","Sometimes","This question has lost me.",73
+"5187","89","True","Don't know",71
+"5189","89","sometimes","Don't know",73
+"5245","90","True","If the numbers can be divided equally into n, then going around the figure will produce the same answers repeatedly, instead of different answers.",71
+"5247","90","sometimes","If x is not a divisor of n, then the inverse of x will not be, either.",73
+"5303","91","True","false it has to be able to come up with the number on its own ",71
+"5305","91","Sometimes","if it can make the numbers 1,3, 5 then it is ",73
+"5371","92","True","This is correct because the rules stated so",91
+"5373","92","sometimes","Yes and I'm not sure because I don't understand the rules",93
+"5429","93","True","when n is 6 and x is 3 since 3 is a multiple of n then all it can have is 0 3. ",71
+"5431","93","sometimes","Sometimes depending on the number it could be or it could not.",73
+"5487","94","True","I don't think this is true, I don't think the value of x is linked in any way as a divisor to +n.",71
+"5489","94","sometimes","I'm not sure of the correct answer, but I think it is sometimes because while rules in math stay the same, meaning they apply the same to each number, not every number reacts t he same  way.  I don't think it is an always or never type of situation.",73
+"5545","95","True","not sure. hard to fullly understand",71
+"5547","95","sometimes","even number",73
+"5603","96","True","True. Since x isn't a generator, then multiple additions of x to itself would get you the value of n eventually.",71
+"5605","96","sometimes","Sometimes. For example if x = 1 and n = 4 then x + x would = 2. So, 1 is a generator of 4, but 2 would certainly not be since it's a multiple of 4. If x = 1 and n = 5, then x +x would also equal 2 and in this case both 1 and 2 would be generators since 2 is not a multiple of 5.",73
+"5661","97","True","False, this would generate the same set of numbers each time",71
+"5663","97","Sometimes","Always, a generator will  always  generate each number",73
+"5719","98","True","If you take 1 and try to divide it, you will get a remainder and the answer.",71
+"5721","98","sometimes","I honestly do not know. Sometimes the numbers may line up and it could be.",73
+"5777","99","True","True? I don't know.",71
+"5779","99","sometimes","I don't know.",73
+"5835","100","True","I don't think I can explain this",71
+"5837","100","sometimes","sometimes, but the concept behind it is unclear to me",73
+"5893","101","True","True. Because, I have no idea.",71
+"5895","101","Sometimes","Sometimes. Because I'm a genius",73
+"5951","102","True","If there is no re mainder,  then the dial doesn't forward by 1 each time.",71
+"5953","102","sometimes","I'm starting to not understand here.",73
+"6009","103","True","True. For example, in the first polygon of (6), 2 and 4 are not generators, as they both do not land on all of the numbers.",71
+"6011","103","Sometimes","Sometimes, as it depends on the value of (n). (n) being odd or even can make a big difference.",73
+"6067","104","True","false. because divisor would leave a remainder possibly?",71
+"6069","104","sometimes","yes, or no. im not sure.",73
+"6125","105","True","true if n is 10 false if n is odd, not all even numbers are multiple of a divisor of n. if n is odd than it is not. unless n is 10 than it is.",71
+"6127","105","Sometimes","sometimes. because generators go through all the numbers including other generators",73
+"6183","106","True","False. For example, 4 is not a generator under +6.",71
+"6185","106","sometimes","Never. A number that is a generator will not make a generator when applied x +_n x. For example, 7 is a generator under +8, but 6 (the result of x +_n x) is not. The same goes for 5 under +6 . 5 is a  generator, but 4 is not. The same also applies to 3 under +8. 3 is a generator, but 6 is not.",73
+"6241","107","True","Not sure.",71
+"6243","107","Sometimes","Not sure.",73
+"6299","108","True","I dont want to sound stupid but this part is very confusing I am not sure",71
+"6301","108","sometimes","i dont know",73
+"6357","109","True","This is true because x will never produce values other than multiples of itself because it will always hit the identity.",71
+"6359","109","Sometimes","It will always be a generator because it was able to be generated by it's inverse, so it will work the other way around too.",73
+"6415","110","True","I do not know",71
+"6417","110","sometimes","I do not know",73
+"6473","111","True","if it is not a generator is has to be a divisor i think",71
+"6475","111","sometimes","i think it might be sometimes",73
+"6531","112","True","It seems that if it not a generator then it must be connected to the divisor of n",71
+"6533","112","sometimes","It cannot be both.",73
+"6589","113","True","I don't really know. I supposed that if X isn't a generator it must be acting as something else and serve some other function.",71
+"6591","113","sometimes","I don't know why it or isn't correct. I suppose that there is no absolute rule here, so it can serve dual functions. ",73
+"6647","114","True","False because it could mean anything.",71
+"6649","114","sometimes","Because it could mean two different things.",73
+"6705","115","True","i have no clue.",71
+"6707","115","sometimes","I do not know.  The beginning was explanatory, this was not.",73
+"6763","116","True","False, all number should be divisible ",71
+"6765","116","Sometimes","sometimes, as x is undefined there is a possibi lity tha t in some cases it will be a generator",73
+"6821","117","True","because if x is a multiple of a divisor of n, then after a few iterations of adding x to iteslf then you will get back to x without generating some of the numbers",71
+"6823","117","sometimes","because if x is a generator, then its can't be a divisor of n so 2n will never be a divisor either",73
+"6879","118","True","Because you need both values to know the formula. ",71
+"6881","118","sometimes","Sometimes. I am saying sometimes because i am lost at this point and I feel like from wh at i've  learned it could apply to multiple things.",73
+"6947","119","True","I do not know, I am confused",91
+"6949","119","sometimes","I do not even understand any of this",93
+"7005","120","True","I would think true, but im not entirely sure. ",71
+"7007","120","somet imes","sometimes.  i would think it could be sometimes but not always.",73
+"7063","121","True","Wow ... this is really hard. False? Because depending on the value of x, it wouldn't necessarily be a multiple of a divisor of n.",71
+"7065","121","sometimes","Sometimes, because depending on the value of x, that may or may not be true. Again, I have no idea how you want me to answer these when I don't know the value of x! :-/ I'm sorry, I'm trying!",73
+"7121","122","True","It will have to fit in somewhere, it just may not be a multiple of n, but that does not mean that it can't be divided with any other numbe r.",71
+"7123","122","sometimes","Sometimes, depending on what n and x actually are.",73
+"7179","123","True","No, because if 1 +6 4 = 5 then x is not a multiple or divisor of n",71
+"7181","123","sometimes","I think only sometimes depending on the value of x",73
+"7237","124","True","faults the none generates cant be doubled to reach zero",71
+"7239","124","Sometimes","no it is divisor , because it denies itself",73
+"7295","125","True","In order for different numbers to be hit the second time around, there must be a remainder, in which case your number could not have fit neatly as a multiple or a divisor.",71
+"7297","125","sometimes","Sometimes, because if N is even, then only odds will fit, the same is true for the opposite.",73
+"7353","126","True","A multiple of a divisor of n will result in 0 before it results in all other possibilities and will thus always come to the same set of answers, e.g. 6(9)6(9)... will only result in 6, 3, 0; 8(12)8(12) will only result in 8, 4, 0; etc. ",71
+"7355","126","sometimes","x moves forward the same amount each time it is used as a generator, but the inverse of x would essentially move backward the same amount each tim e. Eithe r way it eventually reaches all the answers.",73
+"7411","127","True","I am not really sure how to explain it. This is diffi cult",71
+"7413","127","sometimes","I think it should  actuall y be sometimes because we computed some expressions before where it wasn't true.",73
+"7469","128","True","any number that can be divided evenly into n cannot be a generator, since you will always land on a divisor of n",71
+"7471","128","sometimes","yes, because a generator will be able to hit every number in the scale",73
+"7537","129","True","No. I believe it was that we can make every other number the number under it is  a genera tor.",91
+"7539","129","sometimes","n/a",93
+"7595","130","True","Because the only number that is the generator is the number just below the main number",71
+"7597","130","sometimes","I don't know, I believe this has g one furt her than my math skills",73
+"7653","131","True","I think it is correct because if x divides evenly into n then it would loop around again starting at 0. for instance, in checking if 3 is a generator of +_6 we start with 3+_6 3 = 0, 0+_6 3 = 3, 3+_6 3 = 0.",71
+"7655","131","sometimes","becase 1 is always a generator of n so the inverse of 1 could by any other number in the range but not all the numbers in th e range  would be a generator.",73
+"7711","132","True","If there is no remainder then every time you count x, you will land on the same numbers and won't be able to land on all numbers.",71
+"7713","132","sometimes","There will always be a remainder.",73
+"7769","133","True","Because if it divides evenly it will always hit the same numbers no matter how steps are taken and you want it to be able to hit new ones each time to be a generator.",71
+"7771","133","sometimes","It just seems logical. Because the inverse would presumably also be evenly divisible into the same number?",73
+"7827","134","True","Because in order to end up with an identity, you have to  be able  to reach the equivalent number.",71
+"7829","134","sometimes","I'm stumped on this one.  I think it is part of the time depending whether the number is odd or even.",73
+"7885","135","True","True. If x is a multiple of n then when you're subtracting n you're always going to end up with the same pattern of numbers and will never be able to generate all the numbers.",71
+"7887","135","sometimes","Sometimes. It depends on whether the inverse is a multiple/divisor of n. ",73
+"7943","136","True","When I did the problems to determine if  a numbe r was a generator or not I had both odd and even numbers come up as non-generators. The odd number though might have been a generator if I did many more trials, as it's pattern seemed weaker than the even numbers. So this *could* be true perhaps.",71
+"7945","136","sometimes","Maybe. If I assume I was inco rrect an d 5 was a generator of +_9, the result of 5 +_9 5 is 1. I think 1 would always be a generator for +_n. ",73
+"8001","137","True","This is true because a number that is not a generator will function this way.",71
+"8003","137","Sometimes","It sometimes is a generator because it will occasionally work out that way, but other times it does not.",73
+"8059","138","True","If x is not a divisor of n besides 1 each time you loop around the polygon you'll land on different spots.",71
+"8061","138","Sometimes","Sometimes. It works for (3) but not for (4).",73
+"8117","139","True","True because you need the variable X to equal +n",71
+"8119","139","sometimes","False, it is not a generator because it would have to be equal to something other than X.",73
+"8175","140","True","True. Because if it is a multiple, it will only generate other multiples and not all of the numbers. ",71
+"8177","140","sometimes","I don't understand. I think, never. ",73
+"8233","141","True","False. Just because it is multiple of a divisor doesn't necessarily mean it is a generator.",71
+"8235","141","sometimes","Sometimes, if it's a lower number I think it can be a generator but the higher it gets it may no longer work as one.",73
+"8291","142","True","True. If it's not a generator, x will take you evenly around the circle, stopping only at certain points. If you take any of those numbers and multiply it, you'd get a multiple of x.",71
+"8293","142","Sometimes","I said sometimes because I don't know. I don't understand how to work with x and (n) in this ins tance.",73
+"8349","143","True","I have no idea. I really think the generator portion could use better explanation. I think me getting lost at that point made all these future points very difficult to discern, and I usually am pretty good at algebraic equations.If I had to guess I would have to say no to this question only because I am thinking of the number 3 and it wouldn't work.",71
+"8351","143","Sometimes","Again I really can't be certain. I would say it is never a generator because again when I think of 3 it doesn't work.",73
+"8407","144","True","x can double then divide again?",71
+"8409","144","Sometimes","x  is always the same",73
+"8465","145","True","I think this is true because we must always end with a whole number when solving these equations.",71
+"8467","145","sometimes","I have no idea. I'm going to guess sometimes. I don't understand how to determine this when I don't have any actual values for the numbers",73
+"8523","146","True","false like if 3 was x and 9 was n- 3 can go into 9 3 times but with other numbers can be combined to make it to where 3 would make all the smaller numbers.",71
+"8525","146","sometimes","No because then 9 could not be subtracted to make 0",73
+"8581","147","True","Literally no idea what this is asking. I don't know if this is true or false so I don't know why its correct.",71
+"8583","147","sometimes","I haven't taken a math class in almost 15 years. You haven't explained this concept!",73
+"8639","148","True","True.  This would give an even number which are not generators",71
+"8641","148","sometimes","That should equal an odd generator each time.",73
+"8697","149","True","I wish I could. Im totally confused and worried about getting a rejection on this HIT now. ",71
+"8699","149","sometimes","no idea. ",73
+"8755","150","True","True, if x is not a generator than is must be a multiple of x and a divisor of n",71
+"8757","150","sometimes","Sometimes? Depends on the number you are looking at.",73
+"8823","151","True","false, for the 5 6 sided element for example, 2 was not a generator, 3 is a divisor of 6 and not a multiple of 2.",91
+"8825","151","sometimes","5 is a generator in (9), if the element is (9), 5 will always be a generator. IF the element changes, 5 may or may not still be a generator. I apologize, I'm really trying hard here, math is not my strongest subject.",93
