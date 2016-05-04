@@ -138,6 +138,7 @@ explain, //Whether to provide a box for explanations
 		"click": end_function 
 	}));
 
+	/*
         //Listen for enter as alternative submit
         var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
                 callback_function: end_function,
@@ -146,6 +147,7 @@ explain, //Whether to provide a box for explanations
                 persist: true,
                 allow_held_key: false
         }); 
+	*/
 
 	};
         return plugin;

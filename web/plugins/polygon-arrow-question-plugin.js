@@ -436,6 +436,7 @@
 	
 	redrawCanvas(true);
 	
+	/*
 	//Listen for enter as alternative submit
 	var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
 		callback_function: end_function,
@@ -444,6 +445,7 @@
 		persist: true,
 		allow_held_key: false
 	});
+	*/
 
 	setInterval(redrawCanvas,frame_freq);
 	setInterval(trackArrow,tracking_freq);
