@@ -29,6 +29,10 @@
 	width: 100%; height:50px; resize:vertical;
 }
 
+#text-explanation {
+	width: 100%; height:50px; resize:vertical;
+}
+
 #polygon-question-div {
 	display: inline-block; width:600px; vertical-align: top; margin-right:20px; word-wrap: break-word;
 }
@@ -46,6 +50,10 @@
 }
 
 #polygon-arrow-text-response {
+	width: 100%; height:50px; resize:vertical;
+}
+
+#polygon-arrow-text-explanation {
 	width: 100%; height:50px; resize:vertical;
 }
 

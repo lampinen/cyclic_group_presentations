@@ -16,6 +16,8 @@
                     "response_type": (typeof params.response_type === 'undefined') ? 'free' : params.response_type, //'free' or 'multi'
 		    "response_choices": (typeof params.prompt === 'undefined') ? [] : params.response_choices, //If response type = 'multi', these are the choices
                     "correct_response": (typeof params.correct_response === 'undefined') ? '' : params.correct_response,
+                    "explain": (typeof params.explain === 'undefined') ? false : params.
+explain, //Whether to provide a box for explanations
 		    "force_response":  (typeof params.force_response === 'undefined') ? true : params.force_response
                 };
             }
@@ -29,8 +31,13 @@
 	var start_time = (new Date()).getTime();
 	var orientation_history = [];
 	var response_history = [];
+	var explanation_history = [];
 
 	display_element.append('<div id="question-div">'+trial.prompt+'<br /><br /></div>');
+        if (trial.explain) {
+                $('#question-div').append('<i>Answer:</i><br />')
+        }
+
 	if (trial.response_type == 'free') {
 		$('#question-div').append($('<textarea>', {
 			"id": "text-response"
@@ -71,13 +78,34 @@
 			$('#question-div').append(''+trial.response_choices[j]+'<br />');
 		}
 	}
+        if (trial.explain) {
+                $('#question-div').append('<br /><i>Explanation:</i><br />')
+                $('#question-div').append($('<textarea>', {
+                        "id": "text-explanation"
+                })) 
+                setTimeout(function () { $('#text-explanation').focus() },50); //Delay avoids a bug where keystroke from previous screen gets carried over into text box
+                $('#text-explanation').on("change keyup paste", function () {
+                        var this_explanation = document.getElementById("text-explanation").value;
+                        if (this_explanation.indexOf(explanation_history[explanation_history.length-1]) == 0) { //If this is just a continuation of what was typed before, replace it 
+                                explanation_history[explanation_history.length-1] = this_explanation;
+                        }
+                        else {
+                                explanation_history.push(this_explanation);
+                        }
+                });
+        }
+
+
 	$('#question-div').append('<br /><br />');
 	var end_function = function() {
 		var end_time = (new Date()).getTime();
 		var rt = end_time - start_time;
 
 		var this_response = (trial.response_type == 'free') ? document.getElementById("text-response").value : $('input[name="radio-response"]:checked').val();
-		if (trial.force_response && (typeof this_response == "undefined" || this_response === "")) { //If no response to radio button question
+                if (trial.explain) {
+                    var this_explanation = document.getElementById("text-explanation").value;
+                }
+                if (trial.force_response && (typeof this_response == "undefined" || this_response === "" || (trial.explain && this_explanation == "" ))) { //If no response to radio button question
 			window.alert("Please answer the question before continuing.");
 			return;
 		}
@@ -88,6 +116,9 @@
 			"response_choices": (trial.response_type == 'free') ? [] : trial.response_choices,
 			"correct_response": trial.correct_response,
 			"response": this_response,
+                        "explain": trial.explain,
+                        "explanation": this_explanation,
+                        "explanation_history": explanation_history,
 			"response_history": response_history,
 			"rt": rt
 		});

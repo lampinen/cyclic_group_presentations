@@ -21,6 +21,7 @@
 		    "response_choices": (typeof params.prompt === 'undefined') ? [] : params.response_choices, //If response type = 'multi', these are the choices
                     "correct_response": (typeof params.correct_response === 'undefined') ? '' : params.correct_response,
                     "force_response":  (typeof params.force_response === 'undefined') ? true : params.force_response,
+		    "explain": (typeof params.explain === 'undefined') ? false : params.explain, //Whether to provide a box for explanations
                     "canvas_width": params.canvas_width || 300,
                     "canvas_height": params.canvas_height || 300
                 };
@@ -35,9 +36,13 @@
 	var start_time = (new Date()).getTime();
 	var orientation_history = [];
         var response_history = [];
+	var explanation_history = [];
 
 
 	display_element.append('<div id="polygon-question-div">'+trial.prompt+'<br /><br /></div>');
+	if (trial.explain) {
+                $('#polygon-question-div').append('<i>Answer:</i><br />')
+	}
 	if (trial.response_type == 'free') {
                 $('#polygon-question-div').append($('<textarea>', {
                         "id": "polygon-arrow-text-response"
@@ -78,10 +83,30 @@
 			$('#polygon-question-div').append(''+trial.response_choices[j]+'<br />');
 		}
 	}
+        if (trial.explain) {
+                $('#polygon-question-div').append('<br /><i>Explanation:</i><br />')
+                $('#polygon-question-div').append($('<textarea>', {
+                        "id": "polygon-arrow-text-explanation"
+                })) 
+		setTimeout(function () { $('#polygon-arrow-text-explanation').focus() },50); //Delay avoids a bug where keystroke from previous screen gets carried over into text box
+                $('#polygon-arrow-text-explanation').on("change keyup paste", function () {
+                        var this_explanation = document.getElementById("polygon-arrow-text-explanation").value;
+			if (this_explanation.indexOf(explanation_history[explanation_history.length-1]) == 0) { //If this is just a continuation of what was typed before, replace it 
+				explanation_history[explanation_history.length-1] = this_explanation;
+			}
+			else {
+                        	explanation_history.push(this_explanation);
+			}
+                });
+        }
+
 	$('#polygon-question-div').append('<br /><br />');
 	var end_function = function() {
 		var this_response = (trial.response_type == 'free') ? document.getElementById("polygon-arrow-text-response").value : $('input[name="polygon-arrow-radio-response"]:checked').val();
-		 if (trial.force_response && (typeof this_response == "undefined" || this_response === "")) { //If no response to radio button question
+		if (trial.explain) {
+		    var this_explanation = document.getElementById("polygon-arrow-text-explanation").value;
+		}
+		if (trial.force_response && (typeof this_response == "undefined" || this_response === "" || (trial.explain && this_explanation == "" ))) { //If no response to radio button question
 			window.alert("Please answer the question before continuing.");
 			return;
 			this_response = "";
@@ -97,6 +122,9 @@
 			"response_choices": (trial.response_type == 'free') ? [] : trial.response_choices,
 			"correct_response": trial.correct_response,
 			"response": this_response,
+			"explain": trial.explain,
+			"explanation": this_explanation,
+                        "explanation_history": explanation_history,
 			"orientation_history": orientation_history,
                         "response_history": response_history,
 			"rt": rt
