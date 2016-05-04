@@ -938,6 +938,13 @@ var final_page = {
 				response_type: "free"
 		};
 
+		var p_t9_explain_instructions = {
+			type: "polygon-arrow-instructions",
+			nsides: 9,
+			timing_post_trial: 0,
+			text: "On the following question, and several others later in the HIT, we will ask you to explain how you got your answer. On these questions, you will be givenone box for your answer to the question, and a second for your explaination. Please explain your thought process in as much detail as possible, at least one sentence, and more if possible."
+		};
+
 		var p_t9_ope_1 = {
 				type: "polygon-arrow-question",
 				timing_post_trial: 0,
@@ -1039,7 +1046,7 @@ var final_page = {
 
 		var p_t9_chunk = {
 			chunk_type: 'linear',
-			timeline: [p_t9_op_practice,p_t9_op_practice_f,p_t9_op_1,p_t9_op_2,p_t9_op_3,p_t9_op_4,p_t9_op_5,p_t9_ope_1,p_t9_ope_2,p_t9_ide_1,p_t9_in_1,p_t9_in_2,p_t9_in_3,p_t9_ine_1,p_t9_gee_1,p_t9_gee_2,p_t9_gee_3,p_t9_gee_4]
+			timeline: [p_t9_op_practice,p_t9_op_practice_f,p_t9_op_1,p_t9_op_2,p_t9_op_3,p_t9_op_4,p_t9_op_5,p_t9_explain_instructions,p_t9_ope_1,p_t9_ope_2,p_t9_ide_1,p_t9_in_1,p_t9_in_2,p_t9_in_3,p_t9_ine_1,p_t9_gee_1,p_t9_gee_2,p_t9_gee_3,p_t9_gee_4]
 		};
 
 		//ngon testing
