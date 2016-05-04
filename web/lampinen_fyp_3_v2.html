@@ -963,7 +963,9 @@ var m_tr_op_backup_chunk = {
 			nsides: 9,
 			timing_post_trial: 0,
 			prompt: "What is 4 "+nonagon+" 1? Please explain in words how you got your answer.",
-			correct_response: '',
+			explain: true,
+			correct_response: '5',
+			explain: true,
 			response_type: "free"
 	};
 
@@ -972,7 +974,8 @@ var m_tr_op_backup_chunk = {
 			nsides: 9,
 			timing_post_trial: 0,
 			prompt: "What is 8 "+nonagon+" 4? Please explain in words how you got your answer.",
-			correct_response: '',
+			explain: true,
+			correct_response: '3',
 			response_type: "free"
 	};
 
@@ -981,6 +984,7 @@ var m_tr_op_backup_chunk = {
 			nsides: 9,
 			timing_post_trial: 0,
 			prompt: "What is the identity under "+nonagon+"? Please explain in words how you got your answer.",
+			explain: true,
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -990,6 +994,7 @@ var m_tr_op_backup_chunk = {
 			nsides: 9,
 			timing_post_trial: 0,
 			prompt: "What is the inverse of 5 under "+nonagon+"?",
+			explain: true,
 			correct_response: '4',
 			response_type: "free"
 	};
@@ -1095,6 +1100,7 @@ var m_tr_op_backup_chunk = {
 			timing_post_trial: 0,
 			prompt: "What is the formula for the inverse of an element x under "+ngon+"? Please explain in words how you got your answer.",
 			correct_response: "n-x",
+			explain: true,
 			response_type: "free"
 	};
 
@@ -1161,9 +1167,11 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
+			prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words how you got your answer.", 
 			correct_response: "True",
-			response_type: "free"
+			explain: true,
+			response_type: "multi",
+			response_choices: ["True","False"]
 	};
 
 	var m_tn_gee_4 = {
@@ -1180,9 +1188,11 @@ var m_tr_op_backup_chunk = {
 			type: "polygon-arrow-question",
 			nsides: 'n',
 			timing_post_trial: 0,
-			prompt: "if an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words why your answer is correct.",
-			correct_response: "sometimes",
-			response_type: "free"
+			prompt: "if an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words how you got your answer.",
+			correct_response: "Sometimes",
+			explain: true,
+			response_type: "multi",
+			response_choices: ["Always","Sometimes","Never"]
 	};
 
 	var m_tn_gee_6 = {
@@ -1330,7 +1340,7 @@ var m_tr_op_backup_chunk = {
 	};
 //Initialize//////////////////////////////////////////////////////////////////////////////////
         //experiment_structure = [initial_page,m_op_instructions,m_op_instructions_2,m_tr_op_chunk,m_tr_op_backup_chunk,m_id_instructions,m_in_instructions,m_tr_in_chunk,m_scv_instructions,m_ge_instructions,m_tr_ge_chunk,m_t9_instructions,m_t9_chunk,m_tn_instructions,m_tn_chunk,m_whichrep_chunk,bg_chunk,final_page];
-	experiment_structure = [m_whichrep_chunk,debug_data]
+	experiment_structure = [m_t9_ope_1,m_t9_gee_1,m_whichrep_chunk,debug_data]
 
 	jsPsych.init({
 		display_element: $('#jspsych-target'),

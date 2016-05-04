@@ -869,7 +869,8 @@ var m_tr_op_backup_chunk = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "What is 4 "+p_9+" 1? Please explain in words how you got your answer.",
-			correct_response: '',
+			explain: true,
+			correct_response: '5',
 			response_type: "free"
 	};
 
@@ -877,7 +878,8 @@ var m_tr_op_backup_chunk = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "What is 8 "+p_9+" 4? Please explain in words how you got your answer.",
-			correct_response: '',
+			explain: true,
+			correct_response: '3',
 			response_type: "free"
 	};
 
@@ -885,6 +887,7 @@ var m_tr_op_backup_chunk = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "What is the identity under "+p_9+"? Please explain in words how you got your answer.",
+			explain: true,
 			correct_response: '0',
 			response_type: "free"
 	};
@@ -917,7 +920,8 @@ var m_tr_op_backup_chunk = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "What is the inverse of 3 under "+p_9+"? Please explain in words how you got your answer.",
-			correct_response: '',
+			explain: true,
+			correct_response: '6',
 			response_type: "free"
 	};
 
@@ -925,32 +929,40 @@ var m_tr_op_backup_chunk = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "Is 2 a generator under "+p_9+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
+			correct_response: "Yes",
+			explain: true,
+			response_type: "multi",
+			response_choices: ["Yes","No"]
 	};
 
 	var m_t9_gee_2 = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "Is 3 a generator under "+p_9+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
+			correct_response: "No",
+			explain: true,
+			response_type: "multi",
+			response_choices: ["Yes","No"]
 	};
 
 	var m_t9_gee_3 = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "Is 5 a generator under "+p_9+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
+			correct_response: "Yes",
+			explain: true,
+			response_type: "multi",
+			response_choices: ["Yes","No"]
 	};
 
 	var m_t9_gee_4 = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "Is 6 a generator under "+p_9+"? Please explain in words how you got your answer.",
-			correct_response: "",
-			response_type: "free"
+			correct_response: "No",
+			explain: true,
+			response_type: "multi",
+			response_choices: ["Yes","No"]
 	};
 
 	var m_t9_chunk = {
@@ -986,6 +998,7 @@ var m_tr_op_backup_chunk = {
 			type: "question",
 			timing_post_trial: 0,
 			prompt: "What is the formula for the inverse of an element x under "+p_n+"? Please explain in words how you got your answer.",
+			explain: true,
 			correct_response: "n-x",
 			response_type: "free"
 	};
@@ -1046,9 +1059,11 @@ var m_tr_op_backup_chunk = {
 	var m_tn_gee_3_4 = {
 			type: "question",
 			timing_post_trial: 0,
-			prompt: "True or false: If x is not a generator under "+p_n+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
+			prompt: "True or false: If x is not a generator under "+p_n+", x must be a multiple of a divisor of n. Please explain in words how you got your answer.", 
 			correct_response: "True",
-			response_type: "free"
+                        explain: true,
+                        response_type: "multi",
+                        response_choices: ["True","False"]
 	};
 
 	var m_tn_gee_4 = {
@@ -1063,9 +1078,11 @@ var m_tr_op_backup_chunk = {
 	var m_tn_gee_5 = {
 			type: "question",
 			timing_post_trial: 0,
-			prompt: "if an element x is a generator under "+p_n+", is x "+p_n+" x a generator under "+p_n+" always, sometimes, or never? Please explain in words why your answer is correct.",
-			correct_response: "sometimes",
-			response_type: "free"
+			prompt: "if an element x is a generator under "+p_n+", is x "+p_n+" x a generator under "+p_n+" always, sometimes, or never? Please explain in words how you got your answer.",
+                        correct_response: "Sometimes",
+                        explain: true,
+                        response_type: "multi",
+                        response_choices: ["Always","Sometimes","Never"]
 	};
 
 	var m_tn_gee_6 = {
@@ -1082,12 +1099,6 @@ var m_tr_op_backup_chunk = {
 		timeline: [m_tn_in,m_tn_ine,m_tn_gee_2,m_tn_gee_3_1,m_tn_gee_3_2,m_tn_gee_3_3,m_tn_gee_3_4,m_tn_gee_4,m_tn_gee_5,m_tn_gee_6] //Removed m_tn_gee_1,m_tn_op
 	};
 
-	//What representation did you use chunk
-
-	var m_r_chunk = {
-		chunk_type: 'linear',
-		timeline: [] 
-	};
 
 //Initialize//////////////////////////////////////////////////////////////////////////////////
         experiment_structure = [initial_page,m_op_instructions,m_op_instructions_2,m_tr_op_chunk,m_tr_op_backup_chunk,m_id_instructions,m_in_instructions,m_tr_in_chunk,m_scv_instructions,m_ge_instructions,m_tr_ge_chunk,m_t9_instructions,m_t9_chunk,m_tn_instructions,m_tn_chunk,bg_chunk,final_page];

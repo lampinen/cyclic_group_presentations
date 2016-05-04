@@ -950,7 +950,8 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "What is 4 "+nonagon+" 1? Please explain in words how you got your answer.",
-				correct_response: '',
+				explain: true,
+				correct_response: '5',
 				response_type: "free"
 		};
 
@@ -959,7 +960,8 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "What is 8 "+nonagon+" 4? Please explain in words how you got your answer.",
-				correct_response: '',
+				explain: true,
+				correct_response: '3',
 				response_type: "free"
 		};
 
@@ -968,6 +970,7 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "What is the identity under "+nonagon+"? Please explain in words how you got your answer.",
+				explain: true,
 				correct_response: '0',
 				response_type: "free"
 		};
@@ -1004,7 +1007,7 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "What is the inverse of 3 under "+nonagon+"? Please explain in words how you got your answer.",
-				correct_response: '',
+				correct_response: '6',
 				response_type: "free"
 		};
 
@@ -1013,8 +1016,10 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "Is 2 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-				correct_response: "",
-				response_type: "free"
+				correct_response: "Yes",
+				explain: true, 
+				response_type: "multi",
+				response_choices: ["Yes","No"]
 		};
 
 		var p_t9_gee_2 = {
@@ -1022,8 +1027,10 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "Is 3 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-				correct_response: "",
-				response_type: "free"
+				correct_response: "No",
+				explain: true, 
+				response_type: "multi",
+				response_choices: ["Yes","No"]
 		};
 
 		var p_t9_gee_3 = {
@@ -1031,8 +1038,10 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "Is 5 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-				correct_response: "",
-				response_type: "free"
+				correct_response: "Yes",
+				explain: true, 
+				response_type: "multi",
+				response_choices: ["Yes","No"]
 		};
 
 		var p_t9_gee_4 = {
@@ -1040,8 +1049,10 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "Is 6 a generator under "+nonagon+"? Please explain in words how you got your answer.",
-				correct_response: "",
-				response_type: "free"
+				correct_response: "No",
+				explain: true, 
+				response_type: "multi",
+				response_choices: ["Yes","No"]
 		};
 
 		var p_t9_chunk = {
@@ -1081,6 +1092,7 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 'n',
 				prompt: "What is the formula for the inverse of an element x under "+ngon+"? Please explain in words why your answer is correct.",
+				explain: true,
 				correct_response: "n-x",
 				response_type: "free"
 		};
@@ -1149,9 +1161,11 @@ var final_page = {
 				type: "polygon-arrow-question",
 				nsides: 'n',
 				timing_post_trial: 0,
-				prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words why your answer is correct.", 
+				prompt: "True or false: If x is not a generator under "+ngon+", x must be a multiple of a divisor of n. Please explain in words how you got your answer.", 
 				correct_response: "True",
-				response_type: "free"
+				explain: true,
+				response_type: "multi",
+				response_choices: ["True","False"]
 		};
 
 
@@ -1169,9 +1183,11 @@ var final_page = {
 				type: "polygon-arrow-question",
 				nsides: 'n',
 				timing_post_trial: 0,
-				prompt: "If an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words why your answer is correct.",
+				prompt: "If an element x is a generator under "+ngon+", is x "+ngon+" x a generator under "+ngon+" always, sometimes, or never? Please explain in words how you got your answer.",
 				correct_response: "Sometimes",
-				response_type: "free"
+				explain: true,
+				response_type: "multi",
+				response_choices: ["Always","Sometimes","Never"]
 		};
 
 		var p_tn_gee_6 = {
