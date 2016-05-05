@@ -10,6 +10,7 @@ library(dplyr)
 library(lme4)
 library(lmerTest)
 library(boot)
+library(stringr)
 ```
 
 #Read files:
@@ -352,3 +353,21 @@ for (iter in 1:num_iterations) {
 ```
 
 
+
+###Can we identify condition based on words used in explanations?
+This would be useful to get an idea of what strategy hybrid subjects are using from their explanations
+```{r}
+model_data = model_data %>% mutate(polygon_word_count = str_count(response,'move') + str_count(response,'spaces') + str_count(response,'clockwise') + str_count(response,'steps') + str_count(response,'count') + str_count(response,'arrow') + str_count(response,'hexagon') + str_count(response,'nonagon') + str_count(response,'ngon') + str_count(response,'spots') + str_count(response,'positions'),modular_word_count = str_count(response,'add') + str_count(response,'subtract') + str_count(response,'plus') + str_count(response,'minus') + str_count(response,'[+]')) %>% mutate(polygon_wc_higher = polygon_word_count > modular_word_count,modular_wc_higher = modular_word_count > polygon_word_count+1,both_wc_high=(polygon_word_count >= 1 & modular_word_count >= 1))
+```
+
+```{r}
+xtabs(~condition+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~condition+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~condition+both_wc_high,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~condition+score_strict+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~condition+score_strict+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~condition+score_strict+both_wc_high,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~condition+score_strict+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+xtabs(~condition+score_strict+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+xtabs(~condition+score_strict+both_wc_high,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+```

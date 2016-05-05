@@ -247,13 +247,20 @@ No, they don't seem to matter much at all, but we will include math_high as a pr
 ###Can we identify condition based on words used in explanations?
 This would be useful for hybrid case in experiment 2, to get an idea of what strategy hybrid subjects are using from their explanations
 ```{r}
-model_data = model_data %>% mutate(polygon_word_count = str_count(response,'move') + str_count(response,'spaces') + str_count(response,'clockwise') + str_count(response,'steps') + str_count(response,'count') + str_count(response,'arrow') + str_count(response,'hexagon') + str_count(response,'nonagon') + str_count(response,'ngon') + str_count(response,'spots') + str_count(response,'positions'),modular_word_count = str_count(response,'add') + str_count(response,'subtract') + str_count(response,'plus') + str_count(response,'minus') + str_count(response,'[+]')) %>% mutate(polygon_wc_higher = polygon_word_count > modular_word_count)
+library(stringr)
+```
+
+```{r}
+model_data = model_data %>% mutate(polygon_word_count = str_count(response,'move') + str_count(response,'spaces') + str_count(response,'clockwise') + str_count(response,'steps') + str_count(response,'count') + str_count(response,'arrow') + str_count(response,'hexagon') + str_count(response,'nonagon') + str_count(response,'ngon') + str_count(response,'spots') + str_count(response,'positions'),modular_word_count = str_count(response,'add') + str_count(response,'subtract') + str_count(response,'plus') + str_count(response,'minus') + str_count(response,'[+]')) %>% mutate(polygon_wc_higher = polygon_word_count > modular_word_count,modular_wc_higher = modular_word_count > polygon_word_count+1)
 ```
 
 ```{r}
 xtabs(~polygon+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
-xtabs(~polygon+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
-xtabs(~polygon+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+xtabs(~polygon+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~polygon+score_strict+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~polygon+score_strict+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~polygon+score_strict+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+xtabs(~polygon+score_strict+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
 ```
 
 ```{r}
@@ -265,4 +272,100 @@ ggplot(data=model_data[grepl('explain',gsub(' ','',model_data$question)),],aes(m
   geom_histogram(position=position_dodge(),binwidth=1) +
   theme_bw()
 ```
+
+Histogram of word use
+```{r}
+model_data = model_data %>% mutate(explain = grepl('explain',gsub(' ','',model_data$question)))
+x = tolower(as.character(model_data[model_data$polygon & model_data$explain,]$response))
+x = gsub("[[:punct:]]",' ',paste(x, collapse=' ')) #to single string, strip punctuation
+y = tolower(as.character(model_data[!model_data$polygon & model_data$explain,]$response))
+y = gsub("[[:punct:]]",' ',paste(y, collapse=' ')) #to single string, strip punctuation
+all_words = lapply(strsplit(paste(x,y,sep= ' '),' '),unique)
+word_use = data.frame(word=all_words,stringsAsFactors=FALSE)
+colnames(word_use) =  c("word") #Rename, because for some reason it doesn't take the first time
+word_use = word_use %>% 
+  mutate(polygon_count = str_count(x,word),modular_count=str_count(y,word),polygon_count_strict = str_count(x,paste(' ',word,' ',sep='')),modular_count_strict=str_count(y,paste(' ',word,' ',sep=''))) %>%
+  filter(polygon_count_strict+modular_count_strict >= 5) %>% 
+  mutate(score = ((polygon_count-modular_count)^2)/(polygon_count+modular_count)) %>%
+  arrange(desc(score)) 
+
+word_plotting_data = word_use %>%
+  gather(condition,count,polygon_count,modular_count)
+
+word_plotting_data$word = factor(word_plotting_data$word,levels = word_plotting_data$word)
+
+ggplot(word_plotting_data, aes(x = word,y=count,fill=condition)) +
+  geom_bar(stat='identity') +
+  theme_bw()
+
+
+```
+```{r}
+word_use_2 = word_use
+word_root_data = read.csv("words_used_fyp_1_final_roots.csv",stringsAsFactors=FALSE)
+for (word_i in 1:nrow(word_root_data)) {
+  
+   if (word_root_data[word_i,]$root != "" && word_root_data[word_i,]$root != "?") {
+      if (!any(word_use_2$word == word_root_data[word_i,]$root)) { #If root already in word_use_2
+        word_use_2[nrow(word_use_2)+1,1] = word_root_data[word_i,]$root
+        word_use_2[nrow(word_use_2),c(2,3,4,5,6)] = c(0,0,0,0,0) #Make the numbers numeric
+      }
+      word_use_2[word_use_2$word == word_root_data[word_i,]$root,c(2,3,4,5)] = word_use_2[word_use_2$word == word_root_data[word_i,]$root,c(2,3,4,5)] + word_use_2[word_use_2$word == word_root_data[word_i,]$word,c(2,3,4,5)]
+      word_use_2[word_use_2$word == word_root_data[word_i,]$word,c(2,3,4,5)] = 0
+   }
+}
+
+word_use_2 = word_use_2 %>% 
+  mutate(score = ((polygon_count_strict-modular_count_strict)^2)/(polygon_count_strict+modular_count_strict),polygon_prob = polygon_count_strict/(polygon_count_strict+modular_count_strict),modular_prob = modular_count_strict/(polygon_count_strict+modular_count_strict)) %>%
+  arrange(desc(score)) 
+```
+```{r}
+word_plotting_data_2 = word_use_2 %>%
+  gather(condition,count,polygon_count,modular_count)
+
+word_plotting_data_2$word = factor(word_plotting_data_2$word,levels = word_plotting_data_2$word)
+
+ggplot(word_plotting_data_2, aes(x = word,y=count,fill=condition)) +
+  geom_bar(stat='identity') +
+  theme_bw()
+```
+
+Finally try this
+
+```{r}
+model_data = model_data %>% mutate(word_use_polygon_posterior = -1,word_use_modular_posterior = -1)
+top_words = head(word_use_2,20)
+top_word_grep_pattern = paste(top_words$word,collapse=' | ') #creates a regex that matches any of the words (strict, requires spaces around them)
+for (row_i in 1:nrow(model_data)) {
+  if (model_data[row_i,]$explain){
+    if (grepl(top_word_grep_pattern,model_data[row_i,]$response,ignore.case=TRUE)) {
+      this_polygon_post = 1
+      this_modular_post = 1
+      for (word_i in 1:nrow(top_words)) {
+        if (grepl(paste(' ',top_words[word_i,]$word,' ',sep=''),model_data[row_i,]$response,ignore.case=TRUE)) {
+          this_polygon_post = this_polygon_post*top_words[word_i,]$polygon_prob
+          this_modular_post = this_modular_post*top_words[word_i,]$modular_prob
+        }
+      }
+      model_data[row_i,]$word_use_polygon_posterior = this_polygon_post
+      model_data[row_i,]$word_use_modular_posterior = this_modular_post
+    }
+  }
+}
+```
+
+
+```{r}
+model_data = model_data %>% mutate(polygon_post_higher = word_use_polygon_posterior > word_use_modular_posterior,modular_post_higher = word_use_modular_posterior > word_use_polygon_posterior)
+```
+
+```{r}
+xtabs(~polygon+polygon_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~polygon+modular_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~polygon+score_strict+polygon_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~polygon+score_strict+modular_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='inverse_nonzero_9',])
+xtabs(~polygon+score_strict+polygon_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+xtabs(~polygon+score_strict+modular_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
+```
+
 
