@@ -778,7 +778,7 @@ var final_page = {
 			type: 'polygon-arrow-instructions',
 			timing_post_trial: 0,
 			nsides: 6,
-			text: "We have one last definition to learn today. Let's start with an example. Under our operation "+hexagon+" we can make every other number using just 1: 2 = 1 "+hexagon+" 1, 3 = 1 "+hexagon+" 1 "+hexagon+" 1, 4 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, 5 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, and 0 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1. Because 1 can make every other element under "+hexagon+", we say that 1 is a <i>generator</i> under "+hexagon+". <br /><br /> However, 2 is not a generator under " + hexagon + ", because 4 = 2 "+hexagon+" 2, and 0 = 2 "+hexagon+" 2 "+hexagon+" 2, but there is no way to make 1, 3, or 5 using just 2."  
+			text: "We have one last definition to learn today, using the successive operations we just learned. Let's start with an example. Under our operation "+hexagon+" we can make every other number using just 1: 2 = 1 "+hexagon+" 1, 3 = 1 "+hexagon+" 1 "+hexagon+" 1, 4 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, 5 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1, and 0 = 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1 "+hexagon+" 1. Because 1 can make every other element under "+hexagon+", we say that 1 is a <i>generator</i> under "+hexagon+". <br /><br /> However, 2 is not a generator under " + hexagon + ", because 4 = 2 "+hexagon+" 2, and 0 = 2 "+hexagon+" 2 "+hexagon+" 2, but there is no way to make 1, 3, or 5 using just 2."  
 		};
 
 		var p_tr_ge_1 = {
@@ -1007,6 +1007,7 @@ var final_page = {
 				timing_post_trial: 0,
 				nsides: 9,
 				prompt: "What is the inverse of 3 under "+nonagon+"? Please explain in words how you got your answer.",
+				explain: true,
 				correct_response: '6',
 				response_type: "free"
 		};
