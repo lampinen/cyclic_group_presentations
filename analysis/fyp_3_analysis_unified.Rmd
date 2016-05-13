@@ -167,7 +167,6 @@ complete_data = complete_unfiltered_data %>% filter(!(subject %in% subjects_to_e
 
 ```
 
-#TODO: everything after this
 
 Unified model - all 3 (Planned analysis)
 ---------------
