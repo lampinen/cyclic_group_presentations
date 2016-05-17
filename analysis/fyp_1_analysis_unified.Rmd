@@ -238,7 +238,7 @@ boot_modular_subjects = unique(model_data[!model_data$polygon,]$subject)
 these_subjects = c(sample(boot_polygon_subjects,length(boot_polygon_subjects),replace=TRUE),sample(boot_modular_subjects,length(boot_modular_subjects),replace=TRUE))
 this_model_data = do.call(rbind,lapply(these_subjects,function(i) model_data[model_data$subject == i,]))
 this_mod = glm(data=this_model_data, score_strict ~ question_type*polygon+gender+education_high+math_high)
-bootstrapped_coefficients = this_mod$coefficients #What inefficiency
+bootstrapped_coefficients = this_mod$coefficients
 for (i in 1:(num_boot_samples-1)) {
   these_subjects = c(sample(boot_polygon_subjects,length(boot_polygon_subjects),replace=TRUE),sample(boot_modular_subjects,length(boot_modular_subjects),replace=TRUE))
   this_model_data = do.call(rbind,lapply(these_subjects,function(i) model_data[model_data$subject == i,]))

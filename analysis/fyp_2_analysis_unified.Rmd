@@ -228,6 +228,72 @@ mod = lmer(data=model_data, score_strict ~ question_type*condition+math_high+(1|
 summary(mod)
 ```
 
+Bootstrapped analysis
+------------------------------
+```{r}
+library(gtools) #smartbind
+```
+
+```{r}
+model_data$condition = relevel(model_data$condition,ref='modular') #Because the previous doesn't seem to carry over
+```
+
+
+```{r}
+tm = proc.time()
+num_boot_samples = 10000
+boot_polygon_subjects = unique(model_data[model_data$condition == 'polygon',]$subject)
+boot_modular_subjects = unique(model_data[model_data$condition == 'modular',]$subject)
+boot_hybrid_subjects = unique(model_data[model_data$condition == 'hybrid',]$subject)
+
+#fencepost problem with coefficient storage
+these_subjects = c(sample(boot_polygon_subjects,length(boot_polygon_subjects),replace=TRUE),sample(boot_modular_subjects,length(boot_modular_subjects),replace=TRUE),sample(boot_hybrid_subjects,length(boot_hybrid_subjects),replace=TRUE))
+this_model_data = do.call(rbind,lapply(these_subjects,function(i) model_data[model_data$subject == i,]))
+this_mod = glm(data=this_model_data, score_strict ~ question_type*condition+math_high)
+bootstrapped_coefficients = this_mod$coefficients
+for (i in 1:(num_boot_samples-1)) {
+  these_subjects = c(sample(boot_polygon_subjects,length(boot_polygon_subjects),replace=TRUE),sample(boot_modular_subjects,length(boot_modular_subjects),replace=TRUE),sample(boot_hybrid_subjects,length(boot_hybrid_subjects),replace=TRUE))
+  this_model_data = do.call(rbind,lapply(these_subjects,function(i) model_data[model_data$subject == i,]))
+  this_mod = glm(data=this_model_data, score_strict ~ question_type*condition+math_high)
+  bootstrapped_coefficients = smartbind(bootstrapped_coefficients,this_mod$coefficients) #What inefficiency
+} 
+print("bootstrap done")
+print(num_boot_samples)
+print(proc.time()-tm)
+
+print("Polygon:")
+print("operation_6")
+quantile(bootstrapped_coefficients$conditionpolygon,probs=c(0.025,0.975))
+print("operation_9")
+quantile(bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`,probs=c(0.025,0.975))
+print("in_Z")
+quantile(bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`,probs=c(0.025,0.975))
+print("in_NZ")
+quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`,probs=c(0.025,0.975))
+print("gen_T")
+quantile(bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`,probs=c(0.025,0.975))
+print("gen_TF")
+quantile(bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`,probs=c(0.025,0.975))
+
+
+print("Hybrid:")
+print("operation_6")
+quantile(bootstrapped_coefficients$conditionhybrid,probs=c(0.025,0.975))
+print("operation_9")
+quantile(bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`,probs=c(0.025,0.975))
+print("in_Z")
+quantile(bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`,probs=c(0.025,0.975))
+print("in_NZ")
+quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`,probs=c(0.025,0.975))
+print("gen_T")
+quantile(bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`,probs=c(0.025,0.975))
+print("gen_TF")
+quantile(bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`,probs=c(0.025,0.975))
+```
 
 Post-hoc 
 ------------------------------------
