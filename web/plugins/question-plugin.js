@@ -105,6 +105,9 @@ explain, //Whether to provide a box for explanations
                 if (trial.explain) {
                     var this_explanation = document.getElementById("text-explanation").value;
                 }
+		else {
+		    var this_explanation = ""; 
+		}
                 if (trial.force_response && (typeof this_response == "undefined" || this_response === "" || (trial.explain && this_explanation == "" ))) { //If no response to radio button question
 			window.alert("Please answer the question before continuing.");
 			return;
