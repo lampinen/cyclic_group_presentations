@@ -17,7 +17,7 @@ library(gtools) #smartbind
 
 #Read files:
 ```{r}
-data_location = "../data/fyp_3_pilot_data/" 
+data_location = "../data/fyp_3_data/" 
 files = list.files(path = data_location,pattern="data_subject_.*.json")
 modular_data = vector()
 polygon_data = vector()
@@ -95,11 +95,11 @@ Write data for scoring
 ----------------------------
 
 ```{r}
-#n-1,n-x
-write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,8,10)],paste(data_location,"inverse_formula_to_score.csv",sep=''),sep=",")
+# #n-1,n-x
+# write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,8,10)],paste(data_location,"inverse_formula_to_score.csv",sep=''),sep=",")
 
-#Highest math class completed, 1 if algebra 2/trig/stats or higher, 0 else
-write.table(complete_data[grepl('mathclass',gsub(' ','',complete_data$question)),c(1,4,5,8,10)],paste(data_location,"highest_math_class_to_score.csv",sep=''),sep=",")
+# #Highest math class completed, 1 if algebra 2/trig/stats or higher, 0 else
+# write.table(complete_data[grepl('mathclass',gsub(' ','',complete_data$question)),c(1,4,5,8,10)],paste(data_location,"highest_math_class_to_score.csv",sep=''),sep=",")
 
 #NOT YET SCORED for explanations
 # #n=9 operation questions
@@ -241,32 +241,34 @@ print("Polygon:")
 print("operation_6")
 quantile(bootstrapped_coefficients$conditionpolygon,probs=c(0.025,0.975))
 print("operation_9")
-quantile(bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`,probs=c(0.025,0.975))
 print("in_Z")
-quantile(bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionpolygon`,probs=c(0.025,0.975))
 print("in_NZ")
-quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`,probs=c(0.025,0.975))
 print("gen_T")
-quantile(bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`,probs=c(0.025,0.975))
 print("gen_TF")
-quantile(bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`,probs=c(0.025,0.975))
 
 
 print("Hybrid:")
 print("operation_6")
 quantile(bootstrapped_coefficients$conditionhybrid,probs=c(0.025,0.975))
 print("operation_9")
-quantile(bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`,probs=c(0.025,0.975))
 print("in_Z")
-quantile(bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionhybrid`,probs=c(0.025,0.975))
 print("in_NZ")
-quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`,probs=c(0.025,0.975))
 print("gen_T")
-quantile(bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`,probs=c(0.025,0.975))
 print("gen_TF")
-quantile(bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`,probs=c(0.025,0.975))
 ```
