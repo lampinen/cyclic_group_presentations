@@ -1,0 +1,47 @@
+---
+title: "fyp_meta_analysis"
+author: "AndrewLampinen"
+date: "May 19, 2016"
+output: html_document
+---
+```{r}
+library(meta)
+```
+
+```{r}
+fyp_1 = read.csv('fyp_1_bootstrap_estimates.csv')
+fyp_2 = read.csv('fyp_2_bootstrap_estimates.csv')
+fyp_3 = read.csv('fyp_3_bootstrap_estimates.csv')
+fyp_1 = data.frame(lapply(fyp_1,function(x) {gsub("polygonTRUE","conditionpolygon", x)})) #variable name consistency
+names(fyp_1) = c('Ignore','Variable','logOR','se') 
+names(fyp_2) = c('Ignore','Variable','logOR','se')
+names(fyp_3) = c('Ignore','Variable','logOR','se')
+```
+
+```{r}
+for (var in fyp_1$Variable) {
+  print(var)
+  logOR = c(fyp_1[fyp_1$Variable == var,]$logOR,fyp_2[fyp_2$Variable == var,]$logOR,fyp_3[fyp_3$Variable == var,]$logOR)
+  se = c(fyp_1[fyp_1$Variable == var,]$se,fyp_2[fyp_2$Variable == var,]$se,fyp_3[fyp_3$Variable == var,]$se)
+  n.e = c(50,50,100) #num subjects in experimental (polygon or hybrid)
+  n.c = c(50,50,100) #num subjects in comparison (modular)
+  or.meta = metagen(logOR,se,sm="OR",n.e=n.e,n.c=n.c)
+  print(or.meta)
+  cat('\n\n')
+}
+
+for (var in fyp_2$Variable) {
+  if (var %in% fyp_1$Variable) {
+    next
+  }
+  print(var)
+  logOR = c(fyp_1[fyp_1$Variable == var,]$logOR,fyp_2[fyp_2$Variable == var,]$logOR,fyp_3[fyp_3$Variable == var,]$logOR)
+  se = c(fyp_1[fyp_1$Variable == var,]$se,fyp_2[fyp_2$Variable == var,]$se,fyp_3[fyp_3$Variable == var,]$se)
+  n.e = c(50,100) #num subjects in experimental (polygon or hybrid)
+  n.c = c(50,100) #num subjects in comparison (modular)
+  or.meta = metagen(logOR,se,sm="OR",n.e=n.e,n.c=n.c)
+  print(or.meta)
+  cat('\n\n')
+}
+```
+
