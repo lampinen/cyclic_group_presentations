@@ -169,6 +169,7 @@ complete_data = complete_unfiltered_data %>% filter(!(subject %in% subjects_to_e
 
 ```
 
+That's a lot of exclusions
 
 Unified model - all 3 (Planned analysis)
 ---------------
@@ -239,36 +240,409 @@ print(proc.time()-tm)
 
 print("Polygon:")
 print("operation_6")
-quantile(bootstrapped_coefficients$conditionpolygon,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon) # for meta analysis
+this_se = sd(bootstrapped_coefficients$conditionpolygon) #for meta analysis
+stuff = c('conditionpolygon',this_mean,this_se)
 print("operation_9")
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeoperation_9:conditionpolygon`)
+stuff = rbind(stuff,c('question_typeoperation_9:conditionpolygon',this_mean,this_se))
 print("in_Z")
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionpolygon`)
+stuff = rbind(stuff,c('question_typeinverse_zero_6:conditionpolygon',this_mean,this_se))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionpolygon`)
+stuff = rbind(stuff,c('question_typeinverse_zero_9:conditionpolygon',this_mean,this_se))
 print("in_NZ")
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionpolygon`)
+stuff = rbind(stuff,c('question_typeinverse_nonzero_6:conditionpolygon',this_mean,this_se))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionpolygon`)
+stuff = rbind(stuff,c('question_typeinverse_nonzero_9:conditionpolygon',this_mean,this_se))
 print("gen_T")
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_6:conditionpolygon`)
+stuff = rbind(stuff,c('question_typegenerator_true_6:conditionpolygon',this_mean,this_se))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_true_9:conditionpolygon`)
+stuff = rbind(stuff,c('question_typegenerator_true_9:conditionpolygon',this_mean,this_se))
 print("gen_TF")
-quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`)
+this_se = sd(bootstrapped_coefficients$conditionpolygon+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionpolygon`)
+stuff = rbind(stuff,c('question_typegenerator_TF_n:conditionpolygon',this_mean,this_se))
 
 
 print("Hybrid:")
 print("operation_6")
-quantile(bootstrapped_coefficients$conditionhybrid,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid) # for meta analysis
+this_se = sd(bootstrapped_coefficients$conditionhybrid) #for meta analysis
+stuff = rbind(stuff,c('conditionhybrid',this_mean,this_se))
 print("operation_9")
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeoperation_9:conditionhybrid`)
+stuff = rbind(stuff,c('question_typeoperation_9:conditionhybrid',this_mean,this_se))
 print("in_Z")
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_6:conditionhybrid`)
+stuff = rbind(stuff,c('question_typeinverse_zero_6:conditionhybrid',this_mean,this_se))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_zero_9:conditionhybrid`)
+stuff = rbind(stuff,c('question_typeinverse_zero_9:conditionhybrid',this_mean,this_se))
 print("in_NZ")
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_6:conditionhybrid`)
+stuff = rbind(stuff,c('question_typeinverse_nonzero_6:conditionhybrid',this_mean,this_se))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typeinverse_nonzero_9:conditionhybrid`)
+stuff = rbind(stuff,c('question_typeinverse_nonzero_9:conditionhybrid',this_mean,this_se))
 print("gen_T")
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_6:conditionhybrid`)
+stuff = rbind(stuff,c('question_typegenerator_true_6:conditionhybrid',this_mean,this_se))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_true_9:conditionhybrid`)
+stuff = rbind(stuff,c('question_typegenerator_true_9:conditionhybrid',this_mean,this_se))
 print("gen_TF")
-quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`)
+this_se = sd(bootstrapped_coefficients$conditionhybrid+bootstrapped_coefficients$`question_typegenerator_TF_n:conditionhybrid`)
+stuff = rbind(stuff,c('question_typegenerator_TF_n:conditionhybrid',this_mean,this_se))
 ```
+
+```{r}
+write.csv(stuff,file='fyp_3_bootstrap_estimates.csv')
+```
+
+
+Post-hoc 
+------------------------------------
+
+Subjects:
+```{r}
+table(complete_unfiltered_data[(complete_unfiltered_data$subject %in% subjects_to_exclude) & complete_unfiltered_data$trial_index == 3,]$condition)
+complete_unfiltered_data[(complete_unfiltered_data$subject %in% subjects_to_exclude) & grepl("Howfamiliarareyou",gsub(" ","",complete_unfiltered_data$question)),c('subject','question','response')]
+```
+
+
+
+###Hierarchical modeling of hybrid condition data
+```{r}
+mod = lmer(data=model_data, score_strict ~ question_type*condition+math_high+(1|subject))
+math_high_coefficient = summary(mod)$coefficients[16,1]
+modular_coefficients = summary(mod)$coefficients[c(1:13),1]
+polygon_coefficients = summary(mod)$coefficients[c(14,17:28),1]+modular_coefficients
+perfect_combination_coefficients = pmax(polygon_coefficients,modular_coefficients)
+```
+
+```{r}
+#print(paste(lapply(levels(model_data$question_type),function(x) return(paste(x,'=(question_type==\'',x,'\')',sep=''))),collapse=', '))
+# print(paste(lapply(1:length(levels(model_data$question_type)),function(x) return(paste('coeffs[',x,']*',levels(model_data$question_type)[x],sep=''))),collapse='+'))
+hierarchical_data = model_data %>% filter(condition == 'hybrid') %>%
+  mutate(a_operation_6=(question_type=='a_operation_6'), generator_ASN_n=(question_type=='generator_ASN_n'), generator_false_6=(question_type=='generator_false_6'), generator_false_9=(question_type=='generator_false_9'), generator_TF_n=(question_type=='generator_TF_n'), generator_true_6=(question_type=='generator_true_6'), generator_true_9=(question_type=='generator_true_9'), inverse_formula_n=(question_type=='inverse_formula_n'), inverse_nonzero_6=(question_type=='inverse_nonzero_6'), inverse_nonzero_9=(question_type=='inverse_nonzero_9'), inverse_zero_6=(question_type=='inverse_zero_6'), inverse_zero_9=(question_type=='inverse_zero_9'), operation_9=(question_type=='operation_9'))
+
+#Augment the data with weights and indicators for E-M algorithm
+augmenting_frame = data.frame(theta=c(T,F,F),phi=c(NA,T,F),weight=c(1,1,1))
+augmented_data = merge(hierarchical_data,augmenting_frame,by=NULL) 
+
+#Subjects
+hybrid_subjects = unique(hierarchical_data$subject)
+```
+
+
+```{r}
+log_likelihood_of_data = function(data,coeffs) { #Given a fixed set of coefficients, calculates the log-likelihood of the data
+  model = lm(data=data,score ~ 0+offset(math_high_coefficient*math_high+coeffs[1]+coeffs[2]*generator_ASN_n+coeffs[3]*generator_false_6+coeffs[4]*generator_false_9+coeffs[5]*generator_TF_n+coeffs[6]*generator_true_6+coeffs[7]*generator_true_9+coeffs[8]*inverse_formula_n+coeffs[9]*inverse_nonzero_6+coeffs[10]*inverse_nonzero_9+coeffs[11]*inverse_zero_6+coeffs[12]*inverse_zero_9+coeffs[13]*operation_9))
+  return(logLik(model))
+}
+
+log_likelihood_of_full_data = function(data,theta,phi) {
+  LL = 0.0
+  for (subj in hybrid_subjects) {
+    perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    LL = LL+log(perfect_weight+polygon_weight+modular_weight)
+  }
+  return(LL)
+}
+```
+
+
+Naive -- How well is data explained by assuming everybody just did one of three possibilities?
+```{r}
+print('polygon: ')
+print(log_likelihood_of_full_data(hierarchical_data,0,1))
+print('modular: ')
+print(log_likelihood_of_full_data(hierarchical_data,0,0))
+print('50-50 modular polygon: ')
+print(log_likelihood_of_full_data(hierarchical_data,0,0.5))
+print('max of the two: ')
+print(log_likelihood_of_full_data(hierarchical_data,1,0))
+
+```
+
+Expectation-maximization
+```{r}
+#max number of iterations
+num_iterations = 100
+delta_LL_threshold =  0.0001
+#initial values - uniform
+theta = 0.5
+phi = 0.5 
+
+LL_hist = vector()
+
+LL_hist[1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+
+for (iter in 1:num_iterations) {
+  #E step
+  for (subj in hybrid_subjects) {
+    perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    sum_weights = perfect_weight+polygon_weight+modular_weight
+    augmented_data[augmented_data$subject == subj & augmented_data$theta,]$weight = perfect_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & augmented_data$phi,]$weight = polygon_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & !augmented_data$phi,]$weight = modular_weight/sum_weights
+  }
+  
+  #M step
+  theta = sum(augmented_data[augmented_data$theta,]$weight)/sum(augmented_data$weight)
+  phi = sum(augmented_data[!augmented_data$theta & (augmented_data$phi==TRUE),]$weight)/sum(augmented_data[!augmented_data$theta,]$weight)
+  
+  #LL and termination
+  LL_hist[iter+1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+  print(paste("theta: ",theta,", phi: ",phi,', LL: ',LL_hist[iter+1]))
+  if (LL_hist[iter+1]-LL_hist[iter] < delta_LL_threshold) {
+    print("Difference of log likelihood from previous step is below threshold, terminating.")
+    break
+  }
+}
+
+```
+
+
+
+###Analysis of which representation problems
+
+```{r}
+data_location = "../data/fyp_3_data/" 
+files = list.files(path = data_location,pattern="data_subject_.*.json")
+modular_data = vector()
+polygon_data = vector()
+hybrid_data = vector()
+#data frame building
+subject = vector()
+prompt = vector()
+explain = vector()
+explanation = vector()
+correct_response = vector()
+rt = vector()
+response = vector()
+condition = vector()
+trial_index = vector()
+score = vector()
+whichrep_modular = vector()
+whichrep_polygon = vector()
+
+
+
+j = 1
+for (i in 1:length(files)) {
+  if (i %in% subjects_to_exclude) {
+    next
+  }
+  path = paste(data_location,files[i],sep="")
+  print(i)
+  print(path)
+  c = file(path, "r")
+  l = readLines(c, -1L)
+  close(c)
+  these_data = lapply(X=l, fromJSON)
+  if (these_data[1][[1]][[1]]$trial_type == "instructions") {
+    next
+  } else {
+    if (grepl("subtract",gsub(" ","",these_data[1][[1]][[1]]$instructions))) { 
+        this_condition = "hybrid"
+        hybrid_data[length(hybrid_data) + 1] = these_data[1]
+    }
+    else {
+       next
+
+    }
+  }
+  
+  for (trial_i in 1:length(these_data[1][[1]])) {
+    temp = these_data[1][[1]][[trial_i]]$trial_type
+    if((grepl("representation",gsub(" ","",temp)) && !grepl('demo',gsub(' ','',these_data[1][[1]][[trial_i]]$added_prompt))) || (grepl("question",gsub(" ","",temp)) && grepl('Pleaseanswer|Pleasedescribe',gsub(' ','',these_data[1][[1]][[trial_i]]$question)) && !grepl('demo',gsub(' ','',these_data[1][[1]][[trial_i]]$question)))) {
+      
+      subject[j] = i
+      condition[j] = this_condition
+      temp = these_data[1][[1]][[trial_i]]$question
+      if (is.null(temp)) {
+        if (grepl("representation",gsub(" ","",these_data[1][[1]][[trial_i]]$trial_type))) {
+          prompt[j] = prompt[j-1]#Whichrep questions are about previously presented question
+        } else {
+          prompt[j] = NA
+        }
+      } else {
+        prompt[j] = these_data[1][[1]][[trial_i]]$question
+      }
+      temp = these_data[1][[1]][[trial_i]]$correct_response
+      if (is.null(temp)) {
+        correct_response[j] = NA
+      } else {
+        correct_response[j] = these_data[1][[1]][[trial_i]]$correct_response
+      }
+      
+      temp = these_data[1][[1]][[trial_i]]$explain
+      if (is.null(temp)) {
+        explain[j] = NA
+      } else {
+        explain[j] = these_data[1][[1]][[trial_i]]$explain
+      }
+      if (is.null(these_data[1][[1]][[trial_i]]$explanation) | is.list(these_data[1][[1]][[trial_i]]$explanation)) { #is.list handles the unfortunate partial matching of explanation to explanation_history when explanation is null
+        explanation[j] = NA
+      } else {
+        explanation[j] = these_data[1][[1]][[trial_i]]$explanation
+      }
+      
+      if (is.null(these_data[1][[1]][[trial_i]]$response)) {
+        response[j] = NA
+      }
+      else {
+        response[j] = these_data[1][[1]][[trial_i]]$response
+      }
+      
+      if (!is.na(response[j]) && response[j] == correct_response[j]) {
+        score[j] = 1
+      } else {
+        score[j] = 0        
+      }
+     
+      #scores for whichrep 
+      if (grepl("representation",gsub(" ","",these_data[1][[1]][[trial_i]]$trial_type))) {
+        score[j] = score[j-1]#Whichrep questions are about previously presented question
+      } else if (grepl("describe",gsub(" ","",these_data[1][[1]][[trial_i]]$question))) {
+        score[j] = score[j-2]#Whichrep descriptions are about question 2 back
+      }
+      
+      
+      #whichrep questions
+      if (is.null(these_data[1][[1]][[trial_i]]$modular_response)) {
+        whichrep_modular[j] = NA
+      } else {
+        whichrep_modular[j] = these_data[1][[1]][[trial_i]]$modular_response
+      }
+      
+      if (is.null(these_data[1][[1]][[trial_i]]$polygon_response)) {
+        whichrep_polygon[j] = NA
+      } else {
+        whichrep_polygon[j] = these_data[1][[1]][[trial_i]]$polygon_response
+      }
+      
+      rt[j] = these_data[1][[1]][[trial_i]]$rt
+      trial_index[j] = trial_i
+      
+      j = j+1
+    }
+  }
+}
+```
+
+```{r}
+whichrep_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,explain=explain,explanation=explanation,trial_index=trial_index,score=score,whichrep_modular,whichrep_polygon)
+whichrep_data$whichrep_modular = as.numeric(levels(whichrep_data$whichrep_modular))[whichrep_data$whichrep_modular]
+whichrep_data$whichrep_polygon = as.numeric(levels(whichrep_data$whichrep_polygon))[whichrep_data$whichrep_polygon]
+```
+
+```{r}
+#inverse zero
+wr_mod_in0 = glm(score ~ whichrep_modular + whichrep_polygon,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_in0)
+
+wr_mod_innz = glm(score ~ whichrep_modular + whichrep_polygon,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_innz)
+
+wr_mod_gen = glm(score ~ whichrep_modular + whichrep_polygon,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_gen)
+
+
+wr_mod_gen_TF = glm(score ~ whichrep_modular + whichrep_polygon,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_gen_TF)
+```
+
+```{r}
+whichrep_data$score = factor(whichrep_data$score)
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+  geom_histogram(binwidth=1) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+
+```
+
+

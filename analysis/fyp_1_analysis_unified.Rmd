@@ -250,20 +250,49 @@ print(num_boot_samples)
 print(proc.time()-tm)
 
 print("operation_6")
-quantile(bootstrapped_coefficients$polygonTRUE,probs=c(0.025,0.975))
-print("operation_9")
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeoperation_9:polygonTRUE`,probs=c(0.025,0.975))
-print("in_Z")
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_zero_6:polygonTRUE`,probs=c(0.025,0.975))
-print("in_NZ")
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_6:polygonTRUE`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_9:polygonTRUE`,probs=c(0.025,0.975))
-print("gen_T")
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_6:polygonTRUE`,probs=c(0.025,0.975))
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_9:polygonTRUE`,probs=c(0.025,0.975))
-print("gen_TF")
-quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_TF_n:polygonTRUE`,probs=c(0.025,0.975))
+quantile(bootstrapped_coefficients$polygonTRUE,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE) #for meta analysis
+stuff = c('polygonTRUE',this_mean,this_se)
 
+print("operation_9")
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeoperation_9:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeoperation_9:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeoperation_9:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typeoperation_9:polygonTRUE',this_mean,this_se))
+print("in_Z")
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_zero_6:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_zero_6:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_zero_6:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typeinverse_zero_6:polygonTRUE',this_mean,this_se))
+print("in_NZ")
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_6:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_6:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_6:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typeinverse_nonzero_6:polygonTRUE',this_mean,this_se))
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_9:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_9:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typeinverse_nonzero_9:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typeinverse_nonzero_9:polygonTRUE',this_mean,this_se))
+print("gen_T")
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_6:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_6:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_6:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typegenerator_true_6:polygonTRUE',this_mean,this_se))
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_9:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_9:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_true_9:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typegenerator_true_9:polygonTRUE',this_mean,this_se))
+print("gen_TF")
+quantile(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_TF_n:polygonTRUE`,probs=c(0.025,0.5,0.975))
+this_mean = mean(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_TF_n:polygonTRUE`) # for meta analysis
+this_se = sd(bootstrapped_coefficients$polygonTRUE+bootstrapped_coefficients$`question_typegenerator_TF_n:polygonTRUE`) #for meta analysis
+stuff = rbind(stuff,c('question_typegenerator_TF_n:polygonTRUE',this_mean,this_se))
+
+
+```
+```{r}
+write.csv(stuff,'fyp_1_bootstrap_estimates.csv')
 ```
 
 ###Can we identify condition based on words used in explanations?
