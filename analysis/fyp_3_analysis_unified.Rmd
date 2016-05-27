@@ -30,9 +30,11 @@ explanation = vector()
 correct_response = vector()
 rt = vector()
 response = vector()
+response_type = vector()
 condition = vector()
 trial_index = vector()
 score = vector()
+used_diagram = vector()
 
 j = 1
 for (i in 1:length(files)) {
@@ -64,6 +66,7 @@ for (i in 1:length(files)) {
       prompt[j] = these_data[1][[1]][[trial_i]]$question
       correct_response[j] = these_data[1][[1]][[trial_i]]$correct_response
       explain[j] = these_data[1][[1]][[trial_i]]$explain
+      response_type[j] = these_data[1][[1]][[trial_i]]$response_type
       if (is.null(these_data[1][[1]][[trial_i]]$explanation) | is.list(these_data[1][[1]][[trial_i]]$explanation)) { #is.list handles the unfortunate partial matching of explanation to explanation_history when explanation is null
         explanation[j] = NA
       } else {
@@ -77,7 +80,13 @@ for (i in 1:length(files)) {
         response[j] = these_data[1][[1]][[trial_i]]$response
       }
       
-      if (!is.na(response[j]) && response[j] == correct_response[j]) {
+      if (!is.null(these_data[1][[1]][[trial_i]]$orientation_history) && is.list(these_data[1][[1]][[trial_i]]$orientation_history) ) {
+        used_diagram[j] = length(these_data[1][[1]][[trial_i]]$orientation_history) > 2
+      } else {
+        used_diagram[j] = FALSE
+      }
+      
+      if (!is.na(response[j]) && gsub(' ','',response[j]) == gsub(' ','',correct_response[j])) {
         score[j] = 1
       } else {
         score[j] = 0        
@@ -95,6 +104,7 @@ Write data for scoring
 ----------------------------
 
 ```{r}
+#complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score,response_type=response_type) 
 # #n-1,n-x
 # write.table(complete_data[grepl("formula",gsub(" ","",complete_data$question)),c(1,4,5,8,10)],paste(data_location,"inverse_formula_to_score.csv",sep=''),sep=",")
 
@@ -114,17 +124,23 @@ Write data for scoring
 # #generator T/F and A/S/N with explanations
 # write.table(complete_data[grepl("explaininwords",gsub(" ","",complete_data$question)) & (grepl("Trueorfalse",gsub(" ","",complete_data$question)) | grepl("always,sometimes,ornever",gsub(" ","",complete_data$question))),c(1,4,5,7)],paste(data_location,"TF_ASN_explained_to_score.csv",sep=''),sep=",")
 
+#DONE
+#Long responses to check if correct:
+#write.table(complete_data[(nchar(levels(complete_data$response)[complete_data$response]) > nchar(levels(complete_data$correct_response)[complete_data$correct_response])) & !(grepl('multi',gsub(' ','',complete_data$response_type)) | grepl("explaininwords",gsub(" ","",complete_data$question)) | grepl("formula",gsub(" ","",complete_data$question)) | (grepl('Whatisyour|languages|mathclass|Doyou|Didyou|Howfamiliar|Pleasedescribe',gsub(' ','',complete_data$question)))),c('subject','question','correct_response','response','score')],'long_explanations_to_score.csv',sep=',')
 
 ```
 
 data frame building
 ------------------------
 ```{r}
-complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,explain=explain,explanation=explanation,trial_index=trial_index,score=score) 
+complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,explain=explain,explanation=explanation,trial_index=trial_index,score=score,used_diagram=used_diagram) 
 
 #Insert scored data
 inverse_formula_scores = read.csv(paste(data_location,"inverse_formula_scored.csv",sep=""))
 complete_data[inverse_formula_scores$row.names,]$score = inverse_formula_scores$score
+
+long_answer_scores = read.csv(paste(data_location,"long_explanations_scored.csv",sep=""))
+complete_data[long_answer_scores$row.names,]$score = long_answer_scores$score
 
 #Strict scoring -- Some questions have "partial credit" of 0.5 for almost correct answers
 complete_data = complete_data %>% mutate(score_strict = floor(score)) %>% 
@@ -183,7 +199,8 @@ complete_data[!(grepl("identity",gsub(" ","",complete_data$question)) | grepl("i
 
 #Inverse Questions -- Order 6
 complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]$question_type = 'inverse_nonzero_6'
-complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & complete_data$correct_response == '0',]$question_type = 'inverse_zero_6'
+complete_data[grepl("Remember,theinverse",gsub(" ","",complete_data$question)) & gsub(' ','',complete_data$correct_response) == '0',]$question_type = 'inverse_zero_6'
+
   
 #Inverse Questions -- Order 9
 complete_data[grepl("Whatistheinverse",gsub(" ","",complete_data$question)) & !grepl("Remember,theinverse",gsub(" ","",complete_data$question)),]$question_type = 'inverse_nonzero_9'
@@ -194,7 +211,7 @@ complete_data[inverse_formula_scores$row.names,]$question_type = 'inverse_formul
 
 #Generator Questions -- 6
 complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_6'
-complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ) & gsub(" ","",correct_response) == 'Yes',]$question_type = 'generator_true_6'
+complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ) & gsub(" ","",complete_data$correct_response) == 'Yes',]$question_type = 'generator_true_6'
 
 #Generator Questions -- 9
 complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_9'
@@ -646,3 +663,27 @@ ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueor
 ```
 
 
+
+###Do generator true questions benefit from use of diagram?
+```{r}
+gt_data = model_data %>% filter(condition == 'polygon')
+xtabs(data=gt_data, ~ score_strict+used_diagram)
+xtabs(data=gt_data[grepl('generator_true',gt_data$question_type),], ~score + used_diagram)
+gt_data = model_data %>% filter(!(condition == 'modular'))
+xtabs(data=gt_data, ~ score_strict+used_diagram)
+xtabs(data=gt_data[grepl('generator_true',gt_data$question_type),], ~score + used_diagram)
+
+mod = glm(data=gt_data[grepl('generator_true',gt_data$question_type),], score ~ used_diagram)
+```
+
+
+###Patterns of errors
+
+```{r}
+q = complete_data[grepl('inverse_nonzero',complete_data$question_type) & complete_data$score < 1,c('question_type','condition','correct_response','response')] %>% filter(grepl('^[0-9 ]*$',response)) %>% mutate(correct_response = as.numeric(levels(correct_response)[correct_response]),response = as.numeric(levels(response)[response]))
+
+ggplot(data=q,aes(response,fill=condition)) +
+  geom_histogram(binwidth=1,position=position_dodge()) +
+  facet_grid( question_type~ correct_response) +
+  theme_bw()
+```
