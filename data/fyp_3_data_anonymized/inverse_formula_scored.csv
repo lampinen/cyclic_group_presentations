@@ -1,0 +1,624 @@
+"row.names","subject","correct_response","response","explanation","score"
+"47","1","n-1","3",,0
+"48","1","n-x","8","Just a guess",0
+"105","2","n-1","1",,0
+"106","2","n-x","number n number","what ever number takes you around to zero or n",0
+"172","3","n-1","no idea",,0
+"173","3","n-x","no idea","none",0
+"230","4","n-1","n - 1 = inverse",,1
+"231","4","n-x","n - x = inverse.","This works because essentially you want your inverse value to cause x + that value to be equal to n. Thus to most easily find that number the quickest method would be to take n and subtract x to get the value that would cause x to equal n if added together.",1
+"288","5","n-1","n-1",,1
+"289","5","n-x","n-x","I just remember that it added up to the operation(?) number, so for it to add up to n points with x, the formula would be n-x",1
+"346","6","n-1","n=1",,0
+"347","6","n-x","n = x","1 +_1 1=0, 2 +_2 2=0, etc...",0
+"414","7","n-1","I don't know...",,0
+"415","7","n-x","I don't know the a nswer..","I don't know the answer..",0
+"472","8","n-1","1n8",,0
+"473","8","n-x","not sure","no idea",0
+"530","9","n-1","n-1",,1
+"531","9","n-x","n-x","The definition of an inverse pair are two numbers (from 0 to n-1) which add together to get 0: that is, complete a full revolution.  This means they sum to the number of points on the circle, which is n.  Given value x as one of the numbers, we get x+(???)=n, and moving things around we get ???=n-x.  The potential problem is with x=0, because the answer can't be n (as n doesn't exist) so we have to assume part of the logic is to reduce the final answer such that we get 0 as necessary.",1
+"588","10","n-1","1 +n n = n-n",,0
+"589","10","n-x","E +n X = 0","E is the element, and X is the inverse that produces 0, which is the element under +n",0
+"646","11","n-1","n=n-2",,0
+"647","11","n-x","n=n-x","To get the inverse the number 'x' must be subtracted from the whole.",1
+"714","12","n-1","1+x=n",,0
+"715","12","n-x","x+ y=n","The inverse is the number that is added to x to achieve n",0
+"781","13","n-1","1+x=+_n, +_n-1=x",,0
+"782","13","n-x","x +_n y =0 ","Since 0 is the identity you need to find what number will make the sum with x+y=n to  give yo u the identity. Therefore y is the inverse of x.",0
+"839","14","n-1","1+2=0",,0
+"840","14","n-x","x+3=0","Sorry I am getting lost at this moment",0
+"906","15","n-1","I'm not sure",,0
+"907","15","n-x","0","I'm not sure. I don't understand this hit anymore",0
+"973","16","n-1","1",,0
+"974","16","n-x","X(n)","Umm, I dont know what this means at all.",0
+"1040","17","n-1","n-1",,1
+"1041","17","n-x","n-x","distance between n and x",1
+"1098","18","n-1","n - 1",,1
+"1099","18","n-x","n - x","n, the total number before getting back to zero, minus the starting number will produce the number that needs to be added to get to zero",1
+"1165","19","n-1","depends on what you pick as n if we pick +3 we can do something along the lines of 2 and 2 =4 -3 =1 and 2 would be the inverse.",,0
+"1166","19","n-x","x= n-1 +n-1=x","i concluded this off the last one where we got the new element x and assume we can create it under the solution of that an we set n equal to a number normally 2 hjigher than it and take n-1 add it together and subtract n from it.",0
+"1223","20","n-1","1 +n x = 0",,0
+"1224","20","n-x","x +n y = 0","The inverse of x is the number that when added to x under +n equals 0",0
+"1281","21","n-1","1n1",,0
+"1282","21","n-x","xny","It's the y steps from x depending on value n.",0
+"1339","22","n-1","N+1=X",,0
+"1340","22","n -x","N+Y=X","X is the inverse number and since we don't know the values for any numbers N is the integer and Y is the provided number in the equation.  So for example if we knew that 7 is the number we need and inverse for and there are 9 points we could do.
+
+Y+N=7
+9+N=7
+N=-2
+
+-2 cannot remain negative so it immediately becomes positive.
+",0
+"1397","23","n-1","inv = n - 1",,1
+"1398","23","n-x","n-x","we need to add enough to get back to 0. If we are at station x we need to add n-x to get back to 0",1
+"1455","24","n-1","n-1",,1
+"1456","24","n-x","n-x","Since the n gets changed to 0 while working under (n), and since x will be n-x places away from n on the polygon, it follows that n-x will be the inverse.",1
+"1522","25","n-1","6",,0
+"1523","25","n-x","x = 1 + n"," adding 1 to the under +n is the same as the element x. ",0
+"1580","26","n-1","3",,0
+"1581","26","n-x","0 = x-n","The inverse is the number that creates 0 ",0
+"1647","27","n-1","n-1",,1
+"1648","27","n-x","x-n","the number is x away from zero. n is how many numbers there are. n to n results in a zero. so x-n results in a zero because you start x away from zero.",0.5
+"1715","28","n-1","10",,0
+"1716","28","n-x","I don't know","?",0
+"1773","29","n-1","(n) = 1 + ?",,0.5
+"1774","29","n-x","(n) = x + ?","You need the number to add up to whatever (n) is. ",0.5
+"1840","30","n-1","1n3",,0
+"1841","30","n-x","x n x+1","It takes one extra step to get back to 0.",0
+"1898","31","n-1","+n-1",,0.5
+"1899","31","n-x","I don't know","unsure",0
+"1956","32","n-1","if N is 2 the inverse would be 1",,0
+"1957","32","n-x","1+1=2 ( N will equal 2) 2-2=0","when looking for an i nverse y ou are trying to get the answer to 0 so you want it to add up to whatever N is representing?",0
+"2014","33","n-1","1+x=n",,0
+"2015","33","n -x","y+x=n","y and x need to be equal to the value of n for it to be the inverse.",0
+"2072","34","n-1","1 plus nine spaces",,0
+"2073","34","n-x","1","Inverse is the amount of spaces until you land on zero.",0
+"2130","35","n-1","1 +n = 0",,0
+"2131","35","n-x","x + n = 0","the x has to cancel out the n to create an answer",0
+"2188","36","n-1","n-1",,1
+"2189","36","n-x","n-x","The inverse of an element under this scheme will always add to the original element to equal n. So therefore the inverse will always be equal to n-x",1
+"2255","37","n-1","1+n=0",,0
+"2256","37","n-x","x+n=0","You have to start at x and add until you hit 0. ",0
+"2313","38","n-1","1+n",,0
+"2314","38","n-x","x=n+1","Not really sure. Think it works though",0
+"2380","39","n-1","2 - 1",,0
+"2381","39","n-x","x + 1","unsure how to explain",0
+"2447","40","n-1","n-1",,1
+"2448","40","n-x","n-x ","n minus x ",1
+"2505","41","n-1","n-1",,1
+"2506","41","n-x","(n)-x","If n must be reached, and  x is th e number of steps already taken, then this is the remainder. ",1
+"2563","42","n-1","0",,0
+"2564","42","n-x","?","no idea",0
+"2630","43","n-1","n-1",,1
+"2631","43","n-x","n-x","we need to find what plus x equals n to get the inverse",1
+"2688","44","n-1","1++_n n=1",,0
+"2689","44","n-x","X +_n n = X","Any number added to n w ill be t he value of n more than the number, so if you minus the n amount from the value of X + n, you will end up with X. ",0
+"2746","45","n-1","0",,0
+"2747","45","n-x","X+(number used to arrive at identity)=inverse","the number you use to arrive at the identity plus whatever the element variable is equals the inverse. ",0
+"2823","46","n-1","3",,0
+"2824","46","n-x","3","3 spots?",0
+"2881","47","n-1","1-n",,0.5
+"2882","47","n-x","x:n","divide by the number",0
+"2948","48","n-1","The inverse of a number is supposed to be the element it is combined with to produce the identity.  The identity is a special number such as 0 which gives back whatever else it is combined with.  The inverse of 0 is 0.  Here my thinking breaks down.  I can only guess that the formula might be 1 + n, meaning the total number of points in the circle which would arrive at 0. ",,0
+"2949","48","n-x","x + n = 0","The inverse of x would be the element I combined it with to produce the identity, which I am assuming would be 0 or its equivalent.  Therefore x needs to be combined with n, where n is the total amount of points in the circle leading up to 0.  ",0
+"3015","49","n-1","+_n",,0
+"3016","49","n-x","-_n","If an inverse just means to zero out an equation, wouldn't the formula just be the opposite of hte +n operation? It would cancel out the n, leaving you with a final remainder of zero.",0
+"3073","50","n-1","0=1+n",,0
+"3074","50","n-x","0=x+n","This is a guess. I think the inverse equals zero.",0
+"3131","51","n-1","1 (n) (n - 1)",,1
+"3132","51","n-x","x (n) (n - x)","To reach 0, we need to add (n - x) to x.  So if n = 100 and x = 2, you need to add (100 - 2) = 98 to 2 to get back to the 0 point.",1
+"3189","52","n-1","n -1",,1
+"3190","52","n-x","n-x","assuming the identity is 0, starting at x, you will always have to move fully around back to 0 to find the inverse. therefore, given n total numbers,  and x a s the starting point, you'll have to move (n-x) spaces to get back to 0.",1
+"3247","53","n-1","1_n",,0
+"3248","53","n-x","1_n","This is what was explained in the formula.",0
+"3305","54","n-1","1+(n)",,0
+"3306","54","n-x","The inverse of x = x+(n)","The inverse of x is equal to x plus the value of (n) moving cloc kwise on  the polygon.",0
+"3363","55","n-1","1 (n) [n-1]",,0
+"3364","55","n-x","x (n) (n-x)","The inverse should result in a value of 0. Therefore if we start with x under (n) we need to move (n-x) steps to get to 0.",0
+"3430","56","n-1","(n) - 1",,1
+"3431","56","n-x","(n) - x","The inverse is the number that when added to x produces the identity, 0. Another way of saying that is the inverse is the solution of (n) - x.",1
+"3507","57","n-1","1+0=1. Since 1 is a positive number +n will be 1",,0
+"3508","57","n-x","0","Any positive number added to +n will be the inverse element x",0
+"3565","58","n-1","n-1 = inverse",,1
+"3566","58","n-x","n-x = inverse","I arrived at this answer by thinking back on previous problems. To find the inverse, we added a number to the given element to reach 0 (which is the same as n). So the above formula would be another way of expressing this.",1
+"3632","59","n-1","1+n=0",,0
+"3633","59","n-x","x+n=0","An inverse is the number that is added to any number giving a result of 0. Therefore n added to x = 0.",0
+"3699","60","n-1","1-n=0",,0
+"3700","60","n-x","x+n=0","you need to add whatever x is to n in order to get o. ",0
+"3766","61","n-1","n-1",,1
+"3767","61","n-x","n-x","the inverse will always be two numbers combining to n, unless x is 0 (in which case the answer would be 0).  For example if n is 7 and x = 2, the answer would be 5, 2 +_7 5 = 7, 7-7=0.",1
+"3824","62","n-1","The inverse of 1 under (n) is the amount of (n)'s sides - 1.",,1
+"3825","62","n-x","(n) sides - x","The amount of sides that (n) has will always give you the inverse of the given number if you subtract the given number from it. This is because if you add the number that you get to the given number, you will always arrive at the zero point of the diagram.",1
+"3891","63","n-1","n",,0
+"3892","63","n-x","x=n","It can be anything depending on the number.",0
+"3949","64","n-1","n-1",,1
+"3950","64","n-x","x-n","I assume x-n is the answer. This is kind of tough.",0.5
+"4007","65","n-1","The inverse of 1 under n is 8",,0
+"4008","65","n-x","element x under n ","no idea",0
+"4074","66","n-1","Inverse of 1 = n - 1.",,1
+"4075","66","n-x","Inverse of x = n - x","For any element x for the function +_n, the inverse is calculated by subtracting x from n.",1
+"4132","67","n-1","1 + N = Answer (X) then X + n = final answer",,0
+"4133","67","n-x","X+N = sum then Sum + n ","The number x plus the number over n and the sum then added to the n.",0
+"4190","68","n-1","0=1+n",,0
+"4191","68","n-x","0=n+x","You have to sum n and x to  equal to  0.",0
+"4258","69","n-1","1-n",,0.5
+"4259","69","n-x","n-x","You subtract n from x.",1
+"4316","70","n-1","don't have a clue",,0
+"4317","70","n-x","?","guessed",0
+"4383","71","n-1","n-1",,1
+"4384","71","n-x","n-x","A dding x  to the inverse will give a number that will give zero when n is subtracted from it.",1
+"4441","72","n-1","6",,0
+"4442","72","n-x","opposites","i thought it was the opposite on the face",0
+"4508","73","n-1","0",,0
+"4509","73","n-x","Any number","x is a place holder for any number. ",0
+"4566","74","n-1","2",,0
+"4567","74","n-x","1","I believe it's the number 1 because that will make it the number it is assigned.",0
+"4624","75","n-1","n + 1",,0
+"4625","75","n-x","n - x ","n - x +_n x = 0",1
+"4682","76","n-1","1 n 1 = 2",,0
+"4683","76","n-x","x n x = n - x","These inverses have confused me. I have just been using n - x.",0
+"4749","77","n-1","Inverse = +n - 1. ",,1
+"4750","77","n-x","+n - x","The inverse of a number is +n minus that number, which would result in the identifier for the equation. ",1
+"4807","78","n-1","1 n 8",,0
+"4808","78","n-x","inverse = (n - x) ","Its the given number (X) + (the total number of elements - X)
+
+So if the total # of elements = 8 & x = 2
+
+Inverse = (8 - 2) == 6 moves ",1
+"4865","79","n-1","1(n)=1",,0
+"4866","79","n-x","x(n)=0","N is the inverse of X under (n).",0
+"4932","80","n-1","n - 1 = x where x +_n 1 = 0",,1
+"4933","80","n-x","n - x","If you have a +n that's +8 and x = 6, then 8 - 6 = 2 and 2 would be your inverse of of x (or in this case 6). ",1
+"4990","81","n-1","n-1",,1
+"4991","81","n-x","n-x","because x + (n-x) always = n which is 0",1
+"5048","82","n-1","Inverse of 1 under +_n = n-1",,1
+"5049","82","n-x","Inverse of x under +_n = n-x","To receive an inverse of a number under +_n, we must get the equation to equal 0. To get it to equal 0, we must get it to equal n. To get it to equal n, we must find out how much we need to add to x to get n. To f igure th at out, we subtract n from x, and the remainder will be the inverse.",1
+"5106","83","n-1","(n)=1+?",,0
+"5107","83","n-x","I'm not sure.","I don't understand how to do this.",0
+"5183","84","n-1","+1",,0
+"5184","84","n-x","+x","X replaces n",0
+"5241","85","n-1","1 n 1",,0
+"5242","85","n-x","x m x","To find the inverse you start with the number x and move x places. Whichever number you land on is the inverse of x",0
+"5309","86","n-1","1",,0
+"5310","86","n-x","2","because 2 and @ is 2 (?)",0
+"5367","87","n-1","n-1",,1
+"5368","87","n-x","N-X","Moving the wheel backwards from the start point finds the inverse.",1
+"5425","88","n-1","(n)",,0
+"5426","88","n-x","(n)","As we don't know how many side we have it would be n",0
+"5492","89","n-1","n-1",,1
+"5493","89","n-x","inverse n-gon is n-x
+"," it seems right.  To get the inverse, I'd just subtract the number from the other.
+",1
+"5559","90","n-1","0-n",,0
+"5560","90","n-x","Unsure","N/A",0
+"5626","91","n-1","no clue",,0
+"5627","91","n-x","no clue","no clue",0
+"5693","92","n-1","1-1= the inverse of n",,0
+"5694","92","n-x","n-x=0","The inverse is whatever number it takes to get to 0. Since there are n vertices then n - the beginning number x will bring you to 0.",1
+"5760","93","n-1","1+ (-1)= 0 mod n ",,0
+"5761","93","n-x","x+(-x)= 0 mod n","You need to add a number that gives you 0",0
+"5827","94","n-1","The inverse must arrive at 0, which is the identity. Therefore, the inverse of 1 is n = 1. For example, of n = 1, 1 + 1 = 2 a nd 2 - 2  = 0.",,0
+"5828","94","n-x","x = +n - x","As we always want to arrive at 0, the numbers must always add up to the number we have identified in the +9 formula. ",1
+"5885","95","n-1","1+_n=1",,0
+"5886","95","n-x","X+_n=0","I'm guessing.",0
+"5943","96","n-1","(n)-1=0",,1
+"5944","96","n-x","[(n)-x]=0","Subtracting x from (n) will allow you to arrive at 0? Honestly, I'm very uncertain of my answer because I'm confused by inverses.",1
+"6001","97","n-1","1+_n",,0
+"6002","97","n-x","x+_n","I think this is correct but there is so much going on in this study right after each other I'm getting really confused.",0
+"6059","98","n-1","+n = n-1",,1
+"6060","98","n-x","x = +n - x","I'm not at all sure this is right, but I think the x is the positive of n, subtracted from itself. ",1
+"6117","99","n-1","1 + (n -1)",,1
+"6118","99","n-x","x + (n - x)","This formula will always yield the inverse because it will add to n, meaning you will have to subtract by n and get 0.",1
+"6175","100","n-1","1",,0
+"6176","100","n-x","I don't know","I don't know",0
+"6242","101","n-1","1+x=n where x is = to the inverse of 1.",,0
+"6243","101","n-x","X+Y=n","Y is the inverse which when added to X equals n which results in zero.",0
+"6300","102","n-1","I have no clue",,0
+"6301","102","n-x","I don't know","I don't know",0
+"6358","103","n-1","(n)-1",,1
+"6359","103","n-x","(n)-x","To arrive at the identity, we would need to move (n) spaces from initial point x. Starting with x, we then add the solution of ((n)-x) to arrive at the identity.",1
+"6416","104","n-1","n-1",,1
+"6417","104","n-x","n-x","Because if we go n-x points clockwise form x we reach 0. Basically, this the clockwise distance, in points, between x and 0.",1
+"6474","105","n-1","1 +_n (n-1) = 0",,1
+"6475","105","n-x","x +_n (n-x) =0","i guessed",1
+"6532","106","n-1","1X",,0
+"6533","106","n-x","y","I don't know",0
+"6590","107","n-1","1 = N",,0
+"6591","107","n-x","x = N + 1","You simply add 1 to N to get X ",0
+"6667","108","n-1","using polygons to count each dot ",,0
+"6668","108","n-x","im not sure","i dont know",0
+"6734","109","n-1","7",,0
+"6735","109","n-x","I'm terrible with math.","I'm terrible with math.",0
+"6792","110","n-1","n-1",,1
+"6793","110","n-x","n-x","x and its inverse must equal n.  So. n-x will give us the inverse.",1
+"6859","111","n-1 ","1 +_n n = 0",,0
+"6860","111","n-x","x +_n n = 0","0 appears to always be the identity in these operations, so element x +_n the inverse equals 0, the identity.",0
+"6917","112","n-1","n-1",,1
+"6918","112","n-x","n-x","the inverse would have to mean the two add to 0. ",1
+"6975","113","n-1","n - 1",,1
+"6976","113","n-x","n - x","Because x +_n (n - x) is just n, which is >= n so subtract n to get 0, which is always the identity regardless of n",1
+"7033","114","n-1","N - 1
+
+N = number of numbers in shape",,0
+"7034","114","n-x","N -  number  = ix
+
+N = Number of numbers in shape
+ix = inverse of x","If there are four numbers in the shape and we start with a 2, for example, we would take 4 - 2 = 2 and need to move two positions to get to 0.",0
+"7100","115","n-1","Starting from 1, you count clockwise the number of spaces until you reach 0, which is the identifier.",,0
+"7101","115","n-x","inverse = x + number of spaces to reach 0","Starting from x, count the number of spaces clockwise until you reach 0.",0
+"7158","116","n-1","-1(n) + 1 = x",,0
+"7159","116","n-x","-x(n) + x = y","I have no idea what I'm doing.",0
+"7235","117","n-1","n-1",,1
+"7236","117","n-x","n-x","Because inverse is going back so it has to be a subtraction. ",1
+"7303","118","n-1","1 -n",,0.5
+"7304","118","n-x","x+n","I'm not sure I understand this one as well.",0
+"7361","119","n-1","1",,0
+"7362","119","n-x","x","There should be no change in the value",0
+"7419","120","n-1","1+n= 1(+n)I or I=1(+n)1+n when I=the inverse of 1",,0
+"7420","120","n-x","x+n=x(+n)I or I=x(+n)x+n","The inverse of x will be x plus n when n is whatever number the system is based on.",0
+"7477","121","n-1","4(n)",,0
+"7478","121","n-x","x(n)","I do not really know",0
+"7535","122","n-1","I'm not following the logic of inverse.. I hope I don't get a rejection.",,0
+"7536","122","n-x","5","a total guess. It looks like I'm failing your class",0
+"7602","123","n-1","n - 1 = inverse",,1
+"7603","123","n-x","n - x = inverse","If you take whatever N is and subtract the element under it will always get you to 0. Ughh... not sure sure how to better explain.",1
+"7660","124","n-1","1n1",,0
+"7661","124","n-x","undetermined","I am not sure how to figure this one out.",0
+"7728","125","n-1","1+1=n",,0
+"7729","125","n-x","0 + n","It makes sense",0
+"7786","126","n-1","1n8",,0
+"7787","126","n-x","xnx=0","The inverse must equal to 0, so the two elements would be chosen based on what would make them equal 0.",0
+"7844","127","n-1","n - 1",,1
+"7845","127","n-x","n - x = y","The inverse is whatever is added to x to result in x +n y = 0",1
+"7902","128","n-1","1 n = 0",,0
+"7903","128","n-x","x n = 0","The inverse is the number it takes to get back to 0 ",0
+"7960","129","n-1","8",,0
+"7961","129","n-x","9","Because the inverse of 0 (which is n) is 9",0
+"8037","130","n-1","0",,0
+"8038","130","n-x","x-2 is 1","Just a guess",0
+"8104","131","n-1","the number you combine with +n to equal one. ",,0
+"8105","131","n-x","x","because if you add x to +n the answer must be x because that is the inverse   of the element. ",0
+"8162","132","n-1","inverse = n - 1 ",,1
+"8163","132","n-x","inverse = n -x","I think of it as that 0 is the same as n for the purposes of the polygon.  Once you get around the polygon to n, it resets the count to 0.  So to get from x to 0, is the same number as it takes to get from x to n.  So the inverse is n - x. ",1
+"8229","133","n-1","-n",,0
+"8230","133","n-x","-x","+n is a positive number so the inverse is a negative number.",0
+"8287","134","n-1","inverse=n-1",,1
+"8288","134","n-x","inverse=n-x","The inverse will always be the number of sides minus the element, since that will be the number of notches it takes to reach zero.",1
+"8355","135","n-1","one going backwards from n",,0
+"8356","135","n-x","n-x+1","go backwards from n counting 0",0
+"8422","136","n-1","1 (n) n=0",,0
+"8423","136","n-x","x (n) n=0","The inverse is whatever number combines with x to give us zero.  ",0
+"8489","137","n-1","1n?=n",,0
+"8490","137","n-x","xn?=n","to get the inverse it must end up getting n as the final answer when you add x with another number (?) so the formula would be xn?=n",0
+"8556","138","n-1","5",,0
+"8557","138","n-x","i don't know","I don't know",0
+"8614","139","n-1","oh gosh i don't remember",,0
+"8615","139","n-x","I'm sorry","I do not remember",0
+"8672","140","n-1","+n = +n - 1",,1
+"8673","140","n-x","x = +n - x","The inverse of a number is the element that we combine with it to produce the identity. ",1
+"8730","141","n-1","+_n",,0
+"8731","141","n-x","+_n","It is the identity over +n.",0
+"8788","142","n-1","0-1=n",,0
+"8789","142","n-x","(x+y)-n=0","Simply, you have to end up in the starting position.  So, usin g the ea rlier 6 sided element, 1+5 (as an example)would takes us to 0, so the math wise, just have to add both unknown elements and subtract n to get the inverse.",0
+"8846","143","n-1","you have lost me",,0
+"8847","143","n-x","?","i am sorry you have lost me",0
+"8904","144","n-1","1 +_n x = 0",,0
+"8905","144","n-x","n = x + y ","You would get t he diffe rence between n and x to find the value of y. Then if the sum of x + y are subtracted from n, the total is 0. ",0
+"8962","145","n-1","n-1",,1
+"8963","145","n-x","inverse=n-x","inverse plus x will be n-n=0",1
+"9029","146","n-1","8",,0
+"9030","146","n-x","x n x = 0","The inverse is the numbers that equate to 0",0
+"9096","147","n-1","n-1",,1
+"9097","147","n-x","n-x","because the inverse is what needs added to x to create n, therefore the reverse n -x will  give you the inverse",1
+"9163","148","n-1","1+0=1?",,0
+"9164","148","n-x","I have no idea","This doesn't make sense to me, I am sorry.",0
+"9221","149","n-1","1++n=",,0
+"9222","149","n-x","x-+n=","you minus x by +n",0
+"9279","150","n-1","9",,0
+"9280","150","n-x","x - 4 = n?","I'm slightly confused by this. I don't feel the instructions are thorough. ",0
+"9337","151","n-1","0-1",,0
+"9338","151","n-x","I honestly don't know. ","Again, I'm confused. I don't know where x belongs here. ",0
+"9395","152","n-1","1-+_n",,0
+"9396","152","n-x","x++_n","because to get the inverse you must add whatever you can to get the x to equal x",0
+"9463","153","n-1","0+1 = 1",,0
+"9464","153","n-x","2","The inverse would be 2 under n",0
+"9521","154","n-1","I have no idea this doesn't make sense to me",,0
+"9522","154","n-x","don't understand what the rule is supposed to be if n could mean anything","don't understand what the rule is supposed to be if n could mean anything",0
+"9598","155","n-1","n=?",,0
+"9599","155","n-x","n=x","N is going to equal the number",0
+"9665","156","n-1","n - 1",,1
+"9666","156","n-x","n - x","Using the example of +9, both numbers need to add up to 9. For example 1 + 8 = 9.  So the answer is n - x.",1
+"9723","157","n-1","I don't really understand how to make this formula...
+n would equal 1 plus the amount of numbers it is to get to 0 going clockwise",,0
+"9724","157","n-x","impossible to tell?","I think it would be impossible to tell the inverse of x without any other information, or else it would also be x (or y) because we don't know either of the numbers to start with",0
+"9781","158","n-1","n-1=0",,1
+"9782","158","n-x","n-x=0","you take the total number n minus the x number and you get the inverse as a result",1
+"9848","159","n-1","1",,0
+"9849","159","n-x","Unsure","I have no idea, to be honest, I am super confused",0
+"9906","160","n-1","n-1",,1
+"9907","160","n-x","i(x) = n-x","When the operator +_n is applied on an element x and its inverse, the result is 0.  That result comes about when x+i(x)=n since the rules state n is subtracted from any sum that is greater than or equal  to n.  S o, i(x)=n-x.",1
+"9964","161","n-1","1 = n +n n",,0
+"9965","161","n-x","0 = n +n n","i think it has to add up to zero in the end?",0
+"10022","162","n-1","1",,0
+"10023","162","n-x","x+x","I'm not exactly sure what you are looking for here. If we don't know what n means, then I'm not sure how we know what the inverse of x is. I guessed x+x because if you add two of the same number together and then subtracted it, then you'll get the same number.",0
+"10080","163","n-1","n-1",,1
+"10081","163","n-x","n-x","Subtracting the element from n gives you a number that, when added to the element will be n. Then subtracting n from n will give you zero, the identity.",1
+"10138","164","n-1","1 n'ed by n-1",,1
+"10139","164","n-x","x-n","becaue it has to go around the circle a complete time, less the number you' re alrea dy at",0.5
+"10196","165","n-1","1n",,0
+"10197","165","n-x","11 n","11 generates its own inverse, I think.",0
+"10254","166","n-1","n-1",,1
+"10255","166","n-x","n-x","The inverse is what needs to be added to the number such that after subtracting  n the r esult is 0. Therefore, n-x yields such a number.",1
+"10312","167","n-1","n=1",,0
+"10313","167","n-x","n=x","you have to find the number of sides in the polygon",0
+"10379","168","n-1","(n)-1",,1
+"10380","168","n-x","(n)-x","Because that is how many spaces from x you would have to move to get back to 0.",1
+"10437","169","n-1","1(n)1",,0
+"10438","169","n-x","x(n)y","X = the element we do not know. Y = the number we need to move to complete the equation. ",0
+"10495","170","n-1","n=n-1",,1
+"10496","170","n-x","e=x-n","I'm not really sure.",0.5
+"10562","171","n-1","1+n=0",,0
+"10563","171","n-x","x+(n)=0","The element added to the number of sides must equal the identity, 0.",0
+"10629","172","n-1","1 - (n) = 0",,0.5
+"10630","172","n-x","x - (n) = 0","If (n) is the inverse, then subtracting the inverse from x will equal 0.",0.5
+"10696","173","n-1","(Inverse of 1 under n) = (n-1)",,1
+"10697","173","n-x","(Inverse of x under n) = (n - x)","The inverse values combined should always reach zero.",1
+"10763","174","n-1","1+0_n",,0
+"10764","174","n-x","x+_x= inverse","I choose this formula because the inverse is whatever number you combine with the element to get the identity",0
+"10821","175","n-1","6",,0
+"10822","175","n-x","xn","I'm not exactly sure the question isn't very clear. ",0
+"10879","176","n-1","Inverse = N - 1",,1
+"10880","176","n-x","N - X","X plus the inverse equals N. Or the inverse = N - X.",1
+"10937","177","n-1","1 n 2",,0
+"10938","177","n-x","x =1 1 n 2","Not sure I understood the question, but I tried to figure out something. I gave x a value of 1 and then went from there.",0
+"10995","178","n-1","subtracting 2 from one puts us back to 0",,0
+"10996","178","n-x","You have to be able to count backwards from x and reach 'n'.","You have to be able to make every other number with the inverse.",0
+"11053","179","n-1","1(3)2",,0
+"11054","179","n-x","x(x+y)y","If the sum of the two numbers is equal to the sum in the polygon, it will equal zero making the numbers the inverse of each other.",0
+"11120","180","n-1","0",,0
+"11121","180","n-x","0","Intuition.",0
+"11187","181","n-1","n-1",,1
+"11188","181","n-x","n-x except when x=0 then it's x","except in the case of 0 (which is always 0)the inverse is always the sum of the two numbers to equal n so you would need to subtract a number from n to find the inverse.",1
+"11254","182","n-1","1+n=identity",,0
+"11255","182","n-x","x + n = identity","any number or element added to n where n equals the size of the polygon will get to the identity of 0",0
+"11312","183","n-1","I am beginning to have difficulty with this. ",,0
+"11313","183","n-x","I am unsure","I am unsure",0
+"11379","184","n-1","1+(n-1)",,1
+"11380","184","n-x","x+(n-x)","Subtract x from n to get the number needed to add to x to equal n. n-n=0",1
+"11437","185","n-1","n-1",,1
+"11438","185","n-x","n-x","Since n value is equal to zero on the diagram and x would be a point on the diagram, you subtract x from n to get to zero.",1
+"11504","186","n-1","8",,0
+"11505","186","n-x","1 n = 0","8 moves clockwise are needed to get to zero.",0
+"11562","187","n-1","1+N=(N)",,0
+"11563","187","n-x","X+N=(N)","X's value must be added to N in order to value (N)",0
+"11629","188","n-1","1 n minus n",,0
+"11630","188","n-x","x n - 1","The inverse can be found if the operation is performed with a digit and that number is the opposite of the given value.",0
+"11687","189","n-1","1n=0",,0
+"11688","189","n-x","x under n=0","X is the starting point, n is the amount of degrees moved to reach 0. ",0
+"11745","190","n-1","n1",,0
+"11746","190","n-x","N/A","So confused don't understand this. I'm trying!",0
+"11813","191","n-1","n inverse is steps steps",,0
+"11814","191","n-x","x=2","In the diagram your starting point is 0. So move under n requires two steps",0
+"11871","192","n-1","N-1",,1
+"11872","192","n-x","n-x ","to find the inverse you would subtract n from the element x ",1
+"11929","193","n-1","n-1",,1
+"11930","193","n-x","n-x","this is a guess--i'm pretty confused now",1
+"11987","194","n-1","I believe it would be +1",,0
+"11988","194","n-x","0","You've lost me on this one....My mind just went blank here",0
+"12045","195","n-1","0",,0
+"12046","195","n-x","1","x=1",0
+"12112","196","n-1","8",,0
+"12113","196","n-x","8","It can be any number.",0
+"12170","197","n-1","1",,0
+"12171","197","n-x","1","I just counted clockwise.",0
+"12228","198","n-1","1",,0
+"12229","198","n-x","x","I don't understand.",0
+"12286","199","n-1","n-1",,1
+"12287","199","n-x","n-x","n-x will take you to the 0 position.",1
+"12344","200","n-1","I have no idea how to write the formula.  (n) - n maybe as in the it would be the the last number of the number polygon subtracted to make zero.",,0
+"12345","200","n-x","inverse x = n( n) - x","I really don't even understand the question.  I was thinking of the inverse as the last number.  What I need to add to the element, I guess x, to get it to equal the last/zero of the polygon.",1
+"12402","201","n-1","+n -1",,1
+"12403","201","n-x","+n - x","not sure",1
+"12460","202","n-1","0",,0
+"12461","202","n-x","0","I dont know.",0
+"12518","203","n-1","0+1",,0
+"12519","203","n-x","N+x","Because it's a variable chosen",0
+"12576","204","n-1","You put the arrow on 1 and move it... I don't know how many times? I don't understand.",,0
+"12577","204","n-x","I really don't know.","I really don't understand how to do this.",0
+"12643","205","n-1","n-1",,1
+"12644","205","n-x","n-x","the inverse is how many clicks it takes to get back to 0 (identity) n is the total number of sides and x is your starting point (I hope that's correct)",1
+"12710","206","n-1","9",,0
+"12711","206","n-x","1 +_n x","I really don't understand this, so I just guessed.",0
+"12768","207","n-1","1 - 2",,0
+"12769","207","n-x","x-2","This part is confusing without knowing the value of n. I am trying to understand this. The inverse part has been confusing. Everything else has been clear. ",0
+"12826","208","n-1","1+x=n",,0
+"12827","208","n-x","1+x=n","it will bring it back to zero",0
+"12884","209","n-1","n under 6",,0
+"12885","209","n-x","6 under 9= n","N is the result of both numbers that were inverse.",0
+"12942","210","n-1","n-1",,1
+"12943","210","n-x","n-x","Because is the inverse is what number added to x is n to find that you subtract x from n.",1
+"13009","211","n-1","Inverse=1(n)1+(n-1)",,0
+"13010","211","n-x","I don't know? x(n)n-1","I have no idea how to depict that correctly. I don't know if I can use the number in the circle in the formula. The formula is trying to say that the inverse is the number of steps it takes to get to 0 from the starting position. ",0
+"13067","212","n-1","0",,0
+"13068","212","n-x","i have no idea","i have no idea",0
+"13125","213","n-1","I honestly don't know. I am so lost.",,0
+"13126","213","n-x","I honestly have no idea.","This one REALLY is confusing me.  Ugh!",0
+"13192","214","n-1","1n9 = 0",,0
+"13193","214","n-x","xn0=x","0 is the inverse of x because it equals x",0
+"13250","215","n-1","I don't know.",,0
+"13251","215","n-x","If I had to guess I would say the inverse of x is n-x.","If I had to guess I would say the inverse of x is n-x. ",1
+"13318","216","n-1","1_n",,0
+"13319","216","n-x","x_n","n can be any number ",0
+"13376","217","n-1","1 under n =2",,0
+"13377","217","n-x","2","1 under 1 = 2",0
+"13434","218","n-1","1 + x = n",,0
+"13435","218","n-x","n - x = inverse","The inverse is the number that x needs to make n.",1
+"13501","219","n-1","I honestly have no idea, I'm sorry.",,0
+"13502","219","n-x","I don't know","I'm sorry... did you explain this to me? I read the little blurb you gave me just before these problems, but it didn't say anything about a formula. ",0
+"13559","220","n-1","1-n",,0.5
+"13560","220","n-x","I don't understand this.","I'm sorry.  I'm not comprehending what you're asking for.",0
+"13626","221","n-1","1 9 8",,0
+"13627","221","n-x","x=x-n","element x could be anything",0.5
+"13684","222","n-1","n - 1 = inverse",,1
+"13685","222","n-x","n - x = inverse","The inverse is the number that makes x add to n.",1
+"13742","223","n-1","+_8",,0
+"13743","223","n-x","x +_n y = 0","The formula for an inverse of an element x under +_n is x +_n y = 0 with y representing the missing number in the inverse.",0
+"13800","224","n-1","(n)(n)",,0
+"13801","224","n-x","x(n)","I think because you start with x and you need to move (n) number of spaces to reach the correct number.",0
+"13858","225","n-1","inverse=n-1",,1
+"13859","225","n-x","inverse=n-x","The inverse is whatever the number it takes to complete n, so subtracting x from n should provide the inverse.",1
+"13925","226","n-1","no idea",,0
+"13926","226","n-x","no idea ","no idea
+",0
+"13992","227","n-1","n-1",,1
+"13993","227","n-x","n-x","That should get you to 0",1
+"14050","228","n-1","1",,0
+"14051","228","n-x","I don't know","N/A",0
+"14117","229","n-1","2+1=3",,0
+"14118","229","n-x","1","1+0=1",0
+"14175","230","n-1","9",,0
+"14176","230","n-x","I don't know","How do you calculate the inverse when you don't know what either x or element n clocky thing are.",0
+"14233","231","n-1","0=1n",,0
+"14234","231","n-x","0=xn","you would get the inverse by finding the steps to 0.",0
+"14300","232","n-1","(n)-1",,1
+"14301","232","n-x","(n)-x if x>0, else 0","The inverse is the positive number that makes the (n) operation add up to a multiple of n. If x is 0 then it should be 0 instead of n.",1
+"14367","233","n-1","n-1=X",,1
+"14368","233","n-x","n-x=y","Subtract X from N (i.e., N-X) to get the inverse Y",1
+"14425","234","n-1","2-1",,0
+"14426","234","n-x","x-n","it's difference",0.5
+"14493","235","n-1","2",,0
+"14494","235","n-x","3","count to the right",0
+"14560","236","n-1","1 + x = n - 1",,0
+"14561","236","n-x","n - x","the inverse is going to be  whatever n is minus whatever x is because the inverse will be whatever makes x the same as n",0
+"14618","237","n-1","1 n = 1+2 - n",,0
+"14619","237","n-x","x + n = x + x - n","I cann ot expla in this in words, it's just based on my limited understanding of this concept.",0
+"14685","238","n-1",".",,0
+"14686","238","n-x","No idea","I must have misunderstood the instructions",0
+"14743","239","n-1","1 +_n x = 0",,0
+"14744","239","n-x","x +_n y = 0","The inverse of a number under +_n is whichever number, when added to x equals n",0
+"14801","240","n-1","the formula is n-1",,1
+"14802","240","n-x","n-x","if x is clockwise from 0 (or n) [n+x], then the inverse of x needs to be th e same d istance counterclockwise from 0 (or n).",1
+"14859","241","n-1","1+0",,0
+"14860","241","n-x","1+n=x","I am totally lost this is way beyond what I understand",0
+"14917","242","n-1","1 + n = n",,0
+"14918","242","n-x","1 + x = n","You need to add x to 1 to get n.",0
+"14975","243","n-1","1",,0
+"14976","243","n-x","...","Dont get it",0
+"15033","244","n-1","1+n=n",,0
+"15034","244","n-x","x+n=n","something added to any number is equal to n",0
+"15101","245","n-1","Inverse = n - 1.",,1
+"15102","245","n-x","Inverse = n-x","Total = n. So inverse of one number is n - that number.",1
+"15168","246","n-1","1+n ",,0
+"15169","246","n-x","X+xn","Thai  would cr eate the target number ",0
+"15226","247","n-1","1N(n-1)",,1
+"15227","247","n-x","XN(n-x)","The inverse of N would be whatever was needed to get back around to 0 from the given point, for example, if n was 5, and x was 2, then it would be 2(5)(5-2)
+which would be 2(n)3",1
+"15293","248","n-1","I = N - 1",,1
+"15294","248","n-x","I = N - X","Element X plus invers e I must  equal N, as N - N = 0 under N. So if X + I = N, then I = N - X",1
+"15351","249","n-1","1+2=0",,0
+"15352","249","n-x","Inverse + x=n ","The inverse is the number when added to x gives (n) as a result.",0
+"15418","250","n-1","n-1",,1
+"15419","250","n-x","n-x","The inverse is how many places it takes to get back to 0. To get there you'd have to subtract X from n.",1
+"15476","251","n-1","n-1",,1
+"15477","251","n-x","n-x","the inverse is usua lly the  total number of sides minus x",1
+"15534","252","n-1","n-1",,1
+"15535","252","n-x","x-n","you want whatever added to n would give you x",0.5
+"15602","253","n-1","if it's a triangle, the inverse of 1 under n is 2. ",,0
+"15603","253","n-x","3. ","if 0 is the element x and n represents 3, then the inverse of x under n, given the polygon is a triangle, would be 3. ",0
+"15660","254","n-1","i don't remember",,0
+"15661","254","n-x","1","I'm not sure about inverse",0
+"15727","255","n-1","n - 1",,1
+"15728","255","n-x","n - x","x + inverse of x = n, or in the case of using the (n) system, x (n) inverse of x = 0. The two numbers combined have to get you to the top of the circle, the 0.",1
+"15794","256","n-1","(n)25
+
+??",,0
+"15795","256","n-x","(n)4","because x has 4 points..??
+
+(im sorry this part is really confusing for me)",0
+"15852","257","n-1","+n = 1+n",,0
+"15853","257","n-x","+n = x+n","I realize it could be any counting number.",0
+"15910","258","n-1","Inverse of 1 = value of n - 1. So if n = 3, the inverse would be 3 - 1 = 2.",,1
+"15911","258","n-x","Inverse = n - x","In any number sided shape, you can view the inverse as getting to the end of the shape. Therefore, you've already taken X number of steps towards getting to the end. Th at means  in a total of n steps, you need to take whatever the difference is between the number you have taken (x) with the total number of the shape (n).",1
+"15968","259","n-1","1 + n",,0
+"15969","259","n-x","n-(x+1)","This formula should always equal 1",0
+"16026","260","n-1","(n)-1",,1
+"16027","260","n-x","n-x","Whatever n is, subtracting x from it will give you the inverse number. ",1
+"16093","261","n-1","1 (n) n-1",,1
+"16094","261","n-x","x (n) n-x","x + n-x = n, since the value is equal to n, subtract n from it to get the result, 0.",1
+"16160","262","n-1","1-n",,0.5
+"16161","262","n-x","x-n","take n, subtract the element x from n and that leaves the inverse",0.5
+"16228","263","n-1","8",,0
+"16229","263","n-x","6","6 is clockwise downward after 3",0
+"16286","264","n-1","10=n+1",,0
+"16287","264","n-x","n0","inverse is 0",0
+"16353","265","n-1","1 n 0 = 1",,0
+"16354","265","n-x","x n 0 = x","0 is the inverse of x under n",0
+"16411","266","n-1","0",,0
+"16412","266","n-x","number of sides-n=x","I am not completely sure at this point, but the number of sides(9) mi nus a gi ven number would equal the inverse I believe.",0.5
+"16469","267","n-1","n+1",,0
+"16470","267","n-x","x+1","In a three sided figure, if we add one and two, we would get zero.",0
+"16546","268","n-1","1",,0
+"16547","268","n-x","x = n/n","n is any number ",0
+"16613","269","n-1","10",,0
+"16614","269","n-x","0","The number needed to reach 0",0
+"16671","270","n-1","n-1",,1
+"16672","270","n-x","n-x","The inverse is the number coupled with x that produces the identity, which is 0.  In the operation (n), the number  and its  inverse have to add to n (which produces 0), so the inverse of a number, x, is n-x.",1
+"16729","271","n-1","n-1",,1
+"16730","271","n-x","n-x","Like the  inverse  of 2 under an element under 6 is 6-2 = 4, this can be used here substituting n for 6 and x for 2.",1
+"16787","272","n-1","7",,0
+"16788","272","n-x","1+nX=0","to find the inverse you must write the number that will give the identity of 0",0
+"16845","273","n-1","the inverse of 1 under n would be (n-1)",,1
+"16846","273","n-x","the inverse of x under n is: n-x","since the inverse is the number that is added to x to equal zero that means that the inverse of x is n-x. ",1
+"16912","274","n-1","The formula is +n",,0
+"16913","274","n-x","x=+n","Any number can be plugged into n.",0
+"16970","275","n-1","I don't know",,0
+"16971","275","n-x","I don't know","this is confusing me",0
+"17038","276","n-1","n = 2",,0
+"17039","276","n-x","no answer","because we do not know what n or x is ",0
+"17096","277","n-1","2",,0
+"17097","277","n-x","The inverse means how much you can add to the variable to have it reach 0.","I am doing this based off of the instructions for the 6 operation.",0
+"17163","278","n-1","Not sure",,0
+"17164","278","n-x","Not sure","Not sure",0
+"17230","279","n-1","I don't know. ",,0
+"17231","279","n-x"," x +_n y = n ","I am really not good at algebra (math learning disability) so this is the best I can do. ",0
+"17288","280","n-1","I don't know.",,0
+"17289","280","n-x","I don't know.","I don't understand.",0
+"17355","281","n-1","9 +_n = 1",,0
+"17356","281","n-x","+n + +n= x","I don't think this is even close.",0
+"17413","282","n-1","8",,0
+"17414","282","n-x","x + x = 10","not sure",0
+"17471","283","n-1","1 + x = n",,0
+"17472","283","n-x","n - y = x","We are trying to find the number x, and the inverse is going to be n minus the number y, where y is the given number.",0.5
+"17529","284","n-1","n - 1 = the inverse",,1
+"17530","284","n-x","n - x = the inverse","Where n is the numbe r in the  polygon and x is an integer, the inverse is n minus x. ",1
+"17596","285","n-1","0",,0
+"17597","285","n-x","subtract x from _n","I'm not sure if I remembered correctly but the inverse is the number than makes _n = 0 when added to x. If _n was 6 and element x was 1. The inverse would be 6 - 1 = 5.",0
+"17654","286","n-1","1x1=2",,0
+"17655","286","n-x","x+x=inverse","click on x move x times clockwise to find the inverse",0
+"17712","287","n-1","2",,0
+"17713","287","n-x","-x","guess",0
+"17770","288","n-1","N-1",,1
+"17771","288","n-x","I honestly don't know","I honestly don't know",0
+"17837","289","n -1","I have no idea.",,0
+"17838","289","n-x","I don't know.","I understand the inverse just not without given variables.",0
+"17904","290","n- 1","n-1",,1
+"17905","290","n-x","x=x-n","x must have a number that totals to n so you figure it out that way",0.5
+"17962","291","n-1","I'm not sure",,0
+"17963","291","n-x","I don't know","I don't know how to calculate this",0
+"18020","292","n-1","inverse = n-1"," ",1
+"18021","292","n-x","n-x","The determine the answer, the sum of the two numbers has to equal 0.  So n-x equals the number of the inverse.",1
+"18078","293","n-1","I'm not sure. +n minus 1 equals the inverse.",,1
+"18079","293","n-x","I don't know","I'm not sure.",0
+"18136","294","n-1","n-1",,1
+"18137","294","n-x","n-x","any given number x, simply subtract from the total points on the operator to get its inverse",1
+"18203","295","n-1","1n",,0
+"18204","295","n-x","xn2","i do not know the answer",0
+"18270","296","n-1","I don't know.",,0
+"18271","296","n-x","I don't know","I don't understand this one so don't know the explanation.",0
+"18337","297","n-1","+n-1",,1
+"18338","297","n-x","subtract number from n, remainder is the inverse","subtract number from n, remainder is the inverse",1
+"18405","298","n-1","9-1",,0
+"18406","298","n-x","x - the number = 9","The numbers have to equal 9",0
+"18472","299","n-1","n-1",,1
+"18473","299","n-x","n-x","because x is the element that we are tying to find the inverse of.",1

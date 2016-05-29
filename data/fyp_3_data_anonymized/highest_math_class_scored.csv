@@ -1,0 +1,302 @@
+"row.names","subject","correct_response","response","explanation","score","math_high"
+"59","1",,"Basic college entry",,0,0
+"126","2",,"trig in high school.  statistics in college",,0,1
+"184","3",,"algebra",,0,0
+"242","4",,"Calculus 3",,0,1
+"300","5",,"numerical analysis",,0,1
+"358","6",,"AP Calculus in High School.",,0,1
+"426","7",,"Geometry Course but I hated it. ",,0,0
+"484","8",,"algebra 1",,0,0
+"542","9",,"Differential Equations, though frankly I did poorly.  Calc 2.",,0,1
+"600","10",,"College Algerbra",,0,0
+"658","11",,"pre-calc",,0,1
+"735","12",,"Statistics 2",,0,1
+"793","13",,"Discrete Mathematics and Single variable calculus.",,0,1
+"860","14",,"Algebra II . I am not a math person by any stretch. ",,0,1
+"927","15",,"algebra 1",,0,0
+"994","16",,"Algebra II. I went to vocational high school, so the academics weren't strenuous. ",,0,1
+"1052","17",,"market behavior",,0,1
+"1119","18",,"Econometrics, honestly forget what type of crazy math was being used",,0,1
+"1177","19",,"Calc BC",,0,1
+"1235","20",,"Tri gonometr y ",,0,1
+"1293","21",,"Basic math, fractions, algebra",,0,0
+"1351","22",,"College Algebra",,0,0
+"1409","23",,"I have a PhD in numerical methods, from Stanford actually.",,0,1
+"1476","24",,"modern algebra, linear algebra, differential equations, intro to advanced math",,0,1
+"1534","25",,"Calculus",,0,1
+"1601","26",,"Statistics ",,0,1
+"1659","27",,"discreet mathematics. ",,0,1
+"1727","28",,"algebra",,0,0
+"1794","29",,"Statistics ",,0,1
+"1852","30",,"Calculus III in college.",,0,1
+"1910","31",,"Calculus",,0,1
+"1968","32",,"algebra 1",,0,0
+"2026","33",,"Algebra 2",,0,1
+"2084","34",,"High school SR year Math (It was a long long time ago, I do n't reca ll what it was, Alegebra?)",,0,0
+"2142","35",,"algebra",,0,0
+"2209","36",,"Physics 2, Calculus 1",,0,1
+"2267","37",,"Alegbra",,0,0
+"2334","38",,"Algebra 2",,0,1
+"2401","39",,"college algebra",,0,0
+"2459","40",,"algebra",,0,0
+"2517","41",,"Calculus 2",,0,1
+"2584","42",,"Psychology",,0,0
+"2642","43",,"statistics",,0,1
+"2700","44",,"Pre-algabra",,0,0
+"2767","45",,"algebra 2",,0,1
+"2835","46",,"Some  college ",,0,0
+"2902","47",,"college algebra",,0,0
+"2969","48",,"Algebra 101, which I had to have special tutoring in.  ",,0,0
+"3027","49",,"I have a college degree, but I really don't know what math classes I needed. It was a few years ago. Algebra, maybe? ",,0,0
+"3085","50",,"College Algebra",,0,0
+"3143","51",,"Calculus 2, but it was a long time ago",,0,1
+"3201","52",,"calculus 2",,0,1
+"3259","53",,"College Algebra, Statistics, Calculus and Quantitative Analysis.",,0,1
+"3317","54",,"College Algebra",,0,0
+"3384","55",,"Calculus 1-4, Advanced calculus, discrete mathematics, math statistics, bio-statistics",,0,1
+"3451","56",,"I can't remember. It was a generic math requirement for social sciences that was less difficult than calculus.",,0,1
+"3519","57",,"High school math",,0,0
+"3586","58",,"Calc II",,0,1
+"3653","59",,"Calculus",,0,1
+"3720","60",,"college algebra ",,0,0
+"3778","61",,"Calculus",,0,1
+"3845","62",,"AP Algebra 2 (I took Pre-Calculus but failed it twice in high  school  and in college)",,0,1
+"3903","63",,"multi-variable calculus",,0,1
+"3961","64",,"Calculus ",,0,1
+"4028","65",,"College  Algebra.  Maybe something beyond that, it's been a long time.",,0,0
+"4086","66",,"Calculus 3 in college.",,0,1
+"4144","67",,"Algebra 1",,0,0
+"4202","68",,"Business calculus",,0,1
+"4270","69",,"I have completed calculus. ",,0,1
+"4337","70",,"algebra ",,0,0
+"4395","71",,"Calculus II",,0,1
+"4462","72",,"trig",,0,1
+"4520","73",,"Algebra 3",,0,1
+"4578","74",,"Algebra",,0,0
+"4636","75",,"Calculus",,0,1
+"4703","76",,"Calculus",,0,1
+"4761","77",,"I took sequential math (NY State) I, II, and II I in hig h school - so, 10th/11th grade math. ",,0,1
+"4819","78",,"Algebra ",,0,0
+"4886","79",,"Calculus in college",,0,1
+"4944","80",,"Algebra",,0,0
+"5002","81",,"I have a masters in Mathematics.  Topology, Advanced Algebra, Number Theory.",,0,1
+"5060","82",,"Statistic s or pre calculus.",,0,1
+"5127","83",,"Algebra II",,0,1
+"5195","84",,"I took algebra in high school",,0,0
+"5253","85",,"Calculus",,0,1
+"5321","86",,"algerbra",,0,0
+"5379","87",,"High school algebra 2.",,0,1
+"5446","88",,"Education al Stati stics",,0,1
+"5513","89",,"I don't remember exactly. Whatever I was taught in high-school is the extent of the math I was taught. ",,0,0
+"5580","90",,"Algebra 2",,0,1
+"5647","91",,"algebra 2 but it was over 13 years ago.  ",,0,1
+"5714","92",,"Trigonometry",,0,1
+"5781","93",,"topology",,0,1
+"5839","94",,"College statistics.",,0,1
+"5897","95",,"High school Algebra",,0,0
+"5955","96",,"Pre-Calculus and Trigonometry. (I'm unsure which class is more advanced.)",,0,1
+"6013","97",,"I can't remember, it was over 10 years ago since my last math course.",,0,0
+"6071","98",,"college algebra",,0,0
+"6129","99",,"Calculus",,0,1
+"6196","100",,"I had started into calculus and trig.",,0,1
+"6254","101",,"College Algebra",,0,0
+"6312","102",,"Algebra",,0,0
+"6370","103",,"Calculus",,0,1
+"6428","104",,"College level Math 103.",,0,0
+"6486","105",,"Calculus",,0,1
+"6544","106",,"Trigonometry.",,0,1
+"6611","107",,"Calculus",,0,1
+"6688","108",,"just high school algebra ",,0,0
+"6746","109",,"trig & physics",,0,1
+"6813","110",,"Algebra 2",,0,1
+"6871","111",,"Calculus",,0,1
+"6929","112",,"Calculus 2",,0,1
+"6987","113",,"differential equations, statistics",,0,1
+"7054","114",,"I took a beginner one in college. I can't remember what it was, but it was basically doing stats, I think. Obviously, I'm not math-inclined!",,0,1
+"7112","115",,"Algebra.",,0,0
+"7179","116",,"Probably geometry or something. Maybe algebra, I don't know.",,0,0
+"7247","117",,"high school math",,0,0
+"7315","118",,"I have taken Statistics.",,0,1
+"7373","119",,"Algebra 3-4",,0,1
+"7431","120",,"calculus",,0,1
+"7489","121",,"Calculus 3-4(Calculus II)",,0,1
+"7556","122",,"I took college algebra.",,0,0
+"7614","123",,"algebra 2",,0,1
+"7672","124",,"Trigonometry",,0,1
+"7740","125",,"Cal culation",,0,1
+"7798","126",,"High school Algebra",,0,0
+"7856","127",,"Calc 3",,0,1
+"7914","128",,"calculus in college",,0,1
+"7981","129",,"Pre-Calculus ",,0,1
+"8058","130",,"College algebra",,0,0
+"8116","131",,"algebra2",,0,1
+"8183","132",,"Calculus II (20 yea rs ago)",,0,1
+"8241","133",,"Statistics, Calculus",,0,1
+"8299","134",,"Differential Calculus I",,0,1
+"8376","135",,"calculus ",,0,1
+"8443","136",,"Pr e-Calculus",,0,1
+"8510","137",,"Calculus II",,0,1
+"8568","138",,"geometry",,0,0
+"8626","139",,"Algebra",,0,0
+"8684","140",,"Basic college math.",,0,0
+"8742","141",,"Math for Business course (many years ago)",,0,0
+"8800","142",,"Pre calculus.",,0,1
+"8858","143",,"Advanced Business Math, Algebra II, ",,0,1
+"8916","144",,"differential equations",,0,1
+"8983","145"," ","Calculus",,0,1
+"9050","146",,"Statistics",,0,1
+"9117","147",,"Calculus II",,0,1
+"9175","148",,"Algebra, Geometry, Statistics",,0,1
+"9233","149",,"Alegrbra I back in 1981
+Business math in 1983",,0,0
+"9291","150",,"High School Math.",,0,0
+"9349","151",,"Calculus I, I believe. ",,0,1
+"9407","152",,"my most advanced was college algebra",,0,0
+"9475","153",,"Calculus 1",,0,1
+"9542","154",,"it's been a long time so I don't know",,0,0
+"9619","155",,"Algebra 2",,0,1
+"9677","156",,"Calc 1",,0,1
+"9735","157",,"Math Course 1A... in 10th grade. I went to a learning center from 11th to 12th grade, the math was basic, I don't think I've ever taken an geometry class or higher.",,0,0
+"9802","158",,"Calculus 1",,0,1
+"9860","159",,"Basic algebra",,0,0
+"9918","160",,"Some advanced calculus.  I cannot recall the exact course title.",,0,1
+"9976","161",,"Calculus almost a decade ago",,0,1
+"10034","162",,"Advanced Calculus",,0,1
+"10092","163",,"pre-calculas",,0,1
+"10150","164",,"Calculus I",,0,1
+"10208","165",,"College Statistics/ Microeconomics ",,0,1
+"10266","166",,"C alculus",,0,1
+"10333","167",,"discrete math",,0,1
+"10391","168",,"College Algebra",,0,0
+"10449","169",,"Algebra. I am not good at math. ",,0,0
+"10516","170",,"Pre Calc",,0,1
+"10583","171",,"algebra 2",,0,1
+"10650","172",,"Algebra (high school)",,0,0
+"10717","173",,"differential equations, multivariate calculus",,0,1
+"10775","174",,"Business Accounting, Business Finance ",,0,0
+"10833","175",,"Calculus 2 ",,0,1
+"10891","176",,"Calculus",,0,1
+"10949","177",,"I have some learning disabilities. The highest level of math class I completed was basic math. Somehow I managed to avoid any taking any high level classes high school. In college I took some weird math class. I had no idea what I was doing, but I passed some how. It was interesting though. Wwhen test for learning disabilities in college they said I was at a third grade math level. My daughter is in fourth  grade.  when I try and help her with my math homework. I'm lost. I good with geometry. When I saw the shape in the beginning of the hit I though this would be easy, but I got lost at the end.",,0,0
+"11007","178",,"Algebra 101.",,0,0
+"11074","179",,"High School Calculus",,0,1
+"11141","180",,"Algebra",,0,0
+"11208","181",,"Calculus",,0,1
+"11266","182",,"college level trigonometry...i think i passed it after dropping it 2-3 times..maybe
+i definitely passed college algebra...",,0,0
+"11333","183",,"Calculus 1, Trigonometry",,0,1
+"11391","184",,"Basic math requirements for a BFA--35 years ago.",,0,0
+"11458","185",,"Calculus 3",,0,1
+"11516","186",,"Algebra 1",,0,0
+"11583","187",,"Algebra III",,0,1
+"11641","188",,"Statistics",,0,1
+"11699","189",,"Algebra II College level",,0,1
+"11757","190",,"Algebra 2",,0,1
+"11825","191",,"statistics",,0,1
+"11883","192",,"College intro to calculus ",,0,1
+"11941","193",,"statistics in college",,0,1
+"11999","194",,"Geometry ",,0,0
+"12066","195",,"College Algebra",,0,0
+"12124","196",,"Geometry",,0,0
+"12182","197",,"Geometry & Algebra.",,0,0
+"12240","198",,"stats",,0,1
+"12298","199",,"Calc 3, Differential Equations, Stochastic Processes, various statistics courses",,0,1
+"12356","200",,"I took 3 calculus classes and some linear and logic math course(it was my minor) but it was 30 yea rs ago a nd I have never used higher math since then.",,0,1
+"12414","201",,"College level statistics, pre-calculus. ",,0,1
+"12472","202",,"Trig 1",,0,0
+"12530","203",,"Calc",,0,1
+"12597","204",,"I have an algebraic processing disorder. I have everything for a 2 year degree besides a math credit. I have attempted the class 5 times. I have failed the class 5 times. I gave up. I am too stupid to do math.",,0,0
+"12664","205",,"high school calculus",,0,1
+"12722","206",,"Algebra (which I failed and had to take in summer school, and still barely passed).",,0,0
+"12780","207",,"College Algebra & Quantitative methods of psychology",,0,0
+"12838","208",,"calc",,0,1
+"12896","209"," ","College algebra.",,0,0
+"12963","210",,"calculus 2",,0,1
+"13021","211",,"Linear regression analysis",,0,1
+"13079","212",,"algebra",,0,0
+"13146","213",,"Basic Algebra",,0,0
+"13204","214",,"Calculus, finite mathematicas",,0,1
+"13262","215",,"Algebra/Geometry 12/3 years ago.",,0,0
+"13330","216",,"highschool math grade 12",,0,0
+"13388","217",,"Algebra in high school and very little math in college.",,0,0
+"13455","218",,"College Statistics, college astronomy with physics",,0,1
+"13513","219",,"college algebra... I never went any further, and that was 20 years ago. ",,0,0
+"13580","220",,"Pre-algebra 35 years ago.",,0,0
+"13638","221",,"Calculus ",,0,1
+"13696","222",,"Differential Calculus",,0,1
+"13754","223",,"Algebra",,0,0
+"13812","224",,"Calculus",,0,1
+"13879","225",,"Entry level college statistics (STAT 190)",,0,1
+"13946","226",,"Calculus I",,0,1
+"14004","227",,"Algebra.",,0,0
+"14071","228",,"Calculus I; Advanced Statistical Methods",,0,1
+"14129","229",,"geometry",,0,0
+"14187","230",,"algebra",,0,0
+"14254","231",,"Algebra II, some trigonometry, some calculus.  ",,0,1
+"14321","232",,"Taken geometry, pre calculus, and the calculus class that comes after precalc - don't recall the name.",,0,1
+"14379","233",,"College Calculus I'd say. Always took hono rs math  since young age, it's been a while though. I took AB and BC Calculus in High School. Took another Calc class in a step above in college and also took statistics and econometrics classes in college. I'd say the College Calc is the most advanced.",,0,1
+"14437","234",,"calculus",,0,1
+"14514","235",,"pre-calculus",,0,1
+"14572","236",,"business calculus",,0,1
+"14639","237",,"Algebra II ",,0,1
+"14697","238",,"algebra 2?",,0,1
+"14755","239",,"Triganometry",,0,1
+"14813","240",,"Calculus II",,0,1
+"14871","241",,"Algebra in high school but failed, got a tutor my second semester and got a D I am not good at math",,0,0
+"14929","242",,"Calculus II",,0,1
+"14987","243",,"PreCal...",,0,1
+"15045","244",,"math for elementary teachers, Algebra 2",,0,1
+"15122","245",,"Calculus",,0,1
+"15180","246",,"Calculus",,0,1
+"15247","247",,"Pre-calculus, trigonometry. ",,0,1
+"15305","248",,"Differential Equations, Partial DiffEq, Number Theory, Graph Theory",,0,1
+"15372","249",,"The most basic of algebra, barely, and 30 years ago. ",,0,0
+"15430","250",,"Algebra 2",,0,1
+"15488","251",,"i don't remember",,0,0
+"15546","252",,"Algebra 101 in college and I HATED it...this HIT made my head hurt.",,0,0
+"15614","253",,"the most advanced math class i've ever taken is probability and statistics.",,0,1
+"15681","254",,"basic math",,0,0
+"15748","255",,"Calculus",,0,1
+"15806","256",,"10th grade math many years ago",,0,0
+"15864","257",,"multi-variable calculus, discrete math, linear algebra",,0,1
+"15922","258",,"College level algebra and trigonometry.",,0,1
+"15980","259",,"Technical Math II",,0,1
+"16047","260",,"Trigonometry. ",,0,1
+"16114","261",,"Linear Algebra / Stochastic Processes",,0,1
+"16172","262",,"algebra, calc, ",,0,1
+"16240","263",,"I have only successfully completed basic math courses.  I am not good at more complicated math courses like algebra",,0,0
+"16307","264",,"College alebra",,0,0
+"16365","265",,"College algebra",,0,0
+"16423","266",,"Calculus I",,0,1
+"16490","267",,"College statistics",,0,1
+"16567","268",,"basic algebra in college ",,0,0
+"16625","269",,"College algebra, geometry and statistics.",,0,1
+"16683","270",,"differential equations",,0,1
+"16741","271",,"Multi-variable Calculus",,0,1
+"16799","272",,"Intro to Calculus in freshman year of college",,0,1
+"16866","273",,"college statistics",,0,1
+"16924","274",,"Calculus ",,0,1
+"16982","275",,"Business Calculus",,0,1
+"17050","276",,"calculus",,0,1
+"17117","277",,"Algebra II",,0,1
+"17184","278",,"Trig",,0,1
+"17242","279",,"1  college  level course called elementary math which covered everything we learned in highschool. ",,0,0
+"17309","280",,"Algebra ",,0,0
+"17367","281",,"Trigonometry and calculus II",,0,1
+"17425","282",,"geometrics",,0,0
+"17483","283",,"calculus",,0,1
+"17550","284",,"I haven't done any very advanced math classes",,0,0
+"17608","285",,"I think I stopped with an intro to calculus. It was many years ago though.",,0,1
+"17666","286",,"Algebra1",,0,0
+"17724","287",,"calculus",,0,1
+"17791","288",,"High school math",,0,0
+"17858","289",,"7th grade math.",,0,0
+"17916","290",,"Trigonometry ",,0,1
+"17974","291",,"Calculus (freshman year)",,0,1
+"18032","292",,"calculus",,0,1
+"18090","293",,"Trignometry",,0,1
+"18157","294",,"Differential Equations",,0,1
+"18224","295",,"pre algebra",,0,0
+"18291","296",,"College Algebra.",,0,0
+"18349","297",,"statistics",,0,1
+"18426","298",,"calculus II",,0,1
+"18493","299",,"Algebra 2",,0,1
