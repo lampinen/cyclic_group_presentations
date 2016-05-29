@@ -191,7 +191,7 @@ complete_data[inverse_formula_scores$row.names,]$question_type = 'inverse_formul
 
 #Generator Questions -- 6
 complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_6'
-complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ) & gsub(" ","",correct_response) == 'Yes',]$question_type = 'generator_true_6'
+complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("hexagon",gsub(" ","",complete_data$question)) | grepl("+<sub>6",gsub(" ","",complete_data$question)) ) & gsub(" ","",complete_data$correct_response) == 'Yes',]$question_type = 'generator_true_6'
 
 #Generator Questions -- 9
 complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)) & (grepl("nonagon",gsub(" ","",complete_data$question)) | grepl("+<sub>9",gsub(" ","",complete_data$question)) ),]$question_type = 'generator_false_9'
