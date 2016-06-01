@@ -110,7 +110,7 @@ We chose to analyse the data via a mixed-effects linear regression on the questi
 We performed this experiment on Amazon's Mechanical Turk, using high-reputation subjects (over 85\% approval rate), and using subject tracking (so we could run follow-up and replication studys on Mechanical Turk without having the same subjects participate and contaminate the results). The task was developed using JSPsych framework with a custom plugin to integrate the interactive polygon diagrams for each question, hosted on Stanford's servers, and embedded in the Mechanical Turk page.  
 \subsection{Results}
 \subsubsection{Operation}
-There was no significant difference in the performance on the basic operation questions between the experimental groups (see Figure \ref{ex1_op}). These are the questions where the representation taught differed between the experimental groups. Both groups performed quite well, over 90\% accuracy. 
+There was no significant difference in the performance on the basic operation questions between the experimental groups (see Figure \ref{ex1_op}) in either the order 6 group ($\beta = 0.006$, $t = 0.18$, $p = 0.86$) or the order 9 group ($\beta = -0.009$, $t = -0.26$, $p = 0.79$). These are the questions where the representation taught differed between the experimental groups. Both groups performed quite well, with over 90\% accuracy. 
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -126,7 +126,7 @@ There was no significant difference in the performance on the basic operation qu
 \label{ex1_op}
 \end{figure} 
 \subsubsection{Secondary Concepts}
-Despite the fact that the experimental groups did not significantly differ on performing the operation, and the instruction on the secondary concepts was identical between experimental groups, we did find significant differences on some of these secondary concepts. First, for inverses the modular group was significantly better at finding the inverse of non-zero elements (at least in the order 9 group), but worse at finding the inverse of zero (see Figure \ref{ex1_in}). (Unfortunately we did not include an inverse of zero question in the order 9 group in this experiment, so we only have data from the order 6 group.)
+Despite the fact that the experimental groups did not significantly differ on performing the operation, and the instruction on the secondary concepts was identical between experimental groups, we did find significant differences on some of these secondary concepts. First, for inverses the polygon group was significantly worse at finding the inverse of non-zero elements in the order 9 group ($\beta = -0.169$, $t=-3.73$, $p < 0.001$), but better at finding the inverse of zero (see Figure \ref{ex1_in}) in the order 6 group ($\beta = 0.66$, $t=9.13$, $p < 0.001$). (Unfortunately we did not include an inverse of zero question in the order 9 group in this experiment, so we only have data from the order 6 group.)
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -141,7 +141,7 @@ Despite the fact that the experimental groups did not significantly differ on pe
 \caption{Experiment 1 -- Inverse Results}
 \label{ex1_in}
 \end{figure}\noindent 
-Second, the polygon group was significantly better at identifying elements that were generators, while they did not significantly differ at identifying non-generators. However, the modular group performed better at the T/F questions about generators in the order $n$ group. (see Figure \ref{ex1_gen}).
+Second, the polygon group was significantly better at identifying elements that were generators (order 6: $\beta = 0.164$, $t = 2.27$, $p = 0.02$; order 9: $\beta = 0.184$, $t = 3.45$, $p < 0.001$). However, the modular group performed better at the T/F questions about generators in the order $n$ group ($\beta = -0.11$, $t = -2.60$, $p = 0.009$). (See Figure \ref{ex1_gen}.)
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -190,7 +190,7 @@ We analyzed the data via a planned mixed-effects linear regression on the questi
 We performed this experiment on Amazon's Mechanical Turk, using high-reputation subjects (over 85\% approval rate), and using subject tracking (so we could run follow-up and replication studys on Mechanical Turk without having the same subjects participate and contaminate the results). The task was developed using JSPsych framework with a custom plugin to integrate the interactive polygon diagrams for each question, hosted on Stanford's servers, and embedded in the Mechanical Turk page.  
 \subsection{Results}
 \subsubsection{Operation}
-We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex2_op}). Furthermore, there was no significant difference between the hybrid and modular groups. 
+We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex2_op}) in either group order (order 6: $\beta = 0.02$, $t = 0.735$, $p = 0.46$; order 9: $\beta = 0.02$, $t = 0.63$, $p = 0.53$). Furthermore, there was no significant difference between the hybrid and modular groups (order 6: $\beta = -0.02$, $t = -0.72$, $p = 0.47$; order 9: $\beta = 0.04$, $t = 1.10$, $p = 0.27$).
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -206,7 +206,8 @@ We replicated our result that there was no significant difference in the perform
 \label{ex2_op}
 \end{figure} 
 \subsubsection{Secondary Concepts}
-We replicated our results that the modular group performed better at inverses of non-zero elements, and the polygon group performed better at inverse of zero questions. (The modular group performed worse than the polygon group even in the order 9 group, once they had already seen an example with feedback.) The hybrid group was not significantly worse than the modular group at inverses of non-zero elements, and was significantly better at inverses of zero (see Figure \ref{ex2_in}). However, it is clear that the hybrid group is not initially performing as well as the polygon group on this question, so there is still room for improvement. \\[11pt] 
+We replicated our results that the modular group performed better at inverses of non-zero elements (order 6: $\beta = -0.11$, $t = -2.59$, $p = 0.009$; order 9: $\beta = -0.07$, $t = -1.48$, $p = 0.13$), and the polygon group performed better at inverse of zero questions (order 6: $\beta = 0.68$, $t = 8.842$, $p < 0.001$; order 9: $\beta = 0.44$, $t = 5.80$, $p < 0.001$). (Note that the modular group performed worse than the polygon group even in the order 9 group, once they had already seen an example with feedback.) The hybrid group was not significantly worse than the modular group at inverses of non-zero elements (order 6: $\beta = -0.007$, $t = -0.173$, $p = 0.86$; order 9: $\beta = 0.08$, $t = 1.56$, $p = 0.12$), and was significantly better at inverses of zero (order 6: $\beta = 0.46$, $t = 5.95$, $p < 0.001$; order 9: $\beta = 0.38$, $t = 4.91$, $p < 0.001$). (See Figure \ref{ex2_in}.) However, it is clear that the hybrid group is not initially performing as well as the polygon group on this question, so there is still room for improvement. \\[11pt] 
+
 \begin{figure}[h]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -221,7 +222,7 @@ We replicated our results that the modular group performed better at inverses of
 \caption{Experiment 2 -- Inverse Results}
 \label{ex2_in}
 \end{figure} 
-Furthermore, we replicated our result that the polygon group is better at identifying generators in one group order, and we replicated our result that the modular group is better at T/F questions about generators. The hybrid group is significantly better than the modular group at identifying generators in the group order where our previous finding replicated, and is not significantly worse at the T/F questions (see Figure \ref{ex2_gen}). However, it appears that the hybrid group may not be achieving performance on par with the modular group on these questions.
+Furthermore, we replicated our result that the polygon group is better at identifying generators in the order 9 group ($\beta = 0.19$, $t = 3.37$, $p < 0.001$), and we replicated our result that the modular group is better at T/F questions about generators ($\beta = -0.12$, $t = -2.71$, $p = 0.007$). The hybrid group is significantly better than the modular group at identifying generators in the group order where our previous finding replicated ($\beta = 0.25$, $t = 4.31$, $p < 0.001$), and is not significantly worse at the T/F questions ($\beta = -0.042$, $t = -0.98$, $p = 0.33$). (See Figure \ref{ex2_gen}.) However, it appears that the hybrid group may not be achieving performance completely on par with the modular group on these questions.
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -326,7 +327,7 @@ Using these classifiers on the hybrid data from experiment 2, we found that the 
 \end{table} 
 These results should not be read too strongly, because they are based on a few data points, because we did not ask for explanations on every question, and many subjects did not use specific words in their explanations. In part, this may be due to our design, by attempting to homogenize the language we used when presenting more advanced concepts to subjects, and remove references to the underlying operation, we implicitly encouraged subjects to give explanations that used representation-agnostic language (e.g. ``5 can make all the other elements'' instead of ``using 5 we can reach each other point on the nonagon''). We also tried using more general classifiers that were derived directly from the data, using the 20 or 40 most selective words and estimating the posterior probabilities from these, but while these classifiers were more sensitive, they were significantly less specific, so we think the interpretation of those results are problematic.   
 \subsection{Discussion}
-Our results generally replicated those of the original experiment. The only result that failed to replicate was the polygon group performing better at identifying generators in the order 6 group, but since it did replicate in the order 9 group it is possible that this was just a fluke. A further experiment to verify this would be ideal. However, the general pattern of results remains, and thus our original conclusions that the representation can have effects on learning of more abstract concepts remain. \\[11pt]
+Our results generally replicated those of the original experiment. The only results that failed to replicate was the polygon group performing better at identifying generators in the order 6 group, and the polygon group performing worse at the inverse of non-zero elements in the order 9 group, but since each did replicate in the other group order it is possible that these were just a fluke. A further experiment to verify this would be ideal. However, the general pattern of results remains, and thus our original conclusions that the representation can have effects on learning of more abstract concepts remain. \\[11pt]
 Furthermore, the hybrid group performed approximately maximally well, although it did not appear to achieve truly maximal performance, so there is still progress to be made. Our post-hoc analyses suggest that some subjects may have integrated the results better than others, so there may be some individual variation. However, these results at least begin to suggest that the use and integration of multiple representations could be an important direction to pursue in future math pedagogy research. \\[11pt]
 Finally, in our post-hoc analyses we produced some corroborating evidence that the polygon condition is better at identifying generators because of the spatial structure of generation on the polygon, by showing that using the diagram improved performance on these questions. 
 \section{Conclusion}
