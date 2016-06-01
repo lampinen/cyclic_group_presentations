@@ -250,11 +250,85 @@ One of our main goals for this experiment was to test the idea of a hybrid group
 \end{enumerate} 
 We fit this model to the data using expectation-maximization, and estimated that $\theta = 0.53, \phi = 0.38$ (Aikake information criterion $LL=-821.9$), so the data are best fit under this model by assuming that a little more than half the subjects are perfectly integrating, and those that aren't are choosing the modular representation over the polygon almost two-thirds of the time. We used the Aikake information criterion to compare this model ($AIC = 1647.8$) to models where all subjects chose modular ($AIC=1829.6$), all chose polygon ($AIC = 1720.5$), 50\% chose each ($AIC = 1678.8$), and all subjects performed optimally ($AIC = 1689.9$). The full model fits better than any of these comparison models. However, there are many other possible ways people could use the two representations (such as picking arbitrarily on each question), so further investigation is needed.
 \subsubsection{Analysis of hybrid subject word use}
+We also attempted to investigate the hybrid subjects' use of different representations by the presence of words in their explanations of answers that corresponded to one of the representations or another. First, we hand-crafted classifiers for the polygon and modular condition, respectively, based on the most common words that were specific to the condition (Polygon condition: move, spaces, clockwise, steps, arrow, hexagon, nonagon, ngon, spots, positions; Modular condition: add, subtract, plus, minus, +). We counted the occurrences of each of these words in each explanation, and then classified it as polygon if the polygon-word-count was higher, and as modular if the modular-word-count was higher. This produced highly specific, though not especially sensitive, classifiers for the conditions, see table \ref{wordusevaltable} for comparisons of classifier estimate of condition versus true condition across all questions with explanations in experiment 1. 
+\begin{table}[h] 
+\centering
+    \begin{subtable}[c]{\textwidth}
+	\centering
+	\begin{tabular}{|r|c c|}
+	    \hline   & not classified polygon & classified polygon \\ 
+	    \hline actually modular & 499 & 1 \\
+	    actually polygon & 341 & 159 \\ \hline 
+	\end{tabular}
+	\caption{Polygon classifier}
+    \end{subtable}
+    \newline \vspace{1em}\newline 
+    \begin{subtable}[c]{\textwidth}
+	\centering
+	\begin{tabular}{|r|c c|}
+	    \hline   & not classified modular & classified modular \\ 
+	    \hline actually modular & 380 & 120 \\
+	    actually polygon & 496 & 4 \\ \hline 
+	\end{tabular}
+	\caption{Modular classifier}
+    \end{subtable}
+\caption{Validation of hand-crafted word-use classifiers}
+\label{wordusevaltable}
+\end{table} 
+Using these classifiers on the hybrid data from experiment 2, we found that the hybrid subjects were classified as using more polygon words on 58 questions total across all subjects, and more modular words on 33 questions. We compared scores across classifier groups, and found some intriguing patterns, see table \ref{worduseresultstable}. On questions about the inverse of non-zero elements, hybrid subjects rated as using more polygon words appeared more accurate than those not using more polygon words, and those using more modular words appeared less accurate than those not using more modular words (table \ref{polyclassintable} \& \ref{modclassintable}). Similarly, on questions where they had to identify a generator, hybrid subjects rated as using more polygon words appeared more accurate than those not using more polygon words, and those using more modular words also appeared more accurate than those not using more modular words, but more subjects used polygon words than modular (table \ref{polyclassintable} \& \ref{modclassintable}). \\[11pt]
+\begin{table}[h] 
+\centering
+    \begin{subtable}[c]{\textwidth}
+	\centering
+	\begin{tabular}{|r|c c|}
+	    \hline   & score = 0 & score = 1 \\ 
+	    \hline not classified polygon & 6 & 30 \\
+	    classified polygon & 0 & 10 \\ \hline 
+	\end{tabular}
+	\caption{Inverse of non-zero questions: polygon classifier}
+	\label{polyclassintable}
+    \end{subtable}
+    \newline \vspace{1em}\newline 
+    \begin{subtable}[c]{\textwidth}
+	\centering
+	\begin{tabular}{|r|c c|}
+	    \hline   & score = 0 & score = 1 \\ 
+	    \hline not classified modular & 4 & 37 \\
+	    classified modular & 2 & 3 \\ \hline 
+	\end{tabular}
+	\caption{Inverse of non-zero questions: modular classifier}
+	\label{modclassintable}
+    \end{subtable}
+    \newline \vspace{1em}\newline 
+    \begin{subtable}[c]{\textwidth}
+	\centering
+	\begin{tabular}{|r|c c|}
+	    \hline   & score = 0 & score = 1 \\ 
+	    \hline not classified polygon & 45 & 38 \\
+	    classified polygon & 0 & 9 \\ \hline 
+	\end{tabular}
+	\caption{Generator questions: polygon classifier}
+	\label{polyclassgentable}
+    \end{subtable}
+    \newline \vspace{1em}\newline 
+    \begin{subtable}[c]{\textwidth}
+	\centering
+	\begin{tabular}{|r|c c|}
+	    \hline   & score = 0 & score = 1 \\ 
+	    \hline not classified modular & 45 & 45 \\
+	    classified modular & 0 & 2 \\ \hline 
+	\end{tabular}
+	\caption{Generator questions: modular classifier}
+	\label{modclassgentable}
+    \end{subtable}
+\caption{Word-use classifier results}
+\label{worduseresultstable}
+\end{table} 
+These results should not be read too strongly, because they are based on a few data points, because we did not ask for explanations on every question, and many subjects did not use specific words in their explanations. In part, this may be due to our design, by attempting to homogenize the language we used when presenting more advanced concepts to subjects, and remove references to the underlying operation, we implicitly encouraged subjects to give explanations that used representation-agnostic language (e.g. ``5 can make all the other elements'' instead of ``using 5 we can reach each other point on the nonagon''). We also tried using more general classifiers that were derived directly from the data, using the 20 or 40 most selective words and estimating the posterior probabilities from these, but while these classifiers were more sensitive, they were significantly less specific, so we think the interpretation of those results are problematic.   
 \subsection{Discussion}
-
 Our results generally replicated those of the original experiment. The only result that failed to replicate was the polygon group performing better at identifying generators in the order 6 group, but since it did replicate in the order 9 group it is possible that this was just a fluke. A further experiment to verify this would be ideal. However, the general pattern of results remains, and thus our original conclusions that the representation can have effects on learning of more abstract concepts remain. \\[11pt]
-Furthermore, the hybrid group performed approximately maximally well, although it did not appear to achieve truly maximal performance, so there is still progress to be made. Still, this suggests that the use and integration of multiple representations could be an important direction to pursue in future math pedagogy research. 
-
+Furthermore, the hybrid group performed approximately maximally well, although it did not appear to achieve truly maximal performance, so there is still progress to be made. Our post-hoc analyses suggest that some subjects may have integrated the results better than others, so there may be some individual variation. However, these results at least begin to suggest that the use and integration of multiple representations could be an important direction to pursue in future math pedagogy research. \\[11pt]
+Finally, in our post-hoc analyses we produced some corroborating evidence that the polygon condition is better at identifying generators because of the spatial structure of generation on the polygon, by showing that using the diagram improved performance on these questions. 
 \section{Conclusion}
 We explored the way representation of concepts in mathematics pedagogy affects understanding of the concept being exemplified, and of more abstract concepts built upon it, using elementary group theory as our test domain. We found that even if two representations produce equal performance on a basic concept, they can produce differential understanding of the more abstract concepts based upon it. Furthermore, it does not appear that there is always a clear advantage of one representation over another, instead each representation is more useful for some types of questions, and less useful for others. We also identified a possible strategy for improving performance: namely teaching multiple representations while encouraging subjects to integrate them. Preliminary data suggests that this may have positive effects even if the total instruction time is approximately the same. We think that these findings provide a contribution to the discussion of representation in math cognition, and an exciting direction for new research in math pedagogy.  
  
