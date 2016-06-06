@@ -169,7 +169,8 @@ In our second experiment, we had two goals. First, we wanted to replicate the re
 All materials can be found can be found on our github (https://github.com/lampinen/fyp cyclic groups), including complete versions of our experiments, which can be downloaded and run, or viewed using github's html preview. The materials and methods were identical to experiment 1, except:\\[11pt]
 \textbf{Hybrid group:} We added a hybrid group, which was taught both representations initially (with polygon labeled as ``polygon'', and modular labeled as ``arithmetic''). We encouraged subjects to integrate these representations by adding a question and explanation about how the different representations worked the same, giving them a chance to reflect on the isomorphism between them (though we did not use that word). Furthermore, we asked subjects on alternating operation practice questions to use the different representations, to encourage them to achieve facility with each representation. (The hybrid group saw the same number of practice questions as the other experimental groups.)\\[11pt]
 \textbf{Added questions:} Because we added a question to the hybrid group asking them how the representations worked the same, we added questions to the other experimental groups asking and explaining how the operations worked, giving them a chance to reflect on the representation. We also added a question about the inverse of zero in the order 9 group, to see if subjects in the modular condition performed better on it after getting feedback on their previous answer. \\[11pt]
-\textbf{Other:} Typo fixes, wording adjustments, and other small changes to the experiment. As mentioned above, the versions can be compared on our GitHub.
+\textbf{Other:} Typo fixes, wording adjustments, and other small changes to the experiment. As mentioned above, the versions can be compared on our GitHub.\\[11pt]
+(All implementation details were as in experiment 1.)
 \subsection{Hypotheses}
 We hypothesized that we would replicate the results of our first experiment, namely: 
 \begin{itemize} 
@@ -185,7 +186,7 @@ Furthermore, we hypothesized that the hybrid group would achieve approximately t
 \item The hybrid group would not significantly differ from the modular group when the modular group performed better.
 \end{itemize}
 \subsubsection{Analysis}
-We analyzed the data via a planned mixed-effects linear regression on the question-by-question scores of the subjects, with the fixed effects being question type, including the group order (6, 9, or n) in which it was presented; representation, (polygon, modular, or hybrid); the interaction of those two; the effect of having a high math background (as in experiment 1); and a random effect of subject. We excluded subjects who reported in the background section that they had used modular arithmetic or mathematical groups before. The results presented are taken from this analysis. (All implementation details were as in experiment 1.)
+We analyzed the data via a planned mixed-effects linear regression on the question-by-question scores of the subjects, with the fixed effects being question type, including the group order (6, 9, or n) in which it was presented; representation, (polygon, modular, or hybrid); the interaction of those two; the effect of having a high math background (as in experiment 1); and a random effect of subject. We excluded subjects who reported in the background section that they had used modular arithmetic or mathematical groups before. The results presented are taken from this analysis.
 \subsection{Results}
 \subsubsection{Operation}
 We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex2_op}) in either group order (order 6: $\beta = 0.02$, $t = 0.735$, $p = 0.46$; order 9: $\beta = 0.02$, $t = 0.63$, $p = 0.53$). Furthermore, there was no significant difference between the hybrid and modular groups (order 6: $\beta = -0.02$, $t = -0.72$, $p = 0.47$; order 9: $\beta = 0.04$, $t = 1.10$, $p = 0.27$).
@@ -246,7 +247,7 @@ One of our main goals for this experiment was to test the idea of a hybrid group
 \begin{enumerate}
 \item With probability $\theta$, the subject would integrate the material, and would perform optimally in the sense that their data would be best fit by assuming they picked the optimal representation on each question (or equivalently, that their regression coefficients were the element-wise maximum of the regression coefficients of the two other groups). 
 \item If the subjects did not integrate (probability $1-\theta$), they would pick the polygon representation with probability $\phi$, and the modular representation with probability $1-\phi$, and their data would be best fit by the coefficients for the respective group.
-\end{enumerate} %%TODO: Include E-M model with theta 0, but phi free
+\end{enumerate}
 We fit this model to the data using the expectation-maximization algorithm, and estimated that $\theta = 0.53, \phi = 0.38$ (log-likelihood $LL=-821.9$), so the data are best fit under this model by assuming that a little more than half the subjects are perfectly integrating, and those that aren't are choosing the modular representation over the polygon almost two-thirds of the time. We used the Aikake Information Criterion (AIC) to compare this model ($AIC = 1647.8$) to models where all subjects chose modular ($AIC=1829.6$), all chose polygon ($AIC = 1720.5$), where no subjects integrated i.e. a fixed $\theta = 0$ and fit $\phi = 0.65$ ($AIC = 1678.2$), and a model where all subjects integrated i.e. $\theta = 1.0$ ($AIC = 1689.9$). The full model is significantly better than any of these comparison models. However, there are many other possible ways people could use the two representations (such as picking arbitrarily on each question), so further investigation is needed.
 \subsubsection{Analysis of hybrid subject word use}
 We also attempted to investigate the hybrid subjects' use of different representations by the presence of words in their explanations that corresponded to one of the representations or another. First, we hand-crafted classifiers for the polygon and modular condition, respectively, based on the most common words that were specific to the condition (Polygon condition: move, spaces, clockwise, steps, arrow, hexagon, nonagon, ngon, spots, positions; Modular condition: add, subtract, plus, minus, +). We counted the occurrences of each of these words in each explanation, and then classified it as polygon if the polygon-word-count was higher, and as modular if the modular-word-count was higher. This produced highly specific, though not especially sensitive, classifiers for the conditions, see table \ref{wordusevaltable} for comparisons of classifier estimate of condition versus true condition across all questions with explanations in experiment 1. 
@@ -328,6 +329,85 @@ These results should not be read too strongly, because they are based on a few d
 Our results generally replicated those of the original experiment. The only results that failed to replicate were the polygon group performing better at identifying generators in the order 6 group, and the polygon group performing worse at the inverse of non-zero elements in the order 9 group. However, both results were trending in the correct direction, and since each did replicate in the other group order, it is possible that there is a real effect that these experiments were not sufficiently powered to detect reliably. A further experiment to verify this would be ideal. However, the general pattern of results remains, and thus our original conclusions that the representation can have effects on learning of more abstract concepts remain. \\[11pt]
 Furthermore, the hybrid group approached best of both worlds performance, although it did not appear to fully reach that level, so there is still progress to be made. Our post-hoc analyses suggest that some subjects may have integrated the results better than others, so there may be some individual variation. However, these results at least begin to suggest that the use and integration of multiple representations could be an important direction to pursue in future math pedagogy research. \\[11pt]
 Finally, in our post-hoc analyses we produced some corroborating evidence that the polygon condition is better at identifying generators because of the spatial structure of generation on the polygon, by showing that using the diagram improved performance on these questions. 
+
+
+\section{Experiment 3}
+\subsection{Introduction}
+In our third experiment, we wanted to replicate the results of our previous experiment, as well as further exploring the factors that enhanced the hybrid group's performance. In order to explore this, we added questions for the hybrid group (after the main experiment had been completed), in which they described the extent to which they had used each representation on the previous question. 
+\subsection{Materials \& Methods} 
+All materials can be found can be found on our github (https://github.com/lampinen/fyp cyclic groups), including complete versions of our experiments, which can be downloaded and run, or viewed using github's html preview. The materials and methods were identical to experiment 2, except:\\[11pt]
+\textbf{Which-representation questions:} We added four questions for the hybrid subjects in which they answered a question, and then subsequently indicated on likert scales for each representation the degree to which they had used it on the preceding question. After this, they were presented a text box and asked to describe in as much detail as possible how they had used each representation in solving the question. We added one question for each of the four question types where we previously observed an effect, inverse of zero, inverse of non-zero elements, identifying generators, and answering T/F questions about generators. \\[11pt]
+\textbf{Other:} Typo fixes, wording adjustments, and other small changes to the experiment. As mentioned above, the versions can be compared on our GitHub.\\[11pt]
+(All implementation details were as in experiments 1 \& 2.)
+\subsection{Hypotheses}
+We hypothesized that we would replicate the results of second experiment, namely: 
+\begin{itemize} 
+\item The modular and polygon groups would not differ significantly in their learning of the operation.
+\item The modular group would be significantly better than the polygon group at finding the inverse of non-zero elements.
+\item The polygon group would be significantly better than the modular group at finding the inverse of zero.
+\item The polygon group would be significantly better than the modular group at identifying elements that are generators in the specific groups.
+\item The modular group would be significantly better than the polygon group at answering T/F questions about generators in the order $n$ group.
+\end{itemize}
+Furthermore, we hypothesized that the hybrid group would achieve approximately the maximum performance of the two groups, i.e.: %%TODO: contrast this with averaging or confusion hypotheses
+\begin{itemize}
+\item The hybrid group would be significantly better than the modular group whenever the polygon group performed better.
+\item The hybrid group would not significantly differ from the modular group when the modular group performed better.
+\end{itemize}
+Finally, for the questions where we had the hybrid subjects describe which representation they used, we hypothesized that where the polygon subjects performed better, using the polygon representation would be significantly predictive of success or using the modular representation would be significantly predictive of failure, and vice versa for the questions where the modular subjects performed better.
+\subsubsection{Analysis}
+We analyzed the data via a planned logistic regression on the question-by-question scores of the subjects, which we bootstrapped across 10,000 resamples of the subjects, with the predictors being question type, including the group order (6, 9, or n) in which it was presented; representation, (polygon, modular, or hybrid); the interaction of those two; the effect of having a high math background (as in experiment 1). We excluded subjects who reported in the background section that they had used modular arithmetic or mathematical groups before. We used the inclusion of zero in the 95\% confidence intervals for the predictors as our signficance testing. The results presented are taken from this analysis. For the hypotheses about the which-representation questions, we used logistic regression predicting score on the question by the ratings of representation used.
+\subsection{Results}
+\subsubsection{Operation}
+We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex3_op}) in either group order (order 6: ; order 9: ), and our result that there was no significant difference between the hybrid and modular groups (order 6: ; order 9: ).
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/op_6_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/op_9_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Operation Results}
+\label{ex3_op}
+\end{figure} 
+\subsubsection{Secondary Concepts}
+We replicated our results that the modular group performed better at inverses of non-zero elements only in the order 9 group, although the effect was trending in the order 6 group (order 6: ; order 9: ). We replicated our result that the polygon group performed better at inverse of zero questions (order 6: ; order 9: ). The hybrid group was not significantly worse than the modular group at inverses of non-zero elements in the order 9 group, but was in the order 6 group (order 6: ; order 9:). We replicated our result that the hybrid group was significantly better at inverses of zero (order 6:; order 9: ). (See Figure \ref{ex3_in}.) \\[11pt]
+\begin{figure}[ht]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/in_NZ_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/in_Z_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Inverse Results}
+\label{ex3_in}
+\end{figure} 
+Furthermore, we replicated our result that the polygon group is better at identifying generators (order 6: ; order 9). We failed to replicate our result that the modular group is better at T/F questions about generators, in fact the results were the opposite in this experiment (). We failed to replicated our result that the hybrid group is significantly better than the modular group at identifying generators in either group order, although both effects were trending in that direction (). (See Figure \ref{ex3_gen}.)
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/gen_T_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/gen_TF_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Generator Results}
+\label{ex3_gen}
+\end{figure}\noindent 
+\subsection{Discussion}
+%%TODO: This
+\section{Meta-analysis}
+%%TODO: this
 \section{Conclusion}
 We explored the way representation of concepts in math instruction affects understanding of the concept being exemplified, and of more abstract concepts built upon it, using elementary group theory as our test domain. We found that even if two representations produce equal performance on a basic concept, they can produce differential understanding of the more abstract concepts based upon it. Furthermore, it does not appear that there is always a clear advantage of one representation over another, instead a representation may be more useful for some types of questions, and less useful for others. We think that these findings provide a contribution to the discussion of representation in math cognition, illustrating that representations have different advantages and disadvantages. This suggests that the pursuit of a single best type of representation may be futile. \\[11pt]
 Instead, we have identified an alternative strategy for improving performance: namely teaching multiple representations while encouraging subjects to integrate them. Preliminary data suggests that this may have positive effects even if the total instruction time is approximately the same. We think this provides an exciting new direction for research in both math cognition and math pedagogy. 
