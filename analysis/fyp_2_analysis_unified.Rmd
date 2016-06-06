@@ -30,6 +30,7 @@ response = vector()
 condition = vector()
 trial_index = vector()
 score = vector()
+used_diagram = vector()
 
 j = 1
 for (i in 1:length(files)) {
@@ -67,6 +68,12 @@ for (i in 1:length(files)) {
       }
       else {
         response[j] = these_data[1][[1]][[trial_i]]$response
+      }
+      
+      if (!is.null(these_data[1][[1]][[trial_i]]$orientation_history) && is.list(these_data[1][[1]][[trial_i]]$orientation_history) ) {
+        used_diagram[j] = length(these_data[1][[1]][[trial_i]]$orientation_history) > 2
+      } else {
+        used_diagram[j] = FALSE
       }
       
       if (!is.na(response[j]) && gsub(' ','',response[j]) == gsub(' ','',correct_response[j])) {
@@ -120,7 +127,7 @@ Write data for scoring
 data frame building
 ------------------------
 ```{r}
-complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score) 
+complete_data = data.frame(subject=factor(subject),condition=condition,question=prompt,correct_response=correct_response,response=response,rt=rt,trial_index=trial_index,score=score,used_diagram=used_diagram) 
 
 #Insert scored data
 inverse_formula_scores = read.csv(paste(data_location,"inverse_formula_scored.csv",sep=""))
@@ -484,6 +491,52 @@ xtabs(~condition+score_strict+polygon_wc_higher,data=model_data[grepl('explain',
 xtabs(~condition+score_strict+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
 xtabs(~condition+score_strict+both_wc_high,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
 ```
+
+
+###Do generator true questions benefit from use of diagram?
+```{r}
+gt_data = model_data %>% filter(condition == 'polygon')
+xtabs(data=gt_data, ~ score_strict+used_diagram)
+xtabs(data=gt_data[grepl('generator_true',gt_data$question_type),], ~score + used_diagram)
+
+gt_data = model_data %>% filter(condition == 'hybrid')
+xtabs(data=gt_data[grepl('generator_true',gt_data$question_type),], ~score + used_diagram)
+
+gt_data = model_data %>% filter(grepl('generator_true',model_data$question_type)) %>% mutate(rt = rt/1000)
+gt_mod = glmer(data=gt_data[gt_data$condition == 'polygon',],family=binomial,score ~ used_diagram+(1|subject))
+summary(gt_mod)
+gt_mod = glmer(data=gt_data[gt_data$condition == 'polygon',],family=binomial,score ~ used_diagram+rt+(1|subject))
+summary(gt_mod)
+overall_mod = glmer(data=model_data[model_data$condition == 'polygon',],family=binomial,score_strict ~ used_diagram+(1+used_diagram|subject))
+summary(overall_mod)
+
+overall_mod = glmer(data=model_data[model_data$condition == 'hybrid',],family=binomial,score_strict ~ used_diagram+(1+used_diagram|subject))
+summary(overall_mod)
+gt_data = model_data %>% filter(grepl('generator_true',model_data$question_type)) %>% mutate(rt = rt/1000)
+gt_mod = glmer(data=gt_data[gt_data$condition == 'hybrid',],family=binomial,score ~ used_diagram+(1|subject))
+summary(gt_mod)
+gt_mod = glmer(data=gt_data[gt_data$condition == 'hybrid',],family=binomial,score ~ used_diagram+rt+(1|subject))
+summary(gt_mod)
+
+gt_data = model_data %>% filter(!(condition == 'modular'))
+xtabs(data=gt_data, ~ score_strict+used_diagram)
+xtabs(data=gt_data[grepl('generator_true',gt_data$question_type),], ~score + used_diagram)
+
+gt_data = model_data %>% filter(!(condition == 'modular') & grepl('generator_true',model_data$question_type)) %>% mutate(rt = rt/1000)
+gt_mod = glmer(data=gt_data,family=binomial,score ~ used_diagram+(1|subject))
+summary(gt_mod)
+gt_mod = glmer(data=gt_data,family=binomial,score ~ used_diagram+rt+(1|subject))
+summary(gt_mod)
+
+#Overalll
+gt_data = model_data %>% filter(!(condition == 'modular')) %>% mutate(rt = rt/1000)
+gt_mod = glmer(data=gt_data,family=binomial,score_strict ~ used_diagram+(1|subject))
+summary(gt_mod)
+gt_mod = glmer(data=gt_data,family=binomial,score_strict ~ used_diagram+rt+(1|subject))
+summary(gt_mod)
+
+```
+
 
 
 ###Patterns of errors

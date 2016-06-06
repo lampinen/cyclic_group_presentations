@@ -630,7 +630,7 @@ ggplot(data=summarized_data,aes(group_order,percent_correct.mean,fill=condition)
   annotate("path",x=c(0.7,0.7,0.95,0.95),y=c(0.98,1.0,1.0,0.98),alpha=0.5)+
   annotate("text",x=2.17,y=1.04,label='ns',alpha=0.5,size=8)+
   annotate("path",x=c(1.7,1.7,1.95,1.95),y=c(0.98,1.0,1.0,0.98),alpha=0.5)+
-  annotate("text",x=1.82,y=1.02,label='*',alpha=0.5,size=8)+
+  annotate("text",x=1.82,y=1.04,label='ns',alpha=0.5,size=8)+
   annotate("path",x=c(2.05,2.05,2.3,2.3),y=c(0.98,1.0,1.0,0.98),alpha=0.5)+
   labs(y = '% Correct',x='Group Order') + 
   scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
