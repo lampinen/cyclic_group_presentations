@@ -432,6 +432,46 @@ print(log_likelihood_of_full_data(hierarchical_data,1,0))
 
 ```
 
+Expectation-maximization -- theta fixed at 0
+```{r}
+#max number of iterations
+num_iterations = 100
+delta_LL_threshold =  0.0001
+#initial values - uniform
+theta = 0.0
+phi = 0.5 
+
+LL_hist = vector()
+
+LL_hist[1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+
+for (iter in 1:num_iterations) {
+  #E step
+  for (subj in hybrid_subjects) {
+    #perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    sum_weights = polygon_weight+modular_weight
+    #augmented_data[augmented_data$subject == subj & augmented_data$theta,]$weight = perfect_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & augmented_data$phi,]$weight = polygon_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & !augmented_data$phi,]$weight = modular_weight/sum_weights
+  }
+  
+  #M step
+  #theta = sum(augmented_data[augmented_data$theta,]$weight)/sum(augmented_data$weight)
+  phi = sum(augmented_data[!augmented_data$theta & (augmented_data$phi==TRUE),]$weight)/sum(augmented_data[!augmented_data$theta,]$weight)
+  
+  #LL and termination
+  LL_hist[iter+1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+  print(paste("theta: ",theta,", phi: ",phi,', LL: ',LL_hist[iter+1]))
+  if (LL_hist[iter+1]-LL_hist[iter] < delta_LL_threshold) {
+    print("Difference of log likelihood from previous step is below threshold, terminating.")
+    break
+  }
+}
+
+```
+
 Expectation-maximization
 ```{r}
 #max number of iterations
