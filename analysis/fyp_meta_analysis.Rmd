@@ -5,7 +5,7 @@ date: "May 19, 2016"
 output: html_document
 ---
 ```{r}
-library(meta)
+library(metafor)
 ```
 
 ```{r}
@@ -20,29 +20,34 @@ names(fyp_2) = c('Ignore','Variable','logOR','se')
 names(fyp_3) = c('Ignore','Variable','logOR','se')
 ```
 
+
 ```{r}
+study_labels = c('Exp. 1','Exp. 2','Exp. 3')
 for (var in fyp_1$Variable) {
   print(var)
-  logOR = c(fyp_1[fyp_1$Variable == var,]$logOR,fyp_2[fyp_2$Variable == var,]$logOR,fyp_3[fyp_3$Variable == var,]$logOR)
-  se = c(fyp_1[fyp_1$Variable == var,]$se,fyp_2[fyp_2$Variable == var,]$se,fyp_3[fyp_3$Variable == var,]$se)
+  logOR = c(fyp_1[levels(fyp_1$Variable)[fyp_1$Variable] == var,]$logOR,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == var,]$logOR,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == var,]$logOR)
+  se =  c(fyp_1[levels(fyp_1$Variable)[fyp_1$Variable] == var,]$se,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == var,]$se,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == var,]$se)
   n.e = c(50,50,100) #num subjects in experimental (polygon or hybrid)
   n.c = c(50,50,100) #num subjects in comparison (modular)
-  or.meta = metagen(logOR,se,sm="OR",n.e=n.e,n.c=n.c)
+  or.meta = rma(yi=logOR,sei=se,measure="OR",n2i=n.e,n1i=n.c)
   print(or.meta)
+  forest(or.meta,slab=study_labels)
   cat('\n\n')
 }
 
+study_labels = c('Exp. 2','Exp. 3')
 for (var in fyp_2$Variable) {
   if (var %in% fyp_1$Variable) {
     next
   }
   print(var)
-  logOR = c(fyp_1[fyp_1$Variable == var,]$logOR,fyp_2[fyp_2$Variable == var,]$logOR,fyp_3[fyp_3$Variable == var,]$logOR)
-  se = c(fyp_1[fyp_1$Variable == var,]$se,fyp_2[fyp_2$Variable == var,]$se,fyp_3[fyp_3$Variable == var,]$se)
+  logOR = c(fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == var,]$logOR,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == var,]$logOR)
+  se = c(fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == var,]$se,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == var,]$se)
   n.e = c(50,100) #num subjects in experimental (polygon or hybrid)
   n.c = c(50,100) #num subjects in comparison (modular)
-  or.meta = metagen(logOR,se,sm="OR",n.e=n.e,n.c=n.c)
+  or.meta = rma(yi=logOR,sei=se,measure="OR",n2i=n.e,n1i=n.c)
   print(or.meta)
+  forest(or.meta,slab=study_labels)
   cat('\n\n')
 }
 ```
