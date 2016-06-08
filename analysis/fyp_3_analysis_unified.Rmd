@@ -690,6 +690,15 @@ ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueor
 
 ```
 
+Other tests with hiearchical data
+```{r}
+q = model_data %>% inner_join(temp) %>% mutate(estimated_integrate = 1*(estimated_strategy=='integrate'))
+cor.test(q$score_strict,q$estimated_integrate)
+
+q = complete_data %>% filter(condition == 'hybrid' & grepl('formula',gsub(' ','',complete_data$question))) %>% inner_join(temp)
+qmod = lm(data=q,score_strict ~ estimated_strategy)
+```
+
 
 
 ###Do generator true questions benefit from use of diagram?
