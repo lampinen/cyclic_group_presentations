@@ -662,6 +662,34 @@ ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueor
 
 ```
 
+Trying to combine this with the hierarchical:
+```{r}
+temp = augmented_data %>% group_by(subject,theta,phi) %>% summarize(weight = head(weight,1)) %>% mutate(estimated_strategy = ifelse(theta,"integrate",ifelse(phi,"polygon","modular"))) %>% group_by(subject)  %>% top_n(n=1,wt=weight) %>% select(subject,estimated_strategy) #MLE estimates of strategy used by each subject from the hierarchical modeling
+temp$estimated_strategy = factor(temp$estimated_strategy)
+whichrep_data = whichrep_data %>% inner_join(temp) 
+```
+
+```{r}
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=estimated_strategy)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=estimated_strategy)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=estimated_strategy)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=estimated_strategy)) +
+  geom_point(position=position_jitter()) +
+  theme_bw()
+
+
+```
+
 
 
 ###Do generator true questions benefit from use of diagram?
@@ -695,6 +723,9 @@ xtabs(data=gt_data[grepl('generator_true',gt_data$question_type),], ~score + use
 ```
 
 Yes, moreso than the overall engagement, though both were quite large effects
+
+
+
 
 ###Patterns of errors
 
