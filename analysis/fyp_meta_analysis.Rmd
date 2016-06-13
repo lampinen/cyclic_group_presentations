@@ -9,9 +9,9 @@ library(metafor)
 ```
 
 ```{r}
-fyp_1 = read.csv('fyp_1_bootstrap_estimates.csv')
-fyp_2 = read.csv('fyp_2_bootstrap_estimates.csv')
-fyp_3 = read.csv('fyp_3_bootstrap_estimates.csv')
+fyp_1 = read.csv('fyp_1_selected_bootstrap_estimates.csv')
+fyp_2 = read.csv('fyp_2_selected_bootstrap_estimates.csv')
+fyp_3 = read.csv('fyp_3_selected_bootstrap_estimates.csv')
 fyp_1 = data.frame(lapply(fyp_1,function(x) {gsub("polygonTRUE","conditionpolygon", x)})) #variable name consistency
 names(fyp_1) = c('Ignore','Variable','logOR','se') 
 fyp_1$logOR = as.numeric(levels(fyp_1$logOR)[fyp_1$logOR])
