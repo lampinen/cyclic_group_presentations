@@ -1333,11 +1333,12 @@ Inverse of 1, x:
 summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
-  geom_bar(stat="identity",position="dodge") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='*',alpha=0.5,width=8)+
+  geom_bar(stat="identity",position="dodge",width=0.5) +
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position=position_dodge(),width=0.5) +
+  annotate("text",x=1.5,y=1.02,label='*',alpha=0.5,size=8)+
+  annotate("path",x=c(1.0,1.0,2.0,2.0),y=c(0.98,1.0,1.0,0.98),alpha=0.5)+
   labs(y='% Correct') + 
-  ggtitle("Inverse of 1,x Results")
+  ggtitle("Inverse Formula Results")
 
 ```
 
@@ -1408,8 +1409,10 @@ Generator A/S/N:
 summarized_data = complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),] %>% group_by(subject,condition,prompt) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
-  geom_bar(stat="identity",position="dodge") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge") +
-  annotate("text",x=1.5,y=1.0,label='p = 0.49',alpha=0.5)+
+  geom_bar(stat="identity",position="dodge",width=0.5) +
+  geom_hline(aes(yintercept=0.333,alpha=0.25),linetype=2,show_guide=FALSE)+
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem),position="dodge",width=0.25) +
+  annotate("text",x=1.5,y=1.04,label='ns',alpha=0.0,size=8)+
+  labs(y='% Correct', x='Condition') + 
   ggtitle("Generator A/S/N Results")
 ```
