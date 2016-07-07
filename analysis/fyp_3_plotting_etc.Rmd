@@ -598,9 +598,10 @@ summarized_data = complete_data[grepl("formula",gsub(" ","",complete_data$questi
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position="dodge") +
-  # annotate("text",x=2,y=1.0,label='all ns',alpha=0.5)+
+  annotate("text",x=2,y=1.0,label='all ns',alpha=0.5,size=8)+
   scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
-  ggtitle("Inverse of 1, x Results")
+  labs(y = '% Correct') + 
+  ggtitle("Inverse Formula Results")
 
 ```
 
@@ -646,7 +647,7 @@ ggplot(data=summarized_data,aes(generator,percent_correct.mean,fill=condition)) 
 Generator :
 
 ```{r}
-summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)),] %>% mutate(group_order = ifelse((grepl("hexagon",gsub(" ","",question)) | grepl("+<sub>6",gsub(" ","",question))),'Order 6','Order 9')) %>% mutate(generator = ifelse(group_order=='Order 6',gsub(" ","",correct_response) == "Yes",(grepl("2",question) | grepl("3",question)))) %>% group_by(subject,condition,generator,group_order) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator,group_order) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)),] %>% mutate(group_order = ifelse((grepl("hexagon",gsub(" ","",question)) | grepl("+<sub>6",gsub(" ","",question))),'Order 6','Order 9')) %>% mutate(generator = ifelse(group_order=='Order 6',gsub(" ","",correct_response) == "Yes",(grepl("2",question) | grepl("5",question)))) %>% group_by(subject,condition,generator,group_order) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator,group_order) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
 
 ggplot(data=summarized_data[summarized_data$generator,],aes(group_order,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
@@ -662,8 +663,25 @@ ggplot(data=summarized_data[summarized_data$generator,],aes(group_order,percent_
   scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
   labs(y = '% Correct',x='Group Order') + 
   ggtitle("Generator (Generator = True)")
+```
+
+
+Generator (False):
+
+```{r}
+summarized_data = complete_data[grepl("generatorunder",gsub(" ","",complete_data$question)),] %>% mutate(group_order = ifelse((grepl("hexagon",gsub(" ","",question)) | grepl("+<sub>6",gsub(" ","",question))),'Order 6','Order 9')) %>% mutate(generator = ifelse(group_order=='Order 6',gsub(" ","",correct_response) == "Yes",(grepl("2",question) | grepl("5",question)))) %>% group_by(subject,condition,generator,group_order) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,generator,group_order) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+
+ggplot(data=summarized_data[!summarized_data$generator,],aes(group_order,percent_correct.mean,fill=condition)) +
+  geom_bar(stat="identity",position="dodge") +
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position=position_dodge(width=0.9)) +
+  annotate("text",x=1.5,y=1.04,label='all ns',alpha=0.5,size=8)+
+  scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
+  labs(y = '% Correct',x='Group Order') + 
+  ggtitle("Generator (Generator = False)")
 
 ```
+
+
 Generator T/F:
 
 ```{r}
@@ -689,9 +707,10 @@ summarized_data = complete_data[grepl("always,sometimes,ornever",gsub(" ","",com
 
 ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) +
   geom_bar(stat="identity",position="dodge") +
-  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.5),position="dodge") +
-  # annotate("text",x=2.0,y=1.04,label='both ns',alpha=0.5,size=8)+
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position="dodge") +
+  annotate("text",x=2.0,y=1.04,label='all ns',alpha=0.5,size=8)+
   scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
+  labs(y = '% Correct') + 
   ggtitle("Generator A/S/N Results")
 ```
 

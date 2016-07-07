@@ -6,6 +6,7 @@ output: html_document
 ---
 ```{r}
 library(metafor)
+library(crop)
 ```
 
 ```{r}
@@ -31,7 +32,10 @@ for (var in fyp_1$Variable) {
   n.c = c(50,50,100) #num subjects in comparison (modular)
   or.meta = rma(yi=logOR,sei=se,measure="OR",n2i=n.e,n1i=n.c)
   print(or.meta)
+
+  pdf(file = paste('./meta_plots/',gsub('\\.','_',var),'.pdf',sep= ''),width=6,height=6)
   forest(or.meta,slab=study_labels)
+  dev.off.crop()
   cat('\n\n')
 }
 
@@ -47,7 +51,9 @@ for (var in fyp_2$Variable) {
   n.c = c(50,100) #num subjects in comparison (modular)
   or.meta = rma(yi=logOR,sei=se,measure="OR",n2i=n.e,n1i=n.c)
   print(or.meta)
+  pdf(file = paste('./meta_plots/',gsub('\\.','_',var),'.pdf',sep= ''),width=6,height=6)
   forest(or.meta,slab=study_labels)
+  dev.off.crop()
   cat('\n\n')
 }
 ```
