@@ -362,6 +362,49 @@ print(log_likelihood_of_full_data(hierarchical_data,1,0))
 
 ```
 
+
+Expectation-maximization -- theta fixed at 0
+```{r}
+#max number of iterations
+num_iterations = 100
+delta_LL_threshold =  0.0001
+#initial values - uniform
+theta = 0.0
+phi = 0.5 
+
+LL_hist = vector()
+
+LL_hist[1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+
+for (iter in 1:num_iterations) {
+  #E step
+  for (subj in hybrid_subjects) {
+    #perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    sum_weights = polygon_weight+modular_weight
+    #augmented_data[augmented_data$subject == subj & augmented_data$theta,]$weight = perfect_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & augmented_data$phi,]$weight = polygon_weight/sum_weights
+    augmented_data[augmented_data$subject == subj & !augmented_data$theta & !augmented_data$phi,]$weight = modular_weight/sum_weights
+  }
+  
+  #M step
+  #theta = sum(augmented_data[augmented_data$theta,]$weight)/sum(augmented_data$weight)
+  phi = sum(augmented_data[!augmented_data$theta & (augmented_data$phi==TRUE),]$weight)/sum(augmented_data[!augmented_data$theta,]$weight)
+  
+  #LL and termination
+  LL_hist[iter+1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
+  print(paste("theta: ",theta,", phi: ",phi,', LL: ',LL_hist[iter+1]))
+  if (LL_hist[iter+1]-LL_hist[iter] < delta_LL_threshold) {
+    print("Difference of log likelihood from previous step is below threshold, terminating.")
+    break
+  }
+}
+
+```
+
+
+
 Expectation-maximization
 ```{r}
 #max number of iterations
@@ -538,7 +581,6 @@ whichrep_data$whichrep_polygon = as.numeric(levels(whichrep_data$whichrep_polygo
 ```
 
 ```{r}
-#inverse zero
 wr_mod_in0 = glm(score ~ whichrep_modular + whichrep_polygon,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],family='binomial')
 summary(wr_mod_in0)
 
@@ -554,55 +596,76 @@ summary(wr_mod_gen_TF)
 ```
 
 ```{r}
+theme_set(theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank()))
 whichrep_data$score = factor(whichrep_data$score)
+whichrep_data$whichrep_polygon = factor(whichrep_data$whichrep_polygon)
+whichrep_data$whichrep_modular = factor(whichrep_data$whichrep_modular)
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
-  geom_point(position=position_jitter()) +
-  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
+  geom_tile(aes(fill=count)) +
+  scale_fill_continuous(low="#000044",high="#FF5555") +
+  labs(x = "Polygon Rating",y="Modular Rating",title="Inverse of Zero: Which Representation?")+
+  facet_grid(.~score,labeller=label_both)+ 
+  theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
-  geom_point(position=position_jitter()) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
+  geom_tile(aes(fill=count)) +
+  scale_fill_continuous(low="#000044",high="#FF5555") +
+  labs(x = "Polygon Rating",y="Modular Rating",title="Inverse of Non-zero: Which Representation?")+
+  facet_grid(.~score,labeller=label_both)+ 
+  theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+#
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
-  geom_point(position=position_jitter()) +
-  theme_bw()
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
+  geom_tile(aes(fill=count)) +
+  scale_fill_continuous(low="#000044",high="#FF5555") +
+  labs(x = "Polygon Rating",y="Modular Rating",title="Identifying Generators: Which Representation?")+
+  facet_grid(.~score,labeller=label_both)+ 
+  theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
-  geom_histogram(binwidth=1) +
-  theme_bw()
+#ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_polygon)) +
+#  geom_histogram(binwidth=1) +
+#  theme_bw()
 
-ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(x=whichrep_polygon,y=whichrep_modular,color=score)) +
-  geom_point(position=position_jitter()) +
-  theme_bw()
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
+  geom_tile(aes(fill=count)) +
+  scale_fill_continuous(low="#000044",high="#FF5555") +
+  labs(x = "Polygon Rating",y="Modular Rating",title="True/False: Which Representation?")+
+  facet_grid(.~score,labeller=label_both)+ 
+  theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
+
 
 
 ```
@@ -635,6 +698,19 @@ ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueor
 
 ```
 
+Correlations
+```{r}
+q = whichrep_data %>% filter(is.na(explain)) %>% mutate(estimated_integrate = 1*(estimated_strategy=='integrate'),estimated_polygon = 1*(estimated_strategy=='polygon'),estimated_modular = 1*(estimated_strategy=='modular'))
+
+cor.test(q$whichrep_modular,q$estimated_modular)
+cor.test(q$whichrep_polygon,q$estimated_modular)
+cor.test(q$whichrep_polygon,q$estimated_polygon)
+cor.test(q$whichrep_modular,q$estimated_polygon)
+cor.test(q$whichrep_polygon,q$estimated_integrate)
+cor.test(q$whichrep_modular,q$estimated_integrate)
+```
+
+
 Other tests with hiearchical data
 ```{r}
 q = model_data %>% inner_join(temp) %>% mutate(estimated_integrate = 1*(estimated_strategy=='integrate'))
@@ -644,7 +720,20 @@ q = complete_data %>% filter(condition == 'hybrid' & grepl('formula',gsub(' ',''
 qmod = lm(data=q,score_strict ~ estimated_strategy)
 ```
 
+```{r}
+wr_mod_in0 = glm(score ~ (whichrep_modular + whichrep_polygon)*estimated_strategy,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_in0)
 
+wr_mod_innz = glm(score ~ (whichrep_modular + whichrep_polygon)*estimated_strategy,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_innz)
+
+wr_mod_gen = glm(score ~ (whichrep_modular + whichrep_polygon)*estimated_strategy,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_gen)
+
+
+wr_mod_gen_TF = glm(score ~ (whichrep_modular + whichrep_polygon)*estimated_strategy,data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],family='binomial')
+summary(wr_mod_gen_TF)
+```
 
 ###Do generator true questions benefit from use of diagram?
 ```{r}

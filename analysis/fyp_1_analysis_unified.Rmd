@@ -405,4 +405,9 @@ xtabs(~polygon+score_strict+polygon_post_higher,data=model_data[grepl('explain',
 xtabs(~polygon+score_strict+modular_post_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)) & model_data$question_type=='generator_true_9',])
 ```
 
+comparison
+```{r}
+xtabs(~polygon+polygon_post_higher+polygon_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+xtabs(~polygon+modular_post_higher+modular_wc_higher,data=model_data[grepl('explain',gsub(' ','',model_data$question)),])
+```
 
