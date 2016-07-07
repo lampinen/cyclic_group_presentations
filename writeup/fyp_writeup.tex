@@ -32,7 +32,7 @@
 \section{Introduction}
 What is the purpose of a pedagogical presentation of a mathematical concept? As the word ``presentation'' suggests, they are generally used to present a broader concept, category, or idea. However, usually the presentation will not be perfect, in the sense that only some of its features will be category-general. In addition, students may have some preconceptions about the objects included in the presentation. Both of these factors may bias the inferences students make about the concept being explained. Thus changing the way a concept is presented may alter what students learn. \\[11pt]
 Furthermore, many concepts are built on top of previously learned concepts. (This idea has been considered for some time within cognitive psychology, e.g. \cite{Fischer1980}, and more specifically within math cognition, e.g. \cite{Hazzan1999}.) Clearly the ability to learn higher-order concepts depends on understanding of the simpler concepts they are built upon. Thus we expect that the representations used to teach a concept can also affect students' understanding of the concepts which build upon it.\\[11pt]
-In this project, I explored these issues of how representations used to teach a concept change understanding of it, and the concepts built upon it. I examined these issues within the area of mathematical cognition, specifically the learning of cyclic groups in group theory. I have built upon the extensive past work on examples in mathematical pedagogy research. For example, Mitchell Nathan's work has explored the effect of ordering of abstract and applied problems in the curriculum has on learning mathematics \cite{Nathan2012}, Markant \& Gureckis have explored the effects of choosing or passively receiving examples when learning categories \cite{Markant2014}, and Larry Lesser has considered using counterintuitive examples to engage students \cite{Lesser1998}. More specifically, Kaminski et al. have investigated different presentations of cyclic groups \cite{Kaminski2008}, and these investigations provoked my interest in this topic. 
+In this project, we explored these issues of how representations used to teach a concept change understanding of it, and the concepts built upon it. We examined these issues within the area of mathematical cognition, specifically the learning of cyclic groups in group theory. We have built upon the extensive past work on examples in mathematical pedagogy research. For example, Mitchell Nathan's work has explored the effect of ordering of abstract and applied problems in the curriculum has on learning mathematics \cite{Nathan2012}, Markant \& Gureckis have explored the effects of choosing or passively receiving examples when learning categories \cite{Markant2014}, and Larry Lesser has considered using counterintuitive examples to engage students \cite{Lesser1998}. More specifically, Kaminski et al. have investigated different presentations of cyclic groups \cite{Kaminski2008}, and these investigations provoked my interest in this topic. 
 
 \subsection{Background: The Advantage(?) of Abstract Examples}
 Kaminski and colleagues \cite{Kaminski2008} presented subjects with either a ``generic'' instantiation of a cyclic group of order 3, or a ``concrete'' one. (Readers unfamiliar with group theory may wish to review Appendix A at this point.) The examples are illustrated in figure \ref{kaminskitraining}. The generic representation consists of some arbitrary geometric symbols, with enforced rules for combining them, and the concrete representation consisted of an example with a narrative about combining cups of liquid, and finding the amount left over. There were two other concrete representations (not shown) that were also used in some experimental sessions (using pizza slices and tennis balls, respectively, as the concrete objects.) They trained subjects to perform the operation in either the generic representation or one to three concrete representations. They then showed subjects the transfer domain shown in figure \ref{kaminskitransfer}, where the objects of the group are replaced by toys in a children's game. The subjects were explicitly told that this followed the same rules as the earlier examples, and that they should try to use their knowledge to predict the correct answers. Kaminski found that the subjects who learned the generic representation performed better at this transfer than the subjects who learned the concrete representation(s). From this, they concluded that ``instantiating an abstract concept in a concrete, contextualized manner appears to constrain that knowledge and hinder the ability to recognize the same concept elsewhere'' \cite{Kaminski2008}. \\[11pt]
@@ -61,8 +61,8 @@ We conducted a series of experiments investigating the effects of presentations,
 \subsection{Introduction}
 In this paper, we present the results from three related experiments, which were performed sequentially in order to explore new hypotheses, and replicate previous results. More specifically: \\[11pt]
 \textbf{Experiment 1:} In our first experiment explored whether the polygon and modular presentations produced differential performance, and if so, for which aspects of understanding. \\[11pt]
-\textbf{Experiment 2:} In our second experiment, we had two goals. First, we wanted to replicate the results of our first experiment with a planned analysis (to ensure that the effects were real and not just chance variation, since we didn't have \textit{a priori} hypotheses about which representation would be superior for which types of questions). Second, we wanted to explore whether we could improve overall performance, by teaching both representations to the subjects and encourage them to integrate the polygon and modular methods into a hybrid representation (while keeping total instruction time approximately the same). \\[11pt]
-\textbf{Experiment 3:} In our third experiment, we wanted to replicate the results of our previous experiment, and to further explore the thought processes of hybrid-group subjects. In order to explore this, we added questions for the hybrid group (after the main experiment had been completed), in which they described the extent to which they had used each representation on a question. 
+\textbf{Experiment 2:} In our second experiment, we had two goals. First, we wanted to replicate the results of our first experiment with a planned analysis (to ensure that the effects were real and not just chance variation, since we didn't have \textit{a priori} hypotheses about which presentation would be superior for which types of questions). Second, we wanted to explore whether we could improve overall performance, by teaching both representations to the subjects and encourage them to integrate the polygon and modular methods into a hybrid representation (while keeping total instruction time approximately the same). \\[11pt]
+\textbf{Experiment 3:} In our third experiment, we wanted to replicate the results of our previous experiments, and to further explore the thought processes of hybrid-group subjects. In order to collect data on this, we added questions for the hybrid group (after the main experiment had been completed), in which they described the extent to which they had used each representation on a question. 
 \subsection{Materials \& Methods} 
 All materials can be found can be found on our github (https://github.com/lampinen/fyp cyclic groups), including complete versions of our experiments, which can be downloaded and run, or viewed using github's html preview. \\[11pt]
 The experimental layout was as follows:
@@ -94,7 +94,8 @@ We first tested the subjects transfer of concepts to the cyclic group of order 9
 \begin{figure}[H] \centering \includegraphics[width=0.3\textwidth]{../figures/nonagon_arrow.png} \caption{Order 9 polygon figure} \label{nonagonex} \end{figure} \noindent
 We allowed the subjects one practice problem (with feedback) on the new operation, to ensure that they understood it. We then asked the subjects questions to test their knowledge of the concepts outlined in each section above, namely:
 \begin{itemize} 
-\item A set of seven problems with the group operation, e.g. $6 \nonagon 4 = ?$, with subjects asked to provide an explanation of their answers for two of them.
+\item A set of seven problems with the group operation, e.g. $6 \nonagon 4 = ?$, with subjects asked to provide an explanation of their answers for two of them. 
+\item (Experiments 2 \& 3: One free-response question asking the hybrid group subjects to reflect on how the different methods corresponded, and analogous questions asking the other subjects to reflect on how the operation worked.) 
 \item One problem on the identity under the operation, with explanation.
 \item Three inverse problems for the group, with explanation for one of them.
 \item Four generators questions (two generators, two non-generators), with explanation for one generator and one non-generator.
@@ -132,11 +133,13 @@ Finally, for the experiment 3 questions where we had the hybrid subjects describ
 \subsubsection{Analysis}
 For experiment 1, we chose to analyse the data via a mixed-effects linear regression on the question-by-question scores of the subjects, with the fixed effects being question type, including the group order (6, 9, or n) in which it was presented; representation, polygon or modular; the interaction of those two; the effect of having a high math background, defined as algebra II, trigonometry, statistics, or above; and a random effect of subject. We excluded subjects who reported in the background section that they had used modular arithmetic or mathematical groups before. The results presented are taken from this analysis. (We did not compute multiple comparisons correction in our analyses for experiment 1, we instead validated them in the subsequent experiments. These results must be interpreted with this in mind.) \\[11pt] 
 For experiment 2, we used the same analysis as in experiment 1, except that we added the hybrid group, and our comparisons were specified \textit{a priori} in accordance with the above hypotheses.\\[11pt]
-For experiment 3, we decided to alter our analyses (because we were concerned about violating the assumptions of the standard linear regression), and analyzed the data via a planned logistic regression on the question-by-question scores of the subjects, which we bootstrapped across 10,000 resamples of the subjects, with the predictors being as in experiments 1 and 2. We excluded subjects who reported in the background section that they had used modular arithmetic or mathematical groups before. We used the inclusion of zero in the 95\% confidence intervals for the predictors to test the significance of our results. This analysis was pre-registered on the Open Science Framework (https://osf.io/5gthx/). The results presented are taken from this analysis. (We also retroactively ran this bootstrapped logistic regression on the data from experiments 1 \& 2, in order to have a uniform set of predictors for our meta-analysis.) For the hypotheses about the which-representation questions, we used logistic regression predicting score on the question by the ratings of representation used.
+For experiment 3, we decided to alter our analyses (because we were concerned about violating the assumptions of the standard linear regression), and analyzed the data via a planned logistic regression on the question-by-question scores of the subjects, which we bootstrapped across 10,000 resamples of the subjects, with the predictors being as in experiments 1 and 2. We excluded subjects who reported in the background section that they had used modular arithmetic or mathematical groups before. We used the inclusion of zero in the 95\% confidence intervals for the predictors to test the significance of our results. This analysis was pre-registered on the Open Science Framework (https://osf.io/5gthx/). The results presented are taken from this analysis. (We also retroactively ran this bootstrapped logistic regression on the data from experiments 1 \& 2, in order to have a uniform set of predictors for our meta-analysis.) For the hypotheses about the representation-use questions, we used logistic regression predicting score on the question by the ratings of representation used.
 \subsubsection{Implementation details}
 We performed the experiments on Amazon's Mechanical Turk, using high-reputation subjects (over 85\% approval rate), and using subject tracking (so we could run follow-up and replication studys on Mechanical Turk without having the same subjects participate and contaminate the results). The tasks were developed using JSPsych framework with a custom plugin to integrate the interactive polygon diagrams where necessary, hosted on Stanford's servers, and embedded in the Mechanical Turk page. We made small alterations and typo fixes between experiments that we did not think would affect the results, the final versions of the experiments can be compared on our github. 
-\subsection{Results} %%TODO: Include full results or at least a better survey of them
-Overall, performance was quite high on the basic operation questions and declined on the questions about inverses and generators. Performance was similar across the order 6 and order 9 groups, but declined substantially in the order $n$ group, suggesting that the subjects were able to transfer their procedures for solving the questions to a different group order, but were not able to formally express them in a generic way.  
+\section{Results} %%TODO: Include full results or at least a better survey of them
+Overall, performance was quite high on the basic operation questions and declined on the questions about inverses and generators. Performance was similar across the order 6 and order 9 groups, but declined substantially in the order $n$ group, suggesting that the subjects were able to transfer their procedures for solving the questions to a different group order, but were not able to formally express them in a generic way. \\[11pt]
+The polygon group and the modular group differed significantly on a number of question types, with the polygon group consistently performing better at identifying elements that were generators and finding the inverse of zero, while the modular group performed significantly better at finding the inverse of non-zero elements. For a full presentation of the results, see below and the supplemental figures appendix. 
+\subsection{Main Results}
 \subsubsection{Operation}
 \textbf{Experiment 1:} There was no significant difference in the performance on the basic operation questions between the experimental groups (see Figure \ref{ex1_op}) in either the order 6 group ($\beta = 0.006$, $t = 0.18$, $p = 0.86$) or the order 9 group ($\beta = -0.009$, $t = -0.26$, $p = 0.79$). These are the questions where the wording varied in accordance with the different representations taught to the experimental groups. Both groups performed quite well, with over 90\% accuracy. \\[11pt] 
 \textbf{Experiment 2:} We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex2_op}) in either group order (order 6: $\beta = 0.02$, $t = 0.735$, $p = 0.46$; order 9: $\beta = 0.02$, $t = 0.63$, $p = 0.53$). Furthermore, there was no significant difference between the hybrid and modular groups (order 6: $\beta = -0.02$, $t = -0.72$, $p = 0.47$; order 9: $\beta = 0.04$, $t = 1.10$, $p = 0.27$).\\[11pt]
@@ -146,13 +149,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/conditionpolygon.png}
+\includegraphics[width=\textwidth]{figures/meta/conditionpolygon.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionpolygon.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionpolygon.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Polygon vs. Modular, Operation}
@@ -163,61 +166,18 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/conditionhybrid.png}
+\includegraphics[width=\textwidth]{figures/meta/conditionhybrid.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionhybrid.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionhybrid.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Hybrid vs. Modular, Operation}
 \label{meta_op_h}
 \end{figure}\noindent 
-
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/op_6_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/op_9_r.png}
-\end{subfigure}
-\caption{Experiment 1 -- Operation Results}
-\label{ex1_op}
-\end{figure} 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/op_6_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/op_9_r.png}
-\end{subfigure}
-\caption{Experiment 2 -- Operation Results}
-\label{ex2_op}
-\end{figure} 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/op_6_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/op_9_r.png}
-\end{subfigure}
-\caption{Experiment 3 -- Operation Results}
-\label{ex3_op}
-\end{figure} 
 \subsubsection{Inverses}
 \textbf{Experiment 1:} For inverses the polygon group was significantly worse at finding the inverse of non-zero elements in the order 9 group ($\beta = -0.169$, $t=-3.73$, $p < 0.001$), but better at finding the inverse of zero (see Figure \ref{ex1_in}) in the order 6 group ($\beta = 0.66$, $t=9.13$, $p < 0.001$). (Unfortunately we did not include an inverse of zero question in the order 9 group in this experiment, so we only have data from the order 6 group.) The modular group was significantly better at writing the generic formulas for the inverse of 1 and an arbitrary element $x$ in the group of order $n$ ($\beta = -0.11$, $t=-1.99$, $p = 0.047$). \\[11pt]
 \textbf{Experiment 2:}  We replicated our results that the modular group performed better at inverses of non-zero elements (order 6: $\beta = -0.11$, $t = -2.59$, $p = 0.009$; order 9: $\beta = -0.07$, $t = -1.48$, $p = 0.13$), and the polygon group performed better at inverse of zero questions (order 6: $\beta = 0.68$, $t = 8.842$, $p < 0.001$; order 9: $\beta = 0.44$, $t = 5.80$, $p < 0.001$). (Note that the modular group performed worse than the polygon group even in the order 9 group, once they had already seen an example of an inverse of zero with feedback.) The polygon group did not perform significantly differently from the modular group at the inverse formula questions ($\beta = -0.05$, $t=-0.94$, $p = 0.35$). The hybrid group did not perform significantly worse than the modular group at inverses of non-zero elements (order 6: $\beta = -0.007$, $t = -0.173$, $p = 0.86$; order 9: $\beta = 0.08$, $t = 1.56$, $p = 0.12$), and did perform significantly better at inverses of zero (order 6: $\beta = 0.46$, $t = 5.95$, $p < 0.001$; order 9: $\beta = 0.38$, $t = 4.91$, $p < 0.001$). However, it is clear that the hybrid group is not initially performing as well as the polygon group on this question, so there is still room for improvement. The hybrid group did not perform significantly differently from the modular group at the inverse formula questions ($\beta = 0.01$, $t=0.125$, $p =0.90$). (See Figure \ref{ex2_in}.) \\[11pt] 
@@ -227,13 +187,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_in_Z_6.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_6_conditionpolygon.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_in_Z_9.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_9_conditionpolygon.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Polygon vs. Modular, Inverse of Zero}
@@ -244,13 +204,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_in_NZ_6.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_6_conditionpolygon.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_in_NZ_9.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_9_conditionpolygon.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Polygon vs. Modular, Inverse of Non-zero}
@@ -260,13 +220,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_in_Z_6.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_6_conditionhybrid.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_in_Z_9.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_9_conditionhybrid.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Hybrid vs. Modular, Inverse of Zero}
@@ -277,13 +237,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_in_NZ_6.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_6_conditionhybrid.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_in_NZ_9.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_9_conditionhybrid.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Hybrid vs. Modular, Inverse of Non-zero}
@@ -294,92 +254,34 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionpolygon.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionpolygon.pdf}
 \caption{Polygon vs. Modular}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionhybrid.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionhybrid.pdf}
 \caption{Hybrid vs. Modular}
 \end{subfigure}
 \caption{Meta Analysis -- Inverse Formula}
 \label{meta_in_f}
 \end{figure}\noindent 
-
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/in_NZ_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/in_Z_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/in_f_r.png}
-\end{subfigure}
-\caption{Experiment 1 -- Inverse Results}
-\label{ex1_in}
-\end{figure}\noindent 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/in_NZ_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/in_Z_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/in_f_r.png}
-\end{subfigure}
-\caption{Experiment 2 -- Inverse Results}
-\label{ex2_in}
-\end{figure} 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/in_NZ_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/in_Z_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/in_f_r.png}
-\end{subfigure}
-\caption{Experiment 3 -- Inverse Results}
-\label{ex3_in}
-\end{figure} 
 \subsubsection{Generators}
 \textbf{Experiment 1:} The polygon group performed significantly better at identifying elements that were generators (order 6: $\beta = 0.164$, $t = 2.27$, $p = 0.02$; order 9: $\beta = 0.184$, $t = 3.45$, $p < 0.001$). The groups did not differ significantly at identifying non-generators in the order 6 group, but the polygon group performed significantly better in the order 9 group (order 6: $\beta = 0.01$, $t = 0.235$, $p = 0.81$; order 9: $\beta = 0.12$, $t = 2.32$, $p = 0.02$). The modular group performed better at the T/F questions about generators in the order $n$ group ($\beta = -0.11$, $t = -2.60$, $p = 0.009$). (See Figure \ref{ex1_gen}.) However, performance on the T/F was not too far above chance, and generally performance was at floor in the order $n$ cyclic group. For example, the results from the Always/Sometimes/Never questions are shown in Figure \ref{ex1_TFASN}. This poor performance suggests that subjects were mostly unable to formalize their understanding in a symbolic way, despite being able to generalize it quite well to a group of different order. \\[11pt]
 \textbf{Experiment 2:} We replicated our result that the polygon group is better at identifying generators only in the order 9 group (order 6: $\beta = 0.00$, $t = -0.05$, $p = 1.00$; order 9: $\beta = 0.19$, $t = 3.37$, $p < 0.001$), and the polygon group did not perform better at identifying non-generators in either group (order 6: $\beta = -0.03$, $t = -0.60$, $p = 0.55$; order 9: $\beta = 0.07$, $t = 1.31$, $p = 0.19$). We replicated our result that the modular group performed better at T/F questions about generators ($\beta = -0.12$, $t = -2.71$, $p = 0.007$). The hybrid group perfomed significantly better than the modular group at identifying generators in the group order where our previous finding replicated ($\beta = 0.25$, $t = 4.31$, $p < 0.001$), did not significantly differ at identify non-generators (order 6: $\beta = 0.07$, $t = 1.51$, $p = 0.13$; order 9: $\beta = 0.05$, $t = 0.80$, $p = 0.42$), and did not perform significantly worse at the T/F questions ($\beta = -0.042$, $t = -0.98$, $p = 0.33$). (See Figure \ref{ex2_gen}.) However, it appears that the hybrid group may not be achieving performance completely on par with the modular group on the T/F questions. \\[11pt]
-\textbf{Experiment 3:} We replicated our result that the polygon group is better at identifying generators (order 6: $\beta$ 95\%-CI = $[0.35,1.72]$, $p < 0.05$; order 9: $\beta$ 95\%-CI = $[0.22,1.22]$, $p < 0.05$), and that the polygon group did not significantly differ from the modular at identifying non-generators (order 6: $\beta$ 95\%-CI = $[-0.29,0.50]$, $p > 0.05$; order 9: $\beta$ 95\%-CI = $[-0.32,0.73]$, $p > 0.05$). We failed to replicate our result that the modular group is better than the polygon group at T/F questions about generators, in fact the polygon group performed significantly better in this experiment ($\beta$ 95\%-CI = $[0.004,0.59]$, $p < 0.05$). We failed to replicated our result that the hybrid group is significantly better than the modular group at identifying generators in either group order, although both effects were slightly in that direction (order 6: $\beta$ 95\%-CI = $[-1.11,1.27]$, $p > 0.05$; order 9: $\beta$ 95\%-CI = $[-0.78, 1.17]$, $p > 0.05$). We replicated our result that the hybrid group did not significantly differ at identifying non-generators (order 6: $\beta$ 95\%-CI = $[-1.17,0.60]$, $p > 0.05$; order 9: $\beta$ 95\%-CI = $[-1.25,0.61]$, $p > 0.05$). (See Figure \ref{ex3_gen}.) \\[11pt]
-\textbf{Meta-Analysis:}  We estimated the positive effect of the polygon condition on identifying generators to be moderately sized (order 6: log OR = 0.68; order 9: log OR = 0.80; see fig. \ref{meta_genT_p}). We estimated the effect of the polygon condition on identifying non-generators to be small, but maybe slightly positive in the group of order 9 (order 6: log OR = 0.07; order 9: log OR = 0.36; see fig. \ref{meta_genF_p}). We estimated that any effect of the polygon condition on answering True/False questions about generators is small (log OR = -0.14; see fig. \ref{meta_genTF_p}). We estimated the positive effect of the hybrid condition on identifying generators to be small in the order 6 group, but increasing in the order 9 group, (order 6: log OR = 0.19; order 9: log OR = 0.65; see fig. \ref{meta_genT_h}). We estimated the effect of the hybrid condition on identifying non-generators to be small (order 6: log OR = 0.07; order 9: log OR = -0.01; see fig. \ref{meta_genF_h}). We estimated the effect of the hybrid condition on answering True/False questions about generators to be small (log OR = -0.05; see fig. \ref{meta_genTF_h}).
+\textbf{Experiment 3:} We replicated our result that the polygon group is better at identifying generators (order 6: $\beta$ 95\%-CI = $[0.35,1.72]$, $p < 0.05$; order 9: $\beta$ 95\%-CI = $[0.22,1.22]$, $p < 0.05$), and that the polygon group did not significantly differ from the modular at identifying non-generators (order 6: $\beta$ 95\%-CI = $[-0.29,0.50]$, $p > 0.05$; order 9: $\beta$ 95\%-CI = $[-0.32,0.73]$, $p > 0.05$). We failed to replicate our result that the modular group is better than the polygon group at T/F questions about generators, in fact the polygon group performed significantly better in this experiment ($\beta$ 95\%-CI = $[0.004,0.59]$, $p < 0.05$). We failed to replicate our result that the hybrid group is significantly better than the modular group at identifying generators in either group order, although both effects were slightly in that direction (order 6: $\beta$ 95\%-CI = $[-1.11,1.27]$, $p > 0.05$; order 9: $\beta$ 95\%-CI = $[-0.78, 1.17]$, $p > 0.05$). We replicated our result that the hybrid group did not significantly differ at identifying non-generators (order 6: $\beta$ 95\%-CI = $[-1.17,0.60]$, $p > 0.05$; order 9: $\beta$ 95\%-CI = $[-1.25,0.61]$, $p > 0.05$). (See Figure \ref{ex3_gen}.) \\[11pt]
+\textbf{Meta-Analysis:}  We estimated the positive effect of the polygon condition on identifying generators to be moderately sized (order 6: log OR = 0.68; order 9: log OR = 0.80; see fig. \ref{meta_genT_p}). We estimated the effect of the polygon condition on identifying non-generators to be small, but maybe slightly positive in the group of order 9 (order 6: log OR = 0.07; order 9: log OR = 0.36; see fig. \ref{meta_genF_p}). We estimated that any effect of the polygon condition on answering True/False questions about generators is small (log OR = -0.14; see fig. \ref{meta_genTF_p}). We estimated that any effect of the polygon condition on answering True/False questions about generators is small (log OR = -0.14; see fig. \ref{meta_genTF_p}). We estimated the positive effect of the hybrid condition on identifying generators to be small in the order 6 group, but increasing in the order 9 group, (order 6: log OR = 0.19; order 9: log OR = 0.65; see fig. \ref{meta_genT_h}). We estimated the effect of the hybrid condition on identifying non-generators to be small (order 6: log OR = 0.07; order 9: log OR = -0.01; see fig. \ref{meta_genF_h}). We estimated the effect of the hybrid condition on answering True/False questions about generators to be small (log OR = -0.05; see fig. \ref{meta_genTF_h}).
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_gen_T_6.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_6_conditionpolygon.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_gen_T_9.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_9_conditionpolygon.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Polygon vs. Modular, Identifying Generators}
@@ -390,13 +292,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionpolygon.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionpolygon.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionpolygon.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionpolygon.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Polygon vs. Modular, Identifying Non-generators}
@@ -407,22 +309,29 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/p_gen_TF_n.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_TF_n_conditionpolygon.pdf}
+\caption{T/F}
 \end{subfigure}
-\caption{Meta Analysis -- Polygon vs. Modular, Generator T/F}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_ASN_n_conditionpolygon.pdf}
+\caption{A/S/N}
+\end{subfigure}
+\caption{Meta Analysis -- Polygon vs. Modular, Generator T/F \& A/S/N}
 \label{meta_genTF_p}
 \end{figure}\noindent 
 \begin{figure}[H]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_gen_T_6.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_6_conditionhybrid.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_gen_T_9.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_9_conditionhybrid.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Hybrid vs. Modular, Identifying Generators}
@@ -433,13 +342,13 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionhybrid.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionhybrid.pdf}
 \caption{Order 6}
 \end{subfigure}
 ~
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionhybrid.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionhybrid.pdf}
 \caption{Order 9}
 \end{subfigure}
 \caption{Meta Analysis -- Hybrid vs. Modular, Identifying Non-generators}
@@ -450,129 +359,68 @@ Overall, performance was quite high on the basic operation questions and decline
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
 \centering
-\includegraphics[width=\textwidth]{figures/meta/h_gen_TF_n.png}
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_TF_n_conditionhybrid.pdf}
+\caption{T/F}
 \end{subfigure}
-\caption{Meta Analysis -- Hybrid vs. Modular, Generator T/F}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_ASN_n_conditionhybrid.pdf}
+\caption{A/S/N}
+\end{subfigure}
+\caption{Meta Analysis -- Hybrid vs. Modular, Generator T/F \& A/S/N}
 \label{meta_genTF_h}
 \end{figure}\noindent 
-%%experiment figures begin here
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/gen_T_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/gen_F_r.png}
-\end{subfigure}
-\caption{Experiment 1 -- Generator Results}
-\label{ex1_gen}
-\end{figure}\noindent 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/gen_TF_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/1/gen_ASN_r.png}
-\end{subfigure}
-\caption{Experiment 1 -- Generator T/F \& A/S/N Results}
-\label{ex1_TFASN}
-\end{figure}\noindent 
-
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/gen_T_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/gen_F_r.png}
-\end{subfigure}
-\caption{Experiment 2 -- Generator Results}
-\label{ex2_gen}
-\end{figure}\noindent 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/gen_TF_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/2/gen_ASN_r.png}
-\end{subfigure}
-\caption{Experiment 2 -- Generator T/F \& A/S/N Results}
-\label{ex2_TFASN}
-\end{figure}\noindent 
-
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/gen_T_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/gen_F_r.png}
-\end{subfigure}
-\caption{Experiment 3 -- Generator Results}
-\label{ex3_gen}
-\end{figure}\noindent 
-\begin{figure}[p]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/gen_TF_r.png}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/3/gen_ASN_r.png}
-\end{subfigure}
-\caption{Experiment 3 -- Generator T/F \& A/S/N Results}
-\label{ex3_TFASN}
-\end{figure}\noindent 
-
-\subsection{Discussion}
-The results show that, despite the fact that the experimental groups did not differ at learning the initial operation, they did differ in their ability to understand the subsequent concepts built upon it. Furthermore, one representation was not generally ``better'' than the other, they both had strengths and weaknesses, and neither seemed to encourage formalization particularly well. Thus our hypotheses were confirmed, at least in this initial experiment. However, because we did not have a priori hypotheses about which representation would be better for which questions, these results are not conclusive. \\[11pt]
-Although we have not fully explored these factors, we do have some post-hoc hypotheses for the pattern of results we observed, based on responses to problems where we asked the subjects to explain their answers. We have not been able to quantitatively assess these hypotheses in detail (although we have some slightly relevant analysis in experiment 2), so they should be treated as somewhat speculative at this point.\\[11pt]
-\textbf{Inverses:} It appears that the modular representation may have cued the subjects to recognize an algorithm for finding most of the inverses, namely that the inverse of $x$ can be found by subtracting $x$ from the group order. For example, under $+_6$, the inverse of $2$ is $4$, and $6-2 = 4$. This would not be as obvious for the polygon group, which mostly found inverses by counting, which is less reliable. However, the algorithm breaks down when $x = 0$, because the inverse of $0$ is $0$, not the group order. We suspect that subjects in the polygon group made more mistakes counting than the modular group on inverses of non-zero elements, but the modular group subjects were misled by this algorithm when computing the inverse of zero. \\[11pt]
-\textbf{Generators:} There is a spatial structure to the generator questions in the polygon case which may assist in solving them, for example finding if $5$ is a generator on the nonagon, we get the sequence $5 \rightarrow 1 \rightarrow 4 \rightarrow 2 \rightarrow \cdots$. It might be more clear to someone seeing the polygon how precisely this sequence would fill in the gaps to generate all the numbers. By contrast, in the order $n$ case, it is difficult or impossible to use these spatial intuitions, so the more formulaic understanding cued by the modular representation might be beneficial.
-
-\section{Experiment 2}
-\subsection{Introduction}
-In our second experiment, we had two goals. First, we wanted to replicate the results of our first experiment with a planned analysis (to ensure that the effects were real and not just chance variation, since we didn't have \textit{a priori} hypotheses about which representation would be superior for which types of questions). Second, we wanted to explore whether we could improve overall performance, by teaching both representations to the subjects and encourage them to integrate the polygon and modular methods into a hybrid representation (while keeping total instruction time approximately the same). Since each representation proved beneficial for specific types of questions, we thought that the hybrid group might show the benefits of both, i.e. that it might perform approximately like the better group on each question. Furthermore, we thought the integration of the representations might help the subjects form a more abstract representation of the group, which might better prepare them for aspects of reasoning like formalization.
-\subsection{Materials \& Methods} 
-All materials can be found can be found on our github (https://github.com/lampinen/fyp cyclic groups), including complete versions of our experiments, which can be downloaded and run, or viewed using github's html preview. The materials and methods were identical to experiment 1, except:\\[11pt]
-\textbf{Hybrid group:} We added a hybrid group, which was taught both representations initially (with polygon labeled as ``polygon'', and modular labeled as ``arithmetic''). We encouraged subjects to integrate these representations by adding a question and explanation about how the different representations worked the same, giving them a chance to reflect on the isomorphism between them (though we did not use that word). Furthermore, we asked subjects on alternating operation practice questions to use the different representations, to encourage them to achieve facility with each representation. (The hybrid group saw the same number of practice questions as the other experimental groups.)\\[11pt]
-\textbf{Added questions:} Because we added a question to the hybrid group asking them how the representations worked the same, we added questions to the other experimental groups asking and explaining how the operations worked, giving them a chance to reflect on the representation. We also added a question about the inverse of zero in the order 9 group, to see if subjects in the modular condition performed better on it after getting feedback on their previous answer. \\[11pt]
-\textbf{Other:} Typo fixes, wording adjustments, and other small changes to the experiment. As mentioned above, the versions can be compared on our GitHub.\\[11pt]
-(All implementation details were as in experiment 1.)
-\subsection{Results}
-\subsubsection{Secondary Concepts}
-\subsection{Post-hoc analyses}
-We conducted a number of post-hoc analyses in an attempt to understand the differences between the groups, and the pattern of performance of the hybrid group. 
+\subsection{Other Analyses}
 \subsubsection{Diagram use}
 We hypothesized above that the polygon group's superior performance on identifying generators was due to the ability to use the spatial structure of the polygon to more easily visualize the elements generated by an element. One possible prediction of this hypothesis would be that within the polygon group, interaction with the diagram might be predictive of success on these questions. (Of course, we could only record the interactions with the mouse, while many subjects may have just gazed or pointed at the diagram to use it in their thinking. Furthermore, the use of the diagram may be confounded with overall engagement. Our results must be interpreted with this in mind.) \\[11pt]
-We performed a mixed-model logistic regression on data from the polygon and hybrid subjects, predicting correct answers by whether or not they used the diagram (and a random effect of subject). We found that using the diagram was significantly predictive of success on the questions ($\beta=1.90$, $z = 2.76$, $p = 0.006$). Furthermore, this effect was present even when controlling for reaction time ($\beta = 1.62$, $z = 2.26$, $p = 0.024$), which might suggest that engagement alone wasn't the driving factor, and the effect was significant or trending within the polygon and hybrid conditions individually, suggesting that both benefitted. \\[11pt]
-Using analogous mixed-model logistic regressions across the full data from the hybrid and polygon groups, we found that on all questions in the experiment (not just generator questions) that using the diagram was significantly predictive of success ($\beta = 1.26$, $z = 6.93$, $p < 0.001$), even when controlling for reaction time ($\beta = 1.42$, $z = 7.53$, $p < 0.001$). However, the estimated effect sizes were slightly smaller than for the generator questions. Further data is needed to clarify this pattern.
+We performed a mixed-model logistic regression on data from the polygon and hybrid subjects from Experiment 2, predicting correct answers by whether or not they used the diagram (and a random effect of subject). We found that using the diagram was significantly predictive of success on the questions ($\beta=1.90$, $z = 2.76$, $p = 0.006$). Furthermore, this effect was present even when controlling for reaction time ($\beta = 1.62$, $z = 2.26$, $p = 0.024$), which might suggest that engagement alone wasn't the driving factor, and the effect was significant or trending within the polygon and hybrid conditions individually, suggesting that both benefitted. \\[11pt]
+Using analogous mixed-model logistic regressions across the full data from the hybrid and polygon groups, we found that on all questions in the experiment (not just generator questions) that using the diagram was significantly predictive of success ($\beta = 1.26$, $z = 6.93$, $p < 0.001$), even when controlling for reaction time ($\beta = 1.42$, $z = 7.53$, $p < 0.001$). However, the estimated effect sizes were slightly smaller than for the generator questions. This suggests that the diagram may have been especially helpfulon these questions. 
 \subsubsection{Hierarchical modeling of hybrid subjects}
-One of our main goals for this experiment was to test the idea of a hybrid group which would attain better performance than either the polygon or modular group individually, by integrating the material. Although we found the hybrid group did perform better, it did not seem to achieve best-of-both-worlds performance. One explanation for this might be that some subjects were just picking one representation and using it consistently, while others were really integrating both and performing optimally (at the maximal level of the two). We attempted to model this with a hierarchical model by assuming that the data were generated by the following process: 
+Although we found the hybrid group did perform better than either the polygon or modular group individually, it did not seem to achieve best-of-both-worlds performance. One explanation for this might be that some subjects were just picking one representation and using it consistently, while others were really integrating both and performing optimally (at the maximal level of the two). We attempted to model this with a hierarchical model which assumed that the data were generated by the following process: 
 \begin{enumerate}
 \item With probability $\theta$, the subject would integrate the material, and would perform optimally in the sense that their data would be best fit by assuming they picked the optimal representation on each question (or equivalently, that their regression coefficients were the element-wise maximum of the regression coefficients of the two other groups). 
 \item If the subjects did not integrate (probability $1-\theta$), they would pick the polygon representation with probability $\phi$, and the modular representation with probability $1-\phi$, and their data would be best fit by the coefficients for the respective group.
 \end{enumerate}
-We fit this model to the data using the expectation-maximization algorithm, and estimated that $\theta = 0.53, \phi = 0.38$ (log-likelihood $LL=-821.9$), so the data are best fit under this model by assuming that a little more than half the subjects are perfectly integrating, and those that aren't are choosing the modular representation over the polygon almost two-thirds of the time. We used the Aikake Information Criterion (AIC) to compare this model ($AIC = 1647.8$) to models where all subjects chose modular ($AIC=1829.6$), all chose polygon ($AIC = 1720.5$), where no subjects integrated i.e. a fixed $\theta = 0$ and fit $\phi = 0.65$ ($AIC = 1678.2$), and a model where all subjects integrated i.e. $\theta = 1.0$ ($AIC = 1689.9$). The full model is significantly better than any of these comparison models. However, there are many other possible ways people could use the two representations (such as picking arbitrarily on each question), so further investigation is needed.
+We fit this model to the experiment 2 data using the expectation-maximization algorithm, and estimated that $\theta = 0.53, \phi = 0.38$ (log-likelihood $LL=-821.9$), so the data are best fit under this model by assuming that a little more than half the subjects are perfectly integrating, and those that aren't are choosing the modular representation over the polygon almost two-thirds of the time. We used the Aikake Information Criterion (AIC) to compare this model ($AIC = 1647.8$) to models where all subjects chose modular ($AIC=1829.6$), all chose polygon ($AIC = 1720.5$), where no subjects integrated i.e. a fixed $\theta = 0$ and fit $\phi = 0.65$ ($AIC = 1678.2$), and a model where all subjects integrated i.e. $\theta = 1.0$ ($AIC = 1689.9$). The full model is significantly better than any of these comparison models. However, there are many other possible ways people could use the two representations (such as picking arbitrarily on each question), so further investigation is needed.\\[11pt]
+Similarly, with the experiment 3 data we estimated that $\theta = 0.54, \phi = 0.61$ (log-likelihood $LL=-1782.3$), so the data are best fit under this model by assuming that a little more than half the subjects are perfectly integrating, and those that aren't are choosing the polyggon representation over the modular almost two-thirds of the time. We used the Aikake Information Criterion (AIC) to compare this model ($AIC = 3568.6$) to models where all subjects chose modular ($AIC=3826.5$), all chose polygon ($AIC = 3647.0$), where no subjects integrated, i.e. a fixed $\theta = 0$ and fit $\phi = 0.81$ ($AIC = 3612.8$), and a model where all subjects integrated, i.e. $\theta = 1.0$ ($AIC = 3613.8$). The full model is again significantly better than any of these comparison models. However, as above there are other possible ways that the subjects could use both representations, so there remain questions to be answered. Still, the consistent estimates of about 50\% integration suggest that they hybrid group is increasing the understanding of some subjects.
+\subsubsection{Representation-Use Question Results}
+For the experiment 3 representation-use questions, we performed logistic regressions predicting score on each representation-use question by the ratings ("Not at all" - "Very much", 5 point Likert scale) of representation used. We found that neither modular nor polygon rating was significantly predictive of success on the inverse of zero questions ($\beta_{mod} = -0.02$, $z = -0.15$, $p = 0.88$; $\beta_{poly} = 0.25$, $z = 1.37$, $p = 0.17$). We suspect this may have been due in part to the fact that this was the third presentation of an inverse of zero question, so subjects may have simply recalled the answer. Performance was very high in the hybrid group overall on this question, the majority of the subjects got the question right in the representation-use section, it had the only positive intercept of any of the representation-use regressions.\\[11pt] 
+Intriguingly, we found that both modular and polygon rating were significantly predictive of success on inverse of non-zero questions ($\beta_{mod} = 1.09$, $z = 2.95$, $p = 0.003$; $\beta_{poly} = 1.11$, $z = 2.94$, $p = 0.003$). This, together with the previous finding, seems suggestive of some integration occuring in the hybrid condition, such that the advantages of each representation are to some extent shared even when the other representation is used. 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.45\textwidth}
+\centering 
+\includegraphics[width=\textwidth]{figures/3/wr_inZ.png}
+\caption{Inverse of zero}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.45\textwidth}
+\centering 
+\includegraphics[width=\textwidth]{figures/3/wr_inNZ.png}
+\caption{Inverse of non-zero}
+\end{subfigure}
+\caption{Experiment 3 -- Representation-use responses on inverse questions (counts of subjects giving each rating, split by score)}
+\label{ex3_wr_in}
+\end{figure}\noindent
+We found that subjects polygon rating, but not modular, was significantly predictive of success on identifying generators ($\beta_{mod} = 0.19$, $z = 0.95$, $p = 0.34$; $\beta_{poly} = 0.75$, $z = 3.86$, $p < 0.001$). This corroborates our other data supporting the superiority of the polygon representation for these question, but suggests (as much of our earlier data did) that the integration in the hybrid condition is far from complete. We found that neither rating was significantly preditive of success on the generator True/False questions ($\beta_{mod} = 0.19$, $z = 1.28$, $p = 0.20$; $\beta_{poly} = 0.31$, $z = 1.38$, $p = 0.17$). This is perhaps unsurprising, since overall performance was low, and we observed inconsistent effects with these questions across our experiments.
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.45\textwidth}
+\centering 
+\includegraphics[width=\textwidth]{figures/3/wr_genT.png}
+\caption{Identifying generators}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.45\textwidth}
+\centering 
+\includegraphics[width=\textwidth]{figures/3/wr_genTF.png}
+\caption{Generator T/F}
+\end{subfigure}
+\caption{Experiment 3 -- Representation-use responses on generator questions (counts of subjects giving each rating, split by score)}
+
+\label{ex3_wr_gen}
+\end{figure}
 \subsubsection{Analysis of hybrid subject word use}
 We also attempted to investigate the hybrid subjects' use of different representations by the presence of words in their explanations that corresponded to one of the representations or another. First, we hand-crafted classifiers for the polygon and modular condition, respectively, based on the most common words that were specific to the condition (Polygon condition: move, spaces, clockwise, steps, arrow, hexagon, nonagon, ngon, spots, positions; Modular condition: add, subtract, plus, minus, +). We counted the occurrences of each of these words in each explanation, and then classified it as polygon if the polygon-word-count was higher, and as modular if the modular-word-count was higher. This produced highly specific, though not especially sensitive, classifiers for the conditions, see table \ref{wordusevaltable} for comparisons of classifier estimate of condition versus true condition across all questions with explanations in experiment 1. (Note that most of the failures here were cases where the subjects did not use words from either category.)
 \begin{table}[h] 
@@ -648,77 +496,20 @@ Using these classifiers on the hybrid data from experiment 2, we found that the 
 \caption{Word-use classifier results}
 \label{worduseresultstable}
 \end{table} 
-These results should not be read too strongly, because they are based on a few data points, because we did not ask for explanations on every question, and many subjects did not use specific words in their explanations. In part, this may be due to our design, by attempting to homogenize the language we used when presenting more advanced concepts to subjects, and remove references to the underlying operation, we implicitly encouraged subjects to give explanations that used representation-agnostic language (e.g. ``5 can make all the other elements'' instead of ``using 5 we can reach each other point on the nonagon''). We also tried using more general classifiers that were derived directly from the data, using the 20 or 40 most selective words and estimating the posterior probabilities from these, but while these classifiers were more sensitive, they were significantly less specific, so we think the interpretation of those results are even more difficult. 
-\subsection{Discussion}
-Our results generally replicated those of the original experiment. The only results that failed to replicate were the polygon group performing better at identifying generators in the order 6 group, and the polygon group performing worse at the inverse of non-zero elements in the order 9 group. However, both results were trending in the correct direction, and since each did replicate in the other group order, it is possible that there is a real effect that these experiments were not sufficiently powered to detect reliably. A further experiment to verify this would be ideal. However, the general pattern of results remains, and thus our original conclusions that the representation can have effects on learning of more abstract concepts remain. \\[11pt]
-Furthermore, the hybrid group approached best of both worlds performance, although it did not appear to fully reach that level, so there is still progress to be made. Our post-hoc analyses suggest that some subjects may have integrated the results better than others, so there may be some individual variation. However, these results at least begin to suggest that the use and integration of multiple representations could be an important direction to pursue in future math pedagogy research. \\[11pt]
-Finally, in our post-hoc analyses we produced some corroborating evidence that the polygon condition is better at identifying generators because of the spatial structure of generation on the polygon, by showing that using the diagram improved performance on these questions. 
+These results should not be read too strongly, because they are based on a few data points, because we did not ask for explanations on every question, and many subjects did not use specific words in their explanations. In part, this may be due to our design, by attempting to homogenize the language we used when presenting more advanced concepts to subjects, and remove references to the underlying operation, we implicitly encouraged subjects to give explanations that used representation-agnostic language (e.g. ``5 can make all the other elements'' instead of ``using 5 we can reach each other point on the nonagon''). We also tried using more general classifiers that were derived directly from the data, using the 20 or 40 most selective words and estimating the posterior probabilities from these, but while these classifiers were more sensitive, they were significantly less specific, so we think the interpretation of those results would be even more difficult. 
 
 
-\section{Experiment 3}
-\subsection{Introduction}
-In our third experiment, we wanted to replicate the results of our previous experiment, and to further explore the factors that enhanced the hybrid group's performance. In order to explore this, we added questions for the hybrid group (after the main experiment had been completed), in which they described the extent to which they had used each representation on a question. 
-\subsection{Materials \& Methods} 
-\subsection{Hypotheses}
-\subsubsection{Analysis}
-\subsection{Results}
-\subsubsection{Operation}
-\subsubsection{Secondary Concepts}
-\subsubsection{Hierarchical modeling of hybrid subjects}
-We used the same hierarchical model as previously stated as another method of examining the data:
-\begin{enumerate}
-\item With probability $\theta$, the subject would integrate the material, and would perform optimally in the sense that their data would be best fit by assuming they picked the optimal representation on each question (or equivalently, that their regression coefficients were the element-wise maximum of the regression coefficients of the two other groups). 
-\item If the subjects did not integrate (probability $1-\theta$), they would pick the polygon representation with probability $\phi$, and the modular representation with probability $1-\phi$, and their data would be best fit by the coefficients for the respective group.
-\end{enumerate}
-We fit this model to the data using the expectation-maximization algorithm, and estimated that $\theta = 0.54, \phi = 0.61$ (log-likelihood $LL=-1782.3$), so the data are best fit under this model by assuming that a little more than half the subjects are perfectly integrating, and those that aren't are choosing the polyggon representation over the modular almost two-thirds of the time. We used the Aikake Information Criterion (AIC) to compare this model ($AIC = 3568.6$) to models where all subjects chose modular ($AIC=3826.5$), all chose polygon ($AIC = 3647.0$), where no subjects integrated, i.e. a fixed $\theta = 0$ and fit $\phi = 0.81$ ($AIC = 3612.8$), and a model where all subjects integrated, i.e. $\theta = 1.0$ ($AIC = 3613.8$). The full model is significantly better than any of these comparison models. However, as above there other possible ways people could use the two representations, so this evidence alone should not be taken as conclusive.
-\subsubsection{Which-Representation Question Results}
-To supplement the above analyses, we performed logistic regressions predicting score on each which-representation question by the ratings ("Not at all" - "Very much", 5 point Likert scale) of representation used. We found that neither modular nor polygon rating was significantly predictive of success on the inverse of zero questions ($\beta_{mod} = -0.02$, $z = -0.15$, $p = 0.88$; $\beta_{poly} = 0.25$, $z = 1.37$, $p = 0.17$). We suspect this may have been due in part to the fact that this was the third presentation of an inverse of zero question, and performance was very high in the hybrid group on this question. The majority of the subjects got the question right in the which-representation section, it had the only positive intercept of any of the which-representation regressions.\\[11pt] 
-Intriguingly, we found that both modular and polygon rating were significantly predictive of success on inverse of non-zero questions ($\beta_{mod} = 1.09$, $z = 2.95$, $p = 0.003$; $\beta_{poly} = 1.11$, $z = 2.94$, $p = 0.003$). This, together with the previous finding, seems suggestive of some integration occuring in the hybrid condition, such that the advantages of each representation are to some extent shared even when the other representation is used. 
-\begin{figure}[H]
-\centering
-\begin{subfigure}[c]{0.45\textwidth}
-\centering 
-\includegraphics[width=\textwidth]{figures/3/wr_inZ.png}
-\caption{Inverse of zero}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.45\textwidth}
-\centering 
-\includegraphics[width=\textwidth]{figures/3/wr_inNZ.png}
-\caption{Inverse of non-zero}
-\end{subfigure}
-\caption{Experiment 3 -- Which-representation responses on inverse questions (counts of subjects giving each rating, split by score)}
-\label{ex3_wr_in}
-\end{figure}\noindent
-We found that subjects polygon rating, but not modular, was significantly predictive of success on identifying generators ($\beta_{mod} = 0.19$, $z = 0.95$, $p = 0.34$; $\beta_{poly} = 0.75$, $z = 3.86$, $p < 0.001$). This corroborates our other data supporting the superiority of the polygon representation for these question, but suggests (as much of our earlier data did) that the integration in the hybrid condition is far from complete. We found that neither rating was significantly preditive of success on the generator True/False questions ($\beta_{mod} = 0.19$, $z = 1.28$, $p = 0.20$; $\beta_{poly} = 0.31$, $z = 1.38$, $p = 0.17$). This is perhaps unsurprising, since overall performance was low, and we observed inconsistent effects with these questions across our experiments.
-\begin{figure}[H]
-\centering
-\begin{subfigure}[c]{0.45\textwidth}
-\centering 
-\includegraphics[width=\textwidth]{figures/3/wr_genT.png}
-\caption{Identifying generators}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.45\textwidth}
-\centering 
-\includegraphics[width=\textwidth]{figures/3/wr_genTF.png}
-\caption{Generator T/F}
-\end{subfigure}
-\caption{Experiment 3 -- Which-representation responses on generator questions (counts of subjects giving each rating, split by score)}
-
-\label{ex3_wr_gen}
-\end{figure}
-\subsection{Discussion}
-With the exception of the T/F questions, we replicated all our results about the differences between the polygon and modular representations in at least one group order. Thus, this data continues to support the general hypothesis that the representations affect understanding of concepts built upon them. However, the hybrid group did not demonstrate as compellingly high performance as before. Instead, hybrid group subjects showed more average behavior, which could suggest some subjects becoming confused and performing worse, or subjects just picking a representation and using it exclusively.\\[11pt] 
-The data from the which-representation questions, however, suggest that there was some integration occuring for the hybrid subjects by the end of the experiment (when they saw these questions), although it was far from perfect. This aligns with the results of the hierarchical modeling of the data, which suggested that about half of the subjects performed in a way that was best explained by integrating the two representations to attain a more holistic understanding. 
-\section{Meta-analysis}
-To elucidate the pattern of results we observed, we repeated the bootstrap analysis we performed for experiment 3 on the data from experiments 1 \& 2, and performed a meta-analysis to produce better estimates of the effect sizes for our main effects of interest, namely the performance on inverses of zero and non-zero elements, on identifying generators, and on the T/F questions about generators.\\[11pt]
-Taken together, these results suggest that although the hybrid group subjects are not immediately achieving greater understanding across all aspects and concepts, by the time they reach the order 9 group they may be. This corroborates the evidence from the hierarchical modeling and the which-representation questions suggesting that some integration occurs. However, the hybrid group subjects are still not achieving truly best-of-both-worlds performance in the short time period of our experiment. It remains a question for future research how the asymptotic performance of the groups would compare, and how the hybrid condition could be improved to produce better understanding of aspects like formalization, which none of the experimental groups performed well at. 
-%%TODO: further discussion?
-
-
+\section{Discussion}
+\subsection{Polygon vs. Modular Representations}
+Despite the fact that the polygon and modular groups did not significantly differ at learning the initial operation, they did differ in their ability to understand the subsequent concepts built upon it. Furthermore, one representation was not generally ``better'' than the other, they both had strengths and weaknesses, and neither seemed to encourage formalization particularly well, as evidenced by the low overall performance on the order $n$ group questions. Thus our initial hypothesis that there would be differences in performance between the groups was confirmed. 
+\subsubsection{Causes of the Group Differences}
+Although we have not fully explored these factors, we do have some hypotheses for the pattern of results we observed, based on responses to problems where we asked the subjects to explain their answers as well as factors like explicit use of the diagram:\\[11pt] 
+\textbf{Inverses:} It appears that the modular representation may have cued the subjects to recognize an algorithm for finding most of the inverses, namely that the inverse of $x$ can be found by subtracting $x$ from the group order. For example, under $+_6$, the inverse of $2$ is $4$, and $6-2 = 4$. This would not be as obvious for the polygon group, which mostly found inverses by counting, which is less reliable. However, the algorithm breaks down when $x = 0$, because the inverse of $0$ is $0$, not the group order. We suspect that subjects in the polygon group made more mistakes counting than the modular group on inverses of non-zero elements, but the modular group subjects were misled by this algorithm when computing the inverse of zero. \\[11pt]
+\textbf{Generators:} There is a spatial structure to the generator questions in the polygon case which may assist in solving them, for example finding if $5$ is a generator on the nonagon, we get the sequence $5 \rightarrow 1 \rightarrow 4 \rightarrow 2 \rightarrow \cdots$. It might be more clear to someone seeing the polygon how precisely this sequence would fill in the gaps to generate all the numbers. This hypothesis is corroborated by our post-hoc analysis demonstrating that diagram use was predictive of success on these questions (more so than in the experiment overall). By contrast, in the order $n$ case, it is difficult or impossible to use these spatial intuitions, which would explain why the polygon group's advantage disappears.
+\subsection{Hybrid Group}
+The results from our meta-analysis suggest that by the time they reached the order 9 group, the hybrid group subjects were able to integrate their understanding to achieve approximately ``best of both worlds'' performance, in the sense that they outperformed the modular group where the polygon group was superior, and performed comparably to the modular group where it was superior. However, they did not appear to be achieving the full advantages of each group. Our hierarchical modeling results suggest that this imperfect performance may be explained by some individual variation, with some subjects integrating the representations better than others. Nevertheless, these results at least begin to suggest that the use and integration of multiple representations may be beneficial to overall understanding. It remains a question for future research how the hybrid approach could be improved to help more subjects, how the asymptotic performance of the groups would compare, and how the hybrid condition could be improved to produce better understanding of aspects like formalization, which none of the experimental groups performed well at. 
 \section{Conclusion}
-We explored the way representation of concepts in math instruction affects understanding of the concept being exemplified, and of more abstract concepts built upon it, using elementary group theory as our test domain. We found that even if two representations produce equal performance on a basic concept, they can produce differential understanding of the more abstract concepts related to it. Furthermore, it does not appear that there is always a clear advantage of one representation over another, instead a representation may be more useful for some concepts or some aspects of reasoning, and less useful for others. We think that these findings provide a contribution to the discussion of representation in math cognition, illustrating that representations have different advantages and disadvantages. This suggests that the pursuit of a single best type of representation may be futile. \\[11pt]
+We explored the way presentation of concepts in math instruction affects understanding of the concept being exemplified, and of more abstract concepts built upon it, using elementary group theory as our test domain. We found that even if two representations produce equal performance on a basic concept, they can produce differential understanding of the more abstract concepts related to it. Furthermore, it does not appear that there is always a clear advantage of one representation over another, instead a representation may be more useful for some concepts or some aspects of reasoning, and less useful for others. We think that these findings provide a contribution to the discussion of representation in math cognition, illustrating that representations have different advantages and disadvantages. This suggests that the pursuit of a single best type of representation may be futile. \\[11pt]
 Instead, we have identified an alternative strategy for improving performance: teaching multiple representations while encouraging subjects to integrate them. Preliminary data suggests that this may have positive effects even if the total instruction time is approximately the same. By the end of the experiment, subjects in our hybrid condition appeared to have integrated some of the material for a more holistic understanding. However, it remains to be seen whether they could truly achieve best-of-both-worlds performance over a longer time period, and whether this or another approach could encourage subjects to formalize their understanding. We think these questions provide an exciting new direction for research in both math cognition and math pedagogy.  
  
 \bibliography{fyp_writeup_citations}
@@ -740,5 +531,195 @@ $G$ and $*$ form a group, called the \textbf{cyclic group of order 4}. For examp
 There is a great deal of structure to groups, far more than there is space to explain here. The only topic of interest for us beyond these simple properties will be the concept of \textbf{generators}. An element $x$ generates a group if every other element of the group can be written as $x*x*\cdots*x$ for some number of $x$s. For example, in our cyclic group of order 4, defined above, 1 is a generator of the group because $1 = 1, 2 = 1 * 1, 3 = 1 * 1 * 1, 0 = 1 * 1 * 1 * 1$. Similarly, 3 is a generator because $3 = 3, 2 = 3 * 3, 1 = 3 * 3 * 3, 0 = 3 * 3 * 3 * 3$. However, 2 is not a generator because $2 = 2, 0 = 2 * 2$, but there is no way to generate 1 or 3 using 2. This illustrates the only theorem we will give here: \\[11pt]
 \textbf{Cyclic Group Generators Theorem:} In a cyclic group of order $n$, written as the integers $0$ to $n-1$, $x < n$ generates the group if and only if $x$ and $n$ are relatively prime (i.e. have no common factors except 1). \\[11pt] 
 For more information on groups and group theory, see e.g. \cite{Lang2002}.
+\newpage
+\section{Appendix B: Full Result Plots}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/op_6_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/op_9_r.png}
+\end{subfigure}
+\caption{Experiment 1 -- Operation Results}
+\label{ex1_op}
+\end{figure} 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/op_6_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/op_9_r.png}
+\end{subfigure}
+\caption{Experiment 2 -- Operation Results}
+\label{ex2_op}
+\end{figure} 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/op_6_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/op_9_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Operation Results}
+\label{ex3_op}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/in_NZ_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/in_Z_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/in_f_r.png}
+\end{subfigure}
+\caption{Experiment 1 -- Inverse Results}
+\label{ex1_in}
+\end{figure}\noindent 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/in_NZ_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/in_Z_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/in_f_r.png}
+\end{subfigure}
+\caption{Experiment 2 -- Inverse Results}
+\label{ex2_in}
+\end{figure} 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/in_NZ_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/in_Z_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/in_f_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Inverse Results}
+\label{ex3_in}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/gen_T_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/gen_F_r.png}
+\end{subfigure}
+\caption{Experiment 1 -- Generator Results}
+\label{ex1_gen}
+\end{figure}\noindent 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/gen_TF_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/1/gen_ASN_r.png}
+\end{subfigure}
+\caption{Experiment 1 -- Generator T/F \& A/S/N Results}
+\label{ex1_TFASN}
+\end{figure}\noindent 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/gen_T_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/gen_F_r.png}
+\end{subfigure}
+\caption{Experiment 2 -- Generator Results}
+\label{ex2_gen}
+\end{figure}\noindent 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/gen_TF_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/2/gen_ASN_r.png}
+\end{subfigure}
+\caption{Experiment 2 -- Generator T/F \& A/S/N Results}
+\label{ex2_TFASN}
+\end{figure}\noindent 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/gen_T_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/gen_F_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Generator Results}
+\label{ex3_gen}
+\end{figure}\noindent 
+\begin{figure}[H]
+\centering
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/gen_TF_r.png}
+\end{subfigure}
+~
+\begin{subfigure}[c]{0.4\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/3/gen_ASN_r.png}
+\end{subfigure}
+\caption{Experiment 3 -- Generator T/F \& A/S/N Results}
+\label{ex3_TFASN}
+\end{figure}\noindent 
  
 \end{document} 
