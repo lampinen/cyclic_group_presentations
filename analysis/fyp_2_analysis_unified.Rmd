@@ -334,9 +334,7 @@ perfect_combination_coefficients = pmax(polygon_coefficients,modular_coefficient
 hierarchical_data = model_data %>% filter(condition == 'hybrid') %>%
   mutate(a_operation_6=(question_type=='a_operation_6'), generator_ASN_n=(question_type=='generator_ASN_n'), generator_false_6=(question_type=='generator_false_6'), generator_false_9=(question_type=='generator_false_9'), generator_TF_n=(question_type=='generator_TF_n'), generator_true_6=(question_type=='generator_true_6'), generator_true_9=(question_type=='generator_true_9'), inverse_formula_n=(question_type=='inverse_formula_n'), inverse_nonzero_6=(question_type=='inverse_nonzero_6'), inverse_nonzero_9=(question_type=='inverse_nonzero_9'), inverse_zero_6=(question_type=='inverse_zero_6'), inverse_zero_9=(question_type=='inverse_zero_9'), operation_9=(question_type=='operation_9'))
 
-#Augment the data with weights and indicators for E-M algorithm
-augmenting_frame = data.frame(theta=c(T,F,F),phi=c(NA,T,F),weight=c(1,1,1))
-augmented_data = merge(hierarchical_data,augmenting_frame,by=NULL) 
+augmented_data = hierarchical_data %>% mutate(theta=F,phi=F) 
 
 #Subjects
 hybrid_subjects = unique(hierarchical_data$subject)
@@ -352,9 +350,9 @@ log_likelihood_of_data = function(data,coeffs) { #Given a fixed set of coefficie
 log_likelihood_of_full_data = function(data,theta,phi) {
   LL = 0.0
   for (subj in hybrid_subjects) {
-    perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
-    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
-    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
+    perfect_weight = theta*exp(log_likelihood_of_data(data[data$subject == subj,],perfect_combination_coefficients)[1])
+    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(data[data$subject == subj,],polygon_coefficients)[1])
+    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(data[data$subject == subj,],modular_coefficients)[1])
     LL = LL+log(perfect_weight+polygon_weight+modular_weight)
   }
   return(LL)
@@ -372,86 +370,109 @@ print('50-50 modular polygon: ')
 print(log_likelihood_of_full_data(hierarchical_data,0,0.5))
 print('max of the two: ')
 print(log_likelihood_of_full_data(hierarchical_data,1,0))
+```
+
+Fitting just phi
+```{r}
+for (subj in hybrid_subjects) {
+  polygon_weight = log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1]
+  modular_weight = log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1]
+  if (polygon_weight > modular_weight) {
+    augmented_data[hierarchical_data$subject == subj,]$phi = T
+  }
+  else{
+    augmented_data[hierarchical_data$subject == subj,]$phi = F
+  }
+}
+theta = 0
+phi = sum(augmented_data$phi)/nrow(augmented_data)
+
+print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_data,theta,phi)))
 
 ```
 
-Expectation-maximization -- theta fixed at 0
+Fitting theta and phi
 ```{r}
-#max number of iterations
-num_iterations = 100
-delta_LL_threshold =  0.0001
-#initial values - uniform
-theta = 0.0
-phi = 0.5 
-
-LL_hist = vector()
-
-LL_hist[1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
-
-for (iter in 1:num_iterations) {
-  #E step
-  for (subj in hybrid_subjects) {
-    #perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
-    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
-    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
-    sum_weights = polygon_weight+modular_weight
-    #augmented_data[augmented_data$subject == subj & augmented_data$theta,]$weight = perfect_weight/sum_weights
-    augmented_data[augmented_data$subject == subj & !augmented_data$theta & augmented_data$phi,]$weight = polygon_weight/sum_weights
-    augmented_data[augmented_data$subject == subj & !augmented_data$theta & !augmented_data$phi,]$weight = modular_weight/sum_weights
+for (subj in hybrid_subjects) {
+  perfect_weight = log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1]
+  polygon_weight = log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1]
+  modular_weight = log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1]
+  if (perfect_weight > polygon_weight & perfect_weight > modular_weight) {
+    augmented_data[hierarchical_data$subject == subj,]$theta = T
   }
-  
-  #M step
-  #theta = sum(augmented_data[augmented_data$theta,]$weight)/sum(augmented_data$weight)
-  phi = sum(augmented_data[!augmented_data$theta & (augmented_data$phi==TRUE),]$weight)/sum(augmented_data[!augmented_data$theta,]$weight)
-  
-  #LL and termination
-  LL_hist[iter+1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
-  print(paste("theta: ",theta,", phi: ",phi,', LL: ',LL_hist[iter+1]))
-  if (LL_hist[iter+1]-LL_hist[iter] < delta_LL_threshold) {
-    print("Difference of log likelihood from previous step is below threshold, terminating.")
-    break
+  else {
+    augmented_data[hierarchical_data$subject == subj,]$theta = F
+    if (polygon_weight > modular_weight) {
+      augmented_data[hierarchical_data$subject == subj,]$phi = T
+    }
+    else{
+      augmented_data[hierarchical_data$subject == subj,]$phi = F
+    }
   }
 }
+theta = sum(augmented_data$theta)/nrow(augmented_data)
+phi = sum(augmented_data$phi)/nrow(augmented_data)
+
+print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_data,theta,phi)))
 
 ```
 
-Expectation-maximization
+What about splitting into only order 6 and order 9 to test post-hoc idea that hybrid group only integrates later on in experiment?
 ```{r}
-#max number of iterations
-num_iterations = 100
-delta_LL_threshold =  0.0001
-#initial values - uniform
-theta = 0.5
-phi = 0.5 
+hierarchical_6_data = hierarchical_data %>% filter(grepl("6",question_type))
+hierarchical_9_data = hierarchical_data %>% filter(grepl("9",question_type))
+hierarchical_not6_data = hierarchical_data %>% filter(!grepl("6",question_type))
+```
 
-LL_hist = vector()
-
-LL_hist[1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
-
-for (iter in 1:num_iterations) {
-  #E step
-  for (subj in hybrid_subjects) {
-    perfect_weight = theta*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],perfect_combination_coefficients)[1])
-    polygon_weight = (1-theta)*phi*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],polygon_coefficients)[1])
-    modular_weight = (1-theta)*(1-phi)*exp(log_likelihood_of_data(hierarchical_data[hierarchical_data$subject == subj,],modular_coefficients)[1])
-    sum_weights = perfect_weight+polygon_weight+modular_weight
-    augmented_data[augmented_data$subject == subj & augmented_data$theta,]$weight = perfect_weight/sum_weights
-    augmented_data[augmented_data$subject == subj & !augmented_data$theta & augmented_data$phi,]$weight = polygon_weight/sum_weights
-    augmented_data[augmented_data$subject == subj & !augmented_data$theta & !augmented_data$phi,]$weight = modular_weight/sum_weights
+Fitting theta and phi to order 6
+```{r}
+for (subj in hybrid_subjects) {
+  perfect_weight = log_likelihood_of_data(hierarchical_6_data[hierarchical_6_data$subject == subj,],perfect_combination_coefficients)[1]
+  polygon_weight = log_likelihood_of_data(hierarchical_6_data[hierarchical_6_data$subject == subj,],polygon_coefficients)[1]
+  modular_weight = log_likelihood_of_data(hierarchical_6_data[hierarchical_6_data$subject == subj,],modular_coefficients)[1]
+  if (perfect_weight > polygon_weight & perfect_weight > modular_weight) {
+    augmented_data[hierarchical_6_data$subject == subj,]$theta = T
   }
-  
-  #M step
-  theta = sum(augmented_data[augmented_data$theta,]$weight)/sum(augmented_data$weight)
-  phi = sum(augmented_data[!augmented_data$theta & (augmented_data$phi==TRUE),]$weight)/sum(augmented_data[!augmented_data$theta,]$weight)
-  
-  #LL and termination
-  LL_hist[iter+1] = log_likelihood_of_full_data(hierarchical_data,theta,phi)
-  print(paste("theta: ",theta,", phi: ",phi,', LL: ',LL_hist[iter+1]))
-  if (LL_hist[iter+1]-LL_hist[iter] < delta_LL_threshold) {
-    print("Difference of log likelihood from previous step is below threshold, terminating.")
-    break
+  else {
+    augmented_data[hierarchical_6_data$subject == subj,]$theta = F
+    if (polygon_weight > modular_weight) {
+      augmented_data[hierarchical_6_data$subject == subj,]$phi = T
+    }
+    else{
+      augmented_data[hierarchical_6_data$subject == subj,]$phi = F
+    }
   }
 }
+theta = sum(augmented_data$theta)/nrow(augmented_data)
+phi = sum(augmented_data$phi)/nrow(augmented_data)
+
+print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_6_data,theta,phi)))
+
+```
+
+Fitting theta and phi to order 9 and n
+```{r}
+for (subj in hybrid_subjects) {
+  perfect_weight = log_likelihood_of_data(hierarchical_9_data[hierarchical_9_data$subject == subj,],perfect_combination_coefficients)[1]
+  polygon_weight = log_likelihood_of_data(hierarchical_9_data[hierarchical_9_data$subject == subj,],polygon_coefficients)[1]
+  modular_weight = log_likelihood_of_data(hierarchical_9_data[hierarchical_9_data$subject == subj,],modular_coefficients)[1]
+  if (perfect_weight > polygon_weight & perfect_weight > modular_weight) {
+    augmented_data[hierarchical_9_data$subject == subj,]$theta = T
+  }
+  else {
+    augmented_data[hierarchical_9_data$subject == subj,]$theta = F
+    if (polygon_weight > modular_weight) {
+      augmented_data[hierarchical_9_data$subject == subj,]$phi = T
+    }
+    else{
+      augmented_data[hierarchical_9_data$subject == subj,]$phi = F
+    }
+  }
+}
+theta = sum(augmented_data$theta)/nrow(augmented_data)
+phi = sum(augmented_data$phi)/nrow(augmented_data)
+
+print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_9_data,theta,phi), ', LL (including order n):', log_likelihood_of_full_data(hierarchical_not6_data,theta,phi)))
 
 ```
 
