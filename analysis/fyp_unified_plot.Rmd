@@ -605,7 +605,8 @@ exp_3_data = exp_3_data %>% select(subject,condition,question_type,score_strict,
 ```
 
 ```{r}
-full_data = rbind(exp_1_data,exp_2_data,exp_3_data)
+#full_data = rbind(exp_1_data,exp_2_data,exp_3_data)
+full_data = rbind(exp_2_data,exp_3_data) #Remove experiment 1 data per Jay's suggestion
 #Various fixes
 qtypes = levels(full_data$question_type)
 qtypes[1] = 'operation_6' #Rename to make consolidation easier

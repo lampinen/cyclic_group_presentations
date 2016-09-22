@@ -61,7 +61,7 @@ for (var in fyp_2$Variable) {
 aggregating across group orders
 ```{r}
 study_labels = c('Exp. 1 order 6','Exp. 1 order 9','Exp. 2 order 6','Exp. 2 order 9','Exp. 3 order 6','Exp. 3 order 9')
-for (var in c('question_typegenerator_true_%i.conditionpolygon','question_typeinverse_nonzero_%i.conditionpolygon')) {
+for (var in c('question_typegenerator_true_%i.conditionpolygon','question_typegenerator_false_%i.conditionpolygon','question_typeinverse_nonzero_%i.conditionpolygon')) {
   print(var)
   logOR = c(fyp_1[levels(fyp_1$Variable)[fyp_1$Variable] == sprintf(var,6),]$logOR,fyp_1[levels(fyp_1$Variable)[fyp_1$Variable] == sprintf(var,9),]$logOR,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,6),]$logOR,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,9),]$logOR,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,6),]$logOR,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,9),]$logOR)
   se = c(fyp_1[levels(fyp_1$Variable)[fyp_1$Variable] == sprintf(var,6),]$se,fyp_1[levels(fyp_1$Variable)[fyp_1$Variable] == sprintf(var,9),]$se,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,6),]$se,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,9),]$se,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,6),]$se,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,9),]$se)
@@ -77,7 +77,7 @@ dev.off.crop()
 }
 
 study_labels = c('Exp. 2 order 6','Exp. 2 order 9','Exp. 3 order 6','Exp. 3 order 9')
-for (var in c('question_typegenerator_true_%i.conditionhybrid','question_typeinverse_nonzero_%i.conditionhybrid','question_typeinverse_zero_%i.conditionhybrid','question_typeinverse_nonzero_%i.conditionpolygon')) {
+for (var in c('question_typegenerator_true_%i.conditionhybrid','question_typegenerator_false_%i.conditionhybrid','question_typeinverse_nonzero_%i.conditionhybrid','question_typeinverse_zero_%i.conditionhybrid','question_typeinverse_nonzero_%i.conditionpolygon')) {
   print(var)
   logOR = c(fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,6),]$logOR,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,9),]$logOR,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,6),]$logOR,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,9),]$logOR)
   se = c(fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,6),]$se,fyp_2[levels(fyp_2$Variable)[fyp_2$Variable] == sprintf(var,9),]$se,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,6),]$se,fyp_3[levels(fyp_3$Variable)[fyp_3$Variable] == sprintf(var,9),]$se)

@@ -699,6 +699,17 @@ ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) 
   ggtitle("Generator T/F Results")
 ```
 
+```{r}
+summarized_data = complete_data[grepl("Trueorfalse",gsub(" ","",complete_data$question)),] %>% mutate(tf_Q= ifelse(grepl("evennumber",gsub(" ","",question)),"Q1",ifelse(grepl("oddnumber",gsub(" ","",question)),"Q2",ifelse(grepl("divide",gsub(" ","",question)),"Q3","Q4")))) %>% group_by(subject,condition,tf_Q) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,tf_Q) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+
+ggplot(data=summarized_data,aes(tf_Q,percent_correct.mean,fill=condition)) +
+  geom_bar(stat="identity",position="dodge",width=0.5) +
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position=position_dodge(width=0.5)) +
+  scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
+  labs(y = '% Correct',x="Question") + 
+  ylim(0,1)+
+  ggtitle("Generator T/F Results by Question")
+```
 
 Generator A/S/N:
 
@@ -714,3 +725,14 @@ ggplot(data=summarized_data,aes(condition,percent_correct.mean,fill=condition)) 
   ggtitle("Generator A/S/N Results")
 ```
 
+```{r}
+summarized_data = complete_data[grepl("always,sometimes,ornever",gsub(" ","",complete_data$question)),] %>% mutate(asn_Q=ifelse(grepl("inverse",gsub(" ","",question)),"Q1",ifelse(grepl("notagenerator",gsub(" ","",question)),"Q3","Q2"))) %>% group_by(subject,condition,asn_Q) %>% summarize(percent_correct = mean(score_strict)) %>% group_by(condition,asn_Q) %>% summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct))
+
+ggplot(data=summarized_data,aes(asn_Q,percent_correct.mean,fill=condition)) +
+  geom_bar(stat="identity",position="dodge",width=0.5) +
+  geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.25),position=position_dodge(width=0.5)) +
+  scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
+  labs(y = '% Correct',x="Question") + 
+  ylim(0,1)+
+  ggtitle("Generator A/S/N Results by Question")
+```
