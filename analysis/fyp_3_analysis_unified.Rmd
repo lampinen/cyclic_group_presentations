@@ -673,15 +673,16 @@ whichrep_data$whichrep_modular = factor(whichrep_data$whichrep_modular)
 #  geom_histogram(binwidth=1) +
 #  theme_bw()
 
+whichrep_data = whichrep_data %>% mutate(correct=ifelse(score==1,"Correct","Incorrect")) %>% mutate(correct=factor(correct))
 ```
 ```{r}
-temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof0',gsub(' ','',whichrep_data$question)),] %>% group_by(correct,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,correct,fill=list(count=0))
 ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
   geom_tile(aes(fill=count)) +
   scale_fill_continuous(low="#FFFFFF",high="#FF3333") +
-  geom_text(aes(label = ifelse(count > 0,count,""))) +
+  geom_text(aes(label = ifelse(count > 0,count,"")),size=12) +
   labs(x = "Polygon Rating",y="Modular Rating",title="Inverse of Zero: Which Representation?")+
-  facet_grid(.~score,labeller=label_both)+ 
+  facet_grid(.~correct,labeller=label_value)+ 
   theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
 
 #ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
@@ -694,13 +695,13 @@ ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
 ```
 
 ```{r}
-temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('inverseof4',gsub(' ','',whichrep_data$question)),] %>% group_by(correct,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,correct,fill=list(count=0))
 ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
   geom_tile(aes(fill=count)) +
   scale_fill_continuous(low="#FFFFFF",high="#FF3333") +
-  geom_text(aes(label = ifelse(count > 0,count,""))) +
+  geom_text(aes(label = ifelse(count > 0,count,"")),size=12) +
   labs(x = "Polygon Rating",y="Modular Rating",title="Inverse of Non-zero: Which Representation?")+
-  facet_grid(.~score,labeller=label_both)+ 
+  facet_grid(.~correct,labeller=label_value)+ 
   theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
 #
 #ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
@@ -711,13 +712,13 @@ ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
 #  geom_histogram(binwidth=1) +
 #  theme_bw()
 
-temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('4agenerator',gsub(' ','',whichrep_data$question)),] %>% group_by(correct,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,correct,fill=list(count=0))
 ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
   geom_tile(aes(fill=count)) +
   scale_fill_continuous(low="#FFFFFF",high="#FF3333") +
-  geom_text(aes(label = ifelse(count > 0,count,""))) +
+  geom_text(aes(label = ifelse(count > 0,count,"")),size=12) +
   labs(x = "Polygon Rating",y="Modular Rating",title="Identifying Generators: Which Representation?")+
-  facet_grid(.~score,labeller=label_both)+ 
+  facet_grid(.~correct,labeller=label_value)+ 
   theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
 
 #ggplot(data=whichrep_data[!is.na(whichrep_data$whichrep_modular) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),],aes(whichrep_modular)) +
@@ -728,13 +729,13 @@ ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
 #  geom_histogram(binwidth=1) +
 #  theme_bw()
 
-temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),] %>% group_by(score,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,score,fill=list(count=0))
+temp_data = whichrep_data[!is.na(whichrep_data$whichrep_polygon) & grepl('Trueorfalse',gsub(' ','',whichrep_data$question)),] %>% group_by(correct,whichrep_polygon,whichrep_modular) %>% summarize(count = n()) %>% complete(whichrep_polygon,whichrep_modular,correct,fill=list(count=0))
 ggplot(data=temp_data,aes(x=whichrep_polygon,y=whichrep_modular)) +
   geom_tile(aes(fill=count)) +
   scale_fill_continuous(low="#FFFFFF",high="#FF3333") +
-  geom_text(aes(label = ifelse(count > 0,count,""))) +
+  geom_text(aes(label = ifelse(count > 0,count,"")),size=12) +
   labs(x = "Polygon Rating",y="Modular Rating",title="True/False: Which Representation?")+
-  facet_grid(.~score,labeller=label_both)+ 
+  facet_grid(.~correct,labeller=label_value)+ 
   theme_bw(base_size=20)+theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank())
 
 
