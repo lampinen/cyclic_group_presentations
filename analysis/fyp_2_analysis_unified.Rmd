@@ -257,7 +257,7 @@ model_data$condition = relevel(model_data$condition,ref='modular') #Because the 
 ```
 
 
-```{r}
+```{r,eval=F}
 tm = proc.time()
 num_boot_samples = 10000
 boot_polygon_subjects = unique(model_data[model_data$condition == 'polygon',]$subject)
@@ -363,13 +363,13 @@ log_likelihood_of_full_data = function(data,theta,phi) {
 Naive -- How well is data explained by assuming everybody just did one of three possibilities?
 ```{r}
 print('polygon: ')
-print(log_likelihood_of_full_data(hierarchical_data,0,1))
+print(-2*log_likelihood_of_full_data(hierarchical_data,0,1))
 print('modular: ')
-print(log_likelihood_of_full_data(hierarchical_data,0,0))
+print(-2*log_likelihood_of_full_data(hierarchical_data,0,0))
 print('50-50 modular polygon: ')
-print(log_likelihood_of_full_data(hierarchical_data,0,0.5))
+print(-2*log_likelihood_of_full_data(hierarchical_data,0,0.5))
 print('max of the two: ')
-print(log_likelihood_of_full_data(hierarchical_data,1,0))
+print(-2*log_likelihood_of_full_data(hierarchical_data,1,0))
 ```
 
 Fitting just phi
@@ -387,7 +387,7 @@ for (subj in hybrid_subjects) {
 theta = 0
 phi = sum(augmented_data$phi)/nrow(augmented_data)
 
-print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_data,theta,phi)))
+print(paste("theta: ",theta,", phi: ",phi,', BIC: ', log(50)-2*log_likelihood_of_full_data(hierarchical_data,theta,phi)))
 
 ```
 
@@ -413,7 +413,7 @@ for (subj in hybrid_subjects) {
 theta = sum(augmented_data$theta)/nrow(augmented_data)
 phi = sum(augmented_data$phi)/nrow(augmented_data)
 
-print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_data,theta,phi)))
+print(paste("theta: ",theta,", phi: ",phi,', BIC: ', 2*log(50)-2*log_likelihood_of_full_data(hierarchical_data,theta,phi)))
 
 ```
 
@@ -446,7 +446,7 @@ for (subj in hybrid_subjects) {
 theta = sum(augmented_data$theta)/nrow(augmented_data)
 phi = sum(augmented_data$phi)/nrow(augmented_data)
 
-print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_6_data,theta,phi)))
+print(paste("theta: ",theta,", phi: ",phi,', BIC: ', log(50)*2-2*log_likelihood_of_full_data(hierarchical_6_data,theta,phi)))
 
 ```
 
@@ -472,7 +472,7 @@ for (subj in hybrid_subjects) {
 theta = sum(augmented_data$theta)/nrow(augmented_data)
 phi = sum(augmented_data$phi)/nrow(augmented_data)
 
-print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_9_data,theta,phi), ', LL (including order n):', log_likelihood_of_full_data(hierarchical_not6_data,theta,phi)))
+print(paste("theta: ",theta,", phi: ",phi,', LL: ', log_likelihood_of_full_data(hierarchical_9_data,theta,phi), ', BIC (including order n):', log(50)*2-2*log_likelihood_of_full_data(hierarchical_not6_data,theta,phi)))
 
 ```
 
@@ -554,3 +554,35 @@ ggplot(data=q,aes(response,fill=condition)) +
   theme_bw()
 ```
 
+
+###Do the inverse of zero results still come out if the $n$ is counted as a correct answer?
+
+```{r}
+q = complete_data[grepl('inverse_zero_6',complete_data$question_type),]
+ggplot(data=q,aes(response,fill=condition)) +
+  geom_bar(position=position_dodge()) +
+  theme_bw() 
+
+q_mod_wrong = q[q$condition == 'modular' & q$score_strict == 0,]
+nrow(q_mod_wrong)
+nrow(q_mod_wrong[gsub(' ','',q_mod_wrong$response) == '6',])
+
+q_poly_wrong = q[q$condition == 'polygon' & q$score_strict == 0,]
+nrow(q_poly_wrong)
+nrow(q_poly_wrong[gsub(' ','',q_poly_wrong$response) == '6',])
+
+q = complete_data[grepl('inverse_zero_9',complete_data$question_type),]
+ggplot(data=q,aes(response,fill=condition)) +
+  geom_bar(position=position_dodge()) +
+  theme_bw() 
+
+q_mod_wrong = q[q$condition == 'modular' & q$score_strict == 0,]
+nrow(q_mod_wrong)
+nrow(q_mod_wrong[gsub(' ','',q_mod_wrong$response) == '9',])
+
+q_poly_wrong = q[q$condition == 'polygon' & q$score_strict == 0,]
+nrow(q_poly_wrong)
+nrow(q_poly_wrong[gsub(' ','',q_poly_wrong$response) == '9',])
+
+
+```
