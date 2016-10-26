@@ -376,7 +376,8 @@ for (subj in hybrid_subjects) {
 theta = 0
 phi = sum(augmented_data$phi)/nrow(augmented_data)
 
-print(paste("theta: ",theta,", phi: ",phi,', BIC: ', log(100)*1-2*log_likelihood_of_full_data(hierarchical_data,theta,phi)))
+print(paste("theta: ",theta,", phi: ",phi,', LL: ',log_likelihood_of_full_data(hierarchical_data,theta,phi),', BIC: ', log(100)*1-2*log_likelihood_of_full_data(hierarchical_data,theta,phi)))
+
 
 ```
 
@@ -402,7 +403,7 @@ for (subj in hybrid_subjects) {
 theta = sum(augmented_data$theta)/nrow(augmented_data)
 phi = sum(augmented_data$phi)/nrow(augmented_data)
 
-print(paste("theta: ",theta,", phi: ",phi,', BIC: ', log(100)*2-2*log_likelihood_of_full_data(hierarchical_data,theta,phi)))
+print(paste("theta: ",theta,", phi: ",phi,', LL: ',log_likelihood_of_full_data(hierarchical_data,theta,phi),', BIC: ', log(100)*2-2*log_likelihood_of_full_data(hierarchical_data,theta,phi)))
 
 ```
 
