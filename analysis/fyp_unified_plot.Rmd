@@ -657,35 +657,42 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
 
 ```{r}
 plotting_data = full_data %>% 
+  mutate(aggregated_question_type = substr(levels(question_type)[question_type],1,nchar(levels(question_type)[question_type])-2),group_order=substr(levels(question_type)[question_type],nchar(levels(question_type)[question_type]),nchar(levels(question_type)[question_type]))) %>%
   filter(grepl('inverse_nonzero',question_type) | grepl('inverse_zero',question_type) | grepl('generator_true',question_type)  ) %>%
-  group_by(subject,condition,question_type) %>%
+  group_by(subject,condition,aggregated_question_type,group_order) %>%
   summarize(percent_correct = mean(score_strict)) %>% 
-  group_by(condition,question_type) %>%
+  group_by(condition,aggregated_question_type,group_order) %>%
   summarize(percent_correct.mean = mean(percent_correct),percent_correct.sem = sem(percent_correct)) %>%
   filter(!is.na(condition))
 
-plotting_data$question_type = factor(plotting_data$question_type)
-plotting_data$question_type = factor(plotting_data$question_type,levels(plotting_data$question_type)[c(3,5,1,4,6,2)])
+plotting_data$aggregated_question_type = factor(plotting_data$aggregated_question_type)
+plotting_data$aggregated_question_type = factor(plotting_data$aggregated_question_type,levels=levels(plotting_data$aggregated_question_type)[c(2,3,1)])
+plotting_data$group_order = factor(plotting_data$group_order,labels=c('Order 6','Order 9'))
+
 ```
 
 ```{r}
-ggplot(data=plotting_data,aes(question_type,percent_correct.mean,fill=condition)) + 
+plotting_text = data.frame(group_order=factor(rep(c('6','9'),each=5),levels=c('6','9'),labels=c('Order 6','Order 9')),x=c(0.86,1.15,1.86,2.15,2.86,0.86,1.86,2.15,2.86,3.15),y=rep(1.0,10),label=rep("*",1))
+
+ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill=condition)) + 
   geom_bar(stat="identity",position="dodge") +
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.5),position=position_dodge(width=0.9)) +
-  scale_x_discrete(breaks=levels(plotting_data$question_type),
-                      labels=c("Inverse of Non-zero (6)", "Inverse of Zero (6)", "Identifying Gen. (6)","Inverse of Non-zero (9)", "Inverse of Zero (9)", "Identifying Gen. (9)")) +  
+  scale_x_discrete(breaks=levels(plotting_data$aggregated_question_type),
+                      labels=c("Inverse of Non-zero", "Inverse of Zero", "Identifying Gen.")) +  
   scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
   scale_alpha_manual(values= c(0.33,1.0))+
-  annotate("text",x=0.86,y=1.0,label='*',alpha=0.5,size=8)+ #Stars mark those where 95% CI in the meta analysis combined across orders does not overlap zero
-  annotate("text",x=1.15,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=1.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=2.15,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=2.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=3.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=4.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=5.15,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=5.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=6.15,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=0.86,y=1.0,label='*',alpha=0.5,size=8)+ #Stars mark those where 95% CI in the meta analysis combined across orders does not overlap zero
+#  annotate("text",x=1.15,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=1.86,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=2.15,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=2.86,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=3.86,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=4.86,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=5.15,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=5.86,y=1.0,label='*',alpha=0.5,size=8)+
+#  annotate("text",x=6.15,y=1.0,label='*',alpha=0.5,size=8)+
+  facet_wrap(~group_order)+
+  geom_text(data=plotting_text,aes(x,y,label=label),inherit.aes=FALSE,alpha=0.5,size=8) +
   labs(y = 'Mean % Correct', x= 'Question Type') + 
   guides(alpha=FALSE)+
   ggtitle("Order 6/Order 9 Result Comparison") + 
