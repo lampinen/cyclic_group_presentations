@@ -172,6 +172,16 @@ highest_math_classes =read.csv(paste(data_location,"highest_math_class_scored.cs
 subject_data$math_high = highest_math_classes$math_high
 ```
 
+```{r}
+demographic_data = complete_data %>% 
+  filter(grepl('education',gsub(" ","",question)) | grepl('yourgender',gsub(" ","",question)) | grepl('yourage',gsub(" ","",question)) )
+
+range(as.numeric(substr(levels(demographic_data$response)[demographic_data[grepl('yourage',gsub(" ","",demographic_data$question)),]$response],1,3)),na.rm=T)
+
+table(gsub(' ','',levels(demographic_data$response)[demographic_data[grepl('yourgender',gsub(" ","",demographic_data$question)),]$response]))
+
+table(gsub(' ','',levels(demographic_data$response)[demographic_data[grepl('education',gsub(" ","",demographic_data$question)),]$response]))
+```
 Subject exclusion
 ----------------------
 Exclude subjects who responded 4 or higher on familiarity with modular arithmetic or mathematical groups: they know too much
