@@ -2,11 +2,11 @@
 \usepackage{amsmath,amssymb}
 \usepackage{apacite}
 %%\usepackage{mathrsfs}
-\usepackage{dblfloatfix}
-\usepackage{placeins}
+%\usepackage{dblfloatfix}
+%\usepackage{placeins}
 \usepackage{wasysym}
 \usepackage{graphicx}
-\usepackage{float}
+%\usepackage{float}
 \usepackage{pdflscape}
 \usepackage{subcaption}
 \usepackage{xcolor}
@@ -19,8 +19,7 @@
 \newcommand{\hex}{\,\vcenter{\hbox{\includegraphics[height=1.5ex]{../figures/hexagon_symbol.png}}}\,}
 \newcommand{\nonagon}{\,\vcenter{\hbox{\includegraphics[height=1.5ex]{../figures/nonagon_symbol.png}}}\,}
 \newcommand{\ngon}{\,\vcenter{\hbox{\includegraphics[height=1.5ex]{../figures/ngon_symbol.png}}}\,}
-
-\restylefloat{figure}
+%\restylefloat{figure}
 
 \title{Two presentations of a mathematical system: complementary advantages that can be combined} 
 \shorttitle{Two presentations of a mathematical system}
@@ -42,7 +41,13 @@ In this project, we explored these issues and found evidence that two different 
 We examined these issues within the area of elementary group theory, specifically cyclic groups and some group theoretic concepts relevant to them. An introduction to the relevant concepts is provided in Appendix A, but we briefly sketch them here. A group consists of a set of elements and an operation that takes any two members of the group and always produces a group member as a result. A cyclic group is a group whose members can be seen as forming a cycle. More specifically, the cyclic group of order n is a group of n elements whose elements can be brought into correspondence with the numbers 0 to n-1. Once a correspondence with the integers 0 to n-1 has been established, the rule for combining two elements can be described as adding the two numbers, and subtracting n if the result is greater than or equal to n. There are many concepts that can be built up from these simple ideas, including the identity element of the group (the element that leaves every other element unchanged under the operation, in this case 0); the concept of the inverse of an element (the thing you combine with an element to get the identity); and the concept of a generator of the group (an element that can make every other element of the group by repeatedly adding the element to itself). Our use of this particular task domain was inspired by previous work on presentations in mathematics education. 
 \subsection{Background: The Advantage(?) of Abstract Examples}
 Kaminski and colleagues \cite{Kaminski2008} explored the effects of presentations in a cyclic group of order 3. They presented participants with either a ``generic'' instantiation of the group, or a ``concrete'' one. Their presentations are illustrated in figure \ref{kaminskitraining}. The generic presentation consists of some arbitrary geometric symbols, with enforced rules for combining them, and the concrete presentation consisted of an example with a narrative about combining fractional cups of liquid, and finding the amount left over. There were two other concrete presentations (not shown) that were also used in some experimental sessions (using fractional slices of a pizza or number of tennis balls in a can as the concrete objects.) They trained participants to perform the operation in either the generic presentation or one to three concrete presentations. They then showed participants the isomorphic transfer domain shown in figure \ref{kaminskitransfer}, where the objects of the group are replaced by toys in a children's game. (The transfer domain item shown is analogous to the rule on the last line of \ref{kaminskitraining}.) The participants were explicitly told that this followed the same rules as the earlier examples, and that they should try to use their knowledge to predict the correct answers. Kaminski and colleagues found that the participants who learned the generic presentation performed better at this transfer than the participants who learned the concrete presentation(s). From this, they concluded that ``instantiating an abstract concept in a concrete, contextualized manner appears to constrain that knowledge and hinder the ability to recognize the same concept elsewhere'' \cite{Kaminski2008}. \par
-\begin{figure} \centering \begin{subfigure}{0.5\textwidth} \caption{Group presentations} \label{kaminskitraining} \includegraphics[width=\textwidth]{../figures/Kaminski2008Fig1.png} \end{subfigure} \\ \begin{subfigure}{0.5\textwidth} \caption{Transfer domain} \label{kaminskitransfer} \includegraphics[width=\textwidth]{../figures/KaminskiTransfer.png} \end{subfigure} \caption{Group presentations from (Kaminski, Sloutsky, and Heckler, 2008). Figures adapted from ``The Advantage of Abstract Examples in Learning Math'' by J.\ A.\ Kaminski, V.\ M.\ Sloutsky, \& A.\ F.\ Heckler, 2008,  \textit{Science}, 320 (5875), p.\ 454 and ``Abstract or Concrete Examples in Learning Mathematics? A Replication and Elaboration of Kaminski, Sloutsky, and Heckler's Study'' by D.\ De Bock, et al., 2011, \textit{Journal for Research in Mathematics Education}, 42 (2), p. 112.  Permission pending.} \end{figure}\noindent
+\begin{center} 
+{\bf Insert Figure \ref{kaminskipresentations} here} 
+\end{center}
+\begin{figure} \centering \begin{subfigure}{0.5\textwidth} \caption{Group presentations} \label{kaminskitraining} \includegraphics[width=\textwidth]{../figures/Kaminski2008Fig1.png} \end{subfigure} \\ \begin{subfigure}{0.5\textwidth} \caption{Transfer domain} \label{kaminskitransfer} \includegraphics[width=\textwidth]{../figures/KaminskiTransfer.png} \end{subfigure} \caption{Group presentations from (Kaminski, Sloutsky, and Heckler, 2008). Figures adapted from ``The Advantage of Abstract Examples in Learning Math'' by J.\ A.\ Kaminski, V.\ M.\ Sloutsky, \& A.\ F.\ Heckler, 2008,  \textit{Science}, 320 (5875), p.\ 454 and ``Abstract or Concrete Examples in Learning Mathematics? A Replication and Elaboration of Kaminski, Sloutsky, and Heckler's Study'' by D.\ De Bock, et al., 2011, \textit{Journal for Research in Mathematics Education}, 42 (2), p. 112.  Permission pending.} 
+\label{kaminskipresentations}
+\end{figure}
+\noindent
 However, it is possible to offer alternative interpretations of Kaminski and colleagues' results. For example, \citeA{Jones2009} suggests that in the concrete presentations ``the feature in question ... is the physical objects that behave like quantities'' and the problems can be solved by adding and subtracting, whereas in the generic presentation ``the symbols used do not appear to represent \emph{quantities}, and are not combined,'' and the transfer task, similarly ``does not exhibit a quantitative feature; instead it is another version of the generic instatiation with a different contextualization.'' Thus he concludes that ``The transfer task is more similar to the generic instantiation than to the concrete ones.'' In a response to this interpretation, \citeA{Kaminski2009} asserted that the generic and transfer domains were not more similar, because after describing the domains to a set of participants (without teaching them the rules for combinations), and asking them to rate the similarity between domains, they did not find any significant differences in rated similarity. However, the possibility remains that there are structural or conceptual differences between the concrete and generic instantiations. \par
 For example, one aspect of the presentations that is different is the asymmetry that participants previous arithmetic knowledge will introduce between the elements which are represented as 1/3 of a cup or 2/3 of a cup in the concrete instantiation. Although in the abstract sense, it is clear that the generic domain and the concrete are isomorphic, in the generic domain the symmetry between the two non-identity elements is clear, circle circle = diamond, and diamond diamond = circle. While the rules that $1+1=2$ and $2+2=1$ do follow from the presentation in the numeric case, there is a fundamental asymmetry to the arithmetic interpretations of them (i.e. $1+1 = 2$ because $1/3$ cup two times makes $2/3$ cups, but $2+2 = 1$ because $2/3$ cup two times makes 1 and $1/3$ cups, and we throw away the full cup to get back to $1/3$). We suspect this asymmetry may be to blame for the worse transfer performance, since students looking for a cue to map one object to the unit quantity and the other to twice that quantity would not find any such cue. Similarly, if the notion of generators had been discussed in the study, participants who saw the concrete examples would probably have been biased to choose 1 as a generator, even though 2 is an equally good choice, whereas in the generic case there would be no such bias. The concrete presentations provide a shared basis (number of identified parts, be they tennis balls, slices of pizza, or 1/3s of a cup of liquid) that can be used to map one onto another. This obvious mapping is not present in either the generic or transfer examples. In summary, the numerical content of the concrete presentations may change what participants learn from them. \par
 This idea that what is learned is changed by the presentation is supported by De Bock et al., in their replication of Kaminski's study \cite{DeBock2011}. In this study, they compared the transfer from the generic domain to the concrete, and found that it was worse than the transfer from the concrete domain to a new concrete domain, or from an abstract to an abstract. Thus, each presentation was better for transferring to presentations that were similar in terms of whether or not they supported a mapping to number. Furthermore, they asked participants to give a free response justifying their answer to a problem of combining four elements of the group, and rated it on the ideas that it contained. They found that generic-presentation group participants mentioned more group-theoretic ideas (although they still appeared to attain very little understanding of them), but that concrete-presentation group participants mentioned the ideas of modular arithmetic as well as some group-theoretic ideas. Thus, the choice of presentation had an effect not just on transfer, but on the more abstract concepts being inferred. These results suggest that in pedagogically more realistic scenarios where students are asked to explore concepts further, the presentation may have effects that propagate. \par
@@ -94,7 +99,12 @@ This design addresses a variety of concepts and aspects of understanding. The le
 In all three experiments, participants in one group received a presentation based on modular arithmetic (which is easily explained as a slight variation on regular arithmetic), while participants in another group received a more visually concrete presentation based on counting around a polygon (which allows participants to develop a visual intuition, but which is not as directly familiar as standard arithmetic, although participants may find analogies, e.g. to clocks). For experiments 2 and 3, we added a hybrid group, where participants were presented with both presentations and asked to integrate them. \par 
 For the modular presentation, we presented the group operation as $+_6$, and we explained to participants that to compute $+_6$ you add the two numbers, and then subtract $6$ if your result is $6$ or larger. We gave examples such as $4 +_6 4 = 2$, because $4+4 = 8$ and $8-6=2$.\par
 For the polygon presentation, we presented the group operation in the form of rotating an arrow around a polygon. We wrote the group operation as $\hex$, a hexagon containing the numeral $6$, and provided the participants with the diagram shown in Figure \ref{hexagonex}. The diagram that participants were provided was interactive, so that they could click or click and drag to move the arrow around the polygon. The arrow would ``snap'' to the nearest vertex when released. (The diagram for the currently relevant group order was provided on each problem in the experiment.)
-\begin{figure} \centering \includegraphics[width=0.3\textwidth]{../figures/hexagon_arrow.png} \caption{Order 6 polygon figure} \label{hexagonex} \end{figure} \noindent
+\begin{center} 
+{\bf Insert Figure \ref{hexagonex} here} 
+\end{center}
+\begin{figure} \centering \includegraphics[width=0.3\textwidth]{../figures/hexagon_arrow.png} \caption{Order 6 polygon figure} \label{hexagonex} 
+\end{figure} 
+\noindent
 We explained to participants that to compute $\hex$ you point the arrow in the hexagon to the first number, and then move it the second number of spaces clockwise. The number that the arrow points at is your result. We gave examples such as $4 \hex 4 = 2$, because 4 steps clockwise from 4 makes the arrow point at 2. \par
 After seeing several examples, participants practiced the operation on 10 problems, and if their accuracy was below 80\%, they were given an additional 10 practice problems. On all of these problems, the participants received feedback on their answers and an explanation of the correct answer. \par 
 For the hybrid group participants, we presented both presentations, calling them respectively the ``arithmetic method'' and ''polygon method.'' (We used ``arithmetic method'' because we felt that some participants would find the term ``modular method'' to be confusing, since they could associate it with meanings other than the intended mathematical meaning.) We alternated asking the participants to use the polygon and arithmetic methods on six of the initial operation practice problems, to encourage them to develop a familiarity with both presentations. The answer explanations on these questions were presented in accordance with the operation we had asked them to use; on the questions where we did not specify an operation we provided both types of feedback. Like participants in the other groups, hybrid group participants did 10 practice problems, plus an additional 10 if their accuracy on the first 10 was below 80\%.\par
@@ -106,7 +116,13 @@ Similarly, we explained the concept of inverses by saying something's inverse is
 Finally, we taught the participants the idea of generators, by explaining that a generator can make every other element of the group by combining with itself. For example, 1 is a generator under $+_6$, because $1 = 1$, $2 = 1 +_6 1$, etc. However, 2 is not a generator under $+_6$, because $2 = 2$, $4 = 2 +_6 2$, $0 = 2 +_6 2 +_6 2$, but there is no way to make 1, 3, or 5. We then asked participants to find whether each of the remaining elements generates the group, and provided them with feedback on their answers and an explanation of the correct answer.
 \subsubsection{Transfer test}
 We next tested the participants transfer of concepts to the cyclic group of order 9, presented to the modular group as $+_9$, or to the polygon group as $\nonagon$ with the visual aid in figure \ref{nonagonex}. 
-\begin{figure} \centering \includegraphics[width=0.3\textwidth]{../figures/nonagon_arrow.png} \caption{Order 9 polygon figure} \label{nonagonex} \end{figure} \noindent
+
+\begin{center} 
+{\bf Insert Figure \ref{nonagonex} here} 
+\end{center}
+\begin{figure} \centering \includegraphics[width=0.3\textwidth]{../figures/nonagon_arrow.png} \caption{Order 9 polygon figure} \label{nonagonex} 
+\end{figure} 
+\noindent
 We allowed the participants one practice problem (with feedback) on the new operation, to ensure that they understood it. We then asked the participants questions to test their knowledge of the concepts outlined in each section above, namely:
 \begin{itemize} 
 \item A set of seven problems with the group operation, e.g. $6 \nonagon 4 = ?$, with participants asked to provide an explanation of their answers for two of them. 
@@ -116,7 +132,13 @@ We allowed the participants one practice problem (with feedback) on the new oper
 \end{itemize}
 \subsubsection{Test of reasoning about the general case}
 Finally, we told participants we were now considering an order $n$ cyclic group, presented to the modular group participants as $+_n$, and to the polygon group participants as $\ngon$ with the visual aid shown in figure \ref{ngonex}. (Unlike the other visual aids, in this one the arrow would rotate freely, and would not ``snap'' to the vertices, to avoid implicitly indicating a specific number of vertices to participants.) 
-\begin{figure} \centering \includegraphics[width=0.4\textwidth]{../figures/ngon_arrow.png} \caption{Order $n$ polygon figure} \label{ngonex} \end{figure} \noindent
+
+\begin{center} 
+{\bf Insert Figure \ref{ngonex} here} 
+\end{center}
+\begin{figure} \centering \includegraphics[width=0.4\textwidth]{../figures/ngon_arrow.png} \caption{Order $n$ polygon figure} \label{ngonex} 
+\end{figure}
+\noindent
 We then asked them the following questions: 
 \begin{itemize}
 \item What is the identity under $+_n$?
@@ -159,6 +181,9 @@ For experiment 3, we decided to alter our analyses because we were concerned abo
 \subsubsection{Implementation details}
 The tasks were developed using JSPsych framework with a custom plugin to integrate the interactive polygon diagrams where necessary, hosted on Stanford's servers, and embedded in the Mechanical Turk page. In order to ensure that participants received the correct version of the experiment, we recorded each page of instructions they were given and each question they were asked along with their response, and verified that these matched the intended condition. We made small alterations and typo fixes between experiments that we did not think would affect the results. (The only significant change was that in experiment 1 we included for half the participants in each condition a prompt after each section to reflect on the results. This did not have any significant effect, so we collapsed across it in our experiment 1 analyses, and removed it from experiments 2 and 3.) The final versions of the experiments can be compared on our github.%http://www.github.com/lampinen/fyp\_cyclic\_groups/. 
 \section{Results}
+\begin{center} 
+{\bf Insert Figure \ref{overall_results} here} 
+\end{center}
 \begin{figure*}
 \centering
 \includegraphics[width=0.8\textwidth]{figures/overall_results.png}
@@ -171,6 +196,9 @@ The participants in the polygon and modular groups differed significantly on a n
 In this section we present the result of our meta-analysis of the logistic regressions performed on the data from all the experiments. We report estimated effect sizes using the approach described by \citeA{Chinn2000}. In this approach, performance is thought to depend on a normally distributed random variable, and the effect of a manipulation is viewed as shifting the mean upward (for a positive effect size) or downward (for a negative effect size) by the indicated units of the distribution's standard deviation across the population of participants.  
 \subsubsection{Operation}
 We estimate any effect of the polygon presentation on the ability to perform the group operation to be negligible (order 6: log OR (Odds Ratio) = 0.01, effect size = 0.01; order 9: log OR = 0.01, effect size = 0.01; see Fig. \ref{meta_op} top). We estimate any effect of the hybrid presentation on the ability to perform the group operation to be small or negligible (order 6: log OR = -0.40, effect size = -0.22; order 9: log OR = -0.26, effect size = -0.14; see Fig. \ref{meta_op} bottom). Despite learning different methods for performing the group operation, the experimental groups do not differ substantially in their ability to perform it, although the hybrid group appears to lag a little. 
+\begin{center} 
+{\bf Insert Figure \ref{meta_op} here} 
+\end{center}
 \begin{figure*}[t]
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -198,10 +226,14 @@ We estimate any effect of the polygon presentation on the ability to perform the
 \end{subfigure}
 \caption{Meta analysis -- operation}
 \label{meta_op}
-\end{figure*}\noindent 
-\FloatBarrier
+\end{figure*}
+\noindent 
+%%\FloatBarrier
 \subsubsection{Inverses} We estimated the positive effect of the polygon condition on inverse of zero questions to be large for both group orders, although the effect is smaller for order 9, consistent with some learning in the modular group (order 6: log OR = 3.01, effect size = 1.66; order 9: log OR = 2.56, effect size = 1.41; see Fig. \ref{meta_inZ} top). We estimated the negative effect of the polygon condition on inverse of non-zero questions to be small (order 6: log OR = -0.53, effect size = -0.29; order 9: log OR = -0.81, effect size = -0.45; see Fig. \ref{meta_inNZ} top). We estimated the positive effect of the hybrid condition on inverse of zero questions to be large for both group orders, although it is not as large as that of the polygon condition, and the effect is smaller for order 9, consistent with some learning in the modular group (order 6: log OR = 1.80, effect size = -0.99; order 9: log OR = 1.40, effect size = -0.77; see Fig. \ref{meta_inZ} bottom). We estimated the negative effect of the hybrid condition on inverse of non-zero questions to be small, and negligible after further practice in the order 9 group (order 6: log OR = -0.58, effect size= -0.32; order 9: log OR = -0.16, effect size = -0.09; see Fig. \ref{meta_inNZ} bottom).\par
 Overall, it seems that the modular presentation is generally beneficial for finding inverses, except in the case of zero, where the polygon presentation participants perform much better. (See discussion for a possible explanation of this result.) 
+\begin{center} 
+{\bf Insert Figure \ref{meta_inZ} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -229,9 +261,13 @@ Overall, it seems that the modular presentation is generally beneficial for find
 \end{subfigure}
 \caption{Meta analysis -- inverse of zero}
 \label{meta_inZ}
-\end{figure*}\noindent 
+\end{figure*}
+\noindent 
 
 
+\begin{center} 
+{\bf Insert Figure \ref{meta_inNZ} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -260,11 +296,15 @@ Overall, it seems that the modular presentation is generally beneficial for find
 \end{subfigure}
 \caption{Meta analysis -- inverse of non-zero}
 \label{meta_inNZ}
-\end{figure*}\noindent 
+\end{figure*}
+\noindent 
 
-\FloatBarrier
+%%\FloatBarrier
 \subsubsection{Generators} We estimated the positive effect of the polygon condition on identifying generators to be small (order 6: log OR = 0.68, effect size = 0.38; order 9: log OR = 0.80, effect size = 0.44; see Fig. \ref{meta_genT} top). We estimated the effect of the polygon condition on identifying non-generators to be negligible in group of order 6, but trending toward a small positive effect in the group of order 9 (order 6: log OR = 0.07, effect size = 0.04; order 9: log OR = 0.36, effect size = 0.20; see Fig. \ref{meta_genF} top). We estimated the effect of the hybrid condition on identifying non-generators to be negligible (order 6: log OR = 0.07, effect size = 0.04; order 9: log OR = -0.01, effect size = -0.01; see Fig. \ref{meta_genF} bottom). We estimated the positive effect of the hybrid condition on identifying generators to be negligible in the order 6 group, but increasing in the order 9 group, (order 6: log OR = 0.19, effect size = 0.10; order 9: log OR = 0.65, effect size = 0.36; see Fig. \ref{meta_genT} bottom). \par
 Overall, it seems that the polygon presentation is beneficial for identifying generators, and the hybrid presentation seems to be similarly beneficial for identifying generators in the order 9 group, once the participants have had some practice. 
+\begin{center} 
+{\bf Insert Figure \ref{meta_genT} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -292,8 +332,12 @@ Overall, it seems that the polygon presentation is beneficial for identifying ge
 \end{subfigure}
 \caption{Meta analysis -- identifying generators}
 \label{meta_genT}
-\end{figure*}\noindent 
+\end{figure*}
+\noindent 
 
+\begin{center} 
+{\bf Insert Figure \ref{meta_genF} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -321,10 +365,14 @@ Overall, it seems that the polygon presentation is beneficial for identifying ge
 \end{subfigure}
 \caption{Meta analysis -- identifying non-generators}
 \label{meta_genF}
-\end{figure*}\noindent 
-\FloatBarrier
+\end{figure*}
+\noindent 
+%%\FloatBarrier
 \subsubsection{Questions assessing reasoning about the general case} We estimated the effect of the polygon condition on the inverse formula questions to be neglible (log OR = -0.16, effect size = -0.09, see Fig. \ref{meta_in_f}), and similarly for the effect of the hybrid condition on the inverse formula questions (log OR = -0.04, effect size = -0.02, see Fig. \ref{meta_in_f}). We estimated that any effect of the polygon condition on answering True/False questions about generators is negligible (log OR = -0.14, effect size = 0.08; see Fig. \ref{meta_genTF}). We estimated that any effect of the polygon condition on answering Always/Sometimes/Never questions about generators is negligible (log OR = 0.17, effect size = 0.09; see Fig. \ref{meta_genTF} top). We estimated the effect of the hybrid condition on answering True/False questions about generators to be negligible (log OR = -0.05, effect size = -0.03; see Fig. \ref{meta_genTF} bottom). We estimated the effect of the hybrid condition on answering Always/Sometimes/Never questions about generators to be negligible (log OR = -0.11, effect size = -0.06; see Fig. \ref{meta_genTF} bottom). \par
 None of the presentations seem particularly beneficial for discovering formulas for the inverse, or for answering T/F or A/S/N questions about generators; performance was quite low on these questions, especially the T/F and A/S/N.
+\begin{center} 
+{\bf Insert Figure \ref{meta_in_f} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -340,8 +388,12 @@ None of the presentations seem particularly beneficial for discovering formulas 
 \end{subfigure}
 \caption{Meta analysis -- inverse formula}
 \label{meta_in_f}
-\end{figure*}\noindent 
+\end{figure*}
+\noindent 
 
+\begin{center} 
+{\bf Insert Figure \ref{meta_genTF} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.4\textwidth}
@@ -369,8 +421,9 @@ None of the presentations seem particularly beneficial for discovering formulas 
 \end{subfigure}
 \caption{Meta analysis -- T/F \& A/S/N}
 \label{meta_genTF}
-\end{figure*}\noindent 
-\FloatBarrier
+\end{figure*}
+\noindent 
+%%\FloatBarrier
 \subsection{Other Analyses}
 We conducted several other analyses to further elucidate the differences in performance between the groups, and the cognitive factors underlying them.\\
 \subsubsection{Diagram use}
@@ -382,6 +435,9 @@ In experiment 2, we attempted to use the explanations of answers from the modula
 \subsubsection{Representation-use question results}
 For the experiment 3 representation-use questions, we performed logistic regressions predicting score on each representation-use question by the ratings ("Not at all" - "Very much", 5 point Likert scale) of representation used. We found that neither modular nor polygon rating was significantly predictive of success on the inverse of zero questions ($b_{mod} = -0.02$, $z = -0.15$, $p = 0.88$; $b_{poly} = 0.25$, $z = 1.37$, $p = 0.17$). We suspect this may have been due in part to the fact that this was the third presentation of an inverse of zero question, so participants may have simply recalled the answer. Performance was very high in the hybrid group overall on this question, the majority (71\%) of the participants got the question right in the representation-use section, so it had the only positive intercept of any of the representation-use regressions.\par 
 Intriguingly, we found that both modular and polygon rating were significantly predictive of success on inverse of non-zero questions ($b_{mod} = 1.09$, $z = 2.95$, $p = 0.003$; $b_{poly} = 1.11$, $z = 2.94$, $p = 0.003$). This, together with the previous finding, may suggest some integration occuring in the hybrid condition, such that the advantages of each representation are to some extent shared even when the other representation is used. 
+\begin{center} 
+{\bf Insert Figure \ref{ex3_wr_in} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.45\textwidth}
@@ -397,8 +453,12 @@ Intriguingly, we found that both modular and polygon rating were significantly p
 \end{subfigure}
 \caption{Experiment 3 -- representation-use responses on inverse questions (counts of participants giving each rating, split by whether answer was correct)}
 \label{ex3_wr_in}
-\end{figure*}\noindent
+\end{figure*}
+\noindent
 We found that participants polygon rating, but not modular, was significantly predictive of success on identifying generators ($b_{mod} = 0.19$, $z = 0.95$, $p = 0.34$; $b_{poly} = 0.75$, $z = 3.86$, $p < 0.001$). This corroborates our other data supporting the superiority of the polygon representation for these question, but suggests (as much of our earlier data did) that the integration in the hybrid condition is far from complete. We found that neither rating was significantly preditive of success on the generator True/False questions ($b_{mod} = 0.19$, $z = 1.28$, $p = 0.20$; $b_{poly} = 0.31$, $z = 1.38$, $p = 0.17$). This is unsurprising, since we did not observe any significant differences between the polygon and modular groups on these questions in the third experiment. 
+\begin{center} 
+{\bf Insert Figure \ref{ex3_wr_gen} here} 
+\end{center}
 \begin{figure*}
 \centering
 \begin{subfigure}[c]{0.45\textwidth}
@@ -429,6 +489,9 @@ We found that participants polygon rating, but not modular, was significantly pr
 \caption{Results aggregated across experiments 2 \& 3 (Exp. 1 had no hybrid condition, so we omitted it from this graph). This plot shows how the hybrid group participants, while not initially achieving best-of-both-worlds performance, appear to be much closer to achieving the benefits of both presentations later in the experiment.}
 \label{order_69_results}
 \end{figure*}
+\begin{center} 
+{\bf Insert Figure \ref{order_69_results} here} 
+\end{center}
 Although we found that the hybrid group did perform better than either the polygon or modular group individually, it did not seem to achieve truly best-of-both-worlds performance. In this section, we explore alternative ways of accounting for this finding, using a post-hoc, hierarchical modeling approach. One explanation for the pattern of results might be that some participants were just picking one representation and using it consistently, while others were really receiving the benefits of both and performing optimally (at the max level of the two). We attempted to model this with a hierarchical model that assumed that the data were generated by the following process (depicted schematically in Fig. \ref{hierarchicalmodel}): 
 \begin{enumerate}
 \item With probability $\theta$, the subject would benefit from both presentations, and would perform optimally in the sense that their data would be best fit by assuming that on each question they picked the optimal representation for that question (or equivalently, that their regression coefficients were the element-wise maximum of the regression coefficients of the two other groups). 
@@ -515,7 +578,17 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \textit{Experiment 1:} There was no significant difference in the performance on the basic operation questions between the experimental groups (see Figure \ref{ex1_op}) in either the order 6 group ($b = 0.006$, $t(235) = 0.18$, $p = 0.86$) or the order 9 group ($b = -0.009$, $t(4178) = -0.26$, $p = 0.79$). These are the questions where the wording varied in accordance with the different presentations taught to the experimental groups. Both groups performed quite well, with over 90\% accuracy. \par 
 \textit{Experiment 2:} We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex2_op}) in either group order (order 6: $b = 0.02$, $t(480) = 0.735$, $p = 0.46$; order 9: $b = 0.02$, $t(6030) = 0.63$, $p = 0.53$). Furthermore, there was no significant difference between the hybrid and modular groups (order 6: $b = -0.02$, $t(449) = -0.72$, $p = 0.47$; order 9: $b = 0.04$, $t(6042) = 1.10$, $p = 0.27$).\par
 \textit{Experiment 3:} We replicated our result that there was no significant difference in the performance on the basic operation questions between the modular and polygon experimental groups (see Figure \ref{ex3_op}) in either group order (order 6: $b$ 95\%-CI = $[-2.55,0.15]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-1.59,0.11]$, $p > 0.05$), and our result that there was no significant difference between the hybrid and modular groups (order 6:  $b$ 95\%-CI = $[-2.13,0.13]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-1.90,0.17]$, $p > 0.05$). \par
-\begin{figure}[H]
+
+\begin{center} 
+{\bf Insert Figure \ref{ex1_op} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex2_op} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex3_op} here} 
+\end{center}
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -529,7 +602,7 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \caption{Experiment 1 -- operation results}
 \label{ex1_op}
 \end{figure} 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -543,7 +616,7 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \caption{Experiment 2 -- operation results}
 \label{ex2_op}
 \end{figure} 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -557,12 +630,12 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \caption{Experiment 3 -- operation results}
 \label{ex3_op}
 \end{figure} 
-\FloatBarrier
+%%\FloatBarrier
 \subsection{Inverses}
 \textit{Experiment 1:} For inverses the polygon group was significantly worse at finding the inverse of non-zero elements in the order 9 group ($b = -0.169$, $t(4178)=-3.73$, $p < 0.001$), but not significantly worse in the order 6 group ($b = -0.04$, $t(4178)=-1.01$, $p =0.31$), and was significantly better at finding the inverse of zero (see Figure \ref{ex1_in}) in the order 6 group ($b = 0.66$, $t(4178)=9.13$, $p < 0.001$). (Unfortunately we did not include an inverse of zero question in the order 9 group in this experiment, so we only have data from the order 6 group.) The modular group was significantly better at writing the generic formulas for the inverse of 1 and an arbitrary element $x$ in the group of order $n$ ($b = -0.11$, $t(4178)=-1.99$, $p = 0.047$). \par
 \textit{Experiment 2:}  We replicated our results that the modular group performed better at inverses of non-zero elements (order 6: $b = -0.11$, $t(6026) = -2.59$, $p = 0.009$; order 9: $b = -0.07$, $t(6026) = -1.48$, $p = 0.13$), and the polygon group performed better at inverse of zero questions (order 6: $b = 0.68$, $t(6024) = 8.842$, $p < 0.001$; order 9: $b = 0.44$, $t(6024) = 5.80$, $p < 0.001$). (Note that the modular group performed worse than the polygon group even in the order 9 group, once they had already seen an example of an inverse of zero with feedback.) The polygon group did not perform significantly differently from the modular group at the inverse formula questions ($b = -0.05$, $t(6025)=-0.94$, $p = 0.35$). The hybrid group did not perform significantly worse than the modular group at inverses of non-zero elements (order 6: $b = -0.007$, $t(6033) = -0.173$, $p = 0.86$; order 9: $b = 0.08$, $t(6031) = 1.56$, $p = 0.12$), and did perform significantly better at inverses of zero (order 6: $b = 0.46$, $t(6027) = 5.95$, $p < 0.001$; order 9: $b = 0.38$, $t(6027) = 4.91$, $p < 0.001$). However, it is clear that the hybrid group is not initially performing as well as the polygon group on this question, so there is still room for improvement. The hybrid group did not perform significantly differently from the modular group at the inverse formula questions ($b = 0.01$, $t(6029)=0.125$, $p =0.90$). (See Figure \ref{ex2_in}.) \par 
 \textit{Experiment 3:} We replicated our results that the modular group performed better than the polygon group at inverses of non-zero elements only in the order 9 group, although the effect was in the correct direction in the order 6 group (order 6: $b$ 95\%-CI = $[-1.14,0.24]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-1.74,-0.27]$, $p < 0.05$). We replicated our result that the polygon group performed better at inverse of zero questions (order 6: $b$ 95\%-CI = $[1.93,3.55]$, $p < 0.05$; order 9: $b$ 95\%-CI = $[1.72,3.60]$, $p < 0.05$). The polygon group did not perform significantly differently from the modular group at the inverse formula questions ($b$ 95\%-CI = $[-0.64,0.65]$, $p > 0.05$). The hybrid group was not significantly worse than the modular group at inverses of non-zero elements in either group, although it was trending worse in the order 6 group (order 6: $b$ 95\%-CI = $[-1.92,0.01]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-1.96,0.24]$, $p > 0.05$). We replicated our result that the hybrid group was significantly better at inverses of zero only in the order 6 group, although the effect was trending in the order 9 group (order 6: $b$ 95\%-CI = $[0.21,2.65]$, $p < 0.05$; order 9: $b$ 95\%-CI = $[-0.01,2.09]$, $p > 0.05$).The polygon group did not perform significantly differently from the modular group at the inverse formula questions ($b$ 95\%-CI = $[-1.32,0.78]$, $p > 0.05$) (See Figure \ref{ex3_in}.) \par
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -580,8 +653,9 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 1 -- inverse results}
 \label{ex1_in}
-\end{figure}\noindent 
-\begin{figure}[H]
+\end{figure}
+\noindent 
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -600,7 +674,7 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \caption{Experiment 2 -- inverse results}
 \label{ex2_in}
 \end{figure} 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -620,11 +694,20 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \label{ex3_in}
 \end{figure} 
 
+\begin{center} 
+{\bf Insert Figure \ref{ex1_in} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex2_in} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex3_in} here} 
+\end{center}
 \subsection{Generators}
 \textit{Experiment 1:} The polygon group performed significantly better at identifying elements that were generators (order 6: $b = 0.164$, $t(4178) = 2.27$, $p = 0.02$; order 9: $b = 0.184$, $t(4178) = 3.45$, $p < 0.001$). The groups did not differ significantly at identifying non-generators in the order 6 group, but the polygon group performed significantly better in the order 9 group (order 6: $b = 0.01$, $t(4178) = 0.235$, $p = 0.81$; order 9: $b = 0.12$, $t(4178) = 2.32$, $p = 0.02$). The modular group performed better at the T/F questions about generators in the order $n$ group ($b = -0.11$, $t(4178) = -2.60$, $p = 0.009$). However, performance on these questions was not too far above chance. The groups did not differ significantly on the A/S/N questions ($b = -0.03$, $t(4178) = -0.5$, $p = 0.62$). (See Figure \ref{ex1_gen}.)\par
 \textit{Experiment 2:} We replicated our result that the polygon group is better at identifying generators only in the order 9 group (order 6: $b = 0.00$, $t(6024) = -0.05$, $p = 1.00$; order 9: $b = 0.19$, $t(6025) = 3.37$, $p < 0.001$), and the polygon group did not perform better at identifying non-generators in either group (order 6: $b = -0.03$, $t(6026) = -0.60$, $p = 0.55$; order 9: $b = 0.07$, $t(6025) = 1.31$, $p = 0.19$). We replicated our result that the modular group performed better at T/F questions about generators ($b = -0.12$, $t(6026) = -2.71$, $p = 0.007$). We replicated our result that the polygon and modular groups did not significantly differ at the A/S/N questions ($b =  0.01$, $t(6026) = 0.139$, $p = 0.89$). The hybrid group perfomed significantly better than the modular group at identifying generators in the group order where our previous finding replicated ($b = 0.25$, $t(6029) = 4.31$, $p < 0.001$), did not significantly differ at identify non-generators (order 6: $b = 0.07$, $t(6031) = 1.51$, $p = 0.13$; order 9: $b = 0.05$, $t(6029) = 0.80$, $p = 0.42$), and did not perform significantly worse at the T/F questions ($b = -0.042$, $t(6033) = -0.98$, $p = 0.33$). However, it appears that the hybrid group did not be achieve performance completely on par with the modular group on the T/F questions. The hybrid and modular groups did not differ significantly on the A/S/N questions ($b = -0.00$, $t(6031) = -0.01$, $p = 0.99$). (See Figure \ref{ex2_gen}.) \par
 \textit{Experiment 3:} We replicated our result that the polygon group is better at identifying generators (order 6: $b$ 95\%-CI = $[0.35,1.72]$, $p < 0.05$; order 9: $b$ 95\%-CI = $[0.22,1.22]$, $p < 0.05$), and that the polygon group did not significantly differ from the modular at identifying non-generators (order 6: $b$ 95\%-CI = $[-0.29,0.50]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-0.32,0.73]$, $p > 0.05$). We failed to replicate our result that the modular group is better than the polygon group at T/F questions about generators, in fact the polygon group performed significantly better in this experiment ($b$ 95\%-CI = $[0.004,0.59]$, $p < 0.05$). We replicated our result that the polygon and modular groups did not differ significantly at answering A/S/N questions ($b$ 95\%-CI = $[-0.03,0.60]$, $p > 0.05$). We failed to replicate our result that the hybrid group is significantly better than the modular group at identifying generators in either group order, although both effects were slightly in that direction (order 6: $b$ 95\%-CI = $[-0.37,1.07]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-0.04, 0.95]$, $p > 0.05$). We replicated our result that the hybrid group did not significantly differ at identifying non-generators (order 6: $b$ 95\%-CI = $[-1.17,0.60]$, $p > 0.05$; order 9: $b$ 95\%-CI = $[-1.25,0.61]$, $p > 0.05$). We replicated our result that the modular and hybrid groups did not significantly differ at the T/F questions ($b$ 95\%-CI = $[-1.05, 0.71]$, $p > 0.05$). We replicated our result that the modular and hybrid groups did not significantly differ at the A/S/N questions ($b$ 95\%-CI = $[-1.26,0.53]$, $p > 0.05$). (See Figure \ref{ex3_gen}.) \par
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -637,8 +720,9 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 1 -- generator results}
 \label{ex1_gen}
-\end{figure}\noindent 
-\begin{figure}[H]
+\end{figure}
+\noindent 
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -651,9 +735,10 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 1 -- generator T/F \& A/S/N results}
 \label{ex1_TFASN}
-\end{figure}\noindent 
+\end{figure}
+\noindent 
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -666,8 +751,9 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 2 -- generator results}
 \label{ex2_gen}
-\end{figure}\noindent 
-\begin{figure}[H]
+\end{figure}
+\noindent 
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -680,9 +766,10 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 2 -- generator T/F \& A/S/N results}
 \label{ex2_TFASN}
-\end{figure}\noindent 
+\end{figure}
+\noindent 
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -695,8 +782,9 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 3 -- generator results}
 \label{ex3_gen}
-\end{figure}\noindent 
-\begin{figure}[H]
+\end{figure}
+\noindent 
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.3\textwidth}
 \centering
@@ -709,12 +797,42 @@ For more information on groups and group theory, see e.g. \cite{Lang2002}.
 \end{subfigure}
 \caption{Experiment 3 -- generator T/F \& A/S/N results}
 \label{ex3_TFASN}
-\end{figure}\noindent 
+\end{figure}
+\noindent 
+
+\begin{center} 
+{\bf Insert Figure \ref{ex1_gen} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex1_TFASN} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex2_gen} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex2_TFASN} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex3_gen} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex3_TFASN} here} 
+\end{center}
 
 \subsection{T/F \& A/S/N Result Detail}
 The apparent chance performance on the T/F and A/S/N questions is misleading, since there were interesting patterns in the responses to individual questions, so below we have plotted the question by question responses for each experiment. For the T/F questions, Q1 was ``true or false: if $x$ is an odd number, it must be a generator under $+_n$.'' Q2 was ``true or false: if $x$ is an even number, it must not be a generator under $+_n$.'' Q3 was ``true or false: if $x$ is not a generator under $+_n$, $x$ must be a divisor of $n$, that is $x$ must divide $n$ evenly with no remainder.'' Q4 was ``true or false: if x is not a generator under $+_n$, $x$ must be a multiple of a divisor of $n$.'' For the A/S/N questions, Q1 was ``if an element $x$ is a generator under $+_n$, is its inverse a generator under $+_n$ always, sometimes, or never?'' Q2 was ``if an element $x$ is a generator under $+_n$, is $x+_nx$ a generator always, sometimes, or never?'' and Q3 was ``if an element $x$ is not a generator under $+_n$, is $x +_n x$ a generator always, sometimes, or never?''
 
-\begin{figure}[H]
+\begin{center} 
+{\bf Insert Figure \ref{ex1_TFASN_byQ} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex2_TFASN_byQ} here} 
+\end{center}
+\begin{center} 
+{\bf Insert Figure \ref{ex3_TFASN_byQ} here} 
+\end{center}
+
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.45\textwidth}
 \centering
@@ -726,9 +844,11 @@ The apparent chance performance on the T/F and A/S/N questions is misleading, si
 \includegraphics[width=\textwidth]{figures/1/gen_ASN_by_Q.png}
 \end{subfigure}
 \caption{Experiment 1 -- T/F \& A/S/N results by question}
-\end{figure}\noindent 
+\label{ex1_TFASN_byQ}
+\end{figure}
+\noindent 
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.45\textwidth}
 \centering
@@ -740,9 +860,11 @@ The apparent chance performance on the T/F and A/S/N questions is misleading, si
 \includegraphics[width=\textwidth]{figures/2/gen_ASN_by_Q.png}
 \end{subfigure}
 \caption{Experiment 2 -- T/F \& A/S/N results by question}
-\end{figure}\noindent 
+\label{ex2_TFASN_byQ}
+\end{figure}
+\noindent 
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}[c]{0.45\textwidth}
 \centering
@@ -754,5 +876,7 @@ The apparent chance performance on the T/F and A/S/N questions is misleading, si
 \includegraphics[width=\textwidth]{figures/3/gen_ASN_by_Q.png}
 \end{subfigure}
 \caption{Experiment 3 -- T/F \& A/S/N results by question}
-\end{figure}\noindent 
+\label{ex3_TFASN_byQ}
+\end{figure}
+\noindent 
 \end{document} 
