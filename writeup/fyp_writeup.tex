@@ -100,7 +100,7 @@ The experimental layout was as follows:
 \end{enumerate}
 We taught the participants to perform the group operation on a cyclic group of order 6 (using the polygon, modular, or hybrid presentation, between participants), and then taught them the concepts of identities, inverses, and generators using this operation. The explanations of identities, inverses, and generators were the same between experimental groups (we did not need to refer to the specifics of the underlying operation), to ensure that any effects we observed were due to the different presentations of the underlying concept. For example, for inverses we explained that ``the inverse of a number is the element that you combine with it to produce the identity.''\par
 We then tested participants' transfer of these concepts to a cyclic group of order 9. (These group orders were chosen in order to have enough elements for demonstrations of concepts like inverses, and to have sufficiently many generating and non-generating elements to make the generator questions interesting). Finally, we tested participants for understanding of the general case by using a cyclic group with an unspecified order $n$. \par
-This design addresses a variety of concepts and aspects of understanding. The learning of each group operation corresponds to a process-level understanding of a specific group. The concepts of identities, inverses and generators, are built upon this operation. The transfer of these concepts to a cyclic group of a different order requires transfer of process-level understanding of how to find inverses, generators, etc. The subsequent questions about the generic cyclic group of order $n$ require the ability to understand and formulate general (and usually formal) statements about the processes and concepts learned. 
+This design addresses a variety of concepts and aspects of understanding. The learning of each group operation corresponds to learning the basic concept/procedure. The concepts of identities, inverses and generators, are built upon this operation. The transfer of these concepts to a cyclic group of a different order requires transfer of this understanding of how to find inverses, generators, etc. The subsequent questions about the generic cyclic group of order $n$ require the ability to understand and formulate general (and usually formal) statements about the procedures and concepts learned. 
 \subsubsection{Group presentations}
 In all three experiments, participants in one group received a presentation based on modular arithmetic (which is easily explained as a slight variation on regular arithmetic), while participants in another group received a more visually concrete presentation based on counting around a polygon (which allows participants to develop a visual intuition, but which is not as directly familiar as standard arithmetic, although participants may find analogies, e.g. to clocks). For experiments 2 and 3, we added a hybrid group, where participants were presented with both presentations and asked to integrate them. \par 
 For the modular presentation, we presented the group operation as $+_6$, and we explained to participants that to compute $+_6$ you add the two numbers, and then subtract $6$ if your result is $6$ or larger. We gave examples such as $4 +_6 4 = 2$, because $4+4 = 8$ and $8-6=2$.\par
@@ -121,15 +121,7 @@ Similarly, we explained the concept of inverses by saying something's inverse is
 \subsubsection{Generators}
 Finally, we taught the participants the idea of generators, by explaining that a generator can make every other element of the group by combining with itself. For example, 1 is a generator under $+_6$, because $1 = 1$, $2 = 1 +_6 1$, etc. However, 2 is not a generator under $+_6$, because $2 = 2$, $4 = 2 +_6 2$, $0 = 2 +_6 2 +_6 2$, but there is no way to make 1, 3, or 5. We then asked participants to find whether each of the remaining elements generates the group, and provided them with feedback on their answers and an explanation of the correct answer.
 \subsubsection{Transfer test}
-We next tested the participants transfer of concepts to the cyclic group of order 9, presented to the modular group as $+_9$, or to the polygon group as $\nonagon$ with the visual aid in figure \ref{nonagonex}. 
-
-\begin{center} 
-{\bf Insert Figure \ref{nonagonex} here} 
-\end{center}
-\begin{figure} \centering \includegraphics[width=0.3\textwidth]{../figures/nonagon_arrow.png} \caption{Order 9 polygon figure} \label{nonagonex} 
-\end{figure} 
-\noindent
-We allowed the participants one practice problem (with feedback) on the new operation, to ensure that they understood it. We then asked the participants questions to test their knowledge of the concepts outlined in each section above, namely:
+We next tested the participants transfer of concepts to the cyclic group of order 9, presented to the modular group as $+_9$, or to the polygon group as $\nonagon$ with a visual aid analogous to that in \ref{hexagonex}, except with nine vertices labeled with the numbers 0 through 8. We allowed the participants one practice problem (with feedback) on the new operation, to ensure that they understood it. We then asked the participants questions to test their knowledge of the concepts outlined in each section above, namely:
 \begin{itemize} 
 \item A set of seven problems with the group operation, e.g. $6 \nonagon 4 = ?$, with participants asked to provide an explanation of their answers for two of them. 
 \item One problem asking participants to identify the identity under the operation, and to explain their answer.
@@ -201,237 +193,237 @@ The participants in the polygon and modular groups differed significantly on a n
 \subsection{Main Results}
 In this section we present the result of our meta-analysis of the logistic regressions performed on the data from all the experiments. We report estimated effect sizes using the approach described by \citeA{Chinn2000}. In this approach, performance is thought to depend on a normally distributed random variable, and the effect of a manipulation is viewed as shifting the mean upward (for a positive effect size) or downward (for a negative effect size) by the indicated units of the distribution's standard deviation across the population of participants.  
 \subsubsection{Operation}
-Despite learning different methods for performing the group operation, the experimental groups do not differ substantially in their ability to perform it, although the hybrid group appears to lag a little at first. Specifically, we estimate any effect of the polygon presentation on the ability to perform the group operation to be negligible (order 6: log OR (Odds Ratio) = 0.01, effect size = 0.01; order 9: log OR = 0.01, effect size = 0.01; see Fig. \ref{meta_op} top). We estimate any effect of the hybrid presentation on the ability to perform the group operation to be small or negligible (order 6: log OR = -0.40, effect size = -0.22; order 9: log OR = -0.26, effect size = -0.14; see Fig. \ref{meta_op} bottom). 
-\begin{center} 
-{\bf Insert Figure \ref{meta_op} here} 
-\end{center}
-\begin{figure*}[t]
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/conditionpolygon.pdf}
-\caption{Polygon vs. modular order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionpolygon.pdf}
-\caption{Polygon vs. modular order 9}
-\end{subfigure} \\
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/conditionhybrid.pdf}
-\caption{Hybrid vs. modular order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionhybrid.pdf}
-\caption{Hybrid vs. modular order 9}
-\end{subfigure}
-\caption{Meta analysis -- operation}
-\label{meta_op}
-\end{figure*}
-\noindent 
+Despite learning different methods for performing the group operation, the experimental groups do not differ substantially in their ability to perform it, although the hybrid group appears to lag a little at first. Specifically, we estimate any effect of the polygon presentation on the ability to perform the group operation to be negligible (order 6: log OR (Odds Ratio) = 0.01, effect size = 0.01; order 9: log OR = 0.01, effect size = 0.01). We estimate any effect of the hybrid presentation on the ability to perform the group operation to be small or negligible (order 6: log OR = -0.40, effect size = -0.22; order 9: log OR = -0.26, effect size = -0.14).\par 
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_op} here} 
+%%\end{center}
+%%\begin{figure*}[t]
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/conditionpolygon.pdf}
+%%\caption{Polygon vs. modular order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular order 9}
+%%\end{subfigure} \\
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeoperation_9_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular order 9}
+%%\end{subfigure}
+%%\caption{Meta analysis -- operation}
+%%\label{meta_op}
+%%\end{figure*}
+%%\noindent 
 %%\FloatBarrier
 \subsubsection{Inverses} Overall, it seems that the modular presentation is generally beneficial for finding inverses, except in the case of zero, where the polygon presentation participants perform much better. (See discussion for a possible explanation of this result.)\par 
-Specifically, we estimated the positive effect of the polygon condition on inverse of zero questions to be large for both group orders, although the effect is smaller for order 9, consistent with some learning in the modular group (order 6: log OR = 3.01, effect size = 1.66; order 9: log OR = 2.56, effect size = 1.41; see Fig. \ref{meta_inZ} top). We estimated the negative effect of the polygon condition on inverse of non-zero questions to be small (order 6: log OR = -0.53, effect size = -0.29; order 9: log OR = -0.81, effect size = -0.45; see Fig. \ref{meta_inNZ} top). We estimated the positive effect of the hybrid condition on inverse of zero questions to be large for both group orders, although it is not as large as that of the polygon condition, and the effect is smaller for order 9, consistent with some learning in the modular group (order 6: log OR = 1.80, effect size = -0.99; order 9: log OR = 1.40, effect size = -0.77; see Fig. \ref{meta_inZ} bottom). We estimated the negative effect of the hybrid condition on inverse of non-zero questions to be small, and negligible after further practice in the order 9 group (order 6: log OR = -0.58, effect size= -0.32; order 9: log OR = -0.16, effect size = -0.09; see Fig. \ref{meta_inNZ} bottom).\par
-
-\begin{center} 
-{\bf Insert Figure \ref{meta_inZ} here} 
-\end{center}
-\begin{figure*}
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_6_conditionpolygon.pdf}
-\caption{Polygon vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_9_conditionpolygon.pdf}
-\caption{Polygon vs. modular order 9}
-\end{subfigure} \\
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_6_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_9_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 9}
-\end{subfigure}
-\caption{Meta analysis -- inverse of zero}
-\label{meta_inZ}
-\end{figure*}
-\noindent 
-
-
-\begin{center} 
-{\bf Insert Figure \ref{meta_inNZ} here} 
-\end{center}
-\begin{figure*}
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_6_conditionpolygon.pdf}
-\caption{Polygon vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_9_conditionpolygon.pdf}
-\caption{Polygon vs. modular, order 9}
-
-\end{subfigure} \\
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_6_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_9_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 9}
-\end{subfigure}
-\caption{Meta analysis -- inverse of non-zero}
-\label{meta_inNZ}
-\end{figure*}
-\noindent 
+Specifically, we estimated the positive effect of the polygon condition on inverse of zero questions to be large for both group orders, although the effect is smaller for order 9, consistent with some learning in the modular group (order 6: log OR = 3.01, effect size = 1.66; order 9: log OR = 2.56, effect size = 1.41). We estimated the negative effect of the polygon condition on inverse of non-zero questions to be small (order 6: log OR = -0.53, effect size = -0.29; order 9: log OR = -0.81, effect size = -0.45). We estimated the positive effect of the hybrid condition on inverse of zero questions to be large for both group orders, although it is not as large as that of the polygon condition, and the effect is smaller for order 9, consistent with some learning in the modular group (order 6: log OR = 1.80, effect size = -0.99; order 9: log OR = 1.40, effect size = -0.77). We estimated the negative effect of the hybrid condition on inverse of non-zero questions to be small, and negligible after further practice in the order 9 group (order 6: log OR = -0.58, effect size= -0.32; order 9: log OR = -0.16, effect size = -0.09;).\par
+%%
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_inZ} here} 
+%%\end{center}
+%%\begin{figure*}
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_6_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_9_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular order 9}
+%%\end{subfigure} \\
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_6_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_zero_9_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 9}
+%%\end{subfigure}
+%%\caption{Meta analysis -- inverse of zero}
+%%\label{meta_inZ}
+%%\end{figure*}
+%%\noindent 
+%%
+%%
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_inNZ} here} 
+%%\end{center}
+%%\begin{figure*}
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_6_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_9_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, order 9}
+%%
+%%\end{subfigure} \\
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_6_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_nonzero_9_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 9}
+%%\end{subfigure}
+%%\caption{Meta analysis -- inverse of non-zero}
+%%\label{meta_inNZ}
+%%\end{figure*}
+%%\noindent 
 
 %%\FloatBarrier
 \subsubsection{Generators} 
 Overall, it seems that the polygon presentation is beneficial for identifying generators, and the hybrid presentation seems to be similarly beneficial for identifying generators in the order 9 group, once the participants have had some practice. \par 
-Specifically, we estimated the positive effect of the polygon condition on identifying generators to be small (order 6: log OR = 0.68, effect size = 0.38; order 9: log OR = 0.80, effect size = 0.44; see Fig. \ref{meta_genT} top). We estimated the effect of the polygon condition on identifying non-generators to be negligible in group of order 6, but trending toward a small positive effect in the group of order 9 (order 6: log OR = 0.07, effect size = 0.04; order 9: log OR = 0.36, effect size = 0.20; see Fig. \ref{meta_genF} top). We estimated the effect of the hybrid condition on identifying non-generators to be negligible (order 6: log OR = 0.07, effect size = 0.04; order 9: log OR = -0.01, effect size = -0.01; see Fig. \ref{meta_genF} bottom). We estimated the positive effect of the hybrid condition on identifying generators to be negligible in the order 6 group, but increasing in the order 9 group, (order 6: log OR = 0.19, effect size = 0.10; order 9: log OR = 0.65, effect size = 0.36; see Fig. \ref{meta_genT} bottom). \par
-\begin{center} 
-{\bf Insert Figure \ref{meta_genT} here} 
-\end{center}
-\begin{figure*}
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_6_conditionpolygon.pdf}
-\caption{Polygon vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_9_conditionpolygon.pdf}
-\caption{Polygon vs. modular, Order 9}
-\end{subfigure} \\
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_6_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_9_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 9}
-\end{subfigure}
-\caption{Meta analysis -- identifying generators}
-\label{meta_genT}
-\end{figure*}
-\noindent 
-
-\begin{center} 
-{\bf Insert Figure \ref{meta_genF} here} 
-\end{center}
-\begin{figure*}
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionpolygon.pdf}
-\caption{Polygon vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionpolygon.pdf}
-\caption{Polygon vs. modular, order 9}
-\end{subfigure} \\
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionhybrid.pdf}
-\caption{Hybrid vs. modular, order 6}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionhybrid.pdf}
-\caption{Order 9}
-\end{subfigure}
-\caption{Meta analysis -- identifying non-generators}
-\label{meta_genF}
-\end{figure*}
-\noindent 
+Specifically, we estimated the positive effect of the polygon condition on identifying generators to be small (order 6: log OR = 0.68, effect size = 0.38; order 9: log OR = 0.80, effect size = 0.44). We estimated the effect of the polygon condition on identifying non-generators to be negligible in group of order 6, but trending toward a small positive effect in the group of order 9 (order 6: log OR = 0.07, effect size = 0.04; order 9: log OR = 0.36, effect size = 0.20). We estimated the effect of the hybrid condition on identifying non-generators to be negligible (order 6: log OR = 0.07, effect size = 0.04; order 9: log OR = -0.01, effect size = -0.01). We estimated the positive effect of the hybrid condition on identifying generators to be negligible in the order 6 group, but increasing in the order 9 group, (order 6: log OR = 0.19, effect size = 0.10; order 9: log OR = 0.65, effect size = 0.36;). \par
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_genT} here} 
+%%\end{center}
+%%\begin{figure*}
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_6_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_9_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, Order 9}
+%%\end{subfigure} \\
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_6_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_true_9_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 9}
+%%\end{subfigure}
+%%\caption{Meta analysis -- identifying generators}
+%%\label{meta_genT}
+%%\end{figure*}
+%%\noindent 
+%%
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_genF} here} 
+%%\end{center}
+%%\begin{figure*}
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular, order 9}
+%%\end{subfigure} \\
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_6_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular, order 6}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_false_9_conditionhybrid.pdf}
+%%\caption{Order 9}
+%%\end{subfigure}
+%%\caption{Meta analysis -- identifying non-generators}
+%%\label{meta_genF}
+%%\end{figure*}
+%%\noindent 
 %%\FloatBarrier
 \subsubsection{Questions assessing reasoning about the general case}
 None of the presentations seem particularly beneficial for discovering formulas for the inverse, or for answering T/F or A/S/N questions about generators; performance was quite low on these questions, especially the T/F and A/S/N. \par
-Specifically, we estimated the effect of the polygon condition on the inverse formula questions to be neglible (log OR = -0.16, effect size = -0.09, see Fig. \ref{meta_in_f}), and similarly for the effect of the hybrid condition on the inverse formula questions (log OR = -0.04, effect size = -0.02, see Fig. \ref{meta_in_f}). We estimated that any effect of the polygon condition on answering True/False questions about generators is negligible (log OR = -0.14, effect size = 0.08; see Fig. \ref{meta_genTF}). We estimated that any effect of the polygon condition on answering Always/Sometimes/Never questions about generators is negligible (log OR = 0.17, effect size = 0.09; see Fig. \ref{meta_genTF} top). We estimated the effect of the hybrid condition on answering True/False questions about generators to be negligible (log OR = -0.05, effect size = -0.03; see Fig. \ref{meta_genTF} bottom). We estimated the effect of the hybrid condition on answering Always/Sometimes/Never questions about generators to be negligible (log OR = -0.11, effect size = -0.06; see Fig. \ref{meta_genTF} bottom). \par
-\begin{center} 
-{\bf Insert Figure \ref{meta_in_f} here} 
-\end{center}
-\begin{figure*}
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionpolygon.pdf}
-\caption{Polygon vs. modular}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionhybrid.pdf}
-\caption{Hybrid vs. modular}
-\end{subfigure}
-\caption{Meta analysis -- inverse formula}
-\label{meta_in_f}
-\end{figure*}
-\noindent 
-
-\begin{center} 
-{\bf Insert Figure \ref{meta_genTF} here} 
-\end{center}
-\begin{figure*}
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_TF_n_conditionpolygon.pdf}
-\caption{Polygon vs. modular T/F}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_ASN_n_conditionpolygon.pdf}
-\caption{Polygon vs. modular A/S/N}
-\end{subfigure} \\
-\centering
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_TF_n_conditionhybrid.pdf}
-\caption{Hybrid vs. modular T/F}
-\end{subfigure}
-~
-\begin{subfigure}[c]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_ASN_n_conditionhybrid.pdf}
-\caption{Hybrid vs. modular A/S/N}
-\end{subfigure}
-\caption{Meta analysis -- T/F \& A/S/N}
-\label{meta_genTF}
-\end{figure*}
-\noindent 
+Specifically, we estimated the effect of the polygon condition on the inverse formula questions to be neglible (log OR = -0.16, effect size = -0.09), and similarly for the effect of the hybrid condition on the inverse formula questions (log OR = -0.04, effect size = -0.02). We estimated that any effect of the polygon condition on answering True/False questions about generators is negligible (log OR = -0.14, effect size = 0.08). We estimated that any effect of the polygon condition on answering Always/Sometimes/Never questions about generators is negligible (log OR = 0.17, effect size = 0.09). We estimated the effect of the hybrid condition on answering True/False questions about generators to be negligible (log OR = -0.05, effect size = -0.03). We estimated the effect of the hybrid condition on answering Always/Sometimes/Never questions about generators to be negligible (log OR = -0.11, effect size = -0.06). \par
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_in_f} here} 
+%%\end{center}
+%%\begin{figure*}
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typeinverse_formula_n_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular}
+%%\end{subfigure}
+%%\caption{Meta analysis -- inverse formula}
+%%\label{meta_in_f}
+%%\end{figure*}
+%%\noindent 
+%%
+%%\begin{center} 
+%%{\bf Insert Figure \ref{meta_genTF} here} 
+%%\end{center}
+%%\begin{figure*}
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_TF_n_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular T/F}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_ASN_n_conditionpolygon.pdf}
+%%\caption{Polygon vs. modular A/S/N}
+%%\end{subfigure} \\
+%%\centering
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_TF_n_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular T/F}
+%%\end{subfigure}
+%%~
+%%\begin{subfigure}[c]{0.4\textwidth}
+%%\centering
+%%\includegraphics[width=\textwidth]{figures/meta/question_typegenerator_ASN_n_conditionhybrid.pdf}
+%%\caption{Hybrid vs. modular A/S/N}
+%%\end{subfigure}
+%%\caption{Meta analysis -- T/F \& A/S/N}
+%%\label{meta_genTF}
+%%\end{figure*}
+%%\noindent 
 %%\FloatBarrier
 \subsection{Other Analyses}
 We conducted several other analyses to further elucidate the differences in performance between the groups, and the cognitive factors underlying them.\par
@@ -445,53 +437,52 @@ In experiment 2, we attempted to use the explanations of answers from the modula
 For the experiment 3 representation-use questions, we performed logistic regressions predicting score on each representation-use question by the ratings ("Not at all" - "Very much", 5 point Likert scale) of representation used. We found that neither modular nor polygon rating was significantly predictive of success on the inverse of zero questions ($b_{mod} = -0.02$, $z = -0.15$, $p = 0.88$; $b_{poly} = 0.25$, $z = 1.37$, $p = 0.17$). We suspect this may have been due in part to the fact that this was the third presentation of an inverse of zero question, so participants may have simply recalled the answer. Performance was very high in the hybrid group overall on this question, the majority (71\%) of the participants got the question right in the representation-use section, so it had the only positive intercept of any of the representation-use regressions.\par 
 Intriguingly, we found that both modular and polygon rating were significantly predictive of success on inverse of non-zero questions ($b_{mod} = 1.09$, $z = 2.95$, $p = 0.003$; $b_{poly} = 1.11$, $z = 2.94$, $p = 0.003$). This, together with the previous finding, may suggest some integration occuring in the hybrid condition, such that the advantages of each representation are to some extent shared even when the other representation is used. 
 \begin{center} 
-{\bf Insert Figure \ref{ex3_wr_in} here} 
+{\bf Insert Figure \ref{ex3_wr} here} 
 \end{center}
 \begin{figure*}
-\centering
-\begin{subfigure}[c]{0.45\textwidth}
-\centering 
-\includegraphics[width=\textwidth]{figures/3/wr_inZ.png}
-\caption{Inverse of zero}
-\end{subfigure}
-~
+%%\centering
+%%\begin{subfigure}[c]{0.45\textwidth}
+%%\centering 
+%%\includegraphics[width=\textwidth]{figures/3/wr_inZ.png}
+%%\caption{Inverse of zero}
+%%\end{subfigure}
+%%~
 \begin{subfigure}[c]{0.45\textwidth}
 \centering 
 \includegraphics[width=\textwidth]{figures/3/wr_inNZ.png}
 \caption{Inverse of non-zero}
 \end{subfigure}
 \caption{Experiment 3 -- representation-use responses on inverse questions (counts of participants giving each rating, split by whether answer was correct)}
-\label{ex3_wr_in}
-\end{figure*}
-\noindent
-We found that participants polygon rating, but not modular, was significantly predictive of success on identifying generators ($b_{mod} = 0.19$, $z = 0.95$, $p = 0.34$; $b_{poly} = 0.75$, $z = 3.86$, $p < 0.001$). This corroborates our other data supporting the superiority of the polygon representation for these question, but suggests (as much of our earlier data did) that the integration in the hybrid condition is far from complete. We found that neither rating was significantly preditive of success on the generator True/False questions ($b_{mod} = 0.19$, $z = 1.28$, $p = 0.20$; $b_{poly} = 0.31$, $z = 1.38$, $p = 0.17$). This is unsurprising, since we did not observe any significant differences between the polygon and modular groups on these questions in the third experiment. 
-\begin{center} 
-{\bf Insert Figure \ref{ex3_wr_gen} here} 
-\end{center}
-\begin{figure*}
-\centering
+~
 \begin{subfigure}[c]{0.45\textwidth}
 \centering 
 \includegraphics[width=\textwidth]{figures/3/wr_genT.png}
 \caption{Identifying generators}
 \end{subfigure}
-~
-\begin{subfigure}[c]{0.45\textwidth}
-\centering 
-\includegraphics[width=\textwidth]{figures/3/wr_genTF.png}
-\caption{Generator T/F}
-\end{subfigure}
-\caption{Experiment 3 -- representation-use responses on generator questions (counts of participants giving each rating, split by score)}
-
-\label{ex3_wr_gen}
+\label{ex3_wr}
 \end{figure*}
+\noindent
+We found that participants polygon rating, but not modular, was significantly predictive of success on identifying generators ($b_{mod} = 0.19$, $z = 0.95$, $p = 0.34$; $b_{poly} = 0.75$, $z = 3.86$, $p < 0.001$). This corroborates our other data supporting the superiority of the polygon representation for these question, but suggests (as much of our earlier data did) that the integration in the hybrid condition is far from complete. We found that neither rating was significantly preditive of success on the generator True/False questions ($b_{mod} = 0.19$, $z = 1.28$, $p = 0.20$; $b_{poly} = 0.31$, $z = 1.38$, $p = 0.17$). This is unsurprising, since we did not observe any significant differences between the polygon and modular groups on these questions in the third experiment. 
+%%\begin{center} 
+%%{\bf Insert Figure \ref{ex3_wr_gen} here} 
+%%\end{center}
+%%~
+%%\begin{subfigure}[c]{0.45\textwidth}
+%%\centering 
+%%\includegraphics[width=\textwidth]{figures/3/wr_genTF.png}
+%%\caption{Generator T/F}
+%%\end{subfigure}
+%%\caption{Experiment 3 -- representation-use responses on generator questions (counts of participants giving each rating, split by score)}
+%%
+%%\label{ex3_wr_gen}
+%%\end{figure*}
 \subsection{Hierarchical modeling of hybrid participants}
-\begin{figure}
-\centering
-\includegraphics[width=0.33\textwidth]{figures/hierarchical_model_schematic.png}
-\caption{Hierarchical model}
-\label{hierarchicalmodel}
-\end{figure}
+%%\begin{figure}
+%%\centering
+%%\includegraphics[width=0.33\textwidth]{figures/hierarchical_model_schematic.png}
+%%\caption{Hierarchical model}
+%%\label{hierarchicalmodel}
+%%\end{figure}
 \begin{figure*}
 \centering
 \includegraphics[width=0.8\textwidth]{figures/order_69_results.png}
@@ -501,7 +492,7 @@ We found that participants polygon rating, but not modular, was significantly pr
 \begin{center} 
 {\bf Insert Figure \ref{order_69_results} here} 
 \end{center}
-Although we found that the hybrid group did perform better than either the polygon or modular group individually, it did not seem to achieve truly best-of-both-worlds performance. In this section, we explore alternative ways of accounting for this finding, using a post-hoc, hierarchical modeling approach. One explanation for the pattern of results might be that some participants were just picking one representation and using it consistently, while others were really receiving the benefits of both and performing optimally (at the max level of the two). We attempted to model this with a hierarchical model that assumed that the data were generated by the following process (depicted schematically in Fig. \ref{hierarchicalmodel}): 
+Although we found that the hybrid group did perform better than either the polygon or modular group individually, it did not seem to achieve truly best-of-both-worlds performance. In this section, we explore alternative ways of accounting for this finding, using a post-hoc, hierarchical modeling approach. One explanation for the pattern of results might be that some participants were just picking one representation and using it consistently, while others were really receiving the benefits of both and performing optimally (at the max level of the two). We attempted to model this with a hierarchical model that assumed that the data were generated by the following process: 
 \begin{enumerate}
 \item With probability $\theta$, the subject would benefit from both presentations, and would perform optimally in the sense that their data would be best fit by assuming that on each question they picked the optimal representation for that question (or equivalently, that their regression coefficients were the element-wise maximum of the regression coefficients of the two other groups). 
 \item If the participants did not benefit from both presentations (probability $1-\theta$), they would pick the polygon representation with probability $\phi$, and the modular representation with probability $1-\phi$, and use it for the entire experiment, thus their data would be best fit by the coefficients for the respective group.
