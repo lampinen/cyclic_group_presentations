@@ -638,12 +638,12 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
                       labels=c("Operation", "Inverse of Non-zero", "Inverse of Zero", "Identifying Gen.", "Identifying Non-gen.", "Inverse Formula", "Generator T/F", "Generator A/S/N")) +  
   scale_fill_manual(values = c("#BBBBBB", "#666666", "#000000")) +
   scale_alpha_manual(values= c(0.2,1.0))+
-  annotate("text",x=1.86,y=1.0,label='*',alpha=0.5,size=8)+ #Stars mark those where 95% CI in the meta analysis combined across orders does not overlap zero
-  annotate("text",x=2.15,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=2.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=3.15,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=3.86,y=1.0,label='*',alpha=0.5,size=8)+
-  annotate("text",x=4.15,y=1.0,label='*',alpha=0.5,size=8)+
+  annotate("text",x=1.86,y=1.0,label='*',alpha=0.5,size=6)+ #Stars mark those where 95% CI in the meta analysis combined across orders does not overlap zero
+  annotate("text",x=2.15,y=1.0,label='*',alpha=0.5,size=6)+
+  annotate("text",x=2.86,y=1.0,label='*',alpha=0.5,size=6)+
+  annotate("text",x=3.15,y=1.0,label='*',alpha=0.5,size=6)+
+  annotate("text",x=3.86,y=1.0,label='*',alpha=0.5,size=6)+
+  annotate("text",x=4.15,y=1.0,label='*',alpha=0.5,size=6)+
   labs(y = 'Mean % Correct', x= 'Question Type') + 
   guides(alpha=FALSE)+
   ggtitle("Overall Results") + 
@@ -694,7 +694,7 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
 #  annotate("text",x=5.86,y=1.0,label='*',alpha=0.5,size=8)+
 #  annotate("text",x=6.15,y=1.0,label='*',alpha=0.5,size=8)+
   facet_wrap(~group_order)+
-  geom_text(data=plotting_text,aes(x,y,label=label),inherit.aes=FALSE,alpha=0.5,size=8) +
+  geom_text(data=plotting_text,aes(x,y,label=label),inherit.aes=FALSE,alpha=0.5,size=6) +
   labs(y = 'Mean % Correct', x= 'Question Type') + 
   guides(alpha=FALSE)+
   ggtitle("Order 6/Order 9 Result Comparison") + 
