@@ -636,8 +636,8 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.5),position=position_dodge(width=0.9)) +
   scale_x_discrete(breaks=levels(plotting_data$aggregated_question_type),
                       labels=c("Operation", "Inverse of Non-zero", "Inverse of Zero", "Identifying Gen.", "Identifying Non-gen.", "Inverse Formula", "Generator T/F", "Generator A/S/N")) +  
-  scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
-  scale_alpha_manual(values= c(0.33,1.0))+
+  scale_fill_manual(values = c("#BBBBBB", "#666666", "#000000")) +
+  scale_alpha_manual(values= c(0.2,1.0))+
   annotate("text",x=1.86,y=1.0,label='*',alpha=0.5,size=8)+ #Stars mark those where 95% CI in the meta analysis combined across orders does not overlap zero
   annotate("text",x=2.15,y=1.0,label='*',alpha=0.5,size=8)+
   annotate("text",x=2.86,y=1.0,label='*',alpha=0.5,size=8)+
@@ -647,8 +647,10 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
   labs(y = 'Mean % Correct', x= 'Question Type') + 
   guides(alpha=FALSE)+
   ggtitle("Overall Results") + 
-  theme_bw(base_size=20)+
-  theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),axis.text.x=element_text(angle=45,hjust=1))
+  theme_bw(base_size=15)+
+  theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),axis.text.x=element_text(angle=45,hjust=1),plot.title = element_text(hjust = 0.5))
+
+ggsave("final_plots/overall_results.png", width=7.3, height=5.4)
 ```
 
 
@@ -679,8 +681,8 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
   geom_errorbar(aes(ymax=percent_correct.mean+percent_correct.sem,ymin=percent_correct.mean-percent_correct.sem,width=0.5),position=position_dodge(width=0.9)) +
   scale_x_discrete(breaks=levels(plotting_data$aggregated_question_type),
                       labels=c("Inverse of Non-zero", "Inverse of Zero", "Identifying Gen.")) +  
-  scale_fill_manual(values = c("#00BFC4", "#F8766D", "#FFCC33")) +
-  scale_alpha_manual(values= c(0.33,1.0))+
+  scale_fill_manual(values = c("#BBBBBB", "#666666", "#000000")) +
+  scale_alpha_manual(values= c(0.2,1.0))+
 #  annotate("text",x=0.86,y=1.0,label='*',alpha=0.5,size=8)+ #Stars mark those where 95% CI in the meta analysis combined across orders does not overlap zero
 #  annotate("text",x=1.15,y=1.0,label='*',alpha=0.5,size=8)+
 #  annotate("text",x=1.86,y=1.0,label='*',alpha=0.5,size=8)+
@@ -696,8 +698,9 @@ ggplot(data=plotting_data,aes(aggregated_question_type,percent_correct.mean,fill
   labs(y = 'Mean % Correct', x= 'Question Type') + 
   guides(alpha=FALSE)+
   ggtitle("Order 6/Order 9 Result Comparison") + 
-  theme_bw(base_size=20)+
+  theme_bw(base_size=15)+
   theme(plot.background = element_blank(),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),axis.text.x=element_text(angle=45,hjust=1))
+ggsave("final_plots/order_6_9_results.png", width=7.3, height=5.4)
 ```
 
 
